@@ -1,8 +1,8 @@
 {
-  "name": "Goose-Track-06-Frontend ",
+  "name": "Goose-Track-06-Frontend",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://goitacademy.github.io/SerhiiShymko/",
+  "homepage": "https://SerhiiShymko/Goose-Track-06-Frontend/",
   "dependencies": {
     "@mui/icons-material": "^5.14.6",
     "@mui/material": "^5.14.6",
