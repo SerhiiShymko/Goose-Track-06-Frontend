@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkGoose_Track_06_Frontend=self.webpackChunkGoose_Track_06_Frontend||[]).push([[664],{664:function(e,n,t){t.r(n);var o=t(184);n.default=function(){return(0,o.jsx)("div",{style:{height:"100vh",display:"flex",justifyContent:"center",alignItems:"center",fontSize:40,color:"#010101"},children:"LoginPage"})}}}]);
+//# sourceMappingURL=664.560d99de.chunk.js.map
