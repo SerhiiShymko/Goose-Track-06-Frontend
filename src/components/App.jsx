@@ -2,10 +2,12 @@ import { Suspense, lazy } from 'react';
 // import { refresh } from 'redux/auth/operations';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { selectToken } from 'redux/auth/selectors';
+import { Route, Routes } from 'react-router-dom';
 
 import { Container } from 'styles/Container';
 import Spinner from './Spinner/Spinner';
-import { Route, Routes } from 'react-router-dom';
+
+import { GlobalStyle } from 'styles/Global';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 // const AccountPage = lazy(() => import('pages/AccountPage/AccountPage'));
@@ -36,6 +38,7 @@ export function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
+      <GlobalStyle />
     </Container>
   );
 }

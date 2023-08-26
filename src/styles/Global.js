@@ -7,9 +7,14 @@ import InterBoldItalic from '../fonts/inter/Inter-bold-italic.otf';
 import InterMedium from '../fonts/inter/Inter-Medium.ttf';
 import InterRegular from '../fonts/inter/Inter-Regular.ttf';
 import InterSemiBold from '../fonts/inter/Inter-SemiBold.ttf';
-import InterSemiBoldItalic from '../fonts/inter/Inter-SemiBold-Italic.ttf';
+import InterSemiBoldItalic from '../fonts/inter/Inter-SemiBold-Italic.otf';
 import CoolveticaRegular from '../fonts/coolvetica/Coolvetica-Regular.otf';
 import CoolveticaRegularItalic from '../fonts/coolvetica/Coolvetica-Regular-Italic.otf';
+
+export const theme = {
+  dark: { body: '#363537' },
+  light: { body: '#FFF' },
+};
 
 export const GlobalStyle = createGlobalStyle`
 

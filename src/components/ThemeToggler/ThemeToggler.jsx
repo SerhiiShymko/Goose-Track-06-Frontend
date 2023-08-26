@@ -1,27 +1,16 @@
-import * as React from 'react';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { ThemeProvider } from 'styled-components';
+import { theme } from 'styles/Global';
 
-export default function ThemeProvider() {
-  const [mode, setMode] = React.useState < PaletteMode > 'light';
-  const colorMode = React.useMemo(
-    () => ({
-      // The dark mode switch would invoke this method
-      toggleColorMode: () => {
-        setMode((prevMode: PaletteMode) =>
-          prevMode === 'light' ? 'dark' : 'light'
-        );
-      },
-    }),
-    []
-  );
+export const Theme = ({ children }) => {
+  const { dark, light } = theme;
+  const [themeUser, setThemeUser] = useState('light');
+  const themeToggle = useSelector(state => state.auth.user.themeToggle);
 
-  // Update the theme only if the mode changes
-  const theme = React.useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+  useEffect(() => {
+    setThemeUser(themeToggle === 'light' ? light : dark);
+  }, [themeToggle, dark, light]);
 
-  //   return (
-  //     <ColorModeContext.Provider value={colorMode}>
-  //       <ThemeProvider theme={theme}>
-  //         <Page />
-  //       </ThemeProvider>
-  //     </ColorModeContext.Provider>
-  //   );
-}
+  return <ThemeProvider theme={themeUser}>{children}</ThemeProvider>;
+};
