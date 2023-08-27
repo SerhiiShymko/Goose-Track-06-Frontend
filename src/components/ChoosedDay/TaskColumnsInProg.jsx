@@ -1,26 +1,24 @@
 import {
   ButtonAddTask,
-  TaskName,
-  LogoPlus,
+  TaskName, 
   TextInButton,
   TaskBorder,
   TextInTitle,
   TaskListContainer,
   TaskItemContainer,
   TaskText,
-  TaskPriority,
-  TaskLogo,
+  TaskPriority,  
   TaskLogoList,
   TaskImageUser,
   KontrolWrapper,
   WrapperUser,
+  SvgAddTask,
+  SvgArrow,
+  SvgPlusCircle,
+  SvgPencil,
+  SvgTrash,
 } from './ChoosedDay.styled';
 
-import addTask from '../../images/tascs/addTask.svg';
-import plusCircle from '../../images/tascs/plus.svg';
-import arrowCircle from '../../images/tascs/arrow-circle-right.svg';
-import pencil from '../../images/tascs/pencil-2.svg';
-import trash from '../../images/tascs/trash-2.svg';
 import { PRIORITY } from '../../data/constants';
 
 const uuid = require('uuid').v4;
@@ -38,7 +36,7 @@ const TaskColumnInProg = ({ data }) => {
     <TaskBorder>
       <TaskName>
         <TextInTitle>In progress</TextInTitle>
-        <LogoPlus src={plusCircle} alt="Add task" />
+        <SvgPlusCircle />
       </TaskName>
       <TaskListContainer>
         {data?.map(item => (
@@ -52,16 +50,16 @@ const TaskColumnInProg = ({ data }) => {
                 </TaskPriority>
               </WrapperUser>
               <TaskLogoList>
-                <TaskLogo src={arrowCircle} alt="Transferred"></TaskLogo>
-                <TaskLogo src={pencil} alt="Change"></TaskLogo>
-                <TaskLogo src={trash} alt="Delete"></TaskLogo>
+                <SvgArrow />
+                <SvgPencil />
+                <SvgTrash />
               </TaskLogoList>
             </KontrolWrapper>
           </TaskItemContainer>
         ))}
       </TaskListContainer>
       <ButtonAddTask>
-        <LogoPlus src={addTask} alt="Add task" />
+        <SvgAddTask />
         <TextInButton>Add task</TextInButton>
       </ButtonAddTask>
     </TaskBorder>

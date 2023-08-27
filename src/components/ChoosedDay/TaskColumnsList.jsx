@@ -32,6 +32,30 @@ const TaskColumnsList = () => {
       time: '2023/08/25',
       priority: 'low',
     },
+    {
+      category: 'in-progress',
+      text: 'bla bla bla bla',
+      time: '2023/08/25',
+      priority: 'higd',
+    },
+    {
+      category: 'to-do',
+      text: 'bla bla bla bla',
+      time: '2023/08/25',
+      priority: 'low',
+    },
+    // {
+    //   category: 'to-do',
+    //   text: 'bla bla bla bla',
+    //   time: '2023/08/25',
+    //   priority: 'higd',
+    // },
+    // {
+    //   category: 'to-do',
+    //   text: 'bla bla bla bla',
+    //   time: '2023/08/25',
+    //   priority: 'medium',
+    // },
   ]); 
 
   const categoryTodo = task.filter(task => task.category === CATEGORY.TODO);
