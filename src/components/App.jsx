@@ -32,7 +32,7 @@ export function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
-
+          
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>

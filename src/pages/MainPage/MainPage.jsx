@@ -1,3 +1,5 @@
+import ChoosedDay from "components/ChoosedDay/ChoosedDay";
+
 const MainPage = () => {
   return (
     <div
@@ -11,6 +13,7 @@ const MainPage = () => {
       }}
     >
       MainPage
+      <ChoosedDay/>
     </div>
   );
 };
