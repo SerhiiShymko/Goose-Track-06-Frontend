@@ -19,22 +19,24 @@ export function App1() {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    const object = {
-      _id: '64ea3db74e02deb3125b2a94',
-      title: 'Task1',
-      date: '2023-08-26',
-      start: '09:00',
-      end: '15:00',
-      priority: 'high',
-      category: 'in-progress',
-    };
-
     // const object = {
-    //   email: 'KaterynaHilcher@gmail.com',
-    //   password: '123456',
+    //   _id: '64ea3db74e02deb3125b2a94',
+    //   title: 'Task1',
+    //   date: '2023-08-26',
+    //   start: '09:00',
+    //   end: '15:00',
+    //   priority: 'high',
+    //   category: 'in-progress',
     // };
 
-    dispatch(fetchTasks('2023-08')).then(result => console.log(result));
+    const object = {
+      email: 'KaterynaHilcher@gmail.com',
+      password: '123456',
+    };
+
+    dispatch(deleteTask('64e8e239bb4d091802fc95ff')).then(result =>
+      console.log(result)
+    );
   }, [dispatch]);
 
   return (
