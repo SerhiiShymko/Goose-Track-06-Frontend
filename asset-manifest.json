@@ -1,11 +1,7 @@
 {
   "files": {
-    "main.css": "/Goose-Track-06-Frontend/static/css/main.6cd6d9c0.css",
-    "main.js": "/Goose-Track-06-Frontend/static/js/main.9ac3a448.js",
-    "static/js/852.9bd0d56c.chunk.js": "/Goose-Track-06-Frontend/static/js/852.9bd0d56c.chunk.js",
-    "static/js/589.41826f96.chunk.js": "/Goose-Track-06-Frontend/static/js/589.41826f96.chunk.js",
-    "static/js/664.560d99de.chunk.js": "/Goose-Track-06-Frontend/static/js/664.560d99de.chunk.js",
-    "static/js/794.7ba8ec1a.chunk.js": "/Goose-Track-06-Frontend/static/js/794.7ba8ec1a.chunk.js",
+    "main.css": "/Goose-Track-06-Frontend/static/css/main.5d4c55a7.css",
+    "main.js": "/Goose-Track-06-Frontend/static/js/main.c9dbcf13.js",
     "static/media/Inter-Bold.ttf": "/Goose-Track-06-Frontend/static/media/Inter-Bold.88fa7ae373b07b41ecce.ttf",
     "static/media/Inter-SemiBold.ttf": "/Goose-Track-06-Frontend/static/media/Inter-SemiBold.4d56bb21f2399db8ad48.ttf",
     "static/media/Inter-Medium.ttf": "/Goose-Track-06-Frontend/static/media/Inter-Medium.6dcbc9bed1ec438907ee.ttf",
@@ -17,15 +13,11 @@
     "static/media/Coolvetica-Regular-Italic.otf": "/Goose-Track-06-Frontend/static/media/Coolvetica-Regular-Italic.733776c8d6437461f923.otf",
     "static/media/Coolvetica-Regular.otf": "/Goose-Track-06-Frontend/static/media/Coolvetica-Regular.3d81d0e1fdbd5f69b232.otf",
     "index.html": "/Goose-Track-06-Frontend/index.html",
-    "main.6cd6d9c0.css.map": "/Goose-Track-06-Frontend/static/css/main.6cd6d9c0.css.map",
-    "main.9ac3a448.js.map": "/Goose-Track-06-Frontend/static/js/main.9ac3a448.js.map",
-    "852.9bd0d56c.chunk.js.map": "/Goose-Track-06-Frontend/static/js/852.9bd0d56c.chunk.js.map",
-    "589.41826f96.chunk.js.map": "/Goose-Track-06-Frontend/static/js/589.41826f96.chunk.js.map",
-    "664.560d99de.chunk.js.map": "/Goose-Track-06-Frontend/static/js/664.560d99de.chunk.js.map",
-    "794.7ba8ec1a.chunk.js.map": "/Goose-Track-06-Frontend/static/js/794.7ba8ec1a.chunk.js.map"
+    "main.5d4c55a7.css.map": "/Goose-Track-06-Frontend/static/css/main.5d4c55a7.css.map",
+    "main.c9dbcf13.js.map": "/Goose-Track-06-Frontend/static/js/main.c9dbcf13.js.map"
   },
   "entrypoints": [
-    "static/css/main.6cd6d9c0.css",
-    "static/js/main.9ac3a448.js"
+    "static/css/main.5d4c55a7.css",
+    "static/js/main.c9dbcf13.js"
   ]
 }
