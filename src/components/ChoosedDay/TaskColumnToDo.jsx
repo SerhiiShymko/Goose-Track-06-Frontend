@@ -1,4 +1,3 @@
-import { Popper } from '@mui/base';
 import * as React from 'react';
 import {
   ButtonAddTask,
@@ -14,8 +13,7 @@ import {
   TaskImageUser,
   KontrolWrapper,
   WrapperUser,
-  SvgAddTask,
-  SvgArrow,
+  SvgAddTask,  
   SvgPlusCircle,
   SvgPencil,
   SvgTrash,
@@ -55,10 +53,9 @@ const TaskColumnToDo = ({ data }) => {
                 </TaskPriority>
               </WrapperUser>
               <TaskLogoList>
-                <SvgArrow />                
+                <SimplePopper/>
                 <SvgPencil />
                 <SvgTrash />
-                <SimplePopper></SimplePopper>
               </TaskLogoList>
             </KontrolWrapper>
           </TaskItemContainer>

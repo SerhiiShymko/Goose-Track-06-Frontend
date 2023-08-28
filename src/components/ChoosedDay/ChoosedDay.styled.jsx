@@ -55,11 +55,6 @@ export const LogoPlus = styled.img`
   padding: 0;
 `;
 
-// export const LogoPlusCircle = styled.img`
-//   width: 24px;
-//   height: 24px;
-// `;
-
 export const TextInButton = styled.span`
   color: #111;
   text-align: center;
@@ -79,7 +74,7 @@ export const TaskBorder = styled.div`
   min-height: 125px;
   padding: 18px 20px 28px 20px;
   flex-direction: column;
-  /* align-items: flex-start; */
+ 
   gap: 18px;
   flex-shrink: 0;
   position: relative;
