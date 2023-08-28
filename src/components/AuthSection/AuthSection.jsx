@@ -1,23 +1,33 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 import goose from '../../images/mainPage/GOOSE_LOGO.svg';
 import loginsvg from '../../images/mainPage/login.svg';
 
+import {
+  ButtonWrapper,
+  Header,
+  LogInBtn,
+  LoginSvg,
+  LogoImg,
+  MainTitle,
+  SignUpBtn,
+} from './AuthSection.styled';
+
 const AuthSection = () => {
   return (
-    <header>
-      <img src={goose} alt="goose_logo" />
-      <h1>GooseTrack</h1>
-      <div>
-        <Link to="/register"></Link>
-        <Link to="/login">
-          <svg>
+    <Header>
+      <LogoImg src={goose} alt="goose_logo" />
+      <MainTitle>GooseTrack</MainTitle>
+      <ButtonWrapper>
+        <SignUpBtn to="/register">Sign up</SignUpBtn>
+        <LogInBtn to="/login">
+          Log in
+          <LoginSvg>
             <use href={loginsvg} />
-          </svg>
-        </Link>
-      </div>
-    </header>
+          </LoginSvg>
+        </LogInBtn>
+      </ButtonWrapper>
+    </Header>
   );
 };
 
