@@ -1,3 +1,5 @@
+// import Statistics from "components/Statistics/statistics";
+
 const CalendarPage = () => {
   return (
     <div
@@ -11,6 +13,7 @@ const CalendarPage = () => {
       }}
     >
       CalendarPage
+      {/* <Statistics /> */}
     </div>
   );
 };
