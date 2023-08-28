@@ -11,6 +11,11 @@ import InterSemiBoldItalic from '../fonts/inter/Inter-SemiBold-Italic.otf';
 import CoolveticaRegular from '../fonts/coolvetica/Coolvetica-Regular.otf';
 import CoolveticaRegularItalic from '../fonts/coolvetica/Coolvetica-Regular-Italic.otf';
 
+export const theme = {
+  dark: { body: '#363537' },
+  light: { body: '#FFF' },
+};
+
 export const GlobalStyle = createGlobalStyle`
 
     @font-face {
