@@ -9,14 +9,15 @@ const AuthSection = () => {
     <header>
       <img src={goose} alt="goose_logo" />
       <h1>GooseTrack</h1>
-      <div>
-        <Link to="/register"></Link>
+      <nav>
+        <Link to="/register">Sign up</Link>
         <Link to="/login">
-          <svg>
+          Log in
+          <svg height="13.5" width="13.5">
             <use href={loginsvg} />
           </svg>
         </Link>
-      </div>
+      </nav>
     </header>
   );
 };
