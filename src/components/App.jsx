@@ -2,7 +2,9 @@ import { Suspense, lazy } from 'react';
 // import { refresh } from 'redux/auth/operations';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { selectToken } from 'redux/auth/selectors';
-
+import UserProfile from './UserProfile/UserProfile';
+import Header from './Header/Header';
+import '../../src/styles/Global'
 import { Container } from 'styles/Container';
 import Spinner from './Spinner/Spinner';
 import { Route, Routes } from 'react-router-dom';
@@ -27,7 +29,10 @@ export function App() {
 
   return (
     <Container>
-      <Suspense fallback={<Spinner />}>
+      <Header />
+      <UserProfile />
+
+      {/* <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="login" element={<LoginPage />} />
@@ -35,7 +40,7 @@ export function App() {
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </Suspense>
+      </Suspense> */}
     </Container>
   );
 }
