@@ -1,17 +1,14 @@
+import React from 'react';
+
+import Header from 'components/Header/Header';
+import UserProfile from 'components/UserProfile/UserProfile';
+
 const LoginPage = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      LoginPage
-    </div>
+    <>
+      <Header />
+      <UserProfile />
+    </>
   );
 };
 
