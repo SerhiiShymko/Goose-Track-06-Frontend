@@ -12,14 +12,14 @@ import {
   TaskImageUser,
   KontrolWrapper,
   WrapperUser,
-  SvgAddTask,
-  SvgArrow,
+  SvgAddTask,  
   SvgPlusCircle,
   SvgPencil,
   SvgTrash,
 } from './ChoosedDay.styled';
 
 import { PRIORITY } from '../../data/constants';
+import SimplePopper from './Popup';
 
 const uuid = require('uuid').v4;
 
@@ -50,7 +50,7 @@ const TaskColumnInProg = ({ data }) => {
                 </TaskPriority>
               </WrapperUser>
               <TaskLogoList>
-                <SvgArrow />
+                <SimplePopper category={'in-progress'} />
                 <SvgPencil />
                 <SvgTrash />
               </TaskLogoList>

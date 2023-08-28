@@ -25,7 +25,7 @@ import SimplePopper from './Popup';
 
 const uuid = require('uuid').v4;
 
-const TaskColumnToDo = ({ data }) => {
+const TaskColumnToDo = ({ data,changeTask }) => {
 
   const priorityColor = priority => {
     if (priority === PRIORITY.LOW) {
@@ -53,7 +53,7 @@ const TaskColumnToDo = ({ data }) => {
                 </TaskPriority>
               </WrapperUser>
               <TaskLogoList>
-                <SimplePopper/>
+                <SimplePopper category={'to-do'} changeTask={changeTask} />
                 <SvgPencil />
                 <SvgTrash />
               </TaskLogoList>

@@ -4,6 +4,7 @@ import { ReactComponent as addTask } from '../../images/tascs/addTask.svg';
 import { ReactComponent as plusCircle } from '../../images/tascs/plus.svg';
 import { ReactComponent as pencil } from '../../images/tascs/pencil-2.svg';
 import { ReactComponent as trash } from '../../images/tascs/trash-2.svg';
+import {ReactComponent as phAvatar} from "../../images/profile/phAvatar.svg"
 
 export const TaskName = styled.h2`
   margin: 2px 0;
@@ -69,8 +70,8 @@ export const TaskBorder = styled.div`
   background: #fff;
 
   display: flex;
-  width: 304px;
-  max-height: 545px;
+  width: 344px;
+  max-height: 568px;
   min-height: 125px;
   padding: 18px 20px 28px 20px;
   flex-direction: column;
@@ -88,7 +89,7 @@ export const TaskContainer = styled.div`
 // Task
 export const TaskListContainer = styled.ul`
   margin: 0;
-  margin-bottom: 122px;
+  margin-bottom: 102px;
   padding: 0;
   display: flex;
   flex-direction: column;
@@ -117,8 +118,8 @@ export const TaskListContainer = styled.ul`
 
 export const TaskItemContainer = styled.li`
   list-style: none;
-  width: 272px;
-  height: 80px;
+  width: 300px;
+  height: 112px;
   flex-shrink: 0;
 
   border-radius: 8px;
@@ -218,11 +219,13 @@ export const TaskLogoList = styled.div`
   gap: 10px;
 `;
 
-export const TaskImageUser = styled.img`
+export const TaskImageUser = styled(phAvatar)`
   width: 32px;
   height: 32px;
   border-radius: 32px;
   border: 1.8px solid #3e85f3;
+  padding:5px;
+  background:  lightgray 50% / cover no-repeat;
 `;
 
 export const KontrolWrapper = styled.div`

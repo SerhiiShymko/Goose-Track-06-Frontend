@@ -12,7 +12,7 @@ const MainPage = () => {
         color: '#010101',
       }}
     >
-      MainPage
+      {/* MainPage */}
       <ChoosedDay/>
     </div>
   );

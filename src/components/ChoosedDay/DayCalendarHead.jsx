@@ -1,8 +1,8 @@
 import dayjs from 'dayjs';
-import { color } from 'styled-system';
-import {AnimatedPopup} from './Popup'
+// import { color } from 'styled-system';
+// import {AnimatedPopup} from './Popup'
 
-import { DivEl, OverflowEl } from './ChoosedDay.styled';
+// import { DivEl, OverflowEl } from './ChoosedDay.styled';
 const DayCalendarHead = () => {
   const tagHeute = dayjs();
   const day = tagHeute.format('dd');
