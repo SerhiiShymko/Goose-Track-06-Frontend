@@ -2,6 +2,8 @@
 // import { useDispatch, useSelector } from 'react-redux';
 // import { selectToken } from 'redux/auth/selectors';
 import { Container } from 'styles/Container';
+import UserProfile from './UserProfile/UserProfile';
+import Header from './Header/Header';
 
 // const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 // const AccountPage = lazy(() => import('pages/AccountPage/AccountPage'));
@@ -23,18 +25,8 @@ export const App = () => {
 
   return (
     <Container>
-      <div
-        style={{
-          height: '100vh',
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          fontSize: 40,
-          color: '#010101',
-        }}
-      >
-        APP
-      </div>
+      <Header/>
+     <UserProfile/>
     </Container>
   );
 };
