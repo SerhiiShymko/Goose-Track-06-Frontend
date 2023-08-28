@@ -1,10 +1,10 @@
 {
   "files": {
     "main.css": "/Goose-Track-06-Frontend/static/css/main.5d4c55a7.css",
-    "main.js": "/Goose-Track-06-Frontend/static/js/main.7774fb59.js",
+    "main.js": "/Goose-Track-06-Frontend/static/js/main.d030adbd.js",
     "static/js/33.2cfe6c46.chunk.js": "/Goose-Track-06-Frontend/static/js/33.2cfe6c46.chunk.js",
     "static/js/589.48dcf09b.chunk.js": "/Goose-Track-06-Frontend/static/js/589.48dcf09b.chunk.js",
-    "static/js/664.3d649b89.chunk.js": "/Goose-Track-06-Frontend/static/js/664.3d649b89.chunk.js",
+    "static/js/795.3020210b.chunk.js": "/Goose-Track-06-Frontend/static/js/795.3020210b.chunk.js",
     "static/js/794.9c7a16d0.chunk.js": "/Goose-Track-06-Frontend/static/js/794.9c7a16d0.chunk.js",
     "static/media/Inter-Bold.ttf": "/Goose-Track-06-Frontend/static/media/Inter-Bold.88fa7ae373b07b41ecce.ttf",
     "static/media/Inter-SemiBold.ttf": "/Goose-Track-06-Frontend/static/media/Inter-SemiBold.4d56bb21f2399db8ad48.ttf",
@@ -38,14 +38,14 @@
     "index.html": "/Goose-Track-06-Frontend/index.html",
     "static/media/login.svg": "/Goose-Track-06-Frontend/static/media/login.f5859fe35421bf27c20ed178401b8bd6.svg",
     "main.5d4c55a7.css.map": "/Goose-Track-06-Frontend/static/css/main.5d4c55a7.css.map",
-    "main.7774fb59.js.map": "/Goose-Track-06-Frontend/static/js/main.7774fb59.js.map",
+    "main.d030adbd.js.map": "/Goose-Track-06-Frontend/static/js/main.d030adbd.js.map",
     "33.2cfe6c46.chunk.js.map": "/Goose-Track-06-Frontend/static/js/33.2cfe6c46.chunk.js.map",
     "589.48dcf09b.chunk.js.map": "/Goose-Track-06-Frontend/static/js/589.48dcf09b.chunk.js.map",
-    "664.3d649b89.chunk.js.map": "/Goose-Track-06-Frontend/static/js/664.3d649b89.chunk.js.map",
+    "795.3020210b.chunk.js.map": "/Goose-Track-06-Frontend/static/js/795.3020210b.chunk.js.map",
     "794.9c7a16d0.chunk.js.map": "/Goose-Track-06-Frontend/static/js/794.9c7a16d0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5d4c55a7.css",
-    "static/js/main.7774fb59.js"
+    "static/js/main.d030adbd.js"
   ]
 }
