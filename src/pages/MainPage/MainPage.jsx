@@ -1,17 +1,16 @@
+import AuthSection from 'components/AuthSection/AuthSection';
+import Description from 'components/Description/Description';
+import ReviewsSlider from 'components/ReviewsSlider/ReviewsSlider';
+
 const MainPage = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      MainPage
-    </div>
+    <>
+      <AuthSection />
+      <div>
+        <Description />
+        <ReviewsSlider />
+      </div>
+    </>
   );
 };
 

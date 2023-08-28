@@ -34,11 +34,11 @@ export function App() {
 
       {/* <Suspense fallback={<Spinner />}>
         <Routes>
-          <Route path="/" element={<MainPage />} />
+          <Route path="*" element={<MainPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
 
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="/" element={<NotFoundPage />} />
         </Routes>
       </Suspense> */}
     </Container>
