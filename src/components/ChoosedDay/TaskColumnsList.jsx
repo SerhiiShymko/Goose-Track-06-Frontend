@@ -70,17 +70,23 @@ const TaskColumnsList = () => {
   const categoryInProg = task.filter(task => task.category === CATEGORY.INPROGRESS);
   const categoryDone = task.filter(task => task.category === CATEGORY.DONE);
 
-  const handleChangeCategory = (id,category) => {
-    const changeTask = task.filter(task => task._id === id)
-    changeTask.category = category;
-    setTask(changeTask);
+  const handleChangeCategory = (id, category) => {
+    console.log(id, category);
+    const changeTask = task.filter(task => task._id === id);
+    console.log(changeTask);
+    changeTask[0].category = category;
+    console.log(changeTask);
+    setTask([...task,changeTask]);
  }
 
   return (
     <TaskContainer>
       <TaskColumnToDo data={categoryTodo} changeTask={handleChangeCategory} />
-      <TaskColumnInProg data={categoryInProg} />
-      <TaskColumnDone data={categoryDone} />
+      <TaskColumnInProg
+        data={categoryInProg}
+        changeTask={handleChangeCategory}
+      />
+      <TaskColumnDone data={categoryDone} changeTask={handleChangeCategory} />
     </TaskContainer>
   );
 };

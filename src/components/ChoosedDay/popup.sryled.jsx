@@ -24,3 +24,13 @@ export const PopperText = styled.span`
   font-size: 14px; 
   line-height: 18px; /* 128.571% */
 `;
+
+export const PopperButton = styled.button`
+  border: none;
+  background-color: #fff;
+  width: 20px;
+  height: 20px;
+  padding:0;
+  text-align:center;
+  z-index:2;
+`;

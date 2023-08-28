@@ -6,6 +6,7 @@ import UserProfile from './UserProfile/UserProfile';
 import Header from './Header/Header';
 import '../../src/styles/Global';
 import { Container } from 'styles/Container';
+import ChoosedDay from './ChoosedDay/ChoosedDay';
 // import Spinner from './Spinner/Spinner';
 // import { Route, Routes } from 'react-router-dom';
 
@@ -29,9 +30,9 @@ export function App() {
 
   return (
     <Container>
-      <Header />
-      <UserProfile />
-
+      {/* <Header /> */}
+      {/* <UserProfile /> */}
+      <ChoosedDay/>
       {/* <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<MainPage />} />

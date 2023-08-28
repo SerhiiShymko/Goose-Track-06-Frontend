@@ -53,7 +53,7 @@ const TaskColumnToDo = ({ data,changeTask }) => {
                 </TaskPriority>
               </WrapperUser>
               <TaskLogoList>
-                <SimplePopper category={'to-do'} changeTask={changeTask} />
+                <SimplePopper category={'to-do'} changeTask={changeTask} number={ item._id } />
                 <SvgPencil />
                 <SvgTrash />
               </TaskLogoList>
