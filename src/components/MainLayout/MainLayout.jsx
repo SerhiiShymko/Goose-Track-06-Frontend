@@ -9,8 +9,8 @@ import Spinner from 'components/Spinner/Spinner';
 function MainLayout(props) {
   return (
     <Wrapper>
-      <SideBar></SideBar>
-      <Header></Header>
+      <SideBar />
+      <Header />
       <Suspense fallback={Spinner}>
         <Outlet />
       </Suspense>
