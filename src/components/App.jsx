@@ -12,6 +12,7 @@ import Spinner from './Spinner/Spinner';
 // import { Route, Routes } from 'react-router-dom';
 
 import { Route, Routes } from 'react-router-dom';
+import UserProfile from './UserProfile/UserProfile';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 // const AccountPage = lazy(() => import('pages/AccountPage/AccountPage'));
@@ -41,6 +42,8 @@ export function App() {
           <Route path="/" element={<MainPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
+
+          <Route path="/account" element={<UserProfile />} />
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
