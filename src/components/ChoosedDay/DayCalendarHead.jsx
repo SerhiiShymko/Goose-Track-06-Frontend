@@ -6,9 +6,12 @@ import { ContainerColendar, ContainerData, DataItem, DataNumber, DayText, ListDa
 // import { DivEl, OverflowEl } from './ChoosedDay.styled';
 const DayCalendarHead = () => {
   const tagHeute = dayjs();
-  const day = tagHeute.format('dd');
+  const day = tagHeute.format('ddd');
   console.log(tagHeute);
-  console.log(dayjs('2019-01-25').add(1, 'day').subtract(1, 'year').year(2009));
+  const nextTag = dayjs().add(1, 'day');
+  console.log(nextTag.format('d'));
+  // dayjs('2019-01-25');
+    // .subtract(1, 'year').year(2009));
   console.log(day);
   return (
     <ContainerColendar>
