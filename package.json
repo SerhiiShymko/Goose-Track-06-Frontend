@@ -4,12 +4,17 @@
   "private": true,
   "homepage": "https://SerhiiShymko/Goose-Track-06-Frontend/",
   "dependencies": {
-    "@babel/plugin-proposal-private-property-in-object": "^7.21.10",
+
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+
     "@fortawesome/free-solid-svg-icons": "^6.4.2",
     "@fortawesome/react-fontawesome": "^0.2.0",
+
     "@mui/icons-material": "^5.14.6",
     "@mui/material": "^5.14.6",
+    "@mui/styled-engine": "^5.14.6",
     "@mui/x-date-pickers": "^6.11.2",
+    "@popperjs/core": "^2.11.8",
     "@reduxjs/toolkit": "^1.9.5",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
@@ -23,6 +28,7 @@
     "nanoid": "^4.0.2",
     "notiflix": "^3.2.6",
     "react": "^18.1.0",
+    "react-beautiful-dnd": "^13.1.1",
     "react-dom": "^18.1.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.10.1",

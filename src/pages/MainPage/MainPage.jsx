@@ -13,6 +13,7 @@ const MainPage = () => {
         <ReviewsSlider />
       </MainPageContainer>
     </>
+
   );
 };
 

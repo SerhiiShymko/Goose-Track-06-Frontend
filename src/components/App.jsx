@@ -6,8 +6,14 @@ import { Suspense, lazy } from 'react';
 // import Header from './Header/Header';
 import '../../src/styles/Global';
 import { Container } from 'styles/Container';
+
+import ChoosedDay from './ChoosedDay/ChoosedDay';
+// import Spinner from './Spinner/Spinner';
+// import { Route, Routes } from 'react-router-dom';
+
 import Spinner from './Spinner/Spinner';
 import { Route, Routes } from 'react-router-dom';
+
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 // const AccountPage = lazy(() => import('pages/AccountPage/AccountPage'));
@@ -32,15 +38,20 @@ export function App() {
       {/* <Header /> */}
       {/* <UserProfile /> */}
 
+      <ChoosedDay/>
+      {/* <Suspense fallback={<Spinner />}>
+
+
       <Suspense fallback={<Spinner />}>
+
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
-
+          
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </Suspense>
+  </Suspense> */}
     </Container>
   );
 }
