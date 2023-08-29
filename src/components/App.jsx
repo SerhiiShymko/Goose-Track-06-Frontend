@@ -2,10 +2,17 @@ import { Suspense, lazy } from 'react';
 // import { refresh } from 'redux/auth/operations';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { selectToken } from 'redux/auth/selectors';
-
+// import UserProfile from './UserProfile/UserProfile';
+// import Header from './Header/Header';
+import '../../src/styles/Global';
 import { Container } from 'styles/Container';
+
+// import ChoosedDay from './ChoosedDay/ChoosedDay';
 import Spinner from './Spinner/Spinner';
+// import { Route, Routes } from 'react-router-dom';
+
 import { Route, Routes } from 'react-router-dom';
+import UserProfile from './UserProfile/UserProfile';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 // const AccountPage = lazy(() => import('pages/AccountPage/AccountPage'));
@@ -27,15 +34,20 @@ export function App() {
 
   return (
     <Container>
+      {/* <Header /> */}
+      {/* <UserProfile /> */}
+      {/* <ChoosedDay/> */}
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
 
+          {/* <Route path="/account" element={<UserProfile />} /> */}
+
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </Suspense>
+      </Suspense>{' '}
     </Container>
   );
 }
