@@ -15,11 +15,12 @@ import {
   ButtonClose,
   NavigationBlock,
   NavigationLegend,
+  Wrapper,
 } from './UserNav.styled';
 
 function UserNav({ handleClick }) {
   return (
-    <>
+    <Wrapper>
       <LogoContainer>
         <LogoWrapper />
         <LogoText>
@@ -44,7 +45,7 @@ function UserNav({ handleClick }) {
           Statistics
         </NavLink>
       </NavigationBlock>
-    </>
+    </Wrapper>
   );
 }
 

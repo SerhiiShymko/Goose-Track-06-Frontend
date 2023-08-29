@@ -13,6 +13,10 @@ import goose_tablet2x from 'images/sideBar/goose_tablet@2x.png';
 import goose_desktop from 'images/sideBar/goose_desktop.png';
 import goose_desktop2x from 'images/sideBar/goose_desktop@2x.png';
 
+export const Wrapper = styled.div`
+  margin-bottom: auto;
+`;
+
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
