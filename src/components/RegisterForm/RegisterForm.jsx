@@ -16,7 +16,7 @@ import {
   Box,
 } from './RegisterForm.styled';
 //
-export const ReegisterForm = () => {
+export const RegisterForm = () => {
   return (
     <Box>
       <Formik
