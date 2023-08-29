@@ -1,21 +1,26 @@
-// import { Suspense, lazy } from 'react';
+import { Suspense, lazy } from 'react';
 // import { refresh } from 'redux/auth/operations';
 // import { useDispatch, useSelector } from 'react-redux';
 // import { selectToken } from 'redux/auth/selectors';
-import UserProfile from './UserProfile/UserProfile';
-import Header from './Header/Header';
+// import UserProfile from './UserProfile/UserProfile';
+// import Header from './Header/Header';
 import '../../src/styles/Global';
 import { Container } from 'styles/Container';
+
 import ChoosedDay from './ChoosedDay/ChoosedDay';
 // import Spinner from './Spinner/Spinner';
 // import { Route, Routes } from 'react-router-dom';
 
-// const MainPage = lazy(() => import('pages/MainPage/MainPage'));
+import Spinner from './Spinner/Spinner';
+import { Route, Routes } from 'react-router-dom';
+
+
+const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 // const AccountPage = lazy(() => import('pages/AccountPage/AccountPage'));
-// const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
-// const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
+const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
+const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
 // const CalendarPage = lazy(() => import('pages/CalendarPage/CalendarPage'));
-// const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
+const NotFoundPage = lazy(() => import('pages/NotFoundPage/NotFoundPage'));
 // const StatisticsPage = lazy(() =>
 //   import('pages/StatisticsPage/StatisticsPage')
 // );
@@ -32,8 +37,13 @@ export function App() {
     <Container>
       {/* <Header /> */}
       {/* <UserProfile /> */}
+
       <ChoosedDay/>
       {/* <Suspense fallback={<Spinner />}>
+
+
+      <Suspense fallback={<Spinner />}>
+
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="login" element={<LoginPage />} />
@@ -41,7 +51,7 @@ export function App() {
           
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </Suspense> */}
+  </Suspense> */}
     </Container>
   );
 }
