@@ -17,14 +17,14 @@ const AuthSection = () => {
   return (
     <Header>
       <LogoImg src={goose} alt="goose_logo" />
-      <MainTitle>GooseTrack</MainTitle>
+      <MainTitle>
+        Go<span style={{ fontFamily: 'InterBoldItalic' }}>o</span>seTrack
+      </MainTitle>
       <ButtonWrapper>
         <SignUpBtn to="/register">Sign up</SignUpBtn>
         <LogInBtn to="/login">
           Log in
-          <LoginSvg>
-            <use href={loginsvg} />
-          </LoginSvg>
+          <LoginSvg src={loginsvg} alt="loginsvg" />
         </LogInBtn>
       </ButtonWrapper>
     </Header>
