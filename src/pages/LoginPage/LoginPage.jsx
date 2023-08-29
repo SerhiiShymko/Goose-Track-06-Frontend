@@ -1,16 +1,19 @@
-import React from 'react';
-
-import Header from 'components/Header/Header';
-import UserProfile from 'components/UserProfile/UserProfile';
-import MainLayout from 'components/MainLayout/MainLayout';
-
+import { LoginForm } from 'components/LoginForm/LoginForm';
 const LoginPage = () => {
   return (
-    // <>
-    //   <Header />
-    //   <UserProfile />
-    // </>
-    <MainLayout />
+    <LoginForm />
+    // <div
+    //   style={{
+    //     height: '100vh',
+    //     display: 'flex',
+    //     justifyContent: 'center',
+    //     alignItems: 'center',
+    //     fontSize: 40,
+    //     color: '#010101',
+    //   }}
+    // >
+    //   LoginPage
+    // </div>
   );
 };
 

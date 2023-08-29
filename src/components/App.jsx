@@ -6,7 +6,11 @@ import { Suspense, lazy } from 'react';
 // import Header from './Header/Header';
 import '../../src/styles/Global';
 import { Container } from 'styles/Container';
+
+// import ChoosedDay from './ChoosedDay/ChoosedDay';
 import Spinner from './Spinner/Spinner';
+// import { Route, Routes } from 'react-router-dom';
+
 import { Route, Routes } from 'react-router-dom';
 import UserProfile from './UserProfile/UserProfile';
 
@@ -32,18 +36,18 @@ export function App() {
     <Container>
       {/* <Header /> */}
       {/* <UserProfile /> */}
-
+      {/* <ChoosedDay/> */}
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<MainPage />} />
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
 
-          <Route path="/account" element={<UserProfile />} />
+          {/* <Route path="/account" element={<UserProfile />} /> */}
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
-      </Suspense>
+      </Suspense>{' '}
     </Container>
   );
 }
