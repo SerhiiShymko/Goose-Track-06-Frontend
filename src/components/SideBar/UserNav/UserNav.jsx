@@ -1,8 +1,12 @@
 import React from 'react';
-import { CalendarSvg, NavLink, StatisticsSvg, UserSvg } from './UserNav.styled';
+
 // import PropTypes from 'prop-types'
 
 import {
+  CalendarSvg,
+  NavLink,
+  StatisticsSvg,
+  UserSvg,
   LogoContainer,
   LogoInnerText,
   LogoText,
@@ -11,17 +15,18 @@ import {
   ButtonClose,
   NavigationBlock,
   NavigationLegend,
+  Wrapper,
 } from './UserNav.styled';
 
-function UserNav(props) {
+function UserNav({ handleClick }) {
   return (
-    <div>
+    <Wrapper>
       <LogoContainer>
         <LogoWrapper />
         <LogoText>
           G<LogoInnerText>oo</LogoInnerText>seTrack
         </LogoText>
-        <ButtonClose type="button">
+        <ButtonClose type="button" onClick={handleClick}>
           <CloseSvg />
         </ButtonClose>
       </LogoContainer>
@@ -40,7 +45,7 @@ function UserNav(props) {
           Statistics
         </NavLink>
       </NavigationBlock>
-    </div>
+    </Wrapper>
   );
 }
 
