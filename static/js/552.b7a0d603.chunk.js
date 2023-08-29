@@ -1,2 +1,0 @@
-"use strict";(self.webpackChunkGoose_Track_06_Frontend=self.webpackChunkGoose_Track_06_Frontend||[]).push([[552],{5552:function(e,t,n){n.r(t);var s=n(184);t.default=function(){return(0,s.jsx)("div",{style:{height:"100vh",display:"flex",justifyContent:"center",alignItems:"center",fontSize:40,color:"#010101"},children:"StatisticsPage"})}}}]);
-//# sourceMappingURL=552.b7a0d603.chunk.js.map
