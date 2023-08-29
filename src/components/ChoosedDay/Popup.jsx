@@ -27,21 +27,17 @@ export default function SimplePopper({ category,changeTask,number }) {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
-  // const handleClose = () => {
-  //   setAnchorEl(null);
-  // };
-
   const handleFirst = event => {    
-    const category = event.target.dataset.category;    
-
+    const category = event.currentTarget.dataset.category;    
+    
     if (category === 'In progress') {
-      return changeTask(event.target.dataset.id, CATEGORY.INPROGRESS);
+      return changeTask(event.currentTarget.dataset.id, CATEGORY.INPROGRESS);
     }
     if (category === "To do") {
-        return changeTask(event.target.dataset.id, CATEGORY.TODO);
+        return changeTask(event.currentTarget.dataset.id, CATEGORY.TODO);
     }
     if (category === 'Done') {
-      return changeTask(event.target.dataset.id, CATEGORY.DONE);
+      return changeTask(event.currentTarget.dataset.id, CATEGORY.DONE);
     }
 
   }
@@ -60,13 +56,7 @@ export default function SimplePopper({ category,changeTask,number }) {
               onClick={handleFirst}
               data-id={number}
               data-category={firstLink}
-            >
-              <SvgArrow
-                onClick={handleFirst}
-                data-id={number}
-                data-category={firstLink}
-              />
-            </PopperButton>
+            > <SvgArrow/></PopperButton>            
           </PopperItem>
           <PopperItem>
             <PopperText>{secondLink}</PopperText>

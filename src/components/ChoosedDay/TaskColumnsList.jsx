@@ -1,10 +1,10 @@
 import { TaskContainer } from './ChoosedDay.styled';
 
 import { useState } from 'react';
-import TaskColumnToDo from './TaskColumnToDo';
-import TaskColumnInProg from './TaskColumnsInProg';
-import TaskColumnDone from './TaskColumnDone';
-import { CATEGORY } from "../../data/constants";
+import TaskColumnToDo from './TaskColumns/TaskColumnToDo';
+import TaskColumnInProg from './TaskColumns/TaskColumnsInProg';
+import TaskColumnDone from './TaskColumns/TaskColumnDone';
+import { CATEGORY } from '../../data/constants';
 
 const TaskColumnsList = () => {
   const [task, setTask] = useState([
@@ -64,20 +64,21 @@ const TaskColumnsList = () => {
       priority: 'medium',
       _id: '08',
     },
-  ]); 
+  ]);
 
   const categoryTodo = task.filter(task => task.category === CATEGORY.TODO);
-  const categoryInProg = task.filter(task => task.category === CATEGORY.INPROGRESS);
+  const categoryInProg = task.filter(
+    task => task.category === CATEGORY.INPROGRESS
+  );
   const categoryDone = task.filter(task => task.category === CATEGORY.DONE);
 
   const handleChangeCategory = (id, category) => {
-    console.log(id, category);
     const changeTask = task.filter(task => task._id === id);
-    console.log(changeTask);
+
     changeTask[0].category = category;
-    console.log(changeTask);
-    setTask([...task,changeTask]);
- }
+
+    setTask([...task, changeTask]);
+  };
 
   return (
     <TaskContainer>

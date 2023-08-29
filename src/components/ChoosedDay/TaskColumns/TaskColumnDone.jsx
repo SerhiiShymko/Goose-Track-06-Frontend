@@ -1,29 +1,29 @@
 import {
   ButtonAddTask,
-  TaskName, 
+  TaskName,
   TextInButton,
   TaskBorder,
   TextInTitle,
   TaskListContainer,
   TaskItemContainer,
   TaskText,
-  TaskPriority,  
+  TaskPriority,
   TaskLogoList,
   TaskImageUser,
   KontrolWrapper,
   WrapperUser,
-  SvgAddTask,  
+  SvgAddTask,
   SvgPlusCircle,
   SvgPencil,
   SvgTrash,
-} from './ChoosedDay.styled';
+} from '../ChoosedDay.styled';
 
-import { PRIORITY } from '../../data/constants';
-import SimplePopper from './Popup';
+import { PRIORITY } from '../../../data/constants';
+import SimplePopper from '../Popup';
 
 const uuid = require('uuid').v4;
 
-const TaskColumnInProg = ({ data, changeTask }) => {
+const TaskColumnDone = ({ data, changeTask }) => {
   const priorityColor = priority => {
     if (priority === PRIORITY.LOW) {
       return '#72C2F8';
@@ -35,7 +35,7 @@ const TaskColumnInProg = ({ data, changeTask }) => {
   return (
     <TaskBorder>
       <TaskName>
-        <TextInTitle>In progress</TextInTitle>
+        <TextInTitle>Done</TextInTitle>
         <SvgPlusCircle />
       </TaskName>
       <TaskListContainer>
@@ -51,7 +51,7 @@ const TaskColumnInProg = ({ data, changeTask }) => {
               </WrapperUser>
               <TaskLogoList>
                 <SimplePopper
-                  category={'in-progress'}
+                  category={'done'}
                   changeTask={changeTask}
                   number={item._id}
                 />
@@ -70,4 +70,4 @@ const TaskColumnInProg = ({ data, changeTask }) => {
   );
 };
 
-export default TaskColumnInProg;
+export default TaskColumnDone;

@@ -4,6 +4,7 @@
   "private": true,
   "homepage": "https://SerhiiShymko/Goose-Track-06-Frontend/",
   "dependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@mui/icons-material": "^5.14.6",
     "@mui/material": "^5.14.6",
     "@mui/styled-engine": "^5.14.6",

@@ -1,13 +1,13 @@
 import {
   ButtonAddTask,
-  TaskName,
+  TaskName, 
   TextInButton,
   TaskBorder,
   TextInTitle,
   TaskListContainer,
   TaskItemContainer,
   TaskText,
-  TaskPriority,
+  TaskPriority,  
   TaskLogoList,
   TaskImageUser,
   KontrolWrapper,
@@ -16,14 +16,14 @@ import {
   SvgPlusCircle,
   SvgPencil,
   SvgTrash,
-} from './ChoosedDay.styled';
+} from '../ChoosedDay.styled';
 
-import { PRIORITY } from '../../data/constants';
-import SimplePopper from './Popup';
+import { PRIORITY } from '../../../data/constants';
+import SimplePopper from '../Popup';
 
 const uuid = require('uuid').v4;
 
-const TaskColumnDone = ({ data }) => {
+const TaskColumnInProg = ({ data, changeTask }) => {
   const priorityColor = priority => {
     if (priority === PRIORITY.LOW) {
       return '#72C2F8';
@@ -35,7 +35,7 @@ const TaskColumnDone = ({ data }) => {
   return (
     <TaskBorder>
       <TaskName>
-        <TextInTitle>Done</TextInTitle>
+        <TextInTitle>In progress</TextInTitle>
         <SvgPlusCircle />
       </TaskName>
       <TaskListContainer>
@@ -50,7 +50,11 @@ const TaskColumnDone = ({ data }) => {
                 </TaskPriority>
               </WrapperUser>
               <TaskLogoList>
-                <SimplePopper category={'done'} />
+                <SimplePopper
+                  category={'in-progress'}
+                  changeTask={changeTask}
+                  number={item._id}
+                />
                 <SvgPencil />
                 <SvgTrash />
               </TaskLogoList>
@@ -66,4 +70,4 @@ const TaskColumnDone = ({ data }) => {
   );
 };
 
-export default TaskColumnDone;
+export default TaskColumnInProg;

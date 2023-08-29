@@ -31,6 +31,5 @@ export const PopperButton = styled.button`
   width: 20px;
   height: 20px;
   padding:0;
-  text-align:center;
-  z-index:2;
+  text-align:center;  
 `;

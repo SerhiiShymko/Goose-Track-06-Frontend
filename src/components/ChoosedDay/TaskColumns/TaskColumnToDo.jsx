@@ -17,11 +17,11 @@ import {
   SvgPlusCircle,
   SvgPencil,
   SvgTrash,
-} from './ChoosedDay.styled';
+} from '../ChoosedDay.styled';
 
-import { PRIORITY } from '../../data/constants';
+import { PRIORITY } from '../../../data/constants';
 
-import SimplePopper from './Popup';
+import SimplePopper from '../Popup';
 
 const uuid = require('uuid').v4;
 
