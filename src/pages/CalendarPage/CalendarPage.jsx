@@ -1,3 +1,5 @@
+import { CalendarToolbar } from "components/CalendarToolBar/CalendarToolBar";
+
 const CalendarPage = () => {
   return (
     <div
@@ -10,7 +12,7 @@ const CalendarPage = () => {
         color: '#010101',
       }}
     >
-      CalendarPage
+      <CalendarToolbar/>
     </div>
   );
 };

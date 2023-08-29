@@ -1,17 +1,12 @@
+import { NavLink } from "react-router-dom";
+
 const NotFoundPage = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
+    <div>
       NotFoundPage
+      <NavLink to="/calendar">Calendar</NavLink>
     </div>
+    
   );
 };
 
