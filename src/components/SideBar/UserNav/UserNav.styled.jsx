@@ -92,6 +92,24 @@ export const NavigationLegend = styled.p`
   margin-bottom: 6px;
 `;
 
+const stylesForNavIcons = {
+  width: '20px',
+  height: '20px',
+  marginRight: '8px',
+  stroke: '#343434',
+  'stroke-opacity': '0.5',
+};
+
+export const UserSvg = styled(UserSvgStyled)`
+  ${stylesForNavIcons}
+`;
+export const CalendarSvg = styled(CalendarSvgStyled)`
+  ${stylesForNavIcons}
+`;
+export const StatisticsSvg = styled(StatisticsSvgStyled)`
+  ${stylesForNavIcons}
+`;
+
 export const NavLink = styled(NavLinkForStyle)`
   display: flex;
   padding: 10px 12px;
@@ -110,25 +128,7 @@ export const NavLink = styled(NavLinkForStyle)`
     background-color: #e3f3ff;
 
     & > svg {
-      stroke: #3e85f3;
+      stroke: currentColor;
     }
   }
-`;
-
-const stylesForNavIcons = {
-  width: '20px',
-  height: '20px',
-  marginRight: '8px',
-  stroke: '#343434',
-  'stroke-opacity': '0.5',
-};
-
-export const UserSvg = styled(UserSvgStyled)`
-  ${stylesForNavIcons}
-`;
-export const CalendarSvg = styled(CalendarSvgStyled)`
-  ${stylesForNavIcons}
-`;
-export const StatisticsSvg = styled(StatisticsSvgStyled)`
-  ${stylesForNavIcons}
 `;
