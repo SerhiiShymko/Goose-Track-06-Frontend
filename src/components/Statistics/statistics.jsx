@@ -2,7 +2,7 @@ import { React, useEffect } from 'react';
 import { WrapperChart } from './statistics.styled';
 import {
   BarChart,
-  Bar,
+  // Bar,
   XAxis,
   YAxis,
   CartesianGrid,
@@ -14,7 +14,7 @@ import {
   FilterTasksByDay,
 } from './utils/utils';
 import { selectTasks } from 'redux/tasks/selectors';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   CustomizedBar,
   GradientBar,
@@ -26,10 +26,9 @@ import dataUserByMonth from './data/dataUser.json';
 
 const dateByDay = '2023-08-26';
 
-
 const Statistics = () => {
-  const tasks = dataUserByMonth
-//   const tasks = useSelector(selectTasks);
+  const tasks = dataUserByMonth;
+  //   const tasks = useSelector(selectTasks);
   const dispatch = useDispatch(selectTasks);
   const dateNow = Date.now();
 
