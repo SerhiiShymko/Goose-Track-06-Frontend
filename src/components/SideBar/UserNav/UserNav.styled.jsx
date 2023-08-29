@@ -1,5 +1,10 @@
 import styled from 'styled-components';
+import { NavLink as NavLinkForStyle } from 'react-router-dom';
+
 import { ReactComponent as CloseSvgStyled } from 'images/sideBar/x-close.svg';
+import { ReactComponent as UserSvgStyled } from 'images/sideBar/user-check.svg';
+import { ReactComponent as CalendarSvgStyled } from 'images/sideBar/calendar-check.svg';
+import { ReactComponent as StatisticsSvgStyled } from 'images/sideBar/statistics.svg';
 
 import goose_phone from 'images/sideBar/goose_phone.png';
 import goose_phone2x from 'images/sideBar/goose_phone@2x.png';
@@ -11,6 +16,7 @@ import goose_desktop2x from 'images/sideBar/goose_desktop@2x.png';
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
+  margin-bottom: 64px;
 `;
 
 export const LogoWrapper = styled.div`
@@ -65,4 +71,64 @@ export const LogoInnerText = styled.span`
 export const CloseSvg = styled(CloseSvgStyled)`
   width: 24px;
   height: 24px;
+`;
+
+export const ButtonClose = styled.button`
+  background-color: #ffffff;
+`;
+
+export const NavigationBlock = styled.nav`
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+
+  color: rgba(52, 52, 52, 0.5);
+`;
+
+export const NavigationLegend = styled.p`
+  font-size: 12px;
+  font-weight: 600;
+  line-height: normal;
+  margin-bottom: 6px;
+`;
+
+export const NavLink = styled(NavLinkForStyle)`
+  display: flex;
+  padding: 10px 12px;
+  align-items: center;
+  border-radius: 8px;
+
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+
+  &.active,
+  &:hover,
+  &:focus {
+    color: #3e85f3;
+    background-color: #e3f3ff;
+
+    & > svg {
+      stroke: #3e85f3;
+    }
+  }
+`;
+
+const stylesForNavIcons = {
+  width: '20px',
+  height: '20px',
+  marginRight: '8px',
+  stroke: '#343434',
+  'stroke-opacity': '0.5',
+};
+
+export const UserSvg = styled(UserSvgStyled)`
+  ${stylesForNavIcons}
+`;
+export const CalendarSvg = styled(CalendarSvgStyled)`
+  ${stylesForNavIcons}
+`;
+export const StatisticsSvg = styled(StatisticsSvgStyled)`
+  ${stylesForNavIcons}
 `;

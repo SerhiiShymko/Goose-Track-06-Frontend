@@ -1,5 +1,5 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { CalendarSvg, NavLink, StatisticsSvg, UserSvg } from './UserNav.styled';
 // import PropTypes from 'prop-types'
 
 import {
@@ -8,6 +8,9 @@ import {
   LogoText,
   LogoWrapper,
   CloseSvg,
+  ButtonClose,
+  NavigationBlock,
+  NavigationLegend,
 } from './UserNav.styled';
 
 function UserNav(props) {
@@ -18,15 +21,25 @@ function UserNav(props) {
         <LogoText>
           G<LogoInnerText>oo</LogoInnerText>seTrack
         </LogoText>
-        <button type="button">
+        <ButtonClose type="button">
           <CloseSvg />
-        </button>
+        </ButtonClose>
       </LogoContainer>
-      <nav>
-        <NavLink to="/account">My account</NavLink>
-        <NavLink to="/calendar">Calendar</NavLink>
-        <NavLink to="/statistics">Statistics</NavLink>
-      </nav>
+      <NavigationBlock>
+        <NavigationLegend>User Panel</NavigationLegend>
+        <NavLink to="/account">
+          <UserSvg />
+          My account
+        </NavLink>
+        <NavLink to="/calendar">
+          <CalendarSvg />
+          Calendar
+        </NavLink>
+        <NavLink to="/statistics">
+          <StatisticsSvg />
+          Statistics
+        </NavLink>
+      </NavigationBlock>
     </div>
   );
 }
