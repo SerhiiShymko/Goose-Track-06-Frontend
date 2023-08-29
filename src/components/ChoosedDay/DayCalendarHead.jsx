@@ -1,63 +1,54 @@
 import dayjs from 'dayjs';
 import { ContainerColendar, ContainerData, DataItem, DataNumber, DayText, ListData } from './DayCalendarHead.styled';
-// import { color } from 'styled-system';
-// import {AnimatedPopup} from './Popup'
 
-// import { DivEl, OverflowEl } from './ChoosedDay.styled';
 const DayCalendarHead = () => {
-  const tagHeute = dayjs();
-  const day = tagHeute.format('ddd');
+  const currentDay = dayjs("2023-08-29");
+
+  // const day = tagHeute.format('ddd');
   // console.log(tagHeute);
-  const nextTag = dayjs().add(1, 'day');
+  // const nextTag = dayjs().add(1, 'day');
   // console.log(nextTag.format('d'));
   // dayjs('2019-01-25');
     // .subtract(1, 'year').year(2009));
-  console.log(day);
+  
+  const weekday = currentDay.format('d');  
+  const difference = Number(weekday) - 1;
+  const mon = currentDay.subtract(difference, 'day');
+ 
+  let week = [];
+ for (let i = 0; i < 7; i += 1) {
+   week.push(mon.add(i,'day'))
+
+ }
+  const hendelCurrentDay = (day) => {
+    if (day === weekday) {
+    return '#3E85F3';
+    }
+    return;
+  }
+  const hendelCurrentDayColor = (day) => {
+    if (day === weekday) {
+      return '#FFF';
+    }
+    return;
+  }
   return (
     <ContainerColendar>
       <ContainerData>
         <ListData>
-          <DataItem>
-            <DayText>Mon</DayText>
-            <DataNumber>7</DataNumber>
-          </DataItem>
-          <DataItem>
-            <DayText>Tue</DayText>
-            <DataNumber>8</DataNumber>
-          </DataItem>
-          <DataItem>
-            <DayText>Wed</DayText>
-            <DataNumber>9</DataNumber>
-          </DataItem>
-          <DataItem>
-            <DayText>Thu</DayText>
-            <DataNumber>10</DataNumber>
-          </DataItem>
-          <DataItem>
-            <DayText>Fri</DayText>
-            <DataNumber>11</DataNumber>
-          </DataItem>
-          <DataItem>
-            <DayText>Sat</DayText>
-            <DataNumber>12</DataNumber>
-          </DataItem>
-          <DataItem>
-            <DayText>Sun</DayText>
-            <DataNumber>13</DataNumber>
-          </DataItem>
-        </ListData>
+          {week.map(date => (
+            <DataItem key={date.format('D')}>
+              <DayText>{date.format('ddd')}</DayText>
+              <DataNumber
+                $background={hendelCurrentDay(date.format('d'))}
+                $color={hendelCurrentDayColor(date.format('d'))}
+              >
+                {date.format('D')}
+              </DataNumber>
+            </DataItem>
+          ))}          
+          </ListData>
       </ContainerData>
-      {/* <ContainerData>
-        <ListData>
-          <li>7</li>
-          <li>8</li>
-          <li>9</li>
-          <li>10</li>
-          <li>11</li>
-          <li>12</li>
-          <li>13</li>
-        </ListData>
-      </ContainerData> */}
     </ContainerColendar>
   );
   

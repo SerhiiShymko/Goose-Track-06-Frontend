@@ -35,6 +35,10 @@ export const DayText = styled.span`
   text-transform: uppercase;
 `;
 
-export const DataNumber=styled.span`
-    
-`
+export const DataNumber = styled.span`
+  background: ${props => props.$background};
+  color: ${props => props.$color};
+  padding: 4px 8px;
+  border-radius: 16px;
+  
+`;
