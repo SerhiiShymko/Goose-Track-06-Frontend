@@ -96,8 +96,7 @@ const stylesForNavIcons = {
   width: '20px',
   height: '20px',
   marginRight: '8px',
-  stroke: '#343434',
-  'stroke-opacity': '0.5',
+  stroke: 'currentColor',
 };
 
 export const UserSvg = styled(UserSvgStyled)`
@@ -126,9 +125,5 @@ export const NavLink = styled(NavLinkForStyle)`
   &:focus {
     color: #3e85f3;
     background-color: #e3f3ff;
-
-    & > svg {
-      stroke: currentColor;
-    }
   }
 `;

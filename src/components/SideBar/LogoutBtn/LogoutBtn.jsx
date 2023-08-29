@@ -1,8 +1,13 @@
 import React from 'react';
+import { Button, LogoutSvg } from './LogoutBtn.styled';
 // import PropTypes from 'prop-types'
 
 function LogoutBtn(props) {
-  return <div></div>;
+  return (
+    <Button type="button">
+      Log out <LogoutSvg />
+    </Button>
+  );
 }
 
 // LogoutBtn.propTypes = {
