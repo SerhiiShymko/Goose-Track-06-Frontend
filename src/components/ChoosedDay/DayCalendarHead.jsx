@@ -1,5 +1,12 @@
 import dayjs from 'dayjs';
-import { ContainerColendar, ContainerData, DataItem, DataNumber, DayText, ListData } from './DayCalendarHead.styled';
+import {
+  ContainerColendar,
+  ContainerData,
+  DataItem,
+  DataNumber,
+  DayText,
+  ListData,
+} from './DayCalendarHead.styled';
 // import { color } from 'styled-system';
 // import {AnimatedPopup} from './Popup'
 
@@ -8,10 +15,10 @@ const DayCalendarHead = () => {
   const tagHeute = dayjs();
   const day = tagHeute.format('ddd');
   // console.log(tagHeute);
-  const nextTag = dayjs().add(1, 'day');
+  // const nextTag = dayjs().add(1, 'day');
   // console.log(nextTag.format('d'));
   // dayjs('2019-01-25');
-    // .subtract(1, 'year').year(2009));
+  // .subtract(1, 'year').year(2009));
   console.log(day);
   return (
     <ContainerColendar>
@@ -60,7 +67,6 @@ const DayCalendarHead = () => {
       </ContainerData> */}
     </ContainerColendar>
   );
-  
 };
 
 export default DayCalendarHead;
