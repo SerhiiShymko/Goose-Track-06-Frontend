@@ -43,12 +43,11 @@ export function App() {
           <Route path="login" element={<LoginPage />} />
           <Route path="register" element={<RegisterPage />} />
 
-          <Route path="/account" element={<UserProfile />} />
+          {/* <Route path="/account" element={<UserProfile />} /> */}
 
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>{' '}
-      }
     </Container>
   );
 }

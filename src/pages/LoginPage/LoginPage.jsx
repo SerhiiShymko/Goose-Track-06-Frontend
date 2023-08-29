@@ -6,11 +6,11 @@ import MainLayout from 'components/MainLayout/MainLayout';
 
 const LoginPage = () => {
   return (
-    // <>
-    //   <Header />
-    //   <UserProfile />
-    // </>
-    <MainLayout />
+    <>
+      <MainLayout />
+      {/* <Header /> */}
+      <UserProfile />
+    </>
   );
 };
 
