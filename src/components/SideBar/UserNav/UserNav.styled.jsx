@@ -13,6 +13,10 @@ import goose_tablet2x from 'images/sideBar/goose_tablet@2x.png';
 import goose_desktop from 'images/sideBar/goose_desktop.png';
 import goose_desktop2x from 'images/sideBar/goose_desktop@2x.png';
 
+export const Wrapper = styled.div`
+  margin-bottom: auto;
+`;
+
 export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
@@ -92,6 +96,23 @@ export const NavigationLegend = styled.p`
   margin-bottom: 6px;
 `;
 
+const stylesForNavIcons = {
+  width: '20px',
+  height: '20px',
+  marginRight: '8px',
+  stroke: 'currentColor',
+};
+
+export const UserSvg = styled(UserSvgStyled)`
+  ${stylesForNavIcons}
+`;
+export const CalendarSvg = styled(CalendarSvgStyled)`
+  ${stylesForNavIcons}
+`;
+export const StatisticsSvg = styled(StatisticsSvgStyled)`
+  ${stylesForNavIcons}
+`;
+
 export const NavLink = styled(NavLinkForStyle)`
   display: flex;
   padding: 10px 12px;
@@ -108,27 +129,5 @@ export const NavLink = styled(NavLinkForStyle)`
   &:focus {
     color: #3e85f3;
     background-color: #e3f3ff;
-
-    & > svg {
-      stroke: #3e85f3;
-    }
   }
-`;
-
-const stylesForNavIcons = {
-  width: '20px',
-  height: '20px',
-  marginRight: '8px',
-  stroke: '#343434',
-  'stroke-opacity': '0.5',
-};
-
-export const UserSvg = styled(UserSvgStyled)`
-  ${stylesForNavIcons}
-`;
-export const CalendarSvg = styled(CalendarSvgStyled)`
-  ${stylesForNavIcons}
-`;
-export const StatisticsSvg = styled(StatisticsSvgStyled)`
-  ${stylesForNavIcons}
 `;
