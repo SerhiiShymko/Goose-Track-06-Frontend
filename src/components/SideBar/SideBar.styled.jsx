@@ -14,7 +14,12 @@ export const ContainerSideBar = styled.div`
     padding: 24px 32px;
   }
   @media screen and (max-width: 1439.99px) {
-    /* width: 289px;
-    padding: 24px 32px; */
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+
+    &.isShown {
+      background-color: black;
+    }
   }
 `;

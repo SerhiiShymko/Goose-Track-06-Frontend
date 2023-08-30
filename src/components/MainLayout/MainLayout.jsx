@@ -21,7 +21,7 @@ function MainLayout(props) {
   };
   return (
     <Wrapper>
-      {isShown && <SideBar handleClick={handleClick} />}
+      {isShown && <SideBar isShown={isShown} handleClick={handleClick} />}
       <Header handleClick={handleClick} />
     </Wrapper>
   );
