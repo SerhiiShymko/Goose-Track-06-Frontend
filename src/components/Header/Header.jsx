@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import userAvatar from '../../images/profile/ph_user.png';
 
 import {
+  HeaderWrapper,
   ContentWrapper,
   BurgerIcon,
   FeedbackBtn,
@@ -9,7 +10,6 @@ import {
   UserName,
   UserPhotoHeaderWrapper,
   UserWrapper,
-  HeaderMenu,
   UserPhotoHeader,
 } from './Header.styled';
 import Spinner from 'components/Spinner/Spinner';
@@ -19,44 +19,43 @@ const Header = () => {
   return (
     <header>
       <ContentWrapper>
-        <HeaderMenu>
-          <BurgerIcon
-            version="1.1"
-            xmlns="http://www.w3.org/2000/BurgerIcon"
-            viewBox="0 0 32 32"
-          >
-            <title>icon-menu-burger</title>
-            <path
-              fill="none"
-              stroke="#000"
-              stroke-width="2.6667"
-              stroke-miterlimit="4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 16h24"
-            ></path>
-            <path
-              fill="none"
-              stroke="#000"
-              stroke-width="2.6667"
-              stroke-miterlimit="4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 8h24"
-            ></path>
-            <path
-              fill="none"
-              stroke="#000"
-              stroke-width="2.6667"
-              stroke-miterlimit="4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M4 24h24"
-            ></path>
-          </BurgerIcon>
-          <FeedbackBtn type="button">Feedback</FeedbackBtn>
-        </HeaderMenu>
+        <BurgerIcon
+          version="1.1"
+          xmlns="http://www.w3.org/2000/BurgerIcon"
+          viewBox="0 0 32 32"
+        >
+          <title>icon-menu-burger</title>
+          <path
+            fill="none"
+            stroke="#000"
+            stroke-width="2.6667"
+            stroke-miterlimit="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 16h24"
+          ></path>
+          <path
+            fill="none"
+            stroke="#000"
+            stroke-width="2.6667"
+            stroke-miterlimit="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 8h24"
+          ></path>
+          <path
+            fill="none"
+            stroke="#000"
+            stroke-width="2.6667"
+            stroke-miterlimit="4"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M4 24h24"
+          ></path>
+        </BurgerIcon>
+
         <UserWrapper>
+          <FeedbackBtn type="button">Feedback</FeedbackBtn>
           <ThemeTogglerIcon
             viewBox="0 0 32 32"
             fill="none"
@@ -70,7 +69,7 @@ const Header = () => {
               />
             </g>
           </ThemeTogglerIcon>
-          <UserName>Nadia</UserName>
+          <UserName>Nadiia</UserName>
           <UserPhotoHeaderWrapper>
             <UserPhotoHeader
               src={userAvatar}
