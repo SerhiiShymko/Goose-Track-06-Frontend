@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   BarChart,
+
   Bar,
   Tooltip,
   XAxis,
@@ -15,6 +16,8 @@ import {
   FilterTasksByDay,
 } from './utils/utils';
 import { selectTasks } from 'redux/tasks/selectors';
+import { useDispatch } from 'react-redux';
+
 import {
   CustomizedBar,
   CustomizedMostPopularLabel,
@@ -28,9 +31,15 @@ import dataUserByMonth from './data/dataUser.json';
 const dateByDay = '2023-08-26';
 
 const Statistics = () => {
-  const tasks = dataUserByMonth
-//   const tasks = useSelector(selectTasks);
-  
+  const tasks = dataUserByMonth;
+  //   const tasks = useSelector(selectTasks);
+  const dispatch = useDispatch(selectTasks);
+  const dateNow = Date.now();
+
+  useEffect(() => {
+    dispatch(fetchTasks(dateNow));
+  }, [dispatch, dateNow]);
+
   const tasksByDay = countUserTasks(FilterTasksByDay(tasks, dateByDay));
   const tasksByMonth = countUserTasks(tasks);
   const dataChart = culcStatistikData(tasksByDay, tasksByMonth);

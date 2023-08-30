@@ -21,23 +21,33 @@ import t3Retina from '../../images/mainPage/tablet/tablet_all@2x.png';
 import d3 from '../../images/mainPage/desktop/desktop_all.png';
 import d3Retina from '../../images/mainPage/desktop/desktop_all@2x.png';
 
+import {
+  Info,
+  InfoWrapper,
+  ListItem,
+  StyledLabel,
+  StyledNumber,
+  StyledText,
+  TitleWrapper,
+} from './Description.styled';
+
 const Description = () => {
   return (
     <section>
       <ul>
-        <li>
-          <div>
-            <div>
-              <span>1.</span>
-              <span>Calendar</span>
-              <span>View</span>
-            </div>
-            <p>
+        <ListItem>
+          <InfoWrapper>
+            <TitleWrapper>
+              <StyledNumber>1.</StyledNumber>
+              <StyledLabel>Calendar</StyledLabel>
+              <StyledText>View</StyledText>
+            </TitleWrapper>
+            <Info>
               GooseTrack's Calendar view provides a comprehensive overview of
               your schedule, displaying all your tasks, events, and appointments
               in a visually appealing and intuitive layout.
-            </p>
-          </div>
+            </Info>
+          </InfoWrapper>
           <div>
             <picture>
               <source
@@ -55,20 +65,20 @@ const Description = () => {
               <img src={d1} alt="calendar"></img>
             </picture>
           </div>
-        </li>
-        <li>
-          <div>
-            <div>
-              <span>2.</span>
-              <span>Sidebar</span>
-            </div>
-            <p>
+        </ListItem>
+        <ListItem>
+          <InfoWrapper>
+            <TitleWrapper>
+              <StyledNumber>2.</StyledNumber>
+              <StyledText>Sidebar</StyledText>
+            </TitleWrapper>
+            <Info>
               GooseTrack offers easy access to your account settings, calendar,
               and filters. The "My Account" section allows you to manage your
               profile information and preferences, while the calendar provides a
               quick and convenient way to view your upcoming events and tasks.
-            </p>
-          </div>
+            </Info>
+          </InfoWrapper>
           <div>
             <picture>
               <source
@@ -86,21 +96,21 @@ const Description = () => {
               <img src={d2} alt="sidebar"></img>
             </picture>
           </div>
-        </li>
-        <li>
-          <div>
-            <div>
-              <span>3.</span>
-              <span>All in</span>
-              <span>One</span>
-            </div>
-            <p>
+        </ListItem>
+        <ListItem>
+          <InfoWrapper>
+            <TitleWrapper>
+              <StyledNumber>3.</StyledNumber>
+              <StyledLabel>All in</StyledLabel>
+              <StyledText>One</StyledText>
+            </TitleWrapper>
+            <Info>
               GooseTrack is an all-in-one productivity tool that helps you stay
               on top of your tasks, events, and deadlines. Say goodbye to
               scattered to-do lists and hello to streamlined productivity with
               GooseTrack.
-            </p>
-          </div>
+            </Info>
+          </InfoWrapper>
           <div>
             <picture>
               <source
@@ -118,7 +128,7 @@ const Description = () => {
               <img src={d3} alt="all"></img>
             </picture>
           </div>
-        </li>
+        </ListItem>
       </ul>
     </section>
   );

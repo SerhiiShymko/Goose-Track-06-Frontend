@@ -1,14 +1,8 @@
-import React from 'react';
-
-import Header from 'components/Header/Header';
-import UserProfile from 'components/UserProfile/UserProfile';
-
+import { LoginForm } from 'components/LoginForm/LoginForm';
 const LoginPage = () => {
   return (
-    <>
-      <Header />
-      <UserProfile />
-    </>
+    <LoginForm />
+  
   );
 };
 
