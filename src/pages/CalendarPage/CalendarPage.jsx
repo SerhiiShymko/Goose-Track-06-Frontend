@@ -1,19 +1,18 @@
-import { CalendarToolbar } from "components/CalendarToolBar/CalendarToolBar";
+// import Statistics from "components/Statistics/statistics";
+
+import { CalendarToolBar } from 'components/CalendarToolBar/CalendarToolBar';
+import Spinner from 'components/Spinner/Spinner';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
 
 const CalendarPage = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      <CalendarToolbar/>
-    </div>
+    <>
+      <CalendarToolBar />
+      <Suspense fallback={<Spinner />}>
+        <Outlet />
+      </Suspense>
+    </>
   );
 };
 
