@@ -1,5 +1,7 @@
 import dayjs from 'dayjs';
 import { ContainerColendar, ContainerData, DataItem, DataNumber, DayText, ListData } from './DayCalendarHead.styled';
+// import { color } from 'styled-system';
+// import {AnimatedPopup} from './Popup'
 
 const DayCalendarHead = () => {
 
@@ -11,29 +13,27 @@ const DayCalendarHead = () => {
   // const nextTag = dayjs().add(1, 'day');
   // console.log(nextTag.format('d'));
   // dayjs('2019-01-25');
-    // .subtract(1, 'year').year(2009));
-  
-  const weekday = currentDay.format('d');  
+ 
+  const weekday = currentDay.format('d');
   const difference = Number(weekday) - 1;
   const mon = currentDay.subtract(difference, 'day');
- 
-  let week = [];
- for (let i = 0; i < 7; i += 1) {
-   week.push(mon.add(i,'day'))
 
- }
-  const hendelCurrentDay = (day) => {
+  let week = [];
+  for (let i = 0; i < 7; i += 1) {
+    week.push(mon.add(i, 'day'));
+  }
+  const hendelCurrentDay = day => {
     if (day === weekday) {
-    return '#3E85F3';
+      return '#3E85F3';
     }
     return;
-  }
-  const hendelCurrentDayColor = (day) => {
+  };
+  const hendelCurrentDayColor = day => {
     if (day === weekday) {
       return '#FFF';
     }
     return '#343434';
-  }
+  };
   return (
     <ContainerColendar>
       <ContainerData>
@@ -53,7 +53,6 @@ const DayCalendarHead = () => {
       </ContainerData>
     </ContainerColendar>
   );
-  
 };
 
 export default DayCalendarHead;
