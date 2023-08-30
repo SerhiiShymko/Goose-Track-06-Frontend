@@ -6,7 +6,7 @@ import { ContainerSideBar } from './SideBar.styled';
 
 function SideBar({ isShown, handleClick }) {
   return (
-    <ContainerSideBar className={isShown && 'isShown'}>
+    <ContainerSideBar>
       <UserNav handleClick={handleClick}></UserNav>
       <LogoutBtn></LogoutBtn>
     </ContainerSideBar>

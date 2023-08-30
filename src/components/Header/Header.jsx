@@ -11,49 +11,50 @@ import {
   UserPhotoHeaderWrapper,
   UserWrapper,
   UserPhotoHeader,
-  HeaderWrapper,
 } from './Header.styled';
 import Spinner from 'components/Spinner/Spinner';
 import { Outlet } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ handleClick }) => {
   return (
     <HeaderWrapper>
       <ContentWrapper>
-        <BurgerIcon
-          version="1.1"
-          xmlns="http://www.w3.org/2000/BurgerIcon"
-          viewBox="0 0 32 32"
-        >
-          <title>icon-menu-burger</title>
-          <path
-            fill="none"
-            stroke="#000"
-            stroke-width="2.6667"
-            stroke-miterlimit="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M4 16h24"
-          ></path>
-          <path
-            fill="none"
-            stroke="#000"
-            stroke-width="2.6667"
-            stroke-miterlimit="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M4 8h24"
-          ></path>
-          <path
-            fill="none"
-            stroke="#000"
-            stroke-width="2.6667"
-            stroke-miterlimit="4"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            d="M4 24h24"
-          ></path>
-        </BurgerIcon>
+        <button type="button" onClick={handleClick}>
+          <BurgerIcon
+            version="1.1"
+            xmlns="http://www.w3.org/2000/BurgerIcon"
+            viewBox="0 0 32 32"
+          >
+            <title>icon-menu-burger</title>
+            <path
+              fill="none"
+              stroke="#000"
+              stroke-width="2.6667"
+              stroke-miterlimit="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 16h24"
+            ></path>
+            <path
+              fill="none"
+              stroke="#000"
+              stroke-width="2.6667"
+              stroke-miterlimit="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 8h24"
+            ></path>
+            <path
+              fill="none"
+              stroke="#000"
+              stroke-width="2.6667"
+              stroke-miterlimit="4"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M4 24h24"
+            ></path>
+          </BurgerIcon>
+        </button>
 
         <UserWrapper>
           <FeedbackBtn type="button">Feedback</FeedbackBtn>
