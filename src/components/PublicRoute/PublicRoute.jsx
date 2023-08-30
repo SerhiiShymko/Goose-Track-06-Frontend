@@ -1,14 +1,9 @@
 import { useSelector } from 'react-redux';
-import { Navigate, Outlet, useLocation } from 'react-router-dom';
-import { selectToken } from 'redux/auth/selectors';
+import { Navigate } from 'react-router-dom';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 
-export const PublicRoute = () => {
-  const location = useLocation();
-  const IsLoggedIn = useSelector(selectToken);
+export const PublicRoute = ({ component, redirectTo = '/' }) => {
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
-  return !IsLoggedIn ? (
-    <Outlet />
-  ) : (
-    <Navigate to={location?.state?.from ?? '/calendar'} replace />
-  );
+  return isLoggedIn ? <Navigate to={redirectTo} replace /> : component;
 };
