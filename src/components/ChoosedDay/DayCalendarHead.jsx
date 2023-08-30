@@ -1,10 +1,33 @@
 import dayjs from 'dayjs';
+import { useState, useEffect } from 'react';
 import { ContainerColendar, ContainerData, DataItem, DataNumber, DayText, ListData } from './DayCalendarHead.styled';
 // import { color } from 'styled-system';
 // import {AnimatedPopup} from './Popup'
 
-const DayCalendarHead = () => {
 
+export const useResize = () => {
+  const [width, setWidth] = useState(window.innerWidth);
+  useEffect(() => {
+    const handleResize = (event) => {
+      setWidth(event.target.innerWidth);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => {
+      window.removeEventListener('resize', handleResize);
+    };
+  }, []);
+  return {
+    width,
+    isScreenSm: width <= 375,
+    isScreenMd: width < 767,
+    isScreenLg: width <= 1140,
+  };
+}
+
+
+
+const DayCalendarHead = () => {
+  const screen = useResize();
   // Current Day
   const currentDay = dayjs("2023-08-29");
 
@@ -13,7 +36,7 @@ const DayCalendarHead = () => {
   // const nextTag = dayjs().add(1, 'day');
   // console.log(nextTag.format('d'));
   // dayjs('2019-01-25');
- 
+  
   const weekday = currentDay.format('d');
   const difference = Number(weekday) - 1;
   const mon = currentDay.subtract(difference, 'day');
@@ -40,7 +63,11 @@ const DayCalendarHead = () => {
         <ListData>
           {week.map(date => (
             <DataItem key={date.format('D')}>
-              <DayText>{date.format('ddd')}</DayText>
+              <DayText>
+                {screen.isScreenMd
+                  ? date.format('ddd').slice(0, 1)
+                  : date.format('ddd')}
+              </DayText>
               <DataNumber
                 $background={hendelCurrentDay(date.format('d'))}
                 $color={hendelCurrentDayColor(date.format('d'))}

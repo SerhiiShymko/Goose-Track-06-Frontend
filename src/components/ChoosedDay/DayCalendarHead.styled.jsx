@@ -9,13 +9,14 @@ export const ContainerColendar = styled.div`
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.8);
   background: #fff;
-  @media screen and (min-width: 375px) {
-    width: 335px;
-    padding: 14px 18px;    
-  }
-  @media screen and (min-width: 768px) {
+
+  @media screen and (max-width: 1139px) {
     padding: 10px 32px;
     width: 704px;
+  }
+  @media screen and (max-width: 767px) {
+    width: 335px;
+    padding: 14px 18px;
   }
   @media screen and (min-width: 1140px) {
     padding: 10px 46px;

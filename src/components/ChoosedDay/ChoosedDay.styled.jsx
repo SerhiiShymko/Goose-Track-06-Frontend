@@ -6,6 +6,29 @@ import { ReactComponent as pencil } from '../../images/tascs/pencil-2.svg';
 import { ReactComponent as trash } from '../../images/tascs/trash-2.svg';
 import { ReactComponent as phAvatar } from "../../images/profile/phAvatar.svg"
 
+export const MainContainer = styled.div`
+  @media screen and (min-width: 1140px) {
+    margin: 32px;
+    width: 1087px;
+  }
+  @media screen and (max-width: 1139px) {
+    margin: 24px 32px;
+    width: 704px;
+  }
+  @media screen and (min-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  @media screen and (max-width: 767px) {
+    width: 335px;
+    margin: 24px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+`;
+
 export const TaskName = styled.h2`
   margin: 2px 0;
 
@@ -28,8 +51,7 @@ export const ButtonAddTask = styled.button`
   background: #e3f3ff;
 
   display: flex;
-  width: 304px;
-  height: 52px;
+
   padding: 16px 20px 16px 20px;
   flex-direction: row;
   justify-content: center;
@@ -41,7 +63,14 @@ export const ButtonAddTask = styled.button`
   position: absolute;
   left: 20px;
   bottom: 28px;
-
+  @media screen and (min-width: 768px) {
+    width: 304px;
+    height: 52px;
+  }
+  @media screen and (max-width: 767px) {
+    width: 299px;
+    height: 48px;
+  }
   cursor: pointer;
   &:hover {
     border: 1px solid #3e85f3;
@@ -69,39 +98,50 @@ export const TaskBorder = styled.div`
   background: #fff;
 
   display: flex;
-  width: 344px;
-  max-height: 568px;
+
   min-height: 125px;
   padding: 18px 20px 28px 20px;
   flex-direction: column;
- 
+
   gap: 18px;
   flex-shrink: 0;
   position: relative;
+  @media screen and (min-width: 768px) {
+    width: 344px;
+    max-height: 568px;
+  }
+  @media screen and (max-width: 767px) {
+    width: 335px;
+    max-height:432px;
+  }
 `;
 
 export const TaskContainer = styled.div`
   display: flex;
   align-items: flex-start;
+  @media screen and (min-width: 375px) {
+    gap: 20px;
+  }
+
   @media screen and (min-width: 768px) {
     gap: 16px;
   }
   @media screen and (min-width: 1140px) {
     gap: 27px;
   }
-  @media screen and (max-width:1139px) {
-    width:704px;
+  @media screen and (max-width: 1139px) {
+    width: 704px;
     overflow-y: hidden;
     overflow-x: auto;
     /* white-space: nowrap; */
-    /* margin-right: -13px;*/
+    /* margin-right: -13px; */
 
-     &::-webkit-scrollbar {
-      width: 364px;   
-      height: 14px;      
-    } 
+    &::-webkit-scrollbar {
+      width: 364px;
+      height: 14px;
+    }
 
-     &::-webkit-scrollbar-thumb {
+    &::-webkit-scrollbar-thumb {
       border-radius: 12px;
       background: #e7e5e5;
     }
@@ -112,7 +152,11 @@ export const TaskContainer = styled.div`
     &::-webkit-scrollbar-thumb:hover {
       background: linear-gradient(left, #8391a6, #536175);
     }
-  } 
+  }
+  @media screen and (max-width: 767px) {
+    width: 347px;
+    padding-right: 12px;    
+  }
 `;
 // Task
 export const TaskListContainer = styled.ul`
@@ -142,12 +186,18 @@ export const TaskListContainer = styled.ul`
   &::-webkit-scrollbar-thumb:hover {
     background: linear-gradient(left, #8391a6, #536175);
   }
+
+  @media screen and (max-width: 767px) {
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 334px;
+    }
+    margin-right: -15px;
+  }
 `;
 
 export const TaskItemContainer = styled.li`
   list-style: none;
-  width: 300px;
-  height: 112px;
   flex-shrink: 0;
 
   border-radius: 8px;
@@ -158,6 +208,14 @@ export const TaskItemContainer = styled.li`
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  @media screen and (min-width: 768px) {
+    width: 300px;
+    height: 112px;
+  }
+  @media screen and (max-width:767px){
+    width: 299px;
+    height:108px;
+  }
 `;
 
 export const TaskText = styled.p`
