@@ -21,6 +21,12 @@ export const LogoContainer = styled.div`
   display: flex;
   align-items: center;
   margin-bottom: 64px;
+  @media screen and (min-width: 768px) {
+    margin-bottom: 50px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-bottom: 32px;
+  }
 `;
 
 export const LogoWrapper = styled.div`
@@ -66,6 +72,15 @@ export const LogoText = styled.p`
   font-size: 16px;
   font-weight: 700;
   line-height: 1.375;
+  @media screen and (min-width: 768px) {
+    line-height: 1.5;
+    margin-right: 31px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 24px;
+    line-height: 1;
+    margin-right: 0px;
+  }
 `;
 
 export const LogoInnerText = styled.span`
@@ -75,10 +90,17 @@ export const LogoInnerText = styled.span`
 export const CloseSvg = styled(CloseSvgStyled)`
   width: 24px;
   height: 24px;
+  @media screen and (min-width: 768px) {
+    width: 34px;
+    height: 34px;
+  }
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
 `;
 
 export const ButtonClose = styled.button`
-  background-color: #ffffff;
+  background-color: inherit;
 `;
 
 export const NavigationBlock = styled.nav`
@@ -87,6 +109,10 @@ export const NavigationBlock = styled.nav`
   gap: 18px;
 
   color: rgba(52, 52, 52, 0.5);
+
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+  }
 `;
 
 export const NavigationLegend = styled.p`
@@ -94,6 +120,15 @@ export const NavigationLegend = styled.p`
   font-weight: 600;
   line-height: normal;
   margin-bottom: 6px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+  @media screen and (min-width: 1440px) {
+    font-size: 14px;
+    margin-bottom: 32px;
+  }
 `;
 
 const stylesForNavIcons = {
@@ -105,12 +140,27 @@ const stylesForNavIcons = {
 
 export const UserSvg = styled(UserSvgStyled)`
   ${stylesForNavIcons}
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
 `;
 export const CalendarSvg = styled(CalendarSvgStyled)`
   ${stylesForNavIcons}
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
 `;
 export const StatisticsSvg = styled(StatisticsSvgStyled)`
   ${stylesForNavIcons}
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+  }
 `;
 
 export const NavLink = styled(NavLinkForStyle)`
@@ -123,6 +173,11 @@ export const NavLink = styled(NavLinkForStyle)`
   font-style: normal;
   font-weight: 600;
   line-height: normal;
+
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    padding: 16px 20px;
+  }
 
   &.active,
   &:hover,

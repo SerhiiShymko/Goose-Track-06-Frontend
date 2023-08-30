@@ -11,13 +11,14 @@ import {
   UserWrapper,
   HeaderMenu,
   UserPhotoHeader,
+  HeaderWrapper,
 } from './Header.styled';
 import Spinner from 'components/Spinner/Spinner';
 import { Outlet } from 'react-router-dom';
 
 const Header = () => {
   return (
-    <header>
+    <HeaderWrapper>
       <ContentWrapper>
         <HeaderMenu>
           <BurgerIcon
@@ -84,7 +85,7 @@ const Header = () => {
       <Suspense fallback={Spinner}>
         <Outlet />
       </Suspense>
-    </header>
+    </HeaderWrapper>
   );
 };
 export default Header;
