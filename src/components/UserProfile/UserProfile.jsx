@@ -1,10 +1,9 @@
-import userAvatar from '../../images/profile/ph_user.png';
+// import userAvatar from '../../images/profile/ph_user.png';
 import {
   MainWrapper,
   PlusIcon,
   UserPhotoWrapper,
   UserPhoto,
-  UserPhotoMainWrapper,
   UserInfoWrapper,
   UserNameMain,
   DetailsUserWrapper,
@@ -21,9 +20,7 @@ const UserProfile = () => {
   return (
     <MainWrapper>
       <UserPhotoWrapper>
-        <UserPhotoMainWrapper>
-          <UserPhoto src={userAvatar} alt="userAvatar" />
-        </UserPhotoMainWrapper>
+        <UserPhoto />
         <PlusIcon
           viewBox="0 0 24 24"
           fill="none"
@@ -79,7 +76,7 @@ const UserProfile = () => {
           <Label>
             Phone
             <InputWrapper>
-              <Input type="number" placeholder="Your phone number" />
+              <Input type="text" placeholder="Your phone number" />
             </InputWrapper>
           </Label>
         </DetailsUserMarginWrapper>
