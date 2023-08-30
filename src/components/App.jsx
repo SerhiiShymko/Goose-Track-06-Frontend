@@ -8,6 +8,7 @@ import '../../src/styles/Global';
 import { Container } from 'styles/Container';
 import Spinner from './Spinner/Spinner';
 import { Route, Routes } from 'react-router-dom';
+import Statistics from './Statistics/statistics';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 // const AccountPage = lazy(() => import('pages/AccountPage/AccountPage'));
@@ -31,7 +32,6 @@ export function App() {
     <Container>
       {/* <Header /> */}
       {/* <UserProfile /> */}
-
       <Suspense fallback={<Spinner />}>
         <Routes>
           <Route path="/" element={<MainPage />} />
@@ -41,6 +41,7 @@ export function App() {
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </Suspense>
+<Statistics />
     </Container>
   );
 }

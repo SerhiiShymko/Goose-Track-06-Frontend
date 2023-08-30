@@ -1,10 +1,11 @@
-import { React, useEffect } from 'react';
-import { WrapperChart } from './statistics.styled';
+import React from 'react';
 import {
   BarChart,
   Bar,
+  Tooltip,
   XAxis,
   YAxis,
+  Legend,
   CartesianGrid,
   ResponsiveContainer,
 } from 'recharts';
@@ -14,50 +15,45 @@ import {
   FilterTasksByDay,
 } from './utils/utils';
 import { selectTasks } from 'redux/tasks/selectors';
-import { useDispatch, useSelector } from 'react-redux';
 import {
   CustomizedBar,
+  CustomizedMostPopularLabel,
   GradientBar,
 } from './CustomizedChartComponents/components';
-import { fetchTasks } from 'redux/tasks/operations';
 
-// import {dataChart} from './data/dataChart'
+import { WrapperChart } from './statistics.styled';
 import dataUserByMonth from './data/dataUser.json';
+// import {dataChart} from './data/dataChart'
 
 const dateByDay = '2023-08-26';
-
 
 const Statistics = () => {
   const tasks = dataUserByMonth
 //   const tasks = useSelector(selectTasks);
-  const dispatch = useDispatch(selectTasks);
-  const dateNow = Date.now();
-
-  useEffect(() => {
-    dispatch(fetchTasks(dateNow));
-  }, [dispatch, dateNow]);
-
+  
   const tasksByDay = countUserTasks(FilterTasksByDay(tasks, dateByDay));
   const tasksByMonth = countUserTasks(tasks);
   const dataChart = culcStatistikData(tasksByDay, tasksByMonth);
 
   return (
     <WrapperChart>
-      <ResponsiveContainer width="100%" height="90%">
+      <ResponsiveContainer width="100%" height="97%">
         <BarChart
-          margin={{ top: 40, right: 40, left: 20, bottom: 20 }}
-          label="heaf"
+          margin={{ top: 70, right: 40, left: 20, bottom: 0 }}
           data={dataChart}
           barGap={14}
           barSize={27}
           barBorderRadius={5}
         >
           <CartesianGrid vertical={false} />
-          {/* <Legend verticalAlign="top" align="right" iconType="circle" /> */}
-          {/* <Label
-            value='Tasks'
-            position=''
-          /> */}
+
+          <Legend
+            formatter={value => value.charAt(0).toUpperCase() + value.slice(1)}
+            align="right"
+            wrapperStyle={{ top: '-100px' }}
+            iconType="circle"
+            height={36}
+          />
           <XAxis
             dataKey="name"
             tick={{ fontSize: 14, color: '#343434', fontWeight: 400 }}
@@ -67,12 +63,6 @@ const Statistics = () => {
           />
           <YAxis
             tickLine={false}
-            label={{
-              offset: 20,
-              value: 'Tasks',
-              fontSize: 14,
-              position: 'top',
-            }}
             type="number"
             domain={[0, 100]}
             tickCount={7}
@@ -80,14 +70,32 @@ const Statistics = () => {
             axisLine={false}
             tickMargin={25}
           />
-          {/* {CustomizedMostPopularLabel({ x: 50, y: 10, value: 'Test' })} */}
+          <Tooltip />
+          {CustomizedMostPopularLabel({
+            x: 27,
+            y: 35,
+            value: 'Tasks',
+            offset: 50,
+          })}
           {GradientBar({ color: '#FFD2DD', id: 'linearDay' })}
           {GradientBar({ color: '#3E85F3', id: 'linearMonth' })}
-          {CustomizedBar({
+          <Bar
+            dataKey="day"
+            fill="url(#linearDay)"
+            radius={8}
+            label={{
+              formatter: label => label + '%',
+              fill: '#343434',
+              fontSize: 16,
+              position: 'top',
+              weight: 500,
+            }}
+          />
+          {/* {CustomizedBar({
             dataKey: 'day',
             dataChart,
             colorGradient: 'url(#linearDay)',
-          })}
+          })} */}
           {CustomizedBar({
             dataKey: 'month',
             dataChart,

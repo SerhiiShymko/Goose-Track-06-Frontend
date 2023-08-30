@@ -11,7 +11,7 @@ const StatisticsPage = () => {
       }}
     >
       StatisticsPage
-    </div>
+         </div>
   );
 };
 
