@@ -11,6 +11,13 @@ import { Container } from 'styles/Container';
 import { GlobalStyle } from '../../src/styles/Global';
 import MainLayout from './MainLayout/MainLayout';
 import Spinner from './Spinner/Spinner';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { selectIsRefreshing } from 'redux/auth/selectors';
+import { useEffect } from 'react';
+import { refreshUser } from 'redux/auth/operations';
+import { PublicRoute } from './PublicRoute/PublicRoute';
+import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const AccountPage = lazy(() => import('pages/AccountPage/AccountPage'));
@@ -25,31 +32,50 @@ const StatisticsPage = lazy(() =>
 );
 
 export function App() {
-  // const dispatch = useDispatch();
-  // const token = useSelector(selectToken);
+  const isRefreshing = useSelector(selectIsRefreshing);
+  const dispatch = useDispatch();
 
-  // useEffect(() => {
-  //   dispatch(refresh());
-  // }, [dispatch, token]);
+  useEffect(() => {
+    dispatch(refreshUser());
+  }, [dispatch]);
 
-  return (
+  return isRefreshing ? (
+    <Spinner />
+  ) : (
     <Container>
       <Suspense fallback={<Spinner />}>
         <Routes>
-          {/* <Route element={<PublicRoute />}> */}
+          {/* <Route path="/" element={<PublicRoute />}> */}
           <Route path="/" element={<MainPage />} />
-          <Route path="login" element={<LoginPage />} />
-          <Route path="register" element={<RegisterPage />} />
-          {/* </Route> */}
+          <Route
+            path="register"
+            element={
+              <PublicRoute
+                redirectTo="/calendar"
+                component={<RegisterPage />}
+              />
+            }
+          />
+          <Route
+            path="login"
+            element={
+              <PublicRoute redirectTo="/calendar" component={<LoginPage />} />
+            }
+          />
           {/* <Route path="/" element={<PrivateRoute />}> */}
-          <Route path="/" element={<MainLayout />}>
+          <Route
+            path="/"
+            element={
+              <PrivateRoute redirectTo="/login" component={<MainLayout />} />
+            }
+          >
             <Route path="account" element={<AccountPage />} />
             <Route path="calendar" element={<CalendarPage />}>
               <Route path="month/:currentDate" element={<ChoosedMonth />} />
               <Route path="day/:currentDay" element={<ChoosedDay />} />
               {/* </Route> */}
-              <Route path="statistics" element={<StatisticsPage />} />
             </Route>
+            <Route path="statistics" element={<StatisticsPage />} />
           </Route>
 
           <Route path="*" element={<NotFoundPage />} />

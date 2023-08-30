@@ -61,7 +61,7 @@ export const LogoWrapper = styled.div`
 export const LogoText = styled.p`
   margin-right: 25px;
   color: #3e85f3;
-  text-shadow: 0px 9.399999618530273px 57.6875px rgba(0, 0, 0, 0.04),
+  text-shadow: 0px 9.4px 57.6875px rgba(0, 0, 0, 0.04),
     0px 47px 355px rgba(0, 0, 0, 0.07);
   font-size: 16px;
   font-weight: 700;

@@ -1,3 +1,4 @@
+import { Suspense } from 'react';
 import userAvatar from '../../images/profile/ph_user.png';
 
 import {
@@ -11,6 +12,8 @@ import {
   HeaderMenu,
   UserPhotoHeader,
 } from './Header.styled';
+import Spinner from 'components/Spinner/Spinner';
+import { Outlet } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -78,6 +81,9 @@ const Header = () => {
           </UserPhotoHeaderWrapper>
         </UserWrapper>
       </ContentWrapper>
+      <Suspense fallback={Spinner}>
+        <Outlet />
+      </Suspense>
     </header>
   );
 };

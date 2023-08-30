@@ -15,8 +15,11 @@ import {
   SuccesIcon,
   Box,
 } from './RegisterForm.styled';
+import { register } from 'redux/auth/operations';
+import { useDispatch } from 'react-redux';
 //
 export const RegisterForm = () => {
+  const dispatch = useDispatch();
   return (
     <Box>
       <Formik
@@ -27,7 +30,8 @@ export const RegisterForm = () => {
         }}
         validationSchema={validateSchema}
         onSubmit={(values, { resetForm }) => {
-          console.log(values);
+          //console.log(values);
+          dispatch(register(values));
           resetForm();
         }}
       >
