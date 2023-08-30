@@ -1,3 +1,4 @@
+import { Swiper, SwiperSlide } from 'swiper/react';
 import { TaskContainer } from './ChoosedDay.styled';
 
 import { useState } from 'react';

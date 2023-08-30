@@ -2,6 +2,8 @@ import dayjs from 'dayjs';
 import { ContainerColendar, ContainerData, DataItem, DataNumber, DayText, ListData } from './DayCalendarHead.styled';
 
 const DayCalendarHead = () => {
+
+  // Current Day
   const currentDay = dayjs("2023-08-29");
 
   // const day = tagHeute.format('ddd');
@@ -30,7 +32,7 @@ const DayCalendarHead = () => {
     if (day === weekday) {
       return '#FFF';
     }
-    return;
+    return '#343434';
   }
   return (
     <ContainerColendar>
@@ -46,8 +48,8 @@ const DayCalendarHead = () => {
                 {date.format('D')}
               </DataNumber>
             </DataItem>
-          ))}          
-          </ListData>
+          ))}
+        </ListData>
       </ContainerData>
     </ContainerColendar>
   );

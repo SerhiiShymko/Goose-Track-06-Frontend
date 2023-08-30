@@ -4,7 +4,7 @@ import { ReactComponent as addTask } from '../../images/tascs/addTask.svg';
 import { ReactComponent as plusCircle } from '../../images/tascs/plus.svg';
 import { ReactComponent as pencil } from '../../images/tascs/pencil-2.svg';
 import { ReactComponent as trash } from '../../images/tascs/trash-2.svg';
-import {ReactComponent as phAvatar} from "../../images/profile/phAvatar.svg"
+import { ReactComponent as phAvatar } from "../../images/profile/phAvatar.svg"
 
 export const TaskName = styled.h2`
   margin: 2px 0;
@@ -12,8 +12,7 @@ export const TaskName = styled.h2`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  /* margin-bottom: 107px; */
-`;
+  `;
 
 export const TextInTitle = styled.span`
   color: #111;
@@ -83,8 +82,37 @@ export const TaskBorder = styled.div`
 
 export const TaskContainer = styled.div`
   display: flex;
-  gap: 27px;
   align-items: flex-start;
+  @media screen and (min-width: 768px) {
+    gap: 16px;
+  }
+  @media screen and (min-width: 1140px) {
+    gap: 27px;
+  }
+  @media screen and (max-width:1139px) {
+    width:704px;
+    overflow-y: hidden;
+    overflow-x: auto;
+    /* white-space: nowrap; */
+    /* margin-right: -13px;*/
+
+     &::-webkit-scrollbar {
+      width: 364px;   
+      height: 14px;      
+    } 
+
+     &::-webkit-scrollbar-thumb {
+      border-radius: 12px;
+      background: #e7e5e5;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 12px;
+      background: #f2f2f2;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: linear-gradient(left, #8391a6, #536175);
+    }
+  } 
 `;
 // Task
 export const TaskListContainer = styled.ul`
