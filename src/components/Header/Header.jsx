@@ -2,7 +2,7 @@ import { Suspense } from 'react';
 import userAvatar from '../../images/profile/ph_user.png';
 
 import {
-  HeaderWrapper,
+  // HeaderWrapper,
   ContentWrapper,
   BurgerIcon,
   FeedbackBtn,
