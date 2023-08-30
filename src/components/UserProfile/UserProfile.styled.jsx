@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-
+import { ReactComponent as UserPhotoHeaderSvgStyled } from '../../images/profile/phAvatar.svg';
 export const MainWrapper = styled.div`
   margin-top: 64px;
 
@@ -31,9 +31,13 @@ export const UserPhotoMainWrapper = styled.div`
   }
 `;
 
-export const UserPhoto = styled.img`
+export const UserPhoto = styled(UserPhotoHeaderSvgStyled)`
   width: 72px;
   height: 72px;
+  border-radius: 72px;
+  padding: 5px;
+  border: 2px solid #3e85f3;
+  background: lightgray 50% / cover no-repeat;
 
   @media screen and (min-width: 768px) {
     width: 124px;
