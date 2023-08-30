@@ -45,7 +45,6 @@ export function App() {
     <Container>
       <Suspense fallback={<Spinner />}>
         <Routes>
-          {/* <Route path="/" element={<PublicRoute />}> */}
           <Route path="/" element={<MainPage />} />
           <Route
             path="register"
@@ -62,20 +61,43 @@ export function App() {
               <PublicRoute redirectTo="/calendar" component={<LoginPage />} />
             }
           />
-          {/* <Route path="/" element={<PrivateRoute />}> */}
           <Route
             path="/"
             element={
               <PrivateRoute redirectTo="/login" component={<MainLayout />} />
             }
           >
-            <Route path="account" element={<AccountPage />} />
-            <Route path="calendar" element={<CalendarPage />}>
-              <Route path="month/:currentDate" element={<ChoosedMonth />} />
-              <Route path="day/:currentDay" element={<ChoosedDay />} />
-              {/* </Route> */}
+            <Route
+              path="account"
+              element={
+                <PrivateRoute redirectTo="/" component={<AccountPage />} />
+              }
+            />
+            <Route
+              path="calendar/*"
+              element={
+                <PrivateRoute redirectTo="/" component={<CalendarPage />} />
+              }
+            >
+              <Route
+                path="month/:currentDate"
+                element={
+                  <PrivateRoute redirectTo="/" component={<ChoosedMonth />} />
+                }
+              />
+              <Route
+                path="day/:currentDay"
+                element={
+                  <PrivateRoute redirectTo="/" component={<ChoosedDay />} />
+                }
+              />
             </Route>
-            <Route path="statistics" element={<StatisticsPage />} />
+            <Route
+              path="statistics"
+              element={
+                <PrivateRoute redirectTo="/" component={<StatisticsPage />} />
+              }
+            />
           </Route>
 
           <Route path="*" element={<NotFoundPage />} />
