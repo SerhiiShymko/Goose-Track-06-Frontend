@@ -10,7 +10,7 @@ export const AuthNavigate = ({ link, text }) => {
   );
 };
 
-AuthNavigate.PropTypes = {
+AuthNavigate.propTypes = {
   link: PropTypes.string.isRequired,
   test: PropTypes.string.isRequired,
 };
