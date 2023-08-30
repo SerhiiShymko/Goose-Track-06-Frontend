@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const HeaderWrapper = styled.header`
   max-width: 100vw;
-
   padding: 24px 20px;
 
   @media screen and (min-width: 375px) {
@@ -23,11 +22,6 @@ export const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
-
-export const HeaderMenu = styled.div`
-  display: flex;
-  align-items: center;
 `;
 
 export const BurgerIcon = styled.svg`
@@ -54,11 +48,15 @@ export const FeedbackBtn = styled.button`
   line-height: 1.3;
   font-weight: 600;
 
+  margin-right: 17px;
+
   @media screen and (min-width: 768px) {
     padding: 12px 32px;
     line-height: 1.28;
 
     border-radius: 14px;
+
+    margin-right: 24px;
   }
 `;
 
@@ -83,10 +81,11 @@ export const UserWrapper = styled.div`
 export const UserName = styled.p`
   margin-right: 8px;
   font-weight: 700;
-
-  line-height: 1;
+  color: rgba(52, 52, 52, 1);
+  line-height: 1.28;
 
   @media screen and (min-width: 768px) {
+    line-height: 1;
     margin-right: 14px;
   }
 `;
