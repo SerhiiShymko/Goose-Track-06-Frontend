@@ -1,27 +1,17 @@
-import { Suspense, lazy } from 'react';
-// import { refresh } from 'redux/auth/operations';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { selectToken } from 'redux/auth/selectors';
+import { Suspense, lazy, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
-// import { PrivateRoute } from './PrivateRoute/PrivateRoute';
-// import { PublicRoute } from './PublicRoute/PublicRoute';
+import { PrivateRoute } from './PrivateRoute/PrivateRoute';
+import { PublicRoute } from './PublicRoute/PublicRoute';
 
 import { Container } from 'styles/Container';
 import { GlobalStyle } from '../../src/styles/Global';
 import MainLayout from './MainLayout/MainLayout';
 import Spinner from './Spinner/Spinner';
 
-import Statistics from './Statistics/statistics';
-
-import { useDispatch } from 'react-redux';
-import { useSelector } from 'react-redux';
 import { selectIsRefreshing } from 'redux/auth/selectors';
-import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
-import { PublicRoute } from './PublicRoute/PublicRoute';
-import { PrivateRoute } from './PrivateRoute/PrivateRoute';
-
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const AccountPage = lazy(() => import('pages/AccountPage/AccountPage'));
