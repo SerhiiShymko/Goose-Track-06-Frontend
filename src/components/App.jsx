@@ -18,6 +18,7 @@ import { useEffect } from 'react';
 import { refreshUser } from 'redux/auth/operations';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
+import { CalendarToolBar } from './CalendarToolBar/CalendarToolBar';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const AccountPage = lazy(() => import('pages/AccountPage/AccountPage'));
@@ -46,7 +47,7 @@ export function App() {
       <Suspense fallback={<Spinner />}>
         <Routes>
           {/* <Route path="/" element={<PublicRoute />}> */}
-          <Route path="/" element={<MainPage />} />
+          {/* <Route path="/" element={<MainPage />} />
           <Route
             path="register"
             element={
@@ -55,30 +56,30 @@ export function App() {
                 component={<RegisterPage />}
               />
             }
-          />
-          <Route
+          /> */}
+          {/* <Route
             path="login"
             element={
               <PublicRoute redirectTo="/calendar" component={<LoginPage />} />
-            }
+            } }
           />
           {/* <Route path="/" element={<PrivateRoute />}> */}
-          <Route
+          {/* <Route
             path="/"
             element={
               <PrivateRoute redirectTo="/login" component={<MainLayout />} />
             }
-          >
-            <Route path="account" element={<AccountPage />} />
+          > */}
+            {/* <Route path="account" element={<AccountPage />} />
             <Route path="calendar" element={<CalendarPage />}>
               <Route path="month/:currentDate" element={<ChoosedMonth />} />
-              <Route path="day/:currentDay" element={<ChoosedDay />} />
+              <Route path="day/:currentDay" element={<ChoosedDay />} /> */}
               {/* </Route> */}
-            </Route>
+            {/* </Route>
             <Route path="statistics" element={<StatisticsPage />} />
-          </Route>
+          </Route> */}
 
-          <Route path="*" element={<NotFoundPage />} />
+          <Route path="*" element={<CalendarPage />} />
         </Routes>
       </Suspense>
       <GlobalStyle />
