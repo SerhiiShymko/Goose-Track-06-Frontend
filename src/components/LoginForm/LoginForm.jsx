@@ -1,7 +1,9 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { validateSchema } from './authSchema';
-import { AuthForm, Box, NavLinkStyled } from './LoginForm.styled';
+import { AuthForm, Box, NavLinkStyled, AuthImage } from './LoginForm.styled';
+import ImgS from '../../images/loginPage/desktop_login.png';
+import ImgL from '../../images/loginPage/desktop_login@2x.png';
 import {
   AuthInput,
   AuthLabel,
@@ -137,6 +139,11 @@ export const LoginForm = () => {
         )}
       </Formik>
       <NavLinkStyled to="/register">Sign Up</NavLinkStyled>
+      <AuthImage
+        srcSet={`${ImgS} 1x,${ImgL} 2x`}
+        src={ImgS}
+        alt="Опис зображення й"
+      />
     </Box>
   );
 };
