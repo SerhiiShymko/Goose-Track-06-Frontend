@@ -91,16 +91,18 @@ const Statistics = () => {
               weight: 500,
             }}
           />
-          {/* {CustomizedBar({
-            dataKey: 'day',
-            dataChart,
-            colorGradient: 'url(#linearDay)',
-          })} */}
-          {CustomizedBar({
-            dataKey: 'month',
-            dataChart,
-            colorGradient: 'url(#linearMonth)',
-          })}
+          <Bar
+            dataKey='month'
+            fill='url(#linearMonth)'
+            radius={8}
+            label={{
+              formatter: label => label + '%',
+              fill: '#343434',
+              fontSize: 16,
+              position: 'top',
+              weight: 500,
+            }}
+         />
         </BarChart>
       </ResponsiveContainer>
     </WrapperChart>
