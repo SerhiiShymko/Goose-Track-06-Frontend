@@ -6,7 +6,7 @@ import { ContainerSideBar } from './SideBar.styled';
 
 function SideBar({ isShown, handleClick }) {
   return (
-    <ContainerSideBar>
+    <ContainerSideBar className={'anime ' + (isShown ? 'show' : 'hide')}>
       <UserNav handleClick={handleClick}></UserNav>
       <LogoutBtn></LogoutBtn>
     </ContainerSideBar>

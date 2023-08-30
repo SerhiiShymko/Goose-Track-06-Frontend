@@ -1,13 +1,11 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-
-  padding: 24px 20px ;
-  width: 100%;
+  /* padding: 24px 20px ;
+  width: 100%; */
 
   // padding: 24px 20px 24px 20px;
   // width: 100%;
-
 
   // margin: 0 auto;
 
