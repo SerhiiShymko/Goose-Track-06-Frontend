@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-export const ContainerSideBar = styled.div.attrs()`
+export const ContainerSideBar = styled.div`
   display: flex;
   flex-direction: column;
   height: 100vh;
@@ -17,18 +17,10 @@ export const ContainerSideBar = styled.div.attrs()`
   @media screen and (max-width: 1439px) {
     position: absolute;
     z-index: 10;
-    &.anime {
-      transition: transform 250ms linear, opacity 250ms linear,
-        background-color 250ms linear;
-    }
-    &.show {
-      transform: translateX(0%);
-      opacity: 1;
-    }
+    transform: ${props =>
+      props.open ? 'translateX(0%)' : 'translateX(-100%)'};
+    opacity: ${props => (props.open ? '1' : '0')};
 
-    &.hide {
-      transform: translateX(-100%);
-      opacity: 0;
-    }
+    transition: transform 2500ms linear, opacity 2500ms linear;
   }
 `;
