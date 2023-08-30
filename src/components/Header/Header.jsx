@@ -2,6 +2,7 @@ import { Suspense } from 'react';
 import userAvatar from '../../images/profile/ph_user.png';
 
 import {
+  HeaderWrapper,
   ContentWrapper,
   BurgerIcon,
   FeedbackBtn,
@@ -9,17 +10,16 @@ import {
   UserName,
   UserPhotoHeaderWrapper,
   UserWrapper,
-  HeaderMenu,
   UserPhotoHeader,
 } from './Header.styled';
 import Spinner from 'components/Spinner/Spinner';
 import { Outlet } from 'react-router-dom';
 
-const Header = () => {
+const Header = ({ handleClick }) => {
   return (
-    <header>
+    <HeaderWrapper>
       <ContentWrapper>
-        <HeaderMenu>
+        <button type="button" onClick={handleClick}>
           <BurgerIcon
             version="1.1"
             xmlns="http://www.w3.org/2000/BurgerIcon"
@@ -54,9 +54,10 @@ const Header = () => {
               d="M4 24h24"
             ></path>
           </BurgerIcon>
-          <FeedbackBtn type="button">Feedback</FeedbackBtn>
-        </HeaderMenu>
+        </button>
+
         <UserWrapper>
+          <FeedbackBtn type="button">Feedback</FeedbackBtn>
           <ThemeTogglerIcon
             viewBox="0 0 32 32"
             fill="none"
@@ -70,7 +71,7 @@ const Header = () => {
               />
             </g>
           </ThemeTogglerIcon>
-          <UserName>Nadia</UserName>
+          <UserName>Nadiia</UserName>
           <UserPhotoHeaderWrapper>
             <UserPhotoHeader
               src={userAvatar}
@@ -84,7 +85,7 @@ const Header = () => {
       <Suspense fallback={Spinner}>
         <Outlet />
       </Suspense>
-    </header>
+    </HeaderWrapper>
   );
 };
 export default Header;

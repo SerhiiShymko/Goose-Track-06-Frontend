@@ -1,5 +1,3 @@
-// import Statistics from "components/Statistics/statistics";
-
 import { CalendarToolBar } from 'components/CalendarToolBar/CalendarToolBar';
 import { ChoosedMonth } from 'components/ChoosedMonth/ChoosedMonth';
 // import ChoosedDay from 'components/ChoosedDay/ChoosedDay';
