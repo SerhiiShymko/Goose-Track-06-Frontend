@@ -1,7 +1,6 @@
 import React from 'react';
 import {
   BarChart,
-
   Bar,
   Tooltip,
   XAxis,
@@ -19,13 +18,15 @@ import { selectTasks } from 'redux/tasks/selectors';
 import { useDispatch } from 'react-redux';
 
 import {
-  CustomizedBar,
+  // CustomizedBar,
   CustomizedMostPopularLabel,
   GradientBar,
 } from './CustomizedChartComponents/components';
 
 import { WrapperChart } from './statistics.styled';
 import dataUserByMonth from './data/dataUser.json';
+import { useEffect } from 'react';
+import { fetchTasks } from 'redux/tasks/operations';
 // import {dataChart} from './data/dataChart'
 
 const dateByDay = '2023-08-26';
@@ -101,8 +102,8 @@ const Statistics = () => {
             }}
           />
           <Bar
-            dataKey='month'
-            fill='url(#linearMonth)'
+            dataKey="month"
+            fill="url(#linearMonth)"
             radius={8}
             label={{
               formatter: label => label + '%',
@@ -111,7 +112,7 @@ const Statistics = () => {
               position: 'top',
               weight: 500,
             }}
-         />
+          />
         </BarChart>
       </ResponsiveContainer>
     </WrapperChart>
