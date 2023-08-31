@@ -1,9 +1,9 @@
-import userAvatar from '../../images/profile/ph_user.png';
+// import userAvatar from '../../images/profile/ph_user.png';
 import {
   MainWrapper,
   PlusIcon,
+  UserPhotoWrapper,
   UserPhoto,
-  UserPhotoMainWrapper,
   UserInfoWrapper,
   UserNameMain,
   DetailsUserWrapper,
@@ -13,18 +13,15 @@ import {
   DetailsUserMarginWrapper,
   BtnSaveChangesWrapper,
   BtnSaveChanges,
+  UserSurnameMain,
 } from './UserProfile.styled';
 
 const UserProfile = () => {
   return (
     <MainWrapper>
-      <UserPhoto>
-        <UserPhotoMainWrapper>
-          <img src={userAvatar} alt="userAvatar" width="72" height="72" />
-        </UserPhotoMainWrapper>
+      <UserPhotoWrapper>
+        <UserPhoto />
         <PlusIcon
-          width="14"
-          height="14"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg"
@@ -45,10 +42,10 @@ const UserProfile = () => {
             stroke-linejoin="round"
           />
         </PlusIcon>
-      </UserPhoto>
+      </UserPhotoWrapper>
       <UserInfoWrapper>
         <UserNameMain>Nadia Doe</UserNameMain>
-        <UserNameMain>User</UserNameMain>
+        <UserSurnameMain>User</UserSurnameMain>
       </UserInfoWrapper>
       <DetailsUserWrapper>
         <DetailsUserMarginWrapper>
@@ -79,7 +76,7 @@ const UserProfile = () => {
           <Label>
             Phone
             <InputWrapper>
-              <Input type="number" placeholder="Your phone number" />
+              <Input type="text" placeholder="Your phone number" />
             </InputWrapper>
           </Label>
         </DetailsUserMarginWrapper>

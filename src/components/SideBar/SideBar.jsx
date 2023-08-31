@@ -1,21 +1,16 @@
 import React from 'react';
+// import PropTypes from 'prop-types'
+
 import UserNav from './UserNav/UserNav';
 import LogoutBtn from './LogoutBtn/LogoutBtn';
 import { ContainerSideBar } from './SideBar.styled';
-import { useState } from 'react';
-// import PropTypes from 'prop-types'
 
-function SideBar() {
-  const [isShown, setIsShown] = useState(true);
-
-  const handleClick = () => setIsShown(prevState => !prevState);
+function SideBar({ isShown, handleClick }) {
   return (
-    isShown && (
-      <ContainerSideBar>
-        <UserNav handleClick={handleClick}></UserNav>
-        <LogoutBtn></LogoutBtn>
-      </ContainerSideBar>
-    )
+    <ContainerSideBar className={isShown ? 'shown' : 'hidden'}>
+      <UserNav handleClick={handleClick}></UserNav>
+      <LogoutBtn></LogoutBtn>
+    </ContainerSideBar>
   );
 }
 

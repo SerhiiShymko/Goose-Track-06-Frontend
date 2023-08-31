@@ -1,5 +1,3 @@
-// import Statistics from "components/Statistics/statistics";
-
 import { CalendarToolBar } from 'components/CalendarToolBar/CalendarToolBar';
 import Spinner from 'components/Spinner/Spinner';
 import { Suspense } from 'react';

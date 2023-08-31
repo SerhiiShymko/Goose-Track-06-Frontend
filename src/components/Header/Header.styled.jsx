@@ -1,17 +1,33 @@
 import styled from 'styled-components';
 
-export const  ContentWrapper = styled.div`
+import { ReactComponent as BurgerSvgStyled } from '../../images/sideBar/icon-menu-burger.svg';
+import { ReactComponent as ThemeTogglerSvgStyled } from '../../images/theme/moon.svg';
+import { ReactComponent as UserPhotoHeaderSvgStyled } from '../../images/profile/phAvatar.svg';
+export const HeaderWrapper = styled.header`
+  max-width: 100vw;
+  padding: 24px 20px;
+
+  @media screen and (min-width: 375px) {
+    width: 375px;
+  }
+
+  @media screen and (min-width: 768px) {
+    width: 768px;
+    padding: 24px 32px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 1440px;
+  }
+`;
+
+export const ContentWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-export const HeaderMenu = styled.div`
-  display: flex;
-  align-items: center;
-`;
-
-export const BurgerIcon = styled.svg`
+export const BurgerIcon = styled(BurgerSvgStyled)`
   margin-right: 68px;
   width: 24px;
   height: 24px;
@@ -35,15 +51,19 @@ export const FeedbackBtn = styled.button`
   line-height: 1.3;
   font-weight: 600;
 
+  margin-right: 17px;
+
   @media screen and (min-width: 768px) {
     padding: 12px 32px;
     line-height: 1.28;
 
     border-radius: 14px;
+
+    margin-right: 24px;
   }
 `;
 
-export const ThemeTogglerIcon = styled.svg`
+export const ThemeTogglerIcon = styled(ThemeTogglerSvgStyled)`
   width: 24px;
   height: 24px;
   margin-right: 8px;
@@ -56,6 +76,7 @@ export const ThemeTogglerIcon = styled.svg`
   }
 `;
 
+
 export const UserWrapper = styled.div`
   display: flex;
   align-items: center;
@@ -64,10 +85,11 @@ export const UserWrapper = styled.div`
 export const UserName = styled.p`
   margin-right: 8px;
   font-weight: 700;
-
-  line-height: 1;
+  color: rgba(52, 52, 52, 1);
+  line-height: 1.28;
 
   @media screen and (min-width: 768px) {
+    line-height: 1;
     margin-right: 14px;
   }
 `;
@@ -87,9 +109,13 @@ export const UserPhotoHeaderWrapper = styled.div`
   }
 `;
 
-export const UserPhotoHeader = styled.img`
+export const UserPhotoHeader = styled(UserPhotoHeaderSvgStyled)`
   width: 32px;
   height: 32px;
+  border-radius: 32px;
+  border: 1.8px solid #3e85f3;
+  padding: 5px;
+  background: lightgray 50% / cover no-repeat;
 
   @media screen and (min-width: 768px) {
     width: 44px;
