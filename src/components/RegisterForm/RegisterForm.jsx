@@ -2,6 +2,8 @@ import React from 'react';
 import { Formik } from 'formik';
 import { validateSchema } from './AuthSchema';
 import { NavLinkStyled } from 'components/LoginForm/LoginForm.styled';
+import ImgS from '../../images/registrPage/desktop_registr.png';
+import ImgL from '../../images/registrPage/desktop_registr@2x.png';
 import {
   AuthForm,
   AuthInput,
@@ -14,6 +16,7 @@ import {
   ErrorIcon,
   SuccesIcon,
   Box,
+  AuthImage,
 } from './RegisterForm.styled';
 import { register } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
@@ -179,6 +182,11 @@ export const RegisterForm = () => {
         )}
       </Formik>
       <NavLinkStyled to="/login">Log In</NavLinkStyled>
+      <AuthImage
+        srcSet={`${ImgS} 1x,${ImgL} 2x`}
+        src={ImgS}
+        alt="Опис зображення й"
+      />
     </Box>
   );
 };
