@@ -1,143 +1,144 @@
-// import styled from 'styled-components';
+import styled from 'styled-components';
 
-// import { AiOutlineDoubleLeft, AiOutlineDoubleRight } from 'react-icons/ai';
-// import { ImQuotesRight } from 'react-icons/im';
+export const Container = styled.div`
+  width: 335px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 64px;
+  @media screen and (min-width: 768px) {
+    width: 704px;
+    margin-bottom: 100px;
+  }
+  @media screen and (min-width: 1440px) {
+    width: 1157px;
+    margin-bottom: 118px;
+  }
+`;
 
-// export const SliderMenuContainer = styled.div`
-//   @import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@500&display=swap');
-//   background-color: #fff;
-//   max-width: 700px;
-//   margin: 1rem auto;
-//   font-family: Ubuntu, sans-serif;
-//   border-radius: 5px;
-//   position: relative;
-//   box-sizing: border-box;
-//   overflow: hidden;
-//   padding: 0;
-//   font-weight: 200;
-// `;
+export const Title = styled.h2`
+  font-family: 'InterBold';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 28px;
+  line-height: 1.14;
+  color: #3e85f3;
+  text-align: center;
+  text-transform: uppercase;
 
-// export const SliderMenuHeader = styled.h1`
-//   text-align: center;
-//   font-weight: 350;
-//   letter-spacing: 3px;
-//   color: #8a8a8a;
-//   font-family: sans-serif;
-//   strong {
-//     color: #ba5d2c;
-//   }
-// `;
+  margin-bottom: 40px;
 
-// export const SliderMenuProfileWrapper = styled.div`
-//   text-align: center;
-//   padding: 1rem 0;
-//   display: flex;
-//   flex-direction: column;
-//   &.current {
-//     transition: all 0.5s linear;
-//     position: relative;
-//     top: 0;
-//     left: 0;
-//     opacity: 1;
-//   }
-//   &.previous {
-//     position: absolute;
-//     top: 0;
-//     left: -120%;
-//     transition: all 0.3s linear;
-//     opacity: 0;
-//   }
-//   &.future {
-//     position: absolute;
-//     top: 0;
-//     left: 120%;
-//     transition: all 0.3s linear;
-//     opacity: 0;
-//   }
-// `;
-// export const SliderImage = styled.div`
-//   border-radius: 50%;
-//   width: 100px;
-//   height: 100px;
-//   background-image: url(${({ src }) => src});
-//   background-repeat: no-repeat;
-//   background-size: cover;
-//   background-position: top;
-//   border: 2px solid #abd3f2;
-//   box-shadow: 0px 0px 5px grey;
-//   margin: auto;
-// `;
+  @media screen and (min-width: 768px) {
+    font-size: 40px;
+    line-height: 1.1;
+    margin-bottom: 50px;
+  }
+`;
 
-// export const SliderName = styled.h3`
-//   font-weight: 600;
-//   color: #ba5d2c;
-//   text-transform: uppercase;
-//   font-size: 0.8rem;
-//   letter-spacing: 2px;
-//   padding: 0;
-//   margin-bottom: 0.3rem;
-// `;
+export const SliderCard = styled.div`
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  border: 1px solid #e7e5e5;
 
-// export const SliderOccupation = styled.h4`
-//   font-size: 0.8rem;
-//   padding: 0;
-//   margin: 0;
-//   font-weight: 300;
-//   color: #636363;
-//   letter-spacing: 0.7px;
-//   font-family: sans-serif;
-//   text-transform: capitalize;
-// `;
+  height: 194px;
 
-// export const SliderDescription = styled.p`
-//   color: #949494;
-//   font-size: 15px;
-//   width: 80%;
-//   margin: auto;
-//   margin-top: 2rem;
-//   font-family: sans-serif;
-// `;
+  padding: 24px 20px 24px 24px;
+  overflow-y: scroll;
+  margin-bottom: 18px;
 
-// export const SliderMenuLeftSlider = styled(AiOutlineDoubleLeft)`
-//   position: absolute;
-//   left: 0;
-//   top: 215px;
-//   transform: translateY(-50%);
-//   padding: 10px;
-//   z-index: 10;
-//   &:hover {
-//     color: #ba5d2c;
-//     cursor: pointer;
-//     border: 1px solid #ba5d2c;
-//     border-radius: 10px;
-//     padding: 9px;
-//   }
-// `;
+  @media screen and (min-width: 768px) {
+    padding: 32px 32px 50px 32px;
+  }
+`;
 
-// export const SliderMenuRightSlider = styled(AiOutlineDoubleRight)`
-//   position: absolute;
-//   right: 0;
-//   top: 215px;
-//   transform: translateY(-50%);
-//   padding: 10px;
-//   &:hover {
-//     color: #ba5d2c;
-//     cursor: pointer;
-//     border: 1px solid #ba5d2c;
-//     border-radius: 10px;
-//     padding: 9px;
-//   }
-//   z-index: 10;
-// `;
+export const AvatarWrapper = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
 
-// export const SliderMenuQuoteIcon = styled(ImQuotesRight)`
-//   margin: auto;
-//   display: block;
-//   font-size: 2rem;
-//   color: #ba5d2c;
-//   margin-bottom: 2rem;
-// `;
+  overflow: hidden;
+`;
 
-// export const Wrapper = styled.div`
-//   position: relative;
-// `;
+export const AvatarImg = styled.img`
+  object-fit: cover;
+  background-repeat: no-repeat;
+  height: 50px;
+  width: 50px;
+`;
+export const UserInfo = styled.div`
+  margin-left: 18px;
+`;
+
+export const Name = styled.h2`
+  font-family: 'InterBold';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 1;
+  color: #343434;
+
+  margin-bottom: 13px;
+`;
+export const StyledStars = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 110px;
+`;
+
+export const ReviewText = styled.p`
+  font-family: 'InterMedium';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 1.3;
+  color: rgba(17, 17, 17, 0.7);
+  margin-top: 18px;
+
+  @media screen and (min-width: 768px) {
+    margin-left: 68px;
+  }
+`;
+
+export const ReviewContainer = styled.div`
+  position: sticky;
+  top: 0px;
+  display: flex;
+  background-color: #ffffff;
+`;
+
+export const SwiperNavBox = styled.div`
+  width: 125px;
+  height: 50px;
+  margin: 0 auto;
+  display: flex;
+  gap: 25px;
+  justify-content: center;
+  align-items: center;
+  @media screen and (min-width: 767px) {
+    width: 147px;
+    height: 61px;
+  }
+`;
+
+export const SwiperNavBtn = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 16px;
+  width: 50px;
+  height: 46px;
+  cursor: pointer;
+  background-color: transparent;
+
+  @media screen and (min-width: 768px) {
+    width: 61px;
+    height: 48px;
+  }
+
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
+`;
