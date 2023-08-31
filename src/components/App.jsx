@@ -51,9 +51,7 @@ export function App() {
         />
         <Route
           path="/"
-          element={
-            <PrivateRoute redirectTo="/login" component={<MainLayout />} />
-          }
+          element={<PrivateRoute redirectTo="/" component={<MainLayout />} />}
         >
           <Route
             path="account"
