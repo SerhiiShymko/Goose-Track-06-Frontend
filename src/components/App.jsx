@@ -34,7 +34,7 @@ export function App() {
   return isRefreshing ? (
     <Spinner />
   ) : (
-    <Suspense fallback={<Spinner />}>
+    <>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route
@@ -90,6 +90,6 @@ export function App() {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </Suspense>
+    </>
   );
 }
