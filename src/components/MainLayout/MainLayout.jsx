@@ -15,13 +15,11 @@ function MainLayout(props) {
     setIsShown(getInitialState());
   }, []);
 
-  const handleClick = () => {
-    console.log('Натиснув на клік');
-    return setIsShown(!isShown);
-  };
+  const handleClick = () => setIsShown(!isShown);
+
   return (
     <Wrapper>
-      {isShown && <SideBar isShown={isShown} handleClick={handleClick} />}
+      <SideBar isShown={isShown} handleClick={handleClick} />
       <Header handleClick={handleClick} />
     </Wrapper>
   );

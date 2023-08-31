@@ -17,10 +17,16 @@ export const ContainerSideBar = styled.div`
   @media screen and (max-width: 1439px) {
     position: absolute;
     z-index: 10;
-    transform: ${props =>
-      props.open ? 'translateX(0%)' : 'translateX(-100%)'};
-    opacity: ${props => (props.open ? '1' : '0')};
+    &.shown {
+      transform: translateX(0%);
+      opacity: 1;
+    }
 
-    transition: transform 2500ms linear, opacity 2500ms linear;
+    &.hidden {
+      transform: translateX(-100%);
+      opacity: 0;
+    }
+    transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1),
+      opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   }
 `;
