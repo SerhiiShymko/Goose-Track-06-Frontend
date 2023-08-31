@@ -1,17 +1,16 @@
+import { CalendarToolBar } from 'components/CalendarToolBar/CalendarToolBar';
+import Spinner from 'components/Spinner/Spinner';
+import { Suspense } from 'react';
+import { Outlet } from 'react-router-dom';
+
 const CalendarPage = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      CalendarPage
-    </div>
+    <>
+      <CalendarToolBar />
+      <Suspense fallback={<Spinner />}>
+        <Outlet />
+      </Suspense>
+    </>
   );
 };
 

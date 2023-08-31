@@ -106,6 +106,7 @@ export const GlobalStyle = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   list-style: none;
+  background-color: #F7F6F9;
 }
 
 code {
@@ -150,5 +151,17 @@ img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+button, a {
+    padding: 0;
+    margin: 0;
+    border: none;
+     transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  &:hover,
+  &:focus {
+    transform: scale(1.1);
+  }
 }
 `;
