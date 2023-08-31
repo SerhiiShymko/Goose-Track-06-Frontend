@@ -2,8 +2,10 @@ import { MainContainer } from "./ChoosedDay.styled";
 import DayCalendarHead from "./DayCalendarHead";
 import TaskColumnsList from "./TaskColumnsList";
 
-const ChoosedDay = () => {
-    
+const ChoosedDay = (data) => {
+  
+  
+
     return (
       <MainContainer>
         <DayCalendarHead />
