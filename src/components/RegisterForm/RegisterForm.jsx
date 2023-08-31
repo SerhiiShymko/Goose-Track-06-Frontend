@@ -59,7 +59,7 @@ export const RegisterForm = () => {
                   type="text"
                   name="name"
                   placeholder="Enter your name"
-                  marginbottom={`8px`}
+                  style={{ marginBottom: '8px' }}
                 />
                 <ErrorIcon />
                 <Text color="#DA1414">{errors.name}</Text>
@@ -98,7 +98,7 @@ export const RegisterForm = () => {
                   type="text"
                   name="email"
                   placeholder="Enter email"
-                  marginbottom={`8px`}
+                  style={{ marginBottom: '8px' }}
                 />
                 <ErrorIcon />
 
@@ -142,7 +142,7 @@ export const RegisterForm = () => {
                   type="text"
                   name="password"
                   placeholder="Enter password"
-                  marginbottom={`8px`}
+                  style={{ marginBottom: '8px' }}
                 />
                 <ErrorIcon />
                 <Text color="#DA1414">{errors.password}</Text>
@@ -164,7 +164,7 @@ export const RegisterForm = () => {
                   value={values.password}
                   type="text"
                   name="password"
-                  marginbottom={`32px`}
+                  style={{ marginBottom: '32px' }}
                   border={
                     values.password !== `` && !errors.password
                       ? ' 1px solid #3CBC81'
