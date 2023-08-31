@@ -1,4 +1,4 @@
-import { lazy, useEffect } from 'react';
+import { Suspense, lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
 
@@ -34,7 +34,7 @@ export function App() {
   return isRefreshing ? (
     <Spinner />
   ) : (
-    <>
+    <Suspense fallback={<Spinner />}>
       <Routes>
         <Route path="/" element={<MainPage />} />
         <Route
@@ -90,6 +90,6 @@ export function App() {
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
-    </>
+    </Suspense>
   );
 }
