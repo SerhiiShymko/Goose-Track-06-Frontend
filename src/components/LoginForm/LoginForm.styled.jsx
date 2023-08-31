@@ -51,20 +51,20 @@ export const AuthForm = styled.form`
 // ----------------------------------------------------------------------------
 
 export const Box = styled.div`
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
   text-align: center;
   // background-color: #dcebf7;
 
-  @media screen and (min-width: 375px) {
-    padding: 202px 20px;
-  }
-  @media screen and (min-width: 768px) {
-    padding: 276px 144px;
-  }
-  @media screen and (min-width: 1440px) {
-    padding: 174px 480px 124px;
-  }
+  // @media screen and (min-width: 375px) {
+  //   padding: 202px 20px;
+  // }
+  // @media screen and (min-width: 768px) {
+  //   padding: 276px 144px;
+  // }
+  // @media screen and (min-width: 1440px) {
+  //   padding: 174px 480px 124px;
+  // }
 `;
 // ----------------------------------------------------------------------------
 

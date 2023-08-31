@@ -19,21 +19,21 @@ export const AuthImage = styled.img`
 // ----------------------------------------------------------------------------
 
 export const Box = styled.div`
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  background-color: #dcebf7;
+  // position: relative;
+  // width: 100%;
+  // height: 100%;
+  // text-align: center;
+  // background-color: #dcebf7;
 
-  @media screen and (min-width: 375px) {
-    padding: 155px 20px;
-  }
-  @media screen and (min-width: 768px) {
-    padding: 227px 144px;
-  }
-  @media screen and (min-width: 1440px) {
-    padding: 124px 480px 77px;
-  }
+  // @media screen and (min-width: 375px) {
+  //   padding: 155px 20px;
+  // }
+  // @media screen and (min-width: 768px) {
+  //   padding: 227px 144px;
+  // }
+  // @media screen and (min-width: 1440px) {
+  //   padding: 124px 480px 77px;
+  // }
 `;
 // ----------------------------------------------------------------------------
 

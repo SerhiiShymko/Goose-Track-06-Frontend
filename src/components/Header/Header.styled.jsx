@@ -3,25 +3,8 @@ import styled from 'styled-components';
 import { ReactComponent as BurgerSvgStyled } from '../../images/sideBar/icon-menu-burger.svg';
 import { ReactComponent as ThemeTogglerSvgStyled } from '../../images/theme/moon.svg';
 import { ReactComponent as UserPhotoHeaderSvgStyled } from '../../images/profile/phAvatar.svg';
-export const HeaderWrapper = styled.header`
-  max-width: 100vw;
-  padding: 24px 20px;
 
-  @media screen and (min-width: 375px) {
-    width: 375px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 768px;
-    padding: 24px 32px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 1440px;
-  }
-`;
-
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -75,7 +58,6 @@ export const ThemeTogglerIcon = styled(ThemeTogglerSvgStyled)`
     height: 32px;
   }
 `;
-
 
 export const UserWrapper = styled.div`
   display: flex;
