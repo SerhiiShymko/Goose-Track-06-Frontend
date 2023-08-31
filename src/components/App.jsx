@@ -5,8 +5,6 @@ import { Route, Routes } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 
-import { Container } from 'styles/Container';
-import { GlobalStyle } from '../../src/styles/Global';
 import MainLayout from './MainLayout/MainLayout';
 import Spinner from './Spinner/Spinner';
 
@@ -36,68 +34,62 @@ export function App() {
   return isRefreshing ? (
     <Spinner />
   ) : (
-    <Container>
-      <Suspense fallback={<Spinner />}>
-        <Routes>
-          <Route path="/" element={<MainPage />} />
+    <Suspense fallback={<Spinner />}>
+      <Routes>
+        <Route path="/" element={<MainPage />} />
+        <Route
+          path="register"
+          element={
+            <PublicRoute redirectTo="/calendar" component={<RegisterPage />} />
+          }
+        />
+        <Route
+          path="login"
+          element={
+            <PublicRoute redirectTo="/calendar" component={<LoginPage />} />
+          }
+        />
+        <Route
+          path="/"
+          element={
+            <PrivateRoute redirectTo="/login" component={<MainLayout />} />
+          }
+        >
           <Route
-            path="register"
+            path="account"
             element={
-              <PublicRoute
-                redirectTo="/calendar"
-                component={<RegisterPage />}
-              />
+              <PrivateRoute redirectTo="/" component={<AccountPage />} />
             }
           />
           <Route
-            path="login"
+            path="calendar/*"
             element={
-              <PublicRoute redirectTo="/calendar" component={<LoginPage />} />
-            }
-          />
-          <Route
-            path="/"
-            element={
-              <PrivateRoute redirectTo="/login" component={<MainLayout />} />
+              <PrivateRoute redirectTo="/" component={<CalendarPage />} />
             }
           >
             <Route
-              path="account"
+              path="month/:currentDate"
               element={
-                <PrivateRoute redirectTo="/" component={<AccountPage />} />
+                <PrivateRoute redirectTo="/" component={<ChoosedMonth />} />
               }
             />
             <Route
-              path="calendar/*"
+              path="day/:currentDay"
               element={
-                <PrivateRoute redirectTo="/" component={<CalendarPage />} />
-              }
-            >
-              <Route
-                path="month/:currentDate"
-                element={
-                  <PrivateRoute redirectTo="/" component={<ChoosedMonth />} />
-                }
-              />
-              <Route
-                path="day/:currentDay"
-                element={
-                  <PrivateRoute redirectTo="/" component={<ChoosedDay />} />
-                }
-              />
-            </Route>
-            <Route
-              path="statistics"
-              element={
-                <PrivateRoute redirectTo="/" component={<StatisticsPage />} />
+                <PrivateRoute redirectTo="/" component={<ChoosedDay />} />
               }
             />
           </Route>
+          <Route
+            path="statistics"
+            element={
+              <PrivateRoute redirectTo="/" component={<StatisticsPage />} />
+            }
+          />
+        </Route>
 
-          <Route path="*" element={<NotFoundPage />} />
-        </Routes>
-      </Suspense>
-      <GlobalStyle />
-    </Container>
+        <Route path="*" element={<NotFoundPage />} />
+      </Routes>
+    </Suspense>
   );
 }

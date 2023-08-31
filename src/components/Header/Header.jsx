@@ -1,7 +1,7 @@
 import { Suspense } from 'react';
+import { Container } from 'styles/Container';
 
 import {
-  HeaderWrapper,
   ContentWrapper,
   BurgerIcon,
   FeedbackBtn,
@@ -15,7 +15,7 @@ import { Outlet } from 'react-router-dom';
 
 const Header = ({ handleClick }) => {
   return (
-    <HeaderWrapper>
+    <Container>
       <ContentWrapper>
         <button type="button" onClick={handleClick}>
           <BurgerIcon />
@@ -27,10 +27,10 @@ const Header = ({ handleClick }) => {
           <UserPhotoHeader />
         </UserWrapper>
       </ContentWrapper>
-      <Suspense fallback={Spinner}>
+      <Suspense fallback={<Spinner />}>
         <Outlet />
       </Suspense>
-    </HeaderWrapper>
+    </Container>
   );
 };
 export default Header;
