@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 export const MainPageContainer = styled.div`
   padding: 62px 20px;
+  background-color: #ffffff;
 
   @media (min-width: 768px) {
     padding: 62px 30px;
