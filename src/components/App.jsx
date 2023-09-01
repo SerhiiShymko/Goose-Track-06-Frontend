@@ -31,7 +31,7 @@ export function App() {
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
   const theme = useSelector(selectTheme);
-
+  console.log(theme);
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);

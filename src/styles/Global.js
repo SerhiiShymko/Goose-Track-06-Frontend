@@ -109,7 +109,7 @@ export const GlobalStyle = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   list-style: none;
-  background-color: #F7F6F9;
+  background-color: ${({ theme }) => theme.colors.gray};
 }
 
 code {
