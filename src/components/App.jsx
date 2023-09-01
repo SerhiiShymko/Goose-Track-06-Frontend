@@ -38,8 +38,44 @@ export function App() {
   ) : (
     <Suspense fallback={<Spinner />}>
       <Routes>
-        <Route path="/" element={isLoggedIn ? <MainLayout /> : <MainPage />} />
-        {/* <Route path="/" element={<MainPage />} /> */}
+        <Route path="/" element={isLoggedIn ? <MainLayout /> : <MainPage />}>
+          <Route
+            path="/"
+            element={<PrivateRoute redirectTo="/" component={<MainLayout />} />}
+          >
+            <Route
+              path="account"
+              element={
+                <PrivateRoute redirectTo="/" component={<AccountPage />} />
+              }
+            />
+            <Route
+              path="calendar/*"
+              element={
+                <PrivateRoute redirectTo="/" component={<CalendarPage />} />
+              }
+            >
+              <Route
+                path="month/:currentDate"
+                element={
+                  <PrivateRoute redirectTo="/" component={<ChoosedMonth />} />
+                }
+              />
+              <Route
+                path="day/:currentDay"
+                element={
+                  <PrivateRoute redirectTo="/" component={<ChoosedDay />} />
+                }
+              />
+            </Route>
+            <Route
+              path="statistics"
+              element={
+                <PrivateRoute redirectTo="/" component={<StatisticsPage />} />
+              }
+            />
+          </Route>
+        </Route>
         <Route
           path="register"
           element={
@@ -52,42 +88,6 @@ export function App() {
             <PublicRoute redirectTo="/calendar" component={<LoginPage />} />
           }
         />
-        <Route
-          path="/"
-          element={<PrivateRoute redirectTo="/" component={<MainLayout />} />}
-        >
-          <Route
-            path="account"
-            element={
-              <PrivateRoute redirectTo="/" component={<AccountPage />} />
-            }
-          />
-          <Route
-            path="calendar/*"
-            element={
-              <PrivateRoute redirectTo="/" component={<CalendarPage />} />
-            }
-          >
-            <Route
-              path="month/:currentDate"
-              element={
-                <PrivateRoute redirectTo="/" component={<ChoosedMonth />} />
-              }
-            />
-            <Route
-              path="day/:currentDay"
-              element={
-                <PrivateRoute redirectTo="/" component={<ChoosedDay />} />
-              }
-            />
-          </Route>
-          <Route
-            path="statistics"
-            element={
-              <PrivateRoute redirectTo="/" component={<StatisticsPage />} />
-            }
-          />
-        </Route>
 
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
