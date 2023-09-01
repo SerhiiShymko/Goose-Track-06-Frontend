@@ -6,7 +6,6 @@ import {
   updateUser,
   refreshUser,
 } from 'redux/auth/operations';
-import { LIGHT } from 'styles/Global';
 
 const STATUS = {
   FULFILLED: 'fulfilled',
@@ -32,7 +31,7 @@ const authSlice = createSlice({
       avatarURL: null,
     },
     token: null,
-    theme: LIGHT,
+    theme: 'light',
     isLoggedIn: false,
     isRefreshing: false,
   },
@@ -73,7 +72,6 @@ function handleLogOut(state) {
     avatarURL: null,
   };
   state.token = null;
-  state.theme = null;
   state.isLoggedIn = false;
 }
 function handleRefreshUserPending(state) {

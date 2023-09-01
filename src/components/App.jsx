@@ -11,7 +11,7 @@ import Spinner from './Spinner/Spinner';
 
 import { selectIsLoggedIn, selectIsRefreshing } from 'redux/auth/selectors';
 import { refreshUser } from 'redux/auth/operations';
-import { GlobalStyle } from 'styles/Global';
+import { DARK, GlobalStyle, LIGHT } from 'styles/Global';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const MainLayout = lazy(() => import('./MainLayout/MainLayout'));
@@ -30,8 +30,10 @@ export function App() {
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
-  const theme = useSelector(selectTheme);
-  console.log(theme);
+
+  const themeName = useSelector(selectTheme);
+  const theme = themeName === 'light' ? LIGHT : DARK;
+
   useEffect(() => {
     dispatch(refreshUser());
   }, [dispatch]);
