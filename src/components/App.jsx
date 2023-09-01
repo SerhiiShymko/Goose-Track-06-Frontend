@@ -5,13 +5,14 @@ import { Route, Routes } from 'react-router-dom';
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
 
-import MainLayout from './MainLayout/MainLayout';
+// import MainLayout from './MainLayout/MainLayout';
 import Spinner from './Spinner/Spinner';
 
-import { selectIsRefreshing } from 'redux/auth/selectors';
+import { selectIsLoggedIn, selectIsRefreshing } from 'redux/auth/selectors';
 import { refreshUser } from 'redux/auth/operations';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
+const MainLayout = lazy(() => import('./MainLayout/MainLayout'));
 const AccountPage = lazy(() => import('pages/AccountPage/AccountPage'));
 const RegisterPage = lazy(() => import('pages/RegisterPage/RegisterPage'));
 const LoginPage = lazy(() => import('pages/LoginPage/LoginPage'));
@@ -26,6 +27,7 @@ const StatisticsPage = lazy(() =>
 export function App() {
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
+  const isLoggedIn = useSelector(selectIsLoggedIn);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -36,7 +38,8 @@ export function App() {
   ) : (
     <Suspense fallback={<Spinner />}>
       <Routes>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={isLoggedIn ? <MainLayout /> : <MainPage />} />
+        {/* <Route path="/" element={<MainPage />} /> */}
         <Route
           path="register"
           element={

@@ -161,7 +161,7 @@ export const RegisterForm = () => {
                 <AuthInput
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.password}
+                  value={values.password.trim()}
                   type="text"
                   name="password"
                   style={{ marginBottom: '32px' }}
