@@ -94,7 +94,7 @@ export const LoginForm = () => {
                 <AuthInput
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.password}
+                  value={values.password.trim()}
                   border={'1px solid #DA1414'}
                   type="text"
                   name="password"
