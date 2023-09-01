@@ -31,7 +31,7 @@ const authSlice = createSlice({
       avatarURL: null,
     },
     token: null,
-    theme: null,
+    theme: 'light',
     isLoggedIn: false,
     isRefreshing: false,
   },
@@ -72,7 +72,6 @@ function handleLogOut(state) {
     avatarURL: null,
   };
   state.token = null;
-  state.theme = null;
   state.isLoggedIn = false;
 }
 function handleRefreshUserPending(state) {

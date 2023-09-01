@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 import { ReactComponent as BurgerSvgStyled } from '../../images/sideBar/icon-menu-burger.svg';
-import { ReactComponent as ThemeTogglerSvgStyled } from '../../images/theme/moon.svg';
+import { ReactComponent as ThemeMoonSvgStyled } from '../../images/theme/moon.svg';
+import { ReactComponent as ThemeSunSvgStyled } from '../../images/theme/sun.svg';
 import { ReactComponent as UserPhotoHeaderSvgStyled } from '../../images/profile/phAvatar.svg';
 
 export const ContentWrapper = styled.header`
@@ -46,7 +47,20 @@ export const FeedbackBtn = styled.button`
   }
 `;
 
-export const ThemeTogglerIcon = styled(ThemeTogglerSvgStyled)`
+export const ThemeMoonIcon = styled(ThemeMoonSvgStyled)`
+  width: 24px;
+  height: 24px;
+  margin-right: 8px;
+
+  @media screen and (min-width: 768px) {
+    margin-right: 14px;
+
+    width: 32px;
+    height: 32px;
+  }
+`;
+
+export const ThemeSunIcon = styled(ThemeSunSvgStyled)`
   width: 24px;
   height: 24px;
   margin-right: 8px;

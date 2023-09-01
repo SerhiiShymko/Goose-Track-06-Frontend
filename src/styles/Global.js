@@ -11,10 +11,47 @@ import InterSemiBoldItalic from '../fonts/inter/Inter-SemiBold-Italic.otf';
 import CoolveticaRegular from '../fonts/coolvetica/Coolvetica-Regular.otf';
 import CoolveticaRegularItalic from '../fonts/coolvetica/Coolvetica-Regular-Italic.otf';
 
-export const theme = {
-  dark: { body: '#363537' },
-  light: { body: '#FFF' },
+// THEMES======================== (start)
+export const LIGHT = {
+  colors: {
+    backgroundBody: '#F7F6F9', // основний колір фону (вкладені сторінки: календар, графік, профіль юзера)
+    colorBody: '#343434', // основний колір шрифту
+    colorAccent: '#111111', // UserProfile, Calendar
+    backgroundAccent: '#FFFFFF', // хедер, заголовок календаря
+    colorLegendSideBar: 'rgba(52, 52, 52, 0.5)', // легенда сайдбару (мілким шрифтом)
+    backgroundSideBar: '#FFFFFF', // фон сайдбару
+    colorLabelsUserProfile: '#111111', // Labels UserProfile
+    // ----- Модальні вікна ------
+    backgroundModalFields: '#F6F6F6', // поля модалок
+    colorLabelModal: 'rgba(52, 52, 52, 0.5)', // Labels модалок
+    // ----- Кнопки ------
+    colorBtnAddTask: '#111111', // Кнопки додавання таски
+    backgroundBtnAddTask: '#E3F3FF', // Кнопки додавання таски
+    colorBtnSideBar: 'rgba(52, 52, 52, 0.5)', // Кнопки Сайдбару
+    backgroundBtnSideBarHover: '#E3F3FF', // Кнопки сайдбару (ховер)
+  },
 };
+
+export const DARK = {
+  colors: {
+    backgroundBody: '#21222C', // основний колір фону (вкладені сторінки: календар, графік, профіль юзера)
+    colorBody: '#FFFFFF', // основний колір шрифту
+    colorAccent: '#FFFFFF', // UserProfile, Calendar
+    backgroundAccent: '#171820', // хедер, заголовок календаря
+    colorLegendSideBar: 'rgba(250, 250, 250, 0.3)', // легенда сайдбару (мілким шрифтом)
+    backgroundSideBar: '#13151A', // фон сайдбару
+    colorLabelsUserProfile: 'rgba(250, 250, 250, 0.3)', // Labels UserProfile
+    // ----- Модальні вікна ------
+    backgroundModalFields: '#171820', // поля модалок
+    colorLabelModal: 'rgba(250, 250, 250, 0.3)', // Labels модалок
+    // ----- Кнопки ------
+    colorBtnAddTask: '#FFFFFF', // Кнопки додавання таски
+    backgroundBtnAddTask: '#3E85F3', // Кнопки додавання таски
+    colorBtnSideBar: '#FFFFFF', // Кнопки Сайдбару
+    backgroundBtnSideBarHover: '#3E85F3', // Кнопки сайдбару (ховер)
+  },
+};
+// THEMES======================== (end)
 
 export const GlobalStyle = createGlobalStyle`
 
@@ -106,7 +143,7 @@ export const GlobalStyle = createGlobalStyle`
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   list-style: none;
-  background-color: #F7F6F9;
+  background-color: ${({ theme }) => theme.colors.backgroundBody};
 }
 
 code {
