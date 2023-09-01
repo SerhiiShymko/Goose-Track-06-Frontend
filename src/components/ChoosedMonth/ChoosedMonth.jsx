@@ -35,7 +35,11 @@ export const ChoosedMonth = () => {
 
   const renderDayOfWeek = () => {
     for (let day = 0; day < 7; day++) {
-      weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
+      if (window.screen.width < 768) {
+         weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
+      } else {
+        weekDays.push(format(addDays(startDayOfWeek, day), 'EEE'));
+      }
     }
     return weekDays;
     };

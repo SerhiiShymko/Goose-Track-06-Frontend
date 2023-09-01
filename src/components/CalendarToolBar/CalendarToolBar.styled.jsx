@@ -3,22 +3,36 @@ import { ReactComponent as next } from '../../images/calendar/chevron-right.svg'
 import { ReactComponent as prev } from '../../images/calendar/chevron-left.svg';
 
 export const Wrapper = styled.div`
-  padding-top: 100px;
-  
+  padding-top: 65px;
+  width: 100%;
+
   @media screen and (min-width: 768px) {
-    
+    display: flex;
+    justify-content: space-between;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding-top: 32px;
   }
 `;
 
 export const ModalCalendar = styled.div`
   position: absolute;
   z-index: 999;
-  top: 166px;
+  top: 186px;
   width: 327px;
   height: 354px;
   padding: 9px 18px;
   border-radius: 16px;
   background-color: #3e85f3;
+
+  @media screen and (min-width: 768px) {
+    width: 373px;
+  }
+
+  @media screen and (min-width: 768px) {
+    top: 153px;
+  }
 `;
 
 export const Caption = styled.div`
@@ -40,6 +54,10 @@ export const Button = styled.button`
   outline: none;
   border: 0px;
   cursor: pointer;
+  
+  @media screen and (min-width: 768px) {
+    align-self: center ;
+  }
 `;
 
 export const DataText = styled.div`
@@ -50,6 +68,11 @@ export const DataText = styled.div`
   font-style: normal;
   font-weight: 600;
   line-height: 1.2;
+
+  @media screen and (min-width: 768px) {
+    font-size: 24px;
+    line-height: 1.16;
+  }
 `;
 
 export const WeekDays = styled.div`
@@ -65,8 +88,13 @@ export const Day = styled.div`
   font-family: Inter;
   font-size: 14px;
   font-style: normal;
-  font-weight: 600;
+  font-weight: 400;
   line-height: 1.28;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    line-height: 1.33;
+  }
 `;
 
 export const CalendarTable = styled.div`
@@ -84,6 +112,12 @@ export const CalendarDate = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 128.571% */
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.33;
+  }
 `;
 export const ActiveCalendarDate = styled.div`
   padding: 12px 0;
@@ -96,10 +130,16 @@ export const ActiveCalendarDate = styled.div`
   line-height: 1.28;
   border-radius: 50%;
   background-color: #fff;
+
+  @media screen and (min-width: 768px) {
+    font-size: 18px;
+    font-weight: 400;
+    line-height: 1.33;
+  }
 `;
+
 export const ButtonForOpenCalendar = styled.button`
   padding: 6px 12px;
-  position: absolute;
   border-radius: 8px;
   background: #3e85f3;
   color: #fff;
@@ -112,46 +152,56 @@ export const ButtonForOpenCalendar = styled.button`
   text-transform: uppercase;
 
   @media screen and (min-width: 768px) {
-    padding: 8px 12px; 
+    padding: 8px 12px;
+    font-size: 16px;
+    line-height: 1.12;
   }
 `;
 
 export const PeriodPaginator = styled.div`
   display: flex;
-  position: relative;
-  left: 263px;
-  
+  width: 76px;
+  height: 34px;
 
   @media screen and (min-width: 768px) {
-    position: static;
-
+    margin-left: 8px;
   }
 `;
 
 export const BtnPaginatorLeft = styled.button`
   cursor: pointer;
-  padding: 8px 12px;
-  width: 36px;
-  height: 30px;
+  padding: 7px 10px;
+  display: flex;
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
   border-top-right-radius: 0;
   border-bottom-right-radius: 0;
   border: 1px solid rgba(220, 227, 229, 0.5);
   border-right: calc(1 / 2) px;
   background: #fff;
+
+  @media screen and (min-width: 768px;) {
+    padding: 8px 10px;
+  }
 `;
 
 export const BtnPaginatorRight = styled.button`
   cursor: pointer;
-  padding: 8px 12px;
-  width: 36px;
-  height: 30px;
+  padding: 7px 10px;
+  display: flex;
+  width: 100%;
+  height: 100%;
   border-radius: 8px;
   border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   border: 1px solid rgba(220, 227, 229, 0.5);
   border-left: calc(1 / 2) px;
   background: #fff;
+
+  @media screen and (min-width: 768px;) {
+    padding: 8px 10px;
+  }
 `;
 
 export const ImgPaginatorNextModal = styled(next)`
@@ -160,10 +210,20 @@ export const ImgPaginatorNextModal = styled(next)`
 
 export const ImgPaginatorNext = styled(next)`
   stroke: #343434;
+
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
 `;
 
 export const ImgPaginatorPrev = styled(prev)`
   stroke: #dce3e5;
+
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
 `;
 
 export const PeriodTypeSelect = styled.div`
@@ -176,6 +236,12 @@ export const PeriodTypeSelect = styled.div`
   font-style: normal;
   font-weight: 500;
   line-height: 1.28;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 0;
+    font-size: 16px;
+    line-height: 1.12;
+  }
 `;
 
 export const BtnTypeSelectMonth = styled.div`
@@ -188,4 +254,13 @@ export const BtnTypeSelectDay = styled.div`
   padding: 8px 25px;
   border-radius: 0px 8px 8px 0px;
   background: #e3f3ff;
+`;
+
+export const WrapperPaginator = styled.div`
+  display: flex;
+  justify-content: space-between;
+
+  @media screen and (min-width: 768px) {
+    justify-content: start;
+  }
 `;

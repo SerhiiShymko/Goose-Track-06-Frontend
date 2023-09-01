@@ -34,6 +34,7 @@ import {
   PeriodTypeSelect,
   BtnTypeSelectMonth,
   BtnTypeSelectDay,
+  WrapperPaginator,
 } from './CalendarToolBar.styled';
 import { Container } from 'styles/Container';
 import Prev from '../../images/calendar/chevron-left.svg';
@@ -87,46 +88,53 @@ export const CalendarToolBar = () => {
 
   return (
     <Wrapper>
-      <ButtonForOpenCalendar
-        type="button"
-        onClick={() => {
-          setOpen(!open);
-        }}
-      >
-        {activeDate}
-      </ButtonForOpenCalendar>
-      {open && (
-        <ModalCalendar>
-          <Caption>
-            <Button onClick={prevMonth}>
-              <ImgPaginatorPrev src={Prev} alt="prev" width={18} height={18} />
-            </Button>
-            <DataText>{activeDate}</DataText>
-            <Button onClick={nextMonth}>
-              <ImgPaginatorNextModal
-                src={Next}
-                alt="next"
-                width={18}
-                height={18}
-              />
-            </Button>
-          </Caption>
-          <WeekDays>
-            {weekDays.map(day => (
-              <Day key={nanoid()}>{day}</Day>
-            ))}
-          </WeekDays>
-          <CalendarTable>{resultDate}</CalendarTable>
-        </ModalCalendar>
-      )}
-      <PeriodPaginator>
-        <BtnPaginatorLeft onClick={prevMonth}>
-          <ImgPaginatorPrev src={Prev} alt="prev" width={16} height={16} />
-        </BtnPaginatorLeft>
-        <BtnPaginatorRight onClick={nextMonth}>
-          <ImgPaginatorNext src={Next} alt="next" width={16} height={16} />
-        </BtnPaginatorRight>
-      </PeriodPaginator>
+      <WrapperPaginator>
+        <ButtonForOpenCalendar
+          type="button"
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          {activeDate}
+        </ButtonForOpenCalendar>
+        {open && (
+          <ModalCalendar>
+            <Caption>
+              <Button onClick={prevMonth}>
+                <ImgPaginatorPrev
+                  src={Prev}
+                  alt="prev"
+                  width={18}
+                  height={18}
+                />
+              </Button>
+              <DataText>{activeDate}</DataText>
+              <Button onClick={nextMonth}>
+                <ImgPaginatorNextModal
+                  src={Next}
+                  alt="next"
+                  width={18}
+                  height={18}
+                />
+              </Button>
+            </Caption>
+            <WeekDays>
+              {weekDays.map(day => (
+                <Day key={nanoid()}>{day}</Day>
+              ))}
+            </WeekDays>
+            <CalendarTable>{resultDate}</CalendarTable>
+          </ModalCalendar>
+        )}
+        <PeriodPaginator>
+          <BtnPaginatorLeft onClick={prevMonth}>
+            <ImgPaginatorPrev src={Prev} alt="prev" width={16} height={16} />
+          </BtnPaginatorLeft>
+          <BtnPaginatorRight onClick={nextMonth}>
+            <ImgPaginatorNext src={Next} alt="next" width={16} height={16} />
+          </BtnPaginatorRight>
+        </PeriodPaginator>
+      </WrapperPaginator>
       <PeriodTypeSelect>
         <BtnTypeSelectMonth type="button">Month</BtnTypeSelectMonth>
         <BtnTypeSelectDay type="button">Day</BtnTypeSelectDay>
