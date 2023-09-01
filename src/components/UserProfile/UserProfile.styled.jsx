@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { ReactComponent as PlusIconSvgStyled } from '../../images/profile/plusAvatar.svg';
 import { ReactComponent as UserPhotoHeaderSvgStyled } from '../../images/profile/phAvatar.svg';
 export const MainWrapper = styled.div`
   margin-top: 64px;
@@ -47,7 +48,7 @@ export const UserPhoto = styled(UserPhotoHeaderSvgStyled)`
   }
 `;
 
-export const PlusIcon = styled.svg`
+export const PlusIcon = styled(PlusIconSvgStyled)`
   width: 14px;
   height: 14px;
   position: absolute;
@@ -64,8 +65,8 @@ export const PlusIcon = styled.svg`
   }
   @media screen and (min-width: 1440px) {
     top: 105px;
-    right: 470px;
-  }
+    right: 340px;
+  } 
 `;
 
 export const UserInfoWrapper = styled.div`
