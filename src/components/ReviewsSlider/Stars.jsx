@@ -1,14 +1,15 @@
-// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-// import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faStar } from '@fortawesome/free-solid-svg-icons';
+import { StyledStars } from './ReviewsSlider.styled';
 
-// export const Stars = ({ rating }) => {
-//   const maxRating = 5;
-//   const stars = [];
+export const Stars = ({ rating }) => {
+  const maxRating = 5;
+  const stars = [];
 
-//   for (let i = 0; i < maxRating; i++) {
-//     const color = i < rating ? '#FFAC33' : '#CEC9C1';
-//     stars.push(<FontAwesomeIcon icon={faStar} key={i} style={{ color }} />);
-//   }
+  for (let i = 0; i < maxRating; i++) {
+    const color = i < rating ? '#FFAC33' : '#CEC9C1';
+    stars.push(<FontAwesomeIcon icon={faStar} key={i} style={{ color }} />);
+  }
 
-//   return <div>{stars}</div>;
-// };
+  return <StyledStars>{stars}</StyledStars>;
+};
