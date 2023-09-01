@@ -30,7 +30,7 @@ export const ModalCalendar = styled.div`
     width: 373px;
   }
 
-  @media screen and (min-width: 768px) {
+  @media screen and (min-width: 1440px) {
     top: 153px;
   }
 `;
