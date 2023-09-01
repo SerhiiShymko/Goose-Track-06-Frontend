@@ -2,15 +2,25 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { App } from 'components/App';
 import './index.css';
+import { GlobalStyle, theme } from 'styles/Global';
 import { BrowserRouter } from 'react-router-dom';
-import { Theme } from 'components/ThemeToggler/ThemeToggler';
+
+import { Provider } from 'react-redux';
+import { persistor, store } from 'redux/store';
+import { PersistGate } from 'redux-persist/integration/react';
+import { ThemeProvider } from 'styled-components';
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter basename="Goose-Track-06-Frontend">
-      <Theme>
-        <App />
-      </Theme>
-    </BrowserRouter>
+    <ThemeProvider theme={theme}>
+      <Provider store={store}>
+        <PersistGate loading={null} persistor={persistor}>
+          <BrowserRouter basename="/Goose-Track-06-Frontend">
+            <GlobalStyle />
+            <App />
+          </BrowserRouter>
+        </PersistGate>
+      </Provider>
+    </ThemeProvider>
   </React.StrictMode>
 );
