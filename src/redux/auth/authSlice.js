@@ -6,6 +6,7 @@ import {
   updateUser,
   refreshUser,
 } from 'redux/auth/operations';
+import { LIGHT } from 'styles/Global';
 
 const STATUS = {
   FULFILLED: 'fulfilled',
@@ -31,7 +32,7 @@ const authSlice = createSlice({
       avatarURL: null,
     },
     token: null,
-    theme: null,
+    theme: LIGHT,
     isLoggedIn: false,
     isRefreshing: false,
   },

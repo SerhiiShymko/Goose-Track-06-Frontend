@@ -1,6 +1,8 @@
 import { Suspense, lazy, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Route, Routes } from 'react-router-dom';
+import { selectTheme } from 'redux/auth/selectors';
+import { ThemeProvider } from 'styled-components';
 
 import { PrivateRoute } from './PrivateRoute/PrivateRoute';
 import { PublicRoute } from './PublicRoute/PublicRoute';
@@ -9,6 +11,7 @@ import Spinner from './Spinner/Spinner';
 
 import { selectIsLoggedIn, selectIsRefreshing } from 'redux/auth/selectors';
 import { refreshUser } from 'redux/auth/operations';
+import { GlobalStyle } from 'styles/Global';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const MainLayout = lazy(() => import('./MainLayout/MainLayout'));
@@ -27,6 +30,7 @@ export function App() {
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
+  const theme = useSelector(selectTheme);
 
   useEffect(() => {
     dispatch(refreshUser());
@@ -36,60 +40,68 @@ export function App() {
     <Spinner />
   ) : (
     <Suspense fallback={<Spinner />}>
-      <Routes>
-        <Route path="/" element={isLoggedIn ? <MainLayout /> : <MainPage />}>
-          <Route
-            path="/"
-            element={<PrivateRoute redirectTo="/" component={<MainLayout />} />}
-          />
-          <Route
-            path="account"
-            element={
-              <PrivateRoute redirectTo="/" component={<AccountPage />} />
-            }
-          />
-          <Route
-            path="calendar/*"
-            element={
-              <PrivateRoute redirectTo="/" component={<CalendarPage />} />
-            }
-          >
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Routes>
+          <Route path="/" element={isLoggedIn ? <MainLayout /> : <MainPage />}>
             <Route
-              path="month/:currentDate"
+              path="/"
               element={
-                <PrivateRoute redirectTo="/" component={<ChoosedMonth />} />
+                <PrivateRoute redirectTo="/" component={<MainLayout />} />
               }
             />
             <Route
-              path="day/:currentDay"
+              path="account"
               element={
-                <PrivateRoute redirectTo="/" component={<ChoosedDay />} />
+                <PrivateRoute redirectTo="/" component={<AccountPage />} />
+              }
+            />
+            <Route
+              path="calendar/*"
+              element={
+                <PrivateRoute redirectTo="/" component={<CalendarPage />} />
+              }
+            >
+              <Route
+                path="month/:currentDate"
+                element={
+                  <PrivateRoute redirectTo="/" component={<ChoosedMonth />} />
+                }
+              />
+              <Route
+                path="day/:currentDay"
+                element={
+                  <PrivateRoute redirectTo="/" component={<ChoosedDay />} />
+                }
+              />
+            </Route>
+            <Route
+              path="statistics"
+              element={
+                <PrivateRoute redirectTo="/" component={<StatisticsPage />} />
               }
             />
           </Route>
+
           <Route
-            path="statistics"
+            path="register"
             element={
-              <PrivateRoute redirectTo="/" component={<StatisticsPage />} />
+              <PublicRoute
+                redirectTo="/calendar"
+                component={<RegisterPage />}
+              />
             }
           />
-        </Route>
+          <Route
+            path="login"
+            element={
+              <PublicRoute redirectTo="/calendar" component={<LoginPage />} />
+            }
+          />
 
-        <Route
-          path="register"
-          element={
-            <PublicRoute redirectTo="/calendar" component={<RegisterPage />} />
-          }
-        />
-        <Route
-          path="login"
-          element={
-            <PublicRoute redirectTo="/calendar" component={<LoginPage />} />
-          }
-        />
-
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </ThemeProvider>
     </Suspense>
   );
 }

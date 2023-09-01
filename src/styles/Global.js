@@ -11,10 +11,13 @@ import InterSemiBoldItalic from '../fonts/inter/Inter-SemiBold-Italic.otf';
 import CoolveticaRegular from '../fonts/coolvetica/Coolvetica-Regular.otf';
 import CoolveticaRegularItalic from '../fonts/coolvetica/Coolvetica-Regular-Italic.otf';
 
-export const theme = {
-  dark: { body: '#363537' },
-  light: { body: '#FFF' },
-};
+// export const theme = {
+//   dark: { body: '#363537' },
+//   light: { body: '#FFF' },
+// };
+
+export const LIGHT = { colors: { gray: '#F7F6F9' } };
+export const DARK = { colors: { black: '#171820' } };
 
 export const GlobalStyle = createGlobalStyle`
 
