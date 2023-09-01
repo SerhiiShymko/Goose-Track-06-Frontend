@@ -40,30 +40,11 @@ const TaskColumnsList = ({currentDate}) => {
     task => task.category === CATEGORY.DONE
   );
 
-// const newTask={   
-//     title: "Task bla bla New",
-//     date: "2023-08-30",
-//     start: "09:00",
-//     end: "15:00",
-//     priority: "high",
-//     category: "done",    
-//   }
-//   const hendlerAddTask = () => {
-//     dispatch(addTask(newTask));
-// }
-
   return (
     <TaskContainer>
-      
-      <TaskColumnToDo
-      data={categoryTodo}
-      />
-      <TaskColumnInProg
-      data={categoryInProg}
-      />
-      <TaskColumnDone
-      data={categoryDone}
-      />
+      <TaskColumnToDo data={categoryTodo} currentDay={currentDate} />
+      <TaskColumnInProg data={categoryInProg} currentDay={currentDate} />
+      <TaskColumnDone data={categoryDone} currentDay={currentDate} />
     </TaskContainer>
   );
 };

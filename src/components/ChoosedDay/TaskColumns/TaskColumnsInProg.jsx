@@ -15,13 +15,12 @@ import {
   WrapperUser,
   SvgAddTask,
   SvgPlusCircle,
-  SvgPencil,
-  SvgTrash,
-  TrashButton,
+  SvgPencil, 
 } from '../ChoosedDay.styled';
 import { deleteTask } from '../../../redux/tasks/operations';
 import { PRIORITY } from '../../../data/constants';
 import SimplePopper from '../Popup';
+import BasicPopover from '../Popover';
 
 const TaskColumnInProg = ({ data }) => {
  const dispatch = useDispatch();
@@ -55,10 +54,10 @@ const TaskColumnInProg = ({ data }) => {
     return altText;
   };
 
-  const hendlerDelete = event => {
-    const id = event.currentTarget.dataset.number;
-    dispatch(deleteTask(id));
-  };
+   const hendlerDelete = id => {
+     dispatch(deleteTask(id));
+   };
+
   return (
     <TaskBorder>
       <TaskName>
@@ -79,13 +78,7 @@ const TaskColumnInProg = ({ data }) => {
               <TaskLogoList>
                 <SimplePopper category={'in-progress'} number={item._id} />
                 <SvgPencil />
-                <TrashButton
-                  data-number={item._id}
-                  onClick={hendlerDelete}
-                  type="button"
-                >
-                  <SvgTrash />
-                </TrashButton>
+                <BasicPopover number={item._id} hendlerDelete={hendlerDelete} />
               </TaskLogoList>
             </KontrolWrapper>
           </TaskItemContainer>
