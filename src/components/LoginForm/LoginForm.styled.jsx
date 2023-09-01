@@ -5,11 +5,18 @@ import { NavLink } from 'react-router-dom';
 
 export const NavLinkStyled = styled(NavLink)`
   display: block;
-  margin-top: 24px;
+  text-decoration-line: underline;
+  margin-top: 18px;
   color: #3e85f3;
   font-size: 18px;
   font-weight: 600;
   line-height: 24px;
+
+  @media screen and (min-width: 375px) {
+  }
+  @media screen and (min-width: 768px) {
+    margin-top: 24px;
+  }
   &:hover {
     color: #2b78ef;
   }
@@ -20,10 +27,6 @@ export const NavLinkStyled = styled(NavLink)`
 // ----------------------------------------------------------------------------
 
 export const AuthForm = styled.form`
-  // -------забрати
-  outline: 1px solid #3e85f3;
-  // -------забрати
-
   padding: 40px 24px;
   width: 100%;
   box-sizing: border-box;
@@ -48,7 +51,31 @@ export const AuthForm = styled.form`
 // ----------------------------------------------------------------------------
 
 export const Box = styled.div`
-  width: 100%;
-  height: 100%;
+  // width: 100%;
+  // height: 100%;
   text-align: center;
+  // background-color: #dcebf7;
+
+  // @media screen and (min-width: 375px) {
+  //   padding: 202px 20px;
+  // }
+  // @media screen and (min-width: 768px) {
+  //   padding: 276px 144px;
+  // }
+  // @media screen and (min-width: 1440px) {
+  //   padding: 174px 480px 124px;
+  // }
+`;
+// ----------------------------------------------------------------------------
+
+export const AuthImage = styled.img`
+  display: none;
+  @media screen and (min-width: 1366px) {
+    display: block;
+    position: absolute;
+    width: 368px;
+    height: 521px;
+    right: 0%;
+    top: 40%;
+  }
 `;

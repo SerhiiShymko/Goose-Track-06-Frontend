@@ -4,10 +4,36 @@ import { ReactComponent as IconError } from '../../images/registrPage/email-erro
 import { ReactComponent as IconSucces } from '../../images/registrPage/email-done.svg';
 // ----------------------------------------------------------------------------
 
+export const AuthImage = styled.img`
+  display: none;
+  @media screen and (min-width: 1366px) {
+    display: block;
+    position: absolute;
+    width: 400px;
+    height: 416px;
+    left: 0%;
+    bottom: 0%;
+  }
+`;
+
+// ----------------------------------------------------------------------------
+
 export const Box = styled.div`
-  width: 100%;
-  height: 100%;
-  text-align: center;
+  // position: relative;
+  // width: 100%;
+  // height: 100%;
+  // text-align: center;
+  // background-color: #dcebf7;
+
+  // @media screen and (min-width: 375px) {
+  //   padding: 155px 20px;
+  // }
+  // @media screen and (min-width: 768px) {
+  //   padding: 227px 144px;
+  // }
+  // @media screen and (min-width: 1440px) {
+  //   padding: 124px 480px 77px;
+  // }
 `;
 // ----------------------------------------------------------------------------
 
@@ -50,10 +76,6 @@ export const AuthContainer = styled.div`
 
 // ----------------------------------------------------------------------------
 export const AuthForm = styled.form`
-  // -------забрати
-  outline: 1px solid #3e85f3;
-  // -------забрати
-
   padding: 40px 24px;
   width: 100%;
   box-sizing: border-box;
@@ -76,8 +98,6 @@ export const AuthForm = styled.form`
 // ----------------------------------------------------------------------------
 export const AuthLabel = styled.label`
   position: relative;
-  color: ${props => props.color || '1px solid #dce3e5'};
-  padding: 40px 24px;
   width: 100%;
   padding: 0px;
   margin: 0px;
@@ -91,6 +111,7 @@ export const AuthInput = styled.input`
   box-sizing: border-box;
   padding: 14px;
   width: 100%;
+  height: 46px;
   margin: 0 auto;
   margin-bottom: ${props => props.marginbottom || '24px'};
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
@@ -140,6 +161,10 @@ export const Text = styled.p`
   line-height: 14px;
   margin-bottom:: ${props => props.marginbottom || '24px'};
   color: ${props => props.color || '#DA1414'};
+  @media screen and (min-width: 375px) {
+    margin-bottom:12px;
+
+  }
   @media screen and (min-width: 768px) {
     margin-bottom:18px;
   }

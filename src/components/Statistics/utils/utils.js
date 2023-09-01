@@ -74,7 +74,8 @@ export const culcStatistikData = (tasksByDay, tasksByMonth) => {
   ];
 };
 
-  /**
-   * Filter data by day
-   */
-export const FilterTasksByDay = (tasks, date) => tasks.filter(task => task.date === date);
+/**
+ * Filter data by day
+ */
+export const FilterTasksByDay = (tasks, date) =>
+  tasks.filter(task => task.date === date);

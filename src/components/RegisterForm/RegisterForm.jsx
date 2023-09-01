@@ -2,6 +2,8 @@ import React from 'react';
 import { Formik } from 'formik';
 import { validateSchema } from './AuthSchema';
 import { NavLinkStyled } from 'components/LoginForm/LoginForm.styled';
+import ImgS from '../../images/registrPage/desktop_registr.png';
+import ImgL from '../../images/registrPage/desktop_registr@2x.png';
 import {
   AuthForm,
   AuthInput,
@@ -14,6 +16,7 @@ import {
   ErrorIcon,
   SuccesIcon,
   Box,
+  AuthImage,
 } from './RegisterForm.styled';
 import { register } from 'redux/auth/operations';
 import { useDispatch } from 'react-redux';
@@ -56,7 +59,7 @@ export const RegisterForm = () => {
                   type="text"
                   name="name"
                   placeholder="Enter your name"
-                  marginbottom={`8px`}
+                  style={{ marginBottom: '8px' }}
                 />
                 <ErrorIcon />
                 <Text color="#DA1414">{errors.name}</Text>
@@ -95,7 +98,7 @@ export const RegisterForm = () => {
                   type="text"
                   name="email"
                   placeholder="Enter email"
-                  marginbottom={`8px`}
+                  style={{ marginBottom: '8px' }}
                 />
                 <ErrorIcon />
 
@@ -139,7 +142,7 @@ export const RegisterForm = () => {
                   type="text"
                   name="password"
                   placeholder="Enter password"
-                  marginbottom={`8px`}
+                  style={{ marginBottom: '8px' }}
                 />
                 <ErrorIcon />
                 <Text color="#DA1414">{errors.password}</Text>
@@ -158,10 +161,10 @@ export const RegisterForm = () => {
                 <AuthInput
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.password}
+                  value={values.password.trim()}
                   type="text"
                   name="password"
-                  marginbottom={`32px`}
+                  style={{ marginBottom: '32px' }}
                   border={
                     values.password !== `` && !errors.password
                       ? ' 1px solid #3CBC81'
@@ -179,6 +182,11 @@ export const RegisterForm = () => {
         )}
       </Formik>
       <NavLinkStyled to="/login">Log In</NavLinkStyled>
+      <AuthImage
+        srcSet={`${ImgS} 1x,${ImgL} 2x`}
+        src={ImgS}
+        alt="Опис зображення й"
+      />
     </Box>
   );
 };

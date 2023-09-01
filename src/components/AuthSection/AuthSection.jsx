@@ -18,7 +18,7 @@ const AuthSection = () => {
     <Header>
       <LogoImg src={goose} alt="goose_logo" />
       <MainTitle>
-        Go<span style={{ fontFamily: 'InterBoldItalic' }}>o</span>seTrack
+        G<span style={{ fontFamily: 'InterBoldItalic' }}>oo</span>seTrack
       </MainTitle>
       <ButtonWrapper>
         <SignUpBtn to="/register">Sign up</SignUpBtn>

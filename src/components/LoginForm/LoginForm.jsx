@@ -1,7 +1,9 @@
 import React from 'react';
 import { Formik } from 'formik';
 import { validateSchema } from './authSchema';
-import { AuthForm, Box, NavLinkStyled } from './LoginForm.styled';
+import { AuthForm, Box, NavLinkStyled, AuthImage } from './LoginForm.styled';
+import ImgS from '../../images/loginPage/desktop_login.png';
+import ImgL from '../../images/loginPage/desktop_login@2x.png';
 import {
   AuthInput,
   AuthLabel,
@@ -53,7 +55,7 @@ export const LoginForm = () => {
                   type="text"
                   name="email"
                   placeholder="Enter email"
-                  marginbottom={`8px`}
+                  style={{ marginBottom: '8px' }}
                 />
                 <ErrorIcon />
 
@@ -92,12 +94,12 @@ export const LoginForm = () => {
                 <AuthInput
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.password}
+                  value={values.password.trim()}
                   border={'1px solid #DA1414'}
                   type="text"
                   name="password"
                   placeholder="Enter password"
-                  marginbottom={`8px`}
+                  style={{ marginBottom: '8px' }}
                 />
                 <ErrorIcon />
                 <Text color="#DA1414">{errors.password}</Text>
@@ -119,7 +121,7 @@ export const LoginForm = () => {
                   value={values.password}
                   type="text"
                   name="password"
-                  marginbottom={`32px`}
+                  style={{ marginBottom: '32px' }}
                   border={
                     values.password !== `` && !errors.password
                       ? ' 1px solid #3CBC81'
@@ -137,6 +139,11 @@ export const LoginForm = () => {
         )}
       </Formik>
       <NavLinkStyled to="/register">Sign Up</NavLinkStyled>
+      <AuthImage
+        srcSet={`${ImgS} 1x,${ImgL} 2x`}
+        src={ImgS}
+        alt="Опис зображення"
+      />
     </Box>
   );
 };

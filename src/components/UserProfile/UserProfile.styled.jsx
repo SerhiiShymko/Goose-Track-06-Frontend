@@ -1,5 +1,6 @@
 import styled from 'styled-components';
-
+import { ReactComponent as PlusIconSvgStyled } from '../../images/profile/plusAvatar.svg';
+import { ReactComponent as UserPhotoHeaderSvgStyled } from '../../images/profile/phAvatar.svg';
 export const MainWrapper = styled.div`
   margin-top: 64px;
 
@@ -31,9 +32,13 @@ export const UserPhotoMainWrapper = styled.div`
   }
 `;
 
-export const UserPhoto = styled.img`
+export const UserPhoto = styled(UserPhotoHeaderSvgStyled)`
   width: 72px;
   height: 72px;
+  border-radius: 72px;
+  padding: 5px;
+  border: 2px solid #3e85f3;
+  background: lightgray 50% / cover no-repeat;
 
   @media screen and (min-width: 768px) {
     width: 124px;
@@ -43,7 +48,7 @@ export const UserPhoto = styled.img`
   }
 `;
 
-export const PlusIcon = styled.svg`
+export const PlusIcon = styled(PlusIconSvgStyled)`
   width: 14px;
   height: 14px;
   position: absolute;
@@ -60,8 +65,8 @@ export const PlusIcon = styled.svg`
   }
   @media screen and (min-width: 1440px) {
     top: 105px;
-    right: 470px;
-  }
+    right: 340px;
+  } 
 `;
 
 export const UserInfoWrapper = styled.div`

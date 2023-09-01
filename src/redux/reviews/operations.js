@@ -13,7 +13,7 @@ export const fetchReviews = createAsyncThunk(
       return thunkAPI.rejectWithValue(error.message);
     }
   }
-);
+);  
 
 export const fetchOwnReview = createAsyncThunk(
   'reviews/fetchOwn',

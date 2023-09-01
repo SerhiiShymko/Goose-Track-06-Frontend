@@ -1,30 +1,16 @@
 import styled from 'styled-components';
 
-export const HeaderWrapper = styled.header`
-  max-width: 100vw;
-  padding: 24px 20px;
+import { ReactComponent as BurgerSvgStyled } from '../../images/sideBar/icon-menu-burger.svg';
+import { ReactComponent as ThemeTogglerSvgStyled } from '../../images/theme/moon.svg';
+import { ReactComponent as UserPhotoHeaderSvgStyled } from '../../images/profile/phAvatar.svg';
 
-  @media screen and (min-width: 375px) {
-    width: 375px;
-  }
-
-  @media screen and (min-width: 768px) {
-    width: 768px;
-    padding: 24px 32px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 1440px;
-  }
-`;
-
-export const ContentWrapper = styled.div`
+export const ContentWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
 `;
 
-export const BurgerIcon = styled.svg`
+export const BurgerIcon = styled(BurgerSvgStyled)`
   margin-right: 68px;
   width: 24px;
   height: 24px;
@@ -60,7 +46,7 @@ export const FeedbackBtn = styled.button`
   }
 `;
 
-export const ThemeTogglerIcon = styled.svg`
+export const ThemeTogglerIcon = styled(ThemeTogglerSvgStyled)`
   width: 24px;
   height: 24px;
   margin-right: 8px;
@@ -105,9 +91,13 @@ export const UserPhotoHeaderWrapper = styled.div`
   }
 `;
 
-export const UserPhotoHeader = styled.img`
+export const UserPhotoHeader = styled(UserPhotoHeaderSvgStyled)`
   width: 32px;
   height: 32px;
+  border-radius: 32px;
+  border: 1.8px solid #3e85f3;
+  padding: 5px;
+  background: lightgray 50% / cover no-repeat;
 
   @media screen and (min-width: 768px) {
     width: 44px;

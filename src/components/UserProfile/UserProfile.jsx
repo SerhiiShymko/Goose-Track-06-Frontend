@@ -1,10 +1,9 @@
-import userAvatar from '../../images/profile/ph_user.png';
+import { useEffect, useState } from 'react';
 import {
   MainWrapper,
   PlusIcon,
   UserPhotoWrapper,
   UserPhoto,
-  UserPhotoMainWrapper,
   UserInfoWrapper,
   UserNameMain,
   DetailsUserWrapper,
@@ -16,35 +15,21 @@ import {
   BtnSaveChanges,
   UserSurnameMain,
 } from './UserProfile.styled';
+import { useDispatch } from 'react-redux';
+
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/selectors';
 
 const UserProfile = () => {
+  const dispatch = useDispatch();
+  const currentUserInfo = useSelector(selectUser);
+  const a = currentUserInfo.name.split(' ');
+  console.log(a[0]);
   return (
     <MainWrapper>
       <UserPhotoWrapper>
-        <UserPhotoMainWrapper>
-          <UserPhoto src={userAvatar} alt="userAvatar" />
-        </UserPhotoMainWrapper>
-        <PlusIcon
-          viewBox="0 0 24 24"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <circle cx="12" cy="12" r="12" fill="#3E85F3" />
-          <path
-            d="M12 6.75V17.25"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-          <path
-            d="M6.75 12H17.25"
-            stroke="white"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          />
-        </PlusIcon>
+        <UserPhoto />
+        <PlusIcon />
       </UserPhotoWrapper>
       <UserInfoWrapper>
         <UserNameMain>Nadia Doe</UserNameMain>
@@ -79,7 +64,7 @@ const UserProfile = () => {
           <Label>
             Phone
             <InputWrapper>
-              <Input type="number" placeholder="Your phone number" />
+              <Input type="text" placeholder="Your phone number" />
             </InputWrapper>
           </Label>
         </DetailsUserMarginWrapper>
