@@ -8,9 +8,10 @@ import {
   PopperText,
 } from './popup.sryled';
 import { CATEGORY } from '../../data/constants';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { updateTask } from '../../redux/tasks/operations';
-import { selectTasks } from '../../redux/tasks/selectors';
+// import { selectTasks } from '../../redux/tasks/selectors';
 // import { ClickAwayListener } from '@mui/base';
 
 export default function SimplePopper({ category, number }) {
@@ -39,33 +40,30 @@ export default function SimplePopper({ category, number }) {
   };
 
   const hendlerTaskChange = (id, newCategory) => {
-   
     const changeTask = {
       _id: id,
       category: newCategory,
-     
     };
-    
+
     dispatch(updateTask(changeTask));
     return;
   };
 
   const handleFirst = event => {
     const category = event.currentTarget.dataset.category;
-const id = event.currentTarget.dataset.id;
-    if (category === 'In progress') {    
-      
+    const id = event.currentTarget.dataset.id;
+    if (category === 'In progress') {
       hendlerTaskChange(id, CATEGORY.INPROGRESS);
       return;
     }
     if (category === 'To do') {
       hendlerTaskChange(id, CATEGORY.TODO);
-      
+
       return;
     }
     if (category === 'Done') {
       hendlerTaskChange(id, CATEGORY.DONE);
-      
+
       return;
     }
   };
