@@ -18,10 +18,11 @@ import {
   SvgPlusCircle,
   SvgPencil,
   SvgTrash,
+  TrashButton,
 } from '../ChoosedDay.styled';
 
 import { PRIORITY } from '../../../data/constants';
-import {deleteTask} from '../../../redux/tasks/operations'
+import { deleteTask } from '../../../redux/tasks/operations';
 import SimplePopper from '../Popup';
 
 const TaskColumnToDo = ({ data }) => {
@@ -55,11 +56,10 @@ const TaskColumnToDo = ({ data }) => {
     return altText;
   };
 
-  const hendlerDelete = (event) => {
-    const id = event.currentTarget.dataset.id;
-    console.log(id)
+  const hendlerDelete = event => {
+    const id = event.currentTarget.dataset.number;
     dispatch(deleteTask(id));
-}
+  };
 
   return (
     <TaskBorder>
@@ -81,7 +81,13 @@ const TaskColumnToDo = ({ data }) => {
               <TaskLogoList>
                 <SimplePopper category={'to-do'} number={item._id} />
                 <SvgPencil number={item._id} />
-                <SvgTrash number={item._id} onClick={hendlerDelete} />
+                <TrashButton
+                  data-number={item._id}
+                  onClick={hendlerDelete}
+                  type="button"
+                >
+                  <SvgTrash />
+                </TrashButton>
               </TaskLogoList>
             </KontrolWrapper>
           </TaskItemContainer>

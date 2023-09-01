@@ -297,6 +297,12 @@ export const SvgTrash = styled(trash)`
     stroke: #f12a34;
   }
 `;
+
+export const TrashButton = styled.button`
+  width: 16px;
+  height: 16px;
+`;
+
 export const TaskLogoList = styled.div`
   padding: 0;
 

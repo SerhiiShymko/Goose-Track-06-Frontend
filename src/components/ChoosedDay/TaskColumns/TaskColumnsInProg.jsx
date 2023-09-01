@@ -1,27 +1,31 @@
+import { useDispatch } from 'react-redux';
 import {
   ButtonAddTask,
-  TaskName, 
+  TaskName,
   TextInButton,
   TaskBorder,
   TextInTitle,
   TaskListContainer,
   TaskItemContainer,
   TaskText,
-  TaskPriority,  
+  TaskPriority,
   TaskLogoList,
   TaskImageUser,
   KontrolWrapper,
   WrapperUser,
-  SvgAddTask,  
+  SvgAddTask,
   SvgPlusCircle,
   SvgPencil,
   SvgTrash,
+  TrashButton,
 } from '../ChoosedDay.styled';
-
+import { deleteTask } from '../../../redux/tasks/operations';
 import { PRIORITY } from '../../../data/constants';
 import SimplePopper from '../Popup';
 
-const TaskColumnInProg = ({ data}) => {
+const TaskColumnInProg = ({ data }) => {
+ const dispatch = useDispatch();
+
   const priorityColor = priority => {
     if (priority === PRIORITY.LOW) {
       return '#72C2F8';
@@ -31,16 +35,16 @@ const TaskColumnInProg = ({ data}) => {
     return '#EA3D65';
   };
 
-const letterUp = name => {
-  const altName = name;
-  const splitted = altName.split('');
-  const first = splitted[0].toUpperCase();
-  const rest = [...splitted];
-  rest.splice(0, 1);
-  const result = [first, ...rest].join('');
-  return result;
+  const letterUp = name => {
+    const altName = name;
+    const splitted = altName.split('');
+    const first = splitted[0].toUpperCase();
+    const rest = [...splitted];
+    rest.splice(0, 1);
+    const result = [first, ...rest].join('');
+    return result;
   };
-  
+
   const textSlice = text => {
     const altText = text;
     const textLength = altText.length;
@@ -51,6 +55,10 @@ const letterUp = name => {
     return altText;
   };
 
+  const hendlerDelete = event => {
+    const id = event.currentTarget.dataset.number;
+    dispatch(deleteTask(id));
+  };
   return (
     <TaskBorder>
       <TaskName>
@@ -69,12 +77,15 @@ const letterUp = name => {
                 </TaskPriority>
               </WrapperUser>
               <TaskLogoList>
-                <SimplePopper
-                  category={'in-progress'}                  
-                  number={item._id}
-                />
+                <SimplePopper category={'in-progress'} number={item._id} />
                 <SvgPencil />
-                <SvgTrash />
+                <TrashButton
+                  data-number={item._id}
+                  onClick={hendlerDelete}
+                  type="button"
+                >
+                  <SvgTrash />
+                </TrashButton>
               </TaskLogoList>
             </KontrolWrapper>
           </TaskItemContainer>

@@ -39,8 +39,7 @@ export default function SimplePopper({ category, number }) {
   };
 
   const hendlerTaskChange = (id, newCategory) => {
-    // let findTask = allTasks.filter(task => task._id === id);
-    // findTask[0].category = newCategory;
+   
     const changeTask = {
       _id: id,
       category: newCategory,
@@ -53,21 +52,20 @@ export default function SimplePopper({ category, number }) {
 
   const handleFirst = event => {
     const category = event.currentTarget.dataset.category;
-
-    if (category === 'In progress') {
-      const id = event.currentTarget.dataset.id;
+const id = event.currentTarget.dataset.id;
+    if (category === 'In progress') {    
       
       hendlerTaskChange(id, CATEGORY.INPROGRESS);
       return;
     }
-    // hendlerTaskChange({ _id: id, category: CATEGORY.INPROGRESS });
-
     if (category === 'To do') {
-      // changeTask(event.currentTarget.dataset.id, CATEGORY.TODO)
+      hendlerTaskChange(id, CATEGORY.TODO);
+      
       return;
     }
     if (category === 'Done') {
-      // changeTask(event.currentTarget.dataset.id, CATEGORY.DONE)
+      hendlerTaskChange(id, CATEGORY.DONE);
+      
       return;
     }
   };
