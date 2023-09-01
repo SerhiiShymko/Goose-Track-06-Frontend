@@ -1,17 +1,15 @@
+// import { AuthNavigate } from 'components/AuthNavigate/AuthNavigate';
+import { RegisterForm } from 'components/RegisterForm/RegisterForm';
+
+import { Container, FormWrapper } from './RegisterPage.styled';
+//
 const RegisterPage = () => {
   return (
-    <div
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101',
-      }}
-    >
-      RegisterPage
-    </div>
+    <Container>
+      <FormWrapper>
+        <RegisterForm />
+      </FormWrapper>
+    </Container>
   );
 };
 
