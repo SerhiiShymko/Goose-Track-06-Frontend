@@ -17,13 +17,13 @@ import {
   SvgPlusCircle,
   SvgPencil, 
 } from '../ChoosedDay.styled';
-import { deleteTask } from '../../../redux/tasks/operations';
-import { PRIORITY } from '../../../data/constants';
+import { addTask, deleteTask } from '../../../redux/tasks/operations';
+import { CATEGORY, PRIORITY } from '../../../data/constants';
 import SimplePopper from '../Popup';
 import BasicPopover from '../Popover';
 
-const TaskColumnInProg = ({ data }) => {
- const dispatch = useDispatch();
+const TaskColumnInProg = ({ data, currentDay }) => {
+  const dispatch = useDispatch();
 
   const priorityColor = priority => {
     if (priority === PRIORITY.LOW) {
@@ -54,10 +54,21 @@ const TaskColumnInProg = ({ data }) => {
     return altText;
   };
 
-   const hendlerDelete = id => {
-     dispatch(deleteTask(id));
-   };
+  const hendlerDelete = id => {
+    dispatch(deleteTask(id));
+  };
 
+  const hendlerAdd = () => {
+    const newTask = {
+      title: 'Додати завдання',
+      date: currentDay,
+      start: '09:00',
+      end: '15:00',
+      priority: 'high',
+      category: CATEGORY.INPROGRESS,
+    };
+    dispatch(addTask(newTask));
+  };
   return (
     <TaskBorder>
       <TaskName>
@@ -84,7 +95,7 @@ const TaskColumnInProg = ({ data }) => {
           </TaskItemContainer>
         ))}
       </TaskListContainer>
-      <ButtonAddTask>
+      <ButtonAddTask type="button" onClick={hendlerAdd}>
         <SvgAddTask />
         <TextInButton>Add task</TextInButton>
       </ButtonAddTask>
