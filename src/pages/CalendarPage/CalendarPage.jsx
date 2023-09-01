@@ -7,9 +7,9 @@ const CalendarPage = () => {
   return (
     <>
       <CalendarToolBar />
-      <Suspense fallback={<Spinner />}>
+      {/* <Suspense fallback={<Spinner />}>
         <Outlet />
-      </Suspense>
+      </Suspense> */}
     </>
   );
 };
