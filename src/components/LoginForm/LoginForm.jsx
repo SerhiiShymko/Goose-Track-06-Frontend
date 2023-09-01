@@ -94,7 +94,7 @@ export const LoginForm = () => {
                 <AuthInput
                   onChange={handleChange}
                   onBlur={handleBlur}
-                  value={values.password}
+                  value={values.password.trim()}
                   border={'1px solid #DA1414'}
                   type="text"
                   name="password"
@@ -142,7 +142,7 @@ export const LoginForm = () => {
       <AuthImage
         srcSet={`${ImgS} 1x,${ImgL} 2x`}
         src={ImgS}
-        alt="Опис зображення й"
+        alt="Опис зображення"
       />
     </Box>
   );
