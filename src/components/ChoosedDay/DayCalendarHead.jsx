@@ -26,10 +26,10 @@ export const useResize = () => {
 
 
 
-const DayCalendarHead = () => {
+const DayCalendarHead = ({currentDate}) => {
   const screen = useResize();
   // Current Day
-  const currentDay = dayjs("2023-08-29");
+  const currentDay = dayjs(currentDate);
 
   // const day = tagHeute.format('ddd');
   // console.log(tagHeute);

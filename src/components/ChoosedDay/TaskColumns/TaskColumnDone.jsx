@@ -21,9 +21,8 @@ import {
 import { PRIORITY } from '../../../data/constants';
 import SimplePopper from '../Popup';
 
-const uuid = require('uuid').v4;
-
-const TaskColumnDone = ({ data, changeTask }) => {
+const TaskColumnDone = ({ data }) => { 
+ 
   const priorityColor = priority => {
     if (priority === PRIORITY.LOW) {
       return '#72C2F8';
@@ -44,7 +43,7 @@ const letterUp = name => {
   };
   
   const textSlice = text => {
-    const altText = text;
+    const altText = text;   
     const textLength = altText.length;
     if (textLength > 20) {
       const newText = altText.slice(0, 19) + '...';
@@ -61,8 +60,8 @@ const letterUp = name => {
       </TaskName>
       <TaskListContainer>
         {data?.map(item => (
-          <TaskItemContainer key={uuid()}>
-            <TaskText>{textSlice(item.text)}</TaskText>
+          <TaskItemContainer key={item._id}>
+            <TaskText>{textSlice(item.title)}</TaskText>
             <KontrolWrapper>
               <WrapperUser>
                 <TaskImageUser></TaskImageUser>
@@ -72,8 +71,7 @@ const letterUp = name => {
               </WrapperUser>
               <TaskLogoList>
                 <SimplePopper
-                  category={'done'}
-                  changeTask={changeTask}
+                  category={'done'}                 
                   number={item._id}
                 />
                 <SvgPencil />
