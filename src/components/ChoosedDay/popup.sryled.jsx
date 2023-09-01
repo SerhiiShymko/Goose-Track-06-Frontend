@@ -33,3 +33,13 @@ export const PopperButton = styled.button`
   padding:0;
   text-align:center;  
 `;
+export const PopoverButton=styled.div`
+  width:16px;
+  height:16px;
+`
+export const ContainerPopover = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+`;

@@ -15,16 +15,15 @@ import {
   WrapperUser,
   SvgAddTask,
   SvgPlusCircle,
-  SvgPencil,
-  SvgTrash,
-  TrashButton,
+  SvgPencil,  
 } from '../ChoosedDay.styled';
 
-import { deleteTask } from '../../../redux/tasks/operations';
-import { PRIORITY } from '../../../data/constants';
+import { deleteTask, addTask } from '../../../redux/tasks/operations';
+import { CATEGORY, PRIORITY } from '../../../data/constants';
 import SimplePopper from '../Popup';
+import BasicPopover from '../Popover';
 
-const TaskColumnDone = ({ data }) => {
+const TaskColumnDone = ({ data, currentDay }) => {
   const dispatch = useDispatch();
 
   const priorityColor = priority => {
@@ -56,10 +55,22 @@ const TaskColumnDone = ({ data }) => {
     return altText;
   };
 
-  const hendlerDelete = event => {
-    const id = event.currentTarget.dataset.number;
+  const hendlerDelete = id => {
+    
     dispatch(deleteTask(id));
   };
+
+  const hendlerAdd = () => {
+    const newTask = {      
+      title: "Додати завдання",
+      date: currentDay,
+      start: "09:00",
+      end: "15:00",
+      priority: "high",
+      category: CATEGORY.DONE,         
+    };
+    dispatch(addTask(newTask));
+  }
 
   return (
     <TaskBorder>
@@ -81,19 +92,14 @@ const TaskColumnDone = ({ data }) => {
               <TaskLogoList>
                 <SimplePopper category={'done'} number={item._id} />
                 <SvgPencil />
-                <TrashButton
-                  data-number={item._id}
-                  onClick={hendlerDelete}
-                  type="button"
-                >
-                  <SvgTrash />
-                </TrashButton>
+                <BasicPopover number={item._id} hendlerDelete={hendlerDelete} />
+               
               </TaskLogoList>
             </KontrolWrapper>
           </TaskItemContainer>
         ))}
       </TaskListContainer>
-      <ButtonAddTask>
+      <ButtonAddTask type="button" onClick={hendlerAdd}>
         <SvgAddTask />
         <TextInButton>Add task</TextInButton>
       </ButtonAddTask>
