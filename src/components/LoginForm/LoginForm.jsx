@@ -142,7 +142,7 @@ export const LoginForm = () => {
       <AuthImage
         srcSet={`${ImgS} 1x,${ImgL} 2x`}
         src={ImgS}
-        alt="Опис зображення й"
+        alt="Опис зображення"
       />
     </Box>
   );

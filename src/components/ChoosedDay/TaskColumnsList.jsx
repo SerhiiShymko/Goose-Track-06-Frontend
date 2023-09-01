@@ -1,93 +1,69 @@
-import { TaskContainer } from './ChoosedDay.styled';
+import {  useDispatch,useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import {  TaskContainer } from './ChoosedDay.styled';
 
-import { useState } from 'react';
+import { fetchTasks } from '../../redux/tasks/operations';
+
 import TaskColumnToDo from './TaskColumns/TaskColumnToDo';
 import TaskColumnInProg from './TaskColumns/TaskColumnsInProg';
 import TaskColumnDone from './TaskColumns/TaskColumnDone';
 import { CATEGORY } from '../../data/constants';
 
-const TaskColumnsList = () => {
-  const [task, setTask] = useState([
-    {
-      _id: '01',
-      category: 'to-do',
-      text: 'bla bla bla bla',
-      time: '2023/08/25',
-      priority: 'high',
-    },
-    {
-      category: 'in-progress',
-      text: 'bla bla bla bla',
-      time: '2023/08/25',
-      priority: 'medium',
-      _id: '02',
-    },
-    {
-      category: 'done',
-      text: 'bla bla bla bla',
-      time: '2023/08/25',
-      priority: 'low',
-      _id: '03',
-    },
-    {
-      category: 'in-progress',
-      text: 'bla bla bla bla',
-      time: '2023/08/25',
-      priority: 'low',
-      _id: '04',
-    },
-    {
-      category: 'in-progress',
-      text: 'bla bla bla bla',
-      time: '2023/08/25',
-      priority: 'higd',
-      _id: '05',
-    },
-    {
-      category: 'to-do',
-      text: 'bla bla bla bla',
-      time: '2023/08/25',
-      priority: 'low',
-      _id: '06',
-    },
-    {
-      category: 'to-do',
-      text: 'bla bla bla bla',
-      time: '2023/08/25',
-      priority: 'higd',
-      _id: '07',
-    },
-    {
-      category: 'to-do',
-      text: 'bla bla bla bla',
-      time: '2023/08/25',
-      priority: 'medium',
-      _id: '08',
-    },
-  ]);
+import {selectTasks} from '../../redux/tasks/selectors'
 
-  const categoryTodo = task.filter(task => task.category === CATEGORY.TODO);
-  const categoryInProg = task.filter(
+const TaskColumnsList = ({currentDate}) => {
+  
+  const currentDay = currentDate.split('-')[2];
+  
+  const dispatch = useDispatch();
+  
+  const selectedDate = currentDate.slice(0, 7);
+
+  useEffect(() => {
+    dispatch(fetchTasks(selectedDate));
+  }, [dispatch, selectedDate]);
+  // dispatch(fetchTasks(selectedDate));
+
+  const tasks = useSelector(selectTasks);
+  
+  const currentDayTasks = tasks.filter(
+    day => day.date.split('-')[2] === currentDay
+    );
+    
+  const categoryTodo = currentDayTasks.filter(
+    task => task.category === CATEGORY.TODO
+  );
+  const categoryInProg = currentDayTasks.filter(
     task => task.category === CATEGORY.INPROGRESS
   );
-  const categoryDone = task.filter(task => task.category === CATEGORY.DONE);
+  const categoryDone = currentDayTasks.filter(
+    task => task.category === CATEGORY.DONE
+  );
 
-  const handleChangeCategory = (id, category) => {
-    const changeTask = task.filter(task => task._id === id);
-
-    changeTask[0].category = category;
-
-    setTask([...task, changeTask]);
-  };
+// const newTask={   
+//     title: "Task bla bla New",
+//     date: "2023-08-30",
+//     start: "09:00",
+//     end: "15:00",
+//     priority: "high",
+//     category: "done",    
+//   }
+//   const hendlerAddTask = () => {
+//     dispatch(addTask(newTask));
+// }
 
   return (
     <TaskContainer>
-      <TaskColumnToDo data={categoryTodo} changeTask={handleChangeCategory} />
-      <TaskColumnInProg
-        data={categoryInProg}
-        changeTask={handleChangeCategory}
+      
+      <TaskColumnToDo
+      data={categoryTodo}
       />
-      <TaskColumnDone data={categoryDone} changeTask={handleChangeCategory} />
+      <TaskColumnInProg
+      data={categoryInProg}
+      />
+      <TaskColumnDone
+      data={categoryDone}
+      />
     </TaskContainer>
   );
 };

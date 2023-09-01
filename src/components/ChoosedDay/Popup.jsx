@@ -1,18 +1,29 @@
 import { Popper } from '@mui/base';
 import * as React from 'react';
 import { SvgArrow } from './ChoosedDay.styled';
-import { PopperButton, PopperItem, PopperList, PopperText } from './popup.sryled';
+import {
+  PopperButton,
+  PopperItem,
+  PopperList,
+  PopperText,
+} from './popup.sryled';
 import { CATEGORY } from '../../data/constants';
+import { useDispatch } from 'react-redux';
+// import { useSelector } from 'react-redux';
+import { updateTask } from '../../redux/tasks/operations';
+// import { selectTasks } from '../../redux/tasks/selectors';
 // import { ClickAwayListener } from '@mui/base';
 
-export default function SimplePopper({ category,changeTask,number }) {
+export default function SimplePopper({ category, number }) {
+  const dispatch = useDispatch();
+
   const [anchorEl, setAnchorEl] = React.useState(null);
-  let firstLink = "";
-  let secondLink = "";
+  let firstLink = '';
+  let secondLink = '';
 
   if (category === CATEGORY.TODO) {
-    firstLink = "In progress"
-    secondLink = "Done";    
+    firstLink = 'In progress';
+    secondLink = 'Done';
   }
   if (category === CATEGORY.INPROGRESS) {
     firstLink = 'To do';
@@ -22,25 +33,40 @@ export default function SimplePopper({ category,changeTask,number }) {
     firstLink = 'To do';
     secondLink = 'In progress';
   }
+  // const allTasks = useSelector(selectTasks);
 
   const handleClick = event => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
-  const handleFirst = event => {    
-    const category = event.currentTarget.dataset.category;    
-    
+  const hendlerTaskChange = (id, newCategory) => {
+    const changeTask = {
+      _id: id,
+      category: newCategory,
+    };
+
+    dispatch(updateTask(changeTask));
+    return;
+  };
+
+  const handleFirst = event => {
+    const category = event.currentTarget.dataset.category;
+    const id = event.currentTarget.dataset.id;
     if (category === 'In progress') {
-      return changeTask(event.currentTarget.dataset.id, CATEGORY.INPROGRESS);
+      hendlerTaskChange(id, CATEGORY.INPROGRESS);
+      return;
     }
-    if (category === "To do") {
-        return changeTask(event.currentTarget.dataset.id, CATEGORY.TODO);
+    if (category === 'To do') {
+      hendlerTaskChange(id, CATEGORY.TODO);
+
+      return;
     }
     if (category === 'Done') {
-      return changeTask(event.currentTarget.dataset.id, CATEGORY.DONE);
-    }
+      hendlerTaskChange(id, CATEGORY.DONE);
 
-  }
+      return;
+    }
+  };
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popper' : undefined;
@@ -56,7 +82,10 @@ export default function SimplePopper({ category,changeTask,number }) {
               onClick={handleFirst}
               data-id={number}
               data-category={firstLink}
-            > <SvgArrow/></PopperButton>            
+            >
+              {' '}
+              <SvgArrow />
+            </PopperButton>
           </PopperItem>
           <PopperItem>
             <PopperText>{secondLink}</PopperText>
