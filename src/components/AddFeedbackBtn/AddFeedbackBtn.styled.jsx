@@ -8,6 +8,7 @@ export const FeedbackBtn = styled.button`
 
   border: none;
   border-radius: 10px;
+  cursor: pointer;
 
   line-height: 1.3;
   font-weight: 600;
