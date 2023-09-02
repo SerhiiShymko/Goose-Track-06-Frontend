@@ -20,6 +20,7 @@ export const LogoImg = styled.img`
   }
 `;
 export const MainTitle = styled.h1`
+  /* font-family: InterBold; */
   font-weight: 700;
   font-size: 44px;
   line-height: 1.1;
