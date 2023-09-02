@@ -74,8 +74,6 @@ export const CalendarToolBar = () => {
     setActiveDate(format(firstDayNextMonth, 'MMMM yyyy'));
   };
 
-  console.log(format(firstDayCurrentMonth, 'EEEEE'));
-
   const resultDate = result.map(day =>
     format(day, 'd MMMM') === format(new Date(), 'd MMMM') ? (
       <ActiveCalendarDate key={day.toString()}>
@@ -136,8 +134,8 @@ export const CalendarToolBar = () => {
         </PeriodPaginator>
       </WrapperPaginator>
       <PeriodTypeSelect>
-        <BtnTypeSelectMonth type="button">Month</BtnTypeSelectMonth>
-        <BtnTypeSelectDay type="button">Day</BtnTypeSelectDay>
+        <BtnTypeSelectMonth to="calendar/month/:currentDate">Month</BtnTypeSelectMonth>
+        <BtnTypeSelectDay to="calendar/day/:currentDay">Day</BtnTypeSelectDay>
       </PeriodTypeSelect>
     </Wrapper>
   );

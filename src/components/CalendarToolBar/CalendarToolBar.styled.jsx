@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { NavLink } from 'react-router-dom';
 import { ReactComponent as next } from '../../images/calendar/chevron-right.svg';
 import { ReactComponent as prev } from '../../images/calendar/chevron-left.svg';
 
@@ -150,6 +151,7 @@ export const ButtonForOpenCalendar = styled.button`
   font-weight: 700;
   line-height: 1.28; /* 128.571% */
   text-transform: uppercase;
+  cursor: pointer;
 
   @media screen and (min-width: 768px) {
     padding: 8px 12px;
@@ -244,16 +246,18 @@ export const PeriodTypeSelect = styled.div`
   }
 `;
 
-export const BtnTypeSelectMonth = styled.div`
+export const BtnTypeSelectMonth = styled(NavLink)`
   padding: 8px 16px;
   border-radius: 8px 0px 0px 8px;
   border-right: 1px solid rgba(62, 133, 243, 0.2);
   background: #cae8ff;
+  cursor: pointer;
 `;
-export const BtnTypeSelectDay = styled.div`
+export const BtnTypeSelectDay = styled(NavLink)`
   padding: 8px 25px;
   border-radius: 0px 8px 8px 0px;
   background: #e3f3ff;
+  cursor: pointer;
 `;
 
 export const WrapperPaginator = styled.div`

@@ -32,6 +32,7 @@ export const ChoosedMonth = () => {
   let firstDayCurrentMonth = parse(activeDate, 'MMMM yyyy', new Date());
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const weekDays = [];
+  
 
   const renderDayOfWeek = () => {
     for (let day = 0; day < 7; day++) {
