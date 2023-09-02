@@ -1,4 +1,4 @@
-<svg width="369" height="446" viewBox="0 0 369 446" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg  viewBox="0 0 369 446" fill="none" xmlns="http://www.w3.org/2000/svg">
     <ellipse cx="178.469" cy="219.181" rx="29.9748" ry="37.7669"
         transform="rotate(-31.5579 178.469 219.181)" fill="white" />
     <ellipse cx="178.468" cy="219.181" rx="25.0134" ry="33.2266"
@@ -185,3 +185,6 @@
         </linearGradient>
     </defs>
 </svg>
+
+
+

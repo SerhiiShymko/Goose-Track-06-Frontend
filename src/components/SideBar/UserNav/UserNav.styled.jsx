@@ -66,7 +66,7 @@ export const LogoWrapper = styled.div`
 
 export const LogoText = styled.p`
   margin-right: 25px;
-  color: #3e85f3;
+  color: ${({ theme }) => theme.colors.colorLogoTextsSideBar};
   text-shadow: 0px 9.4px 57.6875px rgba(0, 0, 0, 0.04),
     0px 47px 355px rgba(0, 0, 0, 0.07);
   font-size: 16px;
@@ -90,6 +90,7 @@ export const LogoInnerText = styled.span`
 export const CloseSvg = styled(CloseSvgStyled)`
   width: 24px;
   height: 24px;
+  stroke: ${({ theme }) => theme.colors.colorBody};
   @media screen and (min-width: 768px) {
     width: 34px;
     height: 34px;
@@ -108,7 +109,7 @@ export const NavigationBlock = styled.nav`
   flex-direction: column;
   gap: 18px;
 
-  color: rgba(52, 52, 52, 0.5);
+  color: ${({ theme }) => theme.colors.colorBtnSideBar};
 
   @media screen and (min-width: 768px) {
     gap: 16px;
@@ -120,6 +121,7 @@ export const NavigationLegend = styled.p`
   font-weight: 600;
   line-height: normal;
   margin-bottom: 6px;
+  color: ${({ theme }) => theme.colors.colorLegendSideBar};
 
   @media screen and (min-width: 768px) {
     font-size: 14px;
@@ -182,7 +184,8 @@ export const NavLink = styled(NavLinkForStyle)`
   &.active,
   &:hover,
   &:focus {
-    color: #3e85f3;
-    background-color: #e3f3ff;
+    color: ${({ theme }) =>
+      theme.name === 'light' ? '#3e85f3' : theme.colors.colorBody};
+    background-color: ${({ theme }) => theme.colors.backgroundBtnSideBarHover};
   }
 `;
