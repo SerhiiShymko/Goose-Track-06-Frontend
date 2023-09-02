@@ -41,6 +41,38 @@ export const CalendarTable = styled.div`
   margin-top: 14px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 94px);
+  grid-row-gap: 1px;
+  grid-column-gap: 1px;
+
+  border-radius: 8px;
+  border: 1px solid rgba(220, 227, 229, 0.5);
+  background: rgba(220, 227, 229, 0.5);
+  color: #343434;
+  font-family: Inter;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1.2; /* 116.667% */
+  text-transform: uppercase;
+
+  @media screen and (min-width: 768px) {
+    margin-top: 18px;
+    grid-template-rows: repeat(6, 144px);
+    font-size: 16px;
+    line-height: 1.12;
+  }
+
+  @media screen and (min-width: 1440px) {
+    margin-top: 15px;
+    grid-template-rows: repeat(6, 125px);
+  }
+`;
+
+export const CalendarTableShortMonth = styled.div`
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 94px);
   grid-row-gap: 1px;
   grid-column-gap: 1px;
@@ -69,6 +101,9 @@ export const CalendarTable = styled.div`
   }
 `;
 
+export const EmptyDateBlock = styled.div`
+  background-color: #fff;
+`
 export const DateCalendarMonth = styled.div`
   background-color: #fff;
   display: flex;

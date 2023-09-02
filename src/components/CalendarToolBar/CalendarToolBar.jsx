@@ -1,16 +1,7 @@
 import {
-  endOfMonth,
   format,
-  startOfMonth,
   startOfWeek,
-  eachDayOfInterval,
-  endOfWeek,
   addDays,
-  subMonths,
-  addMonths,
-  parseISO,
-  parse,
-  add,
 } from 'date-fns';
 
 import {
@@ -36,53 +27,34 @@ import {
   BtnTypeSelectDay,
   WrapperPaginator,
 } from './CalendarToolBar.styled';
-import { Container } from 'styles/Container';
+
 import Prev from '../../images/calendar/chevron-left.svg';
 import Next from '../../images/calendar/chevron-right.svg';
 import { nanoid } from 'nanoid';
 import { useState } from 'react';
 
-export const CalendarToolBar = () => {
-  const date = format(new Date(), 'MMMM yyyy');
-  const [selectedDate, setSelectedDate] = useState(date);
-  const [activeDate, setActiveDate] = useState(date);
+export const CalendarToolBar = ({dayInterval, onNext, onPrev, dateToday}) => {
   const [open, setOpen] = useState(false);
-  let firstDayCurrentMonth = parse(activeDate, 'MMMM yyyy', new Date());
-
-  const startDayOfMonth = startOfMonth(new Date());
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
-  const endDayOfMonth = endOfMonth(new Date());
-  const endDayOfWeek = () => endOfWeek(new Date(), { weekStartsOn: 1 });
 
   const weekDays = [];
   for (let day = 0; day < 7; day++) {
     weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
   }
 
-  const result = eachDayOfInterval({
-    start: firstDayCurrentMonth,
-    end: endOfMonth(firstDayCurrentMonth),
+  const resultDate = dayInterval.map(day => {
+    if (format(day, 'MMMM yyyy') !== dateToday) {
+      return <div key={day.toString()}></div>;
+    } else {
+      return format(day, 'd MMMM') === format(new Date(), 'd MMMM') ? (
+        <ActiveCalendarDate key={day.toString()}>
+          {format(day, 'd')}
+        </ActiveCalendarDate>
+      ) : (
+        <CalendarDate key={day.toString()}>{format(day, 'd')}</CalendarDate>
+      );
+    }
   });
-
-  const nextMonth = () => {
-    let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
-    setActiveDate(format(firstDayNextMonth, 'MMMM yyyy'));
-  };
-
-  const prevMonth = () => {
-    let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
-    setActiveDate(format(firstDayNextMonth, 'MMMM yyyy'));
-  };
-
-  const resultDate = result.map(day =>
-    format(day, 'd MMMM') === format(new Date(), 'd MMMM') ? (
-      <ActiveCalendarDate key={day.toString()}>
-        {format(day, 'd')}
-      </ActiveCalendarDate>
-    ) : (
-      <CalendarDate key={day.toString()}>{format(day, 'd')}</CalendarDate>
-    )
-  );
 
   return (
     <Wrapper>
@@ -93,12 +65,12 @@ export const CalendarToolBar = () => {
             setOpen(!open);
           }}
         >
-          {activeDate}
+          {dateToday}
         </ButtonForOpenCalendar>
         {open && (
           <ModalCalendar>
             <Caption>
-              <Button onClick={prevMonth}>
+              <Button onClick={onPrev}>
                 <ImgPaginatorPrev
                   src={Prev}
                   alt="prev"
@@ -106,8 +78,8 @@ export const CalendarToolBar = () => {
                   height={18}
                 />
               </Button>
-              <DataText>{activeDate}</DataText>
-              <Button onClick={nextMonth}>
+              <DataText>{dateToday}</DataText>
+              <Button onClick={onNext}>
                 <ImgPaginatorNextModal
                   src={Next}
                   alt="next"
@@ -125,16 +97,18 @@ export const CalendarToolBar = () => {
           </ModalCalendar>
         )}
         <PeriodPaginator>
-          <BtnPaginatorLeft onClick={prevMonth}>
+          <BtnPaginatorLeft onClick={onPrev}>
             <ImgPaginatorPrev src={Prev} alt="prev" width={16} height={16} />
           </BtnPaginatorLeft>
-          <BtnPaginatorRight onClick={nextMonth}>
+          <BtnPaginatorRight onClick={onNext}>
             <ImgPaginatorNext src={Next} alt="next" width={16} height={16} />
           </BtnPaginatorRight>
         </PeriodPaginator>
       </WrapperPaginator>
       <PeriodTypeSelect>
-        <BtnTypeSelectMonth to="calendar/month/:currentDate">Month</BtnTypeSelectMonth>
+        <BtnTypeSelectMonth to="calendar/month/:currentDate">
+          Month
+        </BtnTypeSelectMonth>
         <BtnTypeSelectDay to="calendar/day/:currentDay">Day</BtnTypeSelectDay>
       </PeriodTypeSelect>
     </Wrapper>

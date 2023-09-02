@@ -1,76 +1,53 @@
-import { useState } from 'react';
 import {
   MonthCalendarHead,
-  Day,
   DayHolidays,
-  CalendarTable,
   DateCalendarMonth,
   DateActive,
   DateNoSelected,
+  CalendarTable,
+  Day,
+  EmptyDateBlock,
+  CalendarTableShortMonth,
 } from './ChoosedMonth.styled';
 import { nanoid } from 'nanoid';
+import { format, startOfWeek, addDays } from 'date-fns';
 
-import {
-  endOfMonth,
-  format,
-  startOfMonth,
-  startOfWeek,
-  eachDayOfInterval,
-  endOfWeek,
-  addDays,
-  subMonths,
-  addMonths,
-  parseISO,
-  parse,
-  add,
-} from 'date-fns';
-
-export const ChoosedMonth = () => {
-  const date = format(new Date(), 'MMMM yyyy');
-  const [selectedDate, setSelectedDate] = useState(date);
-  const [activeDate, setActiveDate] = useState(date);
-  let firstDayCurrentMonth = parse(activeDate, 'MMMM yyyy', new Date());
+export const ChoosedMonth = ({
+  dayInterval,
+  onNext,
+  onPrev,
+  dateToday,
+  firstDayCurrentMonth,
+}) => {
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const weekDays = [];
-  
 
   const renderDayOfWeek = () => {
     for (let day = 0; day < 7; day++) {
       if (window.screen.width < 768) {
-         weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
+        weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
       } else {
         weekDays.push(format(addDays(startDayOfWeek, day), 'EEE'));
       }
     }
     return weekDays;
-    };
-    
-  const nextMonth = () => {
-    let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
-    setActiveDate(format(firstDayNextMonth, 'MMMM yyyy'));
   };
 
-  const prevMonth = () => {
-    let firstDayNextMonth = add(firstDayCurrentMonth, { months: -1 });
-    setActiveDate(format(firstDayNextMonth, 'MMMM yyyy'));
-  };
-
-  const result = eachDayOfInterval({
-    start: firstDayCurrentMonth,
-    end: endOfMonth(firstDayCurrentMonth),
+  const resultDate = dayInterval.map(day => {
+    if (format(day, 'MMMM yyyy') === dateToday) {
+      return format(day, 'd MMMM') === format(new Date(), 'd MMMM') ? (
+        <DateCalendarMonth key={day.toString()}>
+          <DateActive>{format(day, 'd')}</DateActive>
+        </DateCalendarMonth>
+      ) : (
+        <DateCalendarMonth key={day.toString()}>
+          <DateNoSelected>{format(day, 'd')}</DateNoSelected>
+        </DateCalendarMonth>
+      );
+    } else {
+      return <EmptyDateBlock key={day.toString()}></EmptyDateBlock>;
+    }
   });
-
-  const resultDate = result.map(day =>
-    format(day, 'd MMMM') === format(new Date(), 'd MMMM') ? (
-      <DateCalendarMonth key={day.toString()}>
-        <DateActive>{format(day, 'd')}</DateActive>
-      </DateCalendarMonth>
-    ) : (
-      <DateCalendarMonth key={day.toString()}>
-        <DateNoSelected>{format(day, 'd')}</DateNoSelected>
-      </DateCalendarMonth>
-    )
-  );
 
   return (
     <>
@@ -82,7 +59,11 @@ export const ChoosedMonth = () => {
           return <Day key={nanoid()}>{day}</Day>;
         })}
       </MonthCalendarHead>
-      <CalendarTable>{resultDate}</CalendarTable>
+      {dayInterval.length > 35 ? (
+        <CalendarTable>{resultDate}</CalendarTable>
+      ) : (
+        <CalendarTableShortMonth>{resultDate}</CalendarTableShortMonth>
+      )}
     </>
   );
 };
