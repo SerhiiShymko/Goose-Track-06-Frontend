@@ -20,7 +20,7 @@ export const LogoImg = styled.img`
   }
 `;
 export const MainTitle = styled.h1`
-  font-family: InterBold;
+  font-weight: 700;
   font-size: 44px;
   line-height: 1.1;
   margin-bottom: 32px;
@@ -77,7 +77,6 @@ export const LogInBtn = styled(Link)`
   border-radius: 16px;
   border: none;
 
-  font-family: 'Inter';
   font-style: normal;
   font-weight: 600;
   font-size: 14px;

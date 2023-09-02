@@ -13,6 +13,7 @@ import CoolveticaRegularItalic from '../fonts/coolvetica/Coolvetica-Regular-Ital
 
 // THEMES======================== (start)
 export const LIGHT = {
+  name: 'light',
   colors: {
     backgroundBody: '#F7F6F9', // основний колір фону (вкладені сторінки: календар, графік, профіль юзера)
     colorBody: '#343434', // основний колір шрифту
@@ -21,6 +22,7 @@ export const LIGHT = {
     colorLegendSideBar: 'rgba(52, 52, 52, 0.5)', // легенда сайдбару (мілким шрифтом)
     backgroundSideBar: '#FFFFFF', // фон сайдбару
     colorLabelsUserProfile: '#111111', // Labels UserProfile
+    colorLogoTextsSideBar: '#3E85F3', // logo text SideBar
     // ----- Модальні вікна ------
     backgroundModalFields: '#F6F6F6', // поля модалок
     colorLabelModal: 'rgba(52, 52, 52, 0.5)', // Labels модалок
@@ -33,6 +35,7 @@ export const LIGHT = {
 };
 
 export const DARK = {
+  name: 'dark',
   colors: {
     backgroundBody: '#21222C', // основний колір фону (вкладені сторінки: календар, графік, профіль юзера)
     colorBody: '#FFFFFF', // основний колір шрифту
@@ -41,6 +44,8 @@ export const DARK = {
     colorLegendSideBar: 'rgba(250, 250, 250, 0.3)', // легенда сайдбару (мілким шрифтом)
     backgroundSideBar: '#13151A', // фон сайдбару
     colorLabelsUserProfile: 'rgba(250, 250, 250, 0.3)', // Labels UserProfile
+    colorLogoTextsSideBar: '#E3F3FF', // logo text SideBar
+
     // ----- Модальні вікна ------
     backgroundModalFields: '#171820', // поля модалок
     colorLabelModal: 'rgba(250, 250, 250, 0.3)', // Labels модалок

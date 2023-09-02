@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { ReactComponent as ErrorIcon } from '../../images/404/404-goose.svg';
 import { NavLink } from 'react-router-dom';
+
 // ----------------------------------------------------------------------------
 
 export const ErrorBox = styled.div`
@@ -8,7 +9,8 @@ export const ErrorBox = styled.div`
   text-align: center;
   padding: 264px 61px 246px;
 
-  background-color: #f7f6f9;
+  background-color: ${({ theme }) =>
+    theme.name === 'light' ? '#f7f6f9' : theme.colors.backgroundAccent};
   @media (min-width: 375px) {
   }
   @media (min-width: 768px) {
@@ -42,7 +44,8 @@ export const IconError = styled(ErrorIcon)`
 // ----------------------------------------------------------------------------
 
 export const TextError = styled.p`
-  color: rgba(17, 17, 17, 0.7);
+  color: ${({ theme }) =>
+    theme.name === 'light' ? 'rgba(17, 17, 17, 0.7)' : theme.colors.colorBody};
   font-size: 14px;
   font-weight: 500;
   line-height: 18px;
