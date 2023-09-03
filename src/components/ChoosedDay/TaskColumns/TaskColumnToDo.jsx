@@ -56,11 +56,11 @@ const TaskColumnToDo = ({ data, currentDay }) => {
     return altText;
   };
 
-  const hendlerDelete = id => {
+  const handleDelete = id => {
     dispatch(deleteTask(id));
   };
 
-  const hendlerAdd = () => {
+  const handleAdd = () => {
     const newTask = {
       title: 'Додати завдання',
       date: currentDay,
@@ -97,14 +97,14 @@ const TaskColumnToDo = ({ data, currentDay }) => {
                   <SvgPencil number={item._id} />
                   <BasicPopover
                     number={item._id}
-                    hendlerDelete={hendlerDelete}
+                    handleDelete={handleDelete}
                   />
                 </TaskLogoList>
               </KontrolWrapper>
             </TaskItemContainer>
           ))}
         </TaskListContainer>
-        <ButtonAddTask type="button" onClick={hendlerAdd}>
+        <ButtonAddTask type="button" onClick={handleAdd}>
           <SvgAddTask />
           <TextInButton>Add task</TextInButton>
         </ButtonAddTask>

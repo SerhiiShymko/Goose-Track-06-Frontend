@@ -6,7 +6,7 @@ import { ContainerPopover, PopoverButton } from './popup.sryled';
 
 import ColorButtons from './ColorButtons';
 
-export default function BasicPopover({ number, hendlerDelete }) {
+export default function BasicPopover({ number, handleDelete }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = event => {
@@ -44,7 +44,7 @@ export default function BasicPopover({ number, hendlerDelete }) {
           </Typography>
           <ColorButtons
             handleClose={handleClose}
-            hendlerDelete={hendlerDelete}
+            handleDelete={handleDelete}
             number={number}
           />
         </ContainerPopover>
