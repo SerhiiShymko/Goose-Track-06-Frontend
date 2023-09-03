@@ -24,6 +24,7 @@ import { CATEGORY, PRIORITY } from '../../../data/constants';
 import { addTask, deleteTask } from '../../../redux/tasks/operations';
 import SimplePopper from '../components/Popup';
 import BasicPopover from '../components/Popover';
+import { Modal } from 'components/Modal/Modal';
 
 const TaskColumnToDo = ({ data, currentDay }) => {
   const dispatch = useDispatch();
@@ -69,7 +70,9 @@ const TaskColumnToDo = ({ data, currentDay }) => {
       priority: 'high',
       category: CATEGORY.TODO,
     };
-    dispatch(addTask(newTask));
+
+    <Modal/>
+    // dispatch(addTask(newTask));
   };
   const onDragEnd = result => {
   // TODO

@@ -1,4 +1,5 @@
 import { CalendarToolBar } from 'components/CalendarToolBar/CalendarToolBar';
+import ChoosedDay from 'components/ChoosedDay/ChoosedDay';
 
 import { ChoosedMonth } from 'components/ChoosedMonth/ChoosedMonth';
 import {
@@ -46,13 +47,13 @@ const CalendarPage = () => {
         onPrev={prevMonth}
         dateToday={activeDate}
       />
-      <ChoosedMonth
+      {/* <ChoosedMonth
         dayInterval={result}
         onNext={nextMonth}
         onPrev={prevMonth}
         dateToday={activeDate}
-      />
-
+      /> */}
+<ChoosedDay/>
       {/* <Suspense fallback={<Spinner />}>
         <Outlet />
       </Suspense> */}
