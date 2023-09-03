@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 
 export const ContainerColendar = styled.div`
   height: 68px;
@@ -7,8 +7,8 @@ export const ContainerColendar = styled.div`
   justify-content: space-between;
 
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background: #fff;
+  border: 1px solid ${({ theme }) => theme.colors.colorCalendarBorder};
+  background: ${({ theme }) => theme.colors.backgroundSubcomponents};
 
   @media screen and (max-width: 1139px) {
     padding: 10px 32px;
@@ -24,13 +24,10 @@ export const ContainerColendar = styled.div`
   }
 `;
 export const ListData = styled.ul`
-  display:flex;
-  justify-content:space-between; 
+  display: flex;
+  justify-content: space-between;
 `;
-export const ContainerData = styled.div`
-
-
-`;
+export const ContainerData = styled.div``;
 export const DataItem = styled.li`
   display: flex;
   flex-direction: column;
@@ -38,8 +35,12 @@ export const DataItem = styled.li`
   align-items: center;
 `;
 export const DayText = styled.span`
-  font-family: InterSemiBold;
-  color: #343434;
+  /* font-family: InterSemiBold; */
+  font-weight: 600;
+  color: ${({ theme }) =>
+    (theme.name = 'light'
+      ? theme.colors.colorBody
+      : 'rgba(250, 250, 250, 0.3)')};
   font-size: 14px;
   line-height: 18px; /* 128.571% */
   text-transform: uppercase;
@@ -53,7 +54,8 @@ export const DataNumber = styled.span`
   color: ${props => props.$color};
   padding: 4px 8px;
   border-radius: 16px;
-  font-family: interbold;
+  /* font-family: interbold; */
+  font-weight: 700;
   font-size: 16px;
   line-height: 18px; /* 112.5% */
 
