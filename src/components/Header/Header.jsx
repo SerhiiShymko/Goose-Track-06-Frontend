@@ -9,9 +9,11 @@ import {
   UserPhotoHeader,
   ThemeMoonIcon,
   ThemeSunIcon,
+  SideBarBtn,
+  CurrentPage,
 } from './Header.styled';
 import Spinner from 'components/Spinner/Spinner';
-import { Outlet } from 'react-router-dom';
+import { Outlet, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { selectTheme, selectUser } from 'redux/auth/selectors';
 import { useDispatch } from 'react-redux';
@@ -30,12 +32,22 @@ const Header = ({ handleClick }) => {
       ? dispatch(setTheme('dark'))
       : dispatch(setTheme('light'));
 
+  const location = useLocation();
+  const getTextForCurrentPage = () => {
+    if (location.pathname.includes('account')) return 'User Profile';
+    if (location.pathname.includes('calendar')) return 'Calendar';
+    if (location.pathname.includes('statistics')) return 'Statistics';
+  };
+
   return (
     <Container>
       <ContentWrapper>
-        <button type="button" onClick={handleClick}>
+        {window.innerWidth >= 1440 && (
+          <CurrentPage>{getTextForCurrentPage()}</CurrentPage>
+        )}
+        <SideBarBtn type="button" onClick={handleClick}>
           <BurgerIcon />
-        </button>
+        </SideBarBtn>
         <UserWrapper>
           <AddFeedbackBtn />
           <button type="button" onClick={toggleTheme}>

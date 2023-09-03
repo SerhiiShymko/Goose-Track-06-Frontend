@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import Prev from '../../../images/calendar/chevron-left.svg'
+import Prev from '../../../images/calendar/chevron-left.svg';
 
 export const WrapperPagination = styled.div`
   display: flex;
@@ -15,7 +15,7 @@ export const ButtonForOpenCalendar = styled.button`
   background: #3e85f3;
   color: #fff;
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -53,7 +53,7 @@ export const BtnPaginatorLeft = styled.button`
   border-right: calc(1 / 2) px;
   background: #fff;
 
-  @media screen and (min-width: 768px;) {
+  @media screen and (min-width: 768px) {
     padding: 8px 10px;
   }
 `;
@@ -71,7 +71,7 @@ export const BtnPaginatorRight = styled.button`
   border-left: calc(1 / 2) px;
   background: #fff;
 
-  @media screen and (min-width: 768px;) {
+  @media screen and (min-width: 768px) {
     padding: 8px 10px;
   }
 `;
