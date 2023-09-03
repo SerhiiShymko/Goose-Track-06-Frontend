@@ -9,8 +9,7 @@ import {
   ListData,
 } from './DayCalendarHead.styled';
 import { useTheme } from 'styled-components';
-// import { color } from 'styled-system';
-// import {AnimatedPopup} from './Popup'
+
 
 export const useResize = () => {
   const [width, setWidth] = useState(window.innerWidth);
@@ -29,24 +28,13 @@ export const useResize = () => {
     isScreenMd: width < 767,
     isScreenLg: width <= 1140,
   };
-};
-
-
-
-
-
-  
+};  
 
 const DayCalendarHead = ({ currentDate }) => {
 
   const screen = useResize();
   // Current Day
   const currentDay = dayjs(currentDate);
-  // const day = tagHeute.format('ddd');
-  // console.log(tagHeute);
-  // const nextTag = dayjs().add(1, 'day');
-  // console.log(nextTag.format('d'));
-  // dayjs('2019-01-25');
 
   
   let weekday = currentDay.format('d');
