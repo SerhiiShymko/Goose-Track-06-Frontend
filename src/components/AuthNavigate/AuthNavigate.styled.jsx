@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import { Link } from 'react-route-dom';
 
 export const StyledAuthNavigate = styled(Link)`
-  displey: block;
+  display: block;
 
   /* font-family: Inter; */
   font-weight: 600;
