@@ -7,7 +7,7 @@ export const MonthCalendarHead = styled.div`
   margin-top: 24px;
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.5);
-  background: #fff;
+  background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
 
   @media screen and (min-width: 768px) {
     margin-top: 32px;
@@ -19,8 +19,8 @@ export const MonthCalendarHead = styled.div`
   }
 `;
 export const Day = styled.span`
-  color: #343434;
-  font-family: Inter;
+  color: ${({ theme }) => theme.colors.colorBody};
+  /* font-family: Inter; */
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -30,7 +30,7 @@ export const Day = styled.span`
 
 export const DayHolidays = styled.span`
   color: #3e85f3;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 16px;
   font-style: normal;
   font-weight: 600;
@@ -74,14 +74,15 @@ export const CalendarTableShortMonth = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(5, 94px);
-  grid-row-gap: 1px;
-  grid-column-gap: 1px;
+  /* grid-row-gap: 1px;
+  grid-column-gap: 1px; */
 
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.5);
-  background: rgba(220, 227, 229, 0.5);
-  color: #343434;
-  font-family: Inter;
+  /* border: 1px solid rgba(220, 227, 229, 0.5); */
+  //background: rgba(220, 227, 229, 0.5);
+  background: ${({ theme }) => theme.colors.backgroundSubcomponents};
+  color: ${({ theme }) => theme.colors.colorBody};
+  /* font-family: Inter; */
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
@@ -105,11 +106,12 @@ export const EmptyDateBlock = styled.div`
   background-color: #fff;
 `
 export const DateCalendarMonth = styled.div`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
   display: flex;
   justify-content: end;
   padding-top: 8px;
   padding-right: 4px;
+  border: 1px solid ${({ theme }) => theme.colors.colorCalandarBorder};
 
   @media screen and (min-width: 768px) {
     padding-top: 14px;
