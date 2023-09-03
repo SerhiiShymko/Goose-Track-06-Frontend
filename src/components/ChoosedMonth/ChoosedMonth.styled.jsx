@@ -104,16 +104,16 @@ export const CalendarTableShortMonth = styled.div`
 
 export const EmptyDateBlock = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
-  border: solid ${({ theme }) => theme.colors.colorCalandarBorder};
+  border: solid ${({ theme }) => theme.colors.colorCalendarBorder};
   border-width: 0.5px;
-`
+`;
 export const DateCalendarMonth = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
   display: flex;
   justify-content: end;
   padding-top: 8px;
   padding-right: 4px;
-  border: solid ${({ theme }) => theme.colors.colorCalandarBorder};
+  border: solid ${({ theme }) => theme.colors.colorCalendarBorder};
   border-width: 0.5px;
 
   @media screen and (min-width: 768px) {
