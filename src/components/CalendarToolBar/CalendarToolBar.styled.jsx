@@ -31,7 +31,7 @@ export const ImgPaginatorNext = styled(next)`
 `;
 
 export const ImgPaginatorPrev = styled(prev)`
-  stroke: #dce3e5;
+  stroke: #343434;
 
   @media screen and (min-width: 768px) {
     width: 18px;

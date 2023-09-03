@@ -1,4 +1,5 @@
 import { styled } from 'styled-components';
+import { ReactComponent as prev } from '../../images/calendar/chevron-left.svg';
 
 export const ModalCalendar = styled.div`
   position: absolute;
@@ -145,5 +146,14 @@ export const ActiveCalendarDate = styled.div`
     font-size: 18px;
     font-weight: 400;
     line-height: 1.33;
+  }
+`;
+
+export const ImgPaginatorPrev = styled(prev)`
+  stroke: #fff;
+
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
   }
 `;

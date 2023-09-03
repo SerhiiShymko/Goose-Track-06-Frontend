@@ -8,12 +8,12 @@ import {
   Caption,
   DataText,
   Day,
+  ImgPaginatorPrev,
   ModalCalendar,
   WeekDays,
 } from './CalendarModal.styled';
 import {
-  ImgPaginatorNextModal,
-  ImgPaginatorPrev,
+  ImgPaginatorNextModal
 } from 'components/CalendarToolBar/CalendarToolBar.styled';
 import Prev from '../../images/calendar/chevron-left.svg';
 import Next from '../../images/calendar/chevron-right.svg';
