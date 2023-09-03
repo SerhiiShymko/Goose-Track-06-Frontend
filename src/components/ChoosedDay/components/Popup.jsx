@@ -1,18 +1,16 @@
 import { Popper } from '@mui/base';
 import * as React from 'react';
-import { SvgArrow } from './ChoosedDay.styled';
+import { SvgArrow } from '../ChoosedDay.styled';
 import {
   PopperButton,
   PopperItem,
   PopperList,
   PopperText,
 } from './popup.sryled';
-import { CATEGORY } from '../../data/constants';
+import { CATEGORY } from '../../../data/constants';
 import { useDispatch } from 'react-redux';
-// import { useSelector } from 'react-redux';
-import { updateTask } from '../../redux/tasks/operations';
-// import { selectTasks } from '../../redux/tasks/selectors';
-// import { ClickAwayListener } from '@mui/base';
+import { updateTask } from '../../../redux/tasks/operations';
+
 
 export default function SimplePopper({ category, number }) {
   const dispatch = useDispatch();
@@ -31,15 +29,13 @@ export default function SimplePopper({ category, number }) {
   }
   if (category === CATEGORY.DONE) {
     firstLink = 'To do';
-    secondLink = 'In progress';
-  }
-  // const allTasks = useSelector(selectTasks);
+    secondLink = 'In progress';  } 
 
   const handleClick = event => {
     setAnchorEl(anchorEl ? null : event.currentTarget);
   };
 
-  const hendlerTaskChange = (id, newCategory) => {
+  const handleTaskChange = (id, newCategory) => {
     const changeTask = {
       _id: id,
       category: newCategory,
@@ -53,16 +49,16 @@ export default function SimplePopper({ category, number }) {
     const category = event.currentTarget.dataset.category;
     const id = event.currentTarget.dataset.id;
     if (category === 'In progress') {
-      hendlerTaskChange(id, CATEGORY.INPROGRESS);
+      handleTaskChange(id, CATEGORY.INPROGRESS);
       return;
     }
     if (category === 'To do') {
-      hendlerTaskChange(id, CATEGORY.TODO);
+      handleTaskChange(id, CATEGORY.TODO);
 
       return;
     }
     if (category === 'Done') {
-      hendlerTaskChange(id, CATEGORY.DONE);
+      handleTaskChange(id, CATEGORY.DONE);
 
       return;
     }

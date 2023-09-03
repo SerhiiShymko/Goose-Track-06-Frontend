@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { useDispatch } from 'react-redux';
+import { DragDropContext } from 'react-beautiful-dnd';
 import {
   ButtonAddTask,
   TaskName,
@@ -16,13 +17,13 @@ import {
   WrapperUser,
   SvgAddTask,
   SvgPlusCircle,
-  SvgPencil, 
+  SvgPencil,
 } from '../ChoosedDay.styled';
 
 import { CATEGORY, PRIORITY } from '../../../data/constants';
 import { addTask, deleteTask } from '../../../redux/tasks/operations';
-import SimplePopper from '../Popup';
-import BasicPopover from '../Popover';
+import SimplePopper from '../components/Popup';
+import BasicPopover from '../components/Popover';
 
 const TaskColumnToDo = ({ data, currentDay }) => {
   const dispatch = useDispatch();
@@ -55,11 +56,11 @@ const TaskColumnToDo = ({ data, currentDay }) => {
     return altText;
   };
 
-  const hendlerDelete = id => {
+  const handleDelete = id => {
     dispatch(deleteTask(id));
   };
 
-  const hendlerAdd = () => {
+  const handleAdd = () => {
     const newTask = {
       title: 'Додати завдання',
       date: currentDay,
@@ -70,38 +71,45 @@ const TaskColumnToDo = ({ data, currentDay }) => {
     };
     dispatch(addTask(newTask));
   };
-
+  const onDragEnd = result => {
+  // TODO
+}
   return (
-    <TaskBorder>
-      <TaskName>
-        <TextInTitle>To do</TextInTitle>
-        <SvgPlusCircle />
-      </TaskName>
-      <TaskListContainer>
-        {data?.map(item => (
-          <TaskItemContainer key={item._id}>
-            <TaskText>{textSlice(item.title)}</TaskText>
-            <KontrolWrapper>
-              <WrapperUser>
-                <TaskImageUser></TaskImageUser>
-                <TaskPriority $background={priorityColor(item.priority)}>
-                  {letterUp(item.priority)}
-                </TaskPriority>
-              </WrapperUser>
-              <TaskLogoList>
-                <SimplePopper category={'to-do'} number={item._id} />
-                <SvgPencil number={item._id} />
-                <BasicPopover number={item._id} hendlerDelete={hendlerDelete} />
-              </TaskLogoList>
-            </KontrolWrapper>
-          </TaskItemContainer>
-        ))}
-      </TaskListContainer>
-      <ButtonAddTask type="button" onClick={hendlerAdd}>
-        <SvgAddTask />
-        <TextInButton>Add task</TextInButton>
-      </ButtonAddTask>
-    </TaskBorder>
+    <DragDropContext onDragEnd={onDragEnd}>
+      <TaskBorder>
+        <TaskName>
+          <TextInTitle>To do</TextInTitle>
+          <SvgPlusCircle />
+        </TaskName>
+        <TaskListContainer>
+          {data?.map(item => (
+            <TaskItemContainer key={item._id}>
+              <TaskText>{textSlice(item.title)}</TaskText>
+              <KontrolWrapper>
+                <WrapperUser>
+                  <TaskImageUser></TaskImageUser>
+                  <TaskPriority $background={priorityColor(item.priority)}>
+                    {letterUp(item.priority)}
+                  </TaskPriority>
+                </WrapperUser>
+                <TaskLogoList>
+                  <SimplePopper category={'to-do'} number={item._id} />
+                  <SvgPencil number={item._id} />
+                  <BasicPopover
+                    number={item._id}
+                    handleDelete={handleDelete}
+                  />
+                </TaskLogoList>
+              </KontrolWrapper>
+            </TaskItemContainer>
+          ))}
+        </TaskListContainer>
+        <ButtonAddTask type="button" onClick={handleAdd}>
+          <SvgAddTask />
+          <TextInButton>Add task</TextInButton>
+        </ButtonAddTask>
+      </TaskBorder>
+    </DragDropContext>
   );
 };
 

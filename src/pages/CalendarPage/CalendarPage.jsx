@@ -1,4 +1,5 @@
 import { CalendarToolBar } from 'components/CalendarToolBar/CalendarToolBar';
+
 import { ChoosedMonth } from 'components/ChoosedMonth/ChoosedMonth';
 import {
   add,
@@ -10,6 +11,7 @@ import {
   startOfWeek,
 } from 'date-fns';
 import { useState } from 'react';
+
 // import Spinner from 'components/Spinner/Spinner';
 // import { Suspense } from 'react';
 // import { Outlet } from 'react-router-dom';
@@ -37,6 +39,7 @@ const CalendarPage = () => {
 
   return (
     <>
+
       <CalendarToolBar
         dayInterval={result}
         onNext={nextMonth}
@@ -49,6 +52,7 @@ const CalendarPage = () => {
         onPrev={prevMonth}
         dateToday={activeDate}
       />
+
       {/* <Suspense fallback={<Spinner />}>
         <Outlet />
       </Suspense> */}
