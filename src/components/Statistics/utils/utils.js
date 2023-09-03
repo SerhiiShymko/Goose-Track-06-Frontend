@@ -86,9 +86,9 @@ export const FilterTasksByDay = (tasks, date) =>
   tasks.filter(task => task.date === date);
 
   const useResize = () => {
-    const [size, setSize] = useState(0);
+    const [size, setSize] = useState([0, 0]);
     useEffect(() => {
-      const getSize = () => setSize(window.innerWidth);
+      const getSize = () => setSize([window.innerWidth, window.innerHeight]);
       getSize();
       window.addEventListener('resize', getSize);
       return () => window.removeEventListener('resize', getSize);

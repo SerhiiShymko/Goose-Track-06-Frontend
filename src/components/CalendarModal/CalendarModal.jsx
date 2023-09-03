@@ -26,7 +26,7 @@ export const CalendarModal = ({ onNext, onPrev, dateToday, dayInterval }) => {
   for (let day = 0; day < 7; day++) {
     weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
   }
-  
+
   const resultDate = dayInterval.map(day => {
     if (format(day, 'MMMM yyyy') !== dateToday) {
       return <div key={day.toString()}></div>;

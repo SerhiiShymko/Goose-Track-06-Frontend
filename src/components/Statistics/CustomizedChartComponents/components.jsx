@@ -10,10 +10,10 @@ export const GradientBar = ({ color, id }) => {
 };
 
 export const CustomizedMostPopularLabel = props => {
-  const { x, y, value, fill} = props;
+  const { x, y, value } = props;
   return (
     <g>
-      <text x={x} y={y} fill={fill}>
+      <text x={x} y={y} fill="#000">
         {value}
       </text>
     </g>
