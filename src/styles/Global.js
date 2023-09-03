@@ -23,6 +23,7 @@ export const LIGHT = {
     backgroundSideBar: '#FFFFFF', // фон сайдбару
     colorLabelsUserProfile: '#111111', // Labels UserProfile
     colorLogoTextsSideBar: '#3E85F3', // logo text SideBar
+    backgroundStatistics: '#FFFFFF', // фон статистики
     // ----- Модальні вікна ------
     backgroundModalFields: '#F6F6F6', // поля модалок
     colorLabelModal: 'rgba(52, 52, 52, 0.5)', // Labels модалок
@@ -45,6 +46,7 @@ export const DARK = {
     backgroundSideBar: '#13151A', // фон сайдбару
     colorLabelsUserProfile: 'rgba(250, 250, 250, 0.3)', // Labels UserProfile
     colorLogoTextsSideBar: '#E3F3FF', // logo text SideBar
+    backgroundStatistics: '#21222C', // фон статистики
 
     // ----- Модальні вікна ------
     backgroundModalFields: '#171820', // поля модалок
