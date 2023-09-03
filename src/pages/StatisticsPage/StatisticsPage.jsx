@@ -7,7 +7,6 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { selectTasks } from 'redux/tasks/selectors';
 import { fetchTasks } from 'redux/tasks/operations';
-import Calendare from 'components/Statistics/Calendare/calendare';
 import { Wrapper } from 'components/Statistics/statistics.styled';
 
 
@@ -34,7 +33,6 @@ const StatisticsPage = () => {
     let firstDayPrevMonth = add(firstDayCurrentMonth, { months: -1 });
     setActiveDate(format(firstDayPrevMonth, 'MMMM yyyy'));
   };
-
   const result = eachDayOfInterval({
     start: startOfWeek(firstDayCurrentMonth, { weekStartsOn: 1 }),
     end: endOfWeek(endOfMonth(firstDayCurrentMonth), { weekStartsOn: 1 }),
