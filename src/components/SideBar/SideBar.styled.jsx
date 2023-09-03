@@ -8,7 +8,7 @@ export const ContainerSideBar = styled.div`
   width: 225px;
   padding: 24px 20px;
 
-  background: #ffffff;
+  background: ${({ theme }) => theme.colors.backgroundSideBar};
 
   @media screen and (min-width: 768px) {
     width: 289px;
