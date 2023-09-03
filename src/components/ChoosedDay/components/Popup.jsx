@@ -1,16 +1,16 @@
 import { Popper } from '@mui/base';
 import * as React from 'react';
-import { SvgArrow } from './ChoosedDay.styled';
+import { SvgArrow } from '../ChoosedDay.styled';
 import {
   PopperButton,
   PopperItem,
   PopperList,
   PopperText,
 } from './popup.sryled';
-import { CATEGORY } from '../../data/constants';
+import { CATEGORY } from '../../../data/constants';
 import { useDispatch } from 'react-redux';
 // import { useSelector } from 'react-redux';
-import { updateTask } from '../../redux/tasks/operations';
+import { updateTask } from '../../../redux/tasks/operations';
 // import { selectTasks } from '../../redux/tasks/selectors';
 // import { ClickAwayListener } from '@mui/base';
 

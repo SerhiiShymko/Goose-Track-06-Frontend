@@ -1,15 +1,12 @@
 import * as React from 'react';
-import {Popover} from '@mui/material';
-import {Typography} from '@mui/material';
-import { SvgTrash } from './ChoosedDay.styled';
+import { Popover } from '@mui/material';
+import { Typography } from '@mui/material';
+import { SvgTrash } from '../ChoosedDay.styled';
 import { ContainerPopover, PopoverButton } from './popup.sryled';
 
+import ColorButtons from './ColorButtons';
 
-
-
-import ColorButtons from './components/ColorButtons';
-
-export default function BasicPopover({number,hendlerDelete}) {
+export default function BasicPopover({ number, hendlerDelete }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
 
   const handleClick = event => {
@@ -19,7 +16,6 @@ export default function BasicPopover({number,hendlerDelete}) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-  
 
   const open = Boolean(anchorEl);
   const id = open ? 'simple-popover' : undefined;
@@ -49,7 +45,7 @@ export default function BasicPopover({number,hendlerDelete}) {
           <ColorButtons
             handleClose={handleClose}
             hendlerDelete={hendlerDelete}
-            number={ number}
+            number={number}
           />
         </ContainerPopover>
       </Popover>

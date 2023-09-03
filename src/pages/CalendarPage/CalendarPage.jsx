@@ -1,5 +1,6 @@
 import { CalendarToolBar } from 'components/CalendarToolBar/CalendarToolBar';
-import { ChoosedMonth } from 'components/ChoosedMonth/ChoosedMonth';
+import ChoosedDay from 'components/ChoosedDay/ChoosedDay';
+// import { ChoosedMonth } from 'components/ChoosedMonth/ChoosedMonth';
 // import Spinner from 'components/Spinner/Spinner';
 // import { Suspense } from 'react';
 // import { Outlet } from 'react-router-dom';
@@ -8,7 +9,8 @@ const CalendarPage = () => {
   return (
     <>
       <CalendarToolBar />
-      <ChoosedMonth />
+      {/* <ChoosedMonth /> */}
+      <ChoosedDay/>
       {/* <Suspense fallback={<Spinner />}>
         <Outlet />
       </Suspense> */}

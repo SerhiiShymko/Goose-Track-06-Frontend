@@ -15,12 +15,12 @@ import {
   WrapperUser,
   SvgAddTask,
   SvgPlusCircle,
-  SvgPencil, 
+  SvgPencil,
 } from '../ChoosedDay.styled';
 import { addTask, deleteTask } from '../../../redux/tasks/operations';
 import { CATEGORY, PRIORITY } from '../../../data/constants';
-import SimplePopper from '../Popup';
-import BasicPopover from '../Popover';
+import SimplePopper from '../components/Popup';
+import BasicPopover from '../components/Popover';
 
 const TaskColumnInProg = ({ data, currentDay }) => {
   const dispatch = useDispatch();
