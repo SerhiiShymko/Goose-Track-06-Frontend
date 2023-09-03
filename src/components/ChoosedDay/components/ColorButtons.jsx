@@ -2,11 +2,11 @@ import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 
-export default function ColorButtons({ handleClose, hendlerDelete, number }) {
+export default function ColorButtons({ handleClose, handleDelete, number }) {
   const deleteTask = () => {
-    hendlerDelete(number);
+    handleDelete(number);
     return;
-  }
+  };
   return (
     <Stack direction="row" spacing={2}>
       <Button variant="contained" color="success" onClick={deleteTask}>
