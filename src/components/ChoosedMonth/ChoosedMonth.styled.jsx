@@ -103,7 +103,9 @@ export const CalendarTableShortMonth = styled.div`
 `;
 
 export const EmptyDateBlock = styled.div`
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
+  border: solid ${({ theme }) => theme.colors.colorCalandarBorder};
+  border-width: 0.5px;
 `
 export const DateCalendarMonth = styled.div`
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
@@ -111,7 +113,8 @@ export const DateCalendarMonth = styled.div`
   justify-content: end;
   padding-top: 8px;
   padding-right: 4px;
-  border: 1px solid ${({ theme }) => theme.colors.colorCalandarBorder};
+  border: solid ${({ theme }) => theme.colors.colorCalandarBorder};
+  border-width: 0.5px;
 
   @media screen and (min-width: 768px) {
     padding-top: 14px;
