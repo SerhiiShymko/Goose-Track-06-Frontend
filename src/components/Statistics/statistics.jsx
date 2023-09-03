@@ -66,13 +66,10 @@ const Statistics = ({ currentDay }) => {
               width={179}
               height={18}
               align={widthViewPort < 768 ? 'left' :'right'}
-
               iconType="circle"
               wrapperStyle={{
                 fontSize: widthViewPort < 768 ? 14 : 16,
                 top: widthViewPort < 768 ? -40 : -90,
-                // right: widthViewPort < 768 ? 135 : -35,
-
                 color: theme.colors.colorBody,
               }}
             />
