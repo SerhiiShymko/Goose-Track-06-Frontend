@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 /**
  * ==================================================================
  * Count task by all category
@@ -17,7 +19,8 @@ export const countUserTasks = dataUser => {
 
     if (day.category === 'done') done++;
   }
-  return { toDo, inProgress, done };
+  
+  return { toDo, inProgress, done};
 };
 
 /**
@@ -43,7 +46,9 @@ const sumAllTasks = tasks => {
  * @returns {Rounded number}
  */
 export const culcRoundPercentData = (task, allTasks) => {
-  return Math.round((task / allTasks) * 100);
+  const data = Math.round((task / allTasks) * 100);
+
+  return data
 };
 
 /**
@@ -54,22 +59,22 @@ export const culcRoundPercentData = (task, allTasks) => {
 export const culcStatistikData = (tasksByDay, tasksByMonth) => {
   const allTasksByDay = sumAllTasks(tasksByDay);
   const allTasksByMonth = sumAllTasks(tasksByMonth);
-
+  
   return [
     {
       name: 'To Do',
-      day: culcRoundPercentData(tasksByDay.toDo, allTasksByDay),
-      month: culcRoundPercentData(tasksByMonth.toDo, allTasksByMonth),
+      day: culcRoundPercentData(tasksByDay.toDo, allTasksByDay) || 0,
+      month: culcRoundPercentData(tasksByMonth.toDo, allTasksByMonth) || 0,
     },
     {
       name: 'In Progress',
-      day: culcRoundPercentData(tasksByDay.inProgress, allTasksByDay),
-      month: culcRoundPercentData(tasksByMonth.inProgress, allTasksByMonth),
+      day: culcRoundPercentData(tasksByDay.inProgress, allTasksByDay) || 0,
+      month: culcRoundPercentData(tasksByMonth.inProgress, allTasksByMonth) || 0,
     },
     {
       name: 'Done',
-      day: culcRoundPercentData(tasksByDay.done, allTasksByDay),
-      month: culcRoundPercentData(tasksByMonth.done, allTasksByMonth),
+      day: culcRoundPercentData(tasksByDay.done, allTasksByDay) || 0,
+      month: culcRoundPercentData(tasksByMonth.done, allTasksByMonth) || 0,
     },
   ];
 };
@@ -79,3 +84,15 @@ export const culcStatistikData = (tasksByDay, tasksByMonth) => {
  */
 export const FilterTasksByDay = (tasks, date) =>
   tasks.filter(task => task.date === date);
+
+  const useResize = () => {
+    const [size, setSize] = useState([0, 0]);
+    useEffect(() => {
+      const getSize = () => setSize([window.innerWidth, window.innerHeight]);
+      getSize();
+      window.addEventListener('resize', getSize);
+      return () => window.removeEventListener('resize', getSize);
+    }, []);
+    return size;
+  };
+  export default useResize;
