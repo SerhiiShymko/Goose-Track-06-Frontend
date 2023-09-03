@@ -4,7 +4,7 @@ import { ReactComponent as addTask } from '../../images/tascs/addTask.svg';
 import { ReactComponent as plusCircle } from '../../images/tascs/plus.svg';
 import { ReactComponent as pencil } from '../../images/tascs/pencil-2.svg';
 import { ReactComponent as trash } from '../../images/tascs/trash-2.svg';
-import { ReactComponent as phAvatar } from "../../images/profile/phAvatar.svg"
+import { ReactComponent as phAvatar } from '../../images/profile/phAvatar.svg';
 
 export const MainContainer = styled.div`
   @media screen and (min-width: 1140px) {
@@ -35,10 +35,10 @@ export const TaskName = styled.h2`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  `;
+`;
 
 export const TextInTitle = styled.span`
-  color: #111;
+  color: ${({ theme }) => theme.colors.colorAccent};
   text-align: center;
   /* font-family: InterBold; */
   font-size: 20px;
@@ -48,7 +48,7 @@ export const TextInTitle = styled.span`
 export const ButtonAddTask = styled.button`
   border-radius: 8px;
   border: 1px dashed #3e85f3;
-  background: #e3f3ff;
+  background: ${({ theme }) => theme.colors.backgroundBtnAddTask};
 
   display: flex;
 
@@ -74,7 +74,7 @@ export const ButtonAddTask = styled.button`
   cursor: pointer;
   &:hover {
     border: 1px solid #3e85f3;
-    background: #cce7fc;
+    /* background: #cce7fc; */
   }
 `;
 export const LogoPlus = styled.img`
@@ -85,7 +85,7 @@ export const LogoPlus = styled.img`
 `;
 
 export const TextInButton = styled.span`
-  color: #111;
+  color: ${({ theme }) => theme.colors.colorAccent};
   text-align: center;
   font-family: InterSemiBold;
   font-size: 14px;
@@ -94,8 +94,8 @@ export const TextInButton = styled.span`
 
 export const TaskBorder = styled.div`
   border-radius: 8px;
-  border: 1px solid rgba(220, 227, 229, 0.8);
-  background: #fff;
+  border: 1px solid ${({ theme }) => theme.colors.colorCalendarBorder};
+  background: ${({ theme }) => theme.colors.backgroundSubcomponents};
 
   display: flex;
 
@@ -112,7 +112,7 @@ export const TaskBorder = styled.div`
   }
   @media screen and (max-width: 767px) {
     width: 335px;
-    max-height:432px;
+    max-height: 432px;
   }
 `;
 
@@ -155,7 +155,7 @@ export const TaskContainer = styled.div`
   }
   @media screen and (max-width: 767px) {
     width: 347px;
-    padding-right: 12px;    
+    padding-right: 12px;
   }
 `;
 // Task
@@ -202,7 +202,7 @@ export const TaskItemContainer = styled.li`
 
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.8);
-  background: #f7f6f9;
+  background: ${({ theme }) => theme.colors.backgroundBody};
   padding: 14px 14px 18px 14px;
   /* display: inline-grid; */
   display: flex;
@@ -212,9 +212,9 @@ export const TaskItemContainer = styled.li`
     width: 300px;
     height: 112px;
   }
-  @media screen and (max-width:767px){
+  @media screen and (max-width: 767px) {
     width: 299px;
-    height:108px;
+    height: 108px;
   }
 `;
 
@@ -222,7 +222,7 @@ export const TaskText = styled.p`
   margin: 0;
 
   overflow: hidden;
-  color: #111;
+  color: ${({ theme }) => theme.colors.colorAccent};
   text-overflow: ellipsis;
   font-family: InterMedium;
   font-size: 14px;
@@ -231,8 +231,8 @@ export const TaskText = styled.p`
 `;
 
 export const TaskPriority = styled.span`
-  font-family: InterSemiBold;
-
+  /* font-family: InterSemiBold; */
+  font-weight: 600;
   color: #f7f6f9;
   text-align: center;
   font-size: 10px;
@@ -258,7 +258,8 @@ export const TaskLogo = styled.img`
 export const SvgArrow = styled(ArrowCircle)`
   width: 16px;
   height: 16px;
-  cursor:pointer;
+  cursor: pointer;
+  stroke: ${({ theme }) => theme.colors.colorAccent};
 
   &:hover path {
     stroke: rgba(62, 133, 243, 1);
@@ -266,12 +267,14 @@ export const SvgArrow = styled(ArrowCircle)`
 `;
 export const SvgAddTask = styled(addTask)`
   width: 24px;
-  height: 24px; 
+  height: 24px;
+  stroke: ${({ theme }) => theme.colors.colorAccent};
 `;
 export const SvgPlusCircle = styled(plusCircle)`
   width: 24px;
   height: 24px;
   cursor: pointer;
+  stroke: ${({ theme }) => theme.colors.colorAccent};
 
   &:hover path {
     stroke: rgba(62, 133, 243, 1);
@@ -282,6 +285,7 @@ export const SvgPencil = styled(pencil)`
   width: 16px;
   height: 16px;
   cursor: pointer;
+  stroke: ${({ theme }) => theme.colors.colorAccent};
 
   &:hover path {
     stroke: rgba(62, 133, 243, 1);
@@ -292,6 +296,7 @@ export const SvgTrash = styled(trash)`
   width: 16px;
   height: 16px;
   cursor: pointer;
+  stroke: ${({ theme }) => theme.colors.colorAccent};
 
   &:hover path {
     stroke: #f12a34;
@@ -316,8 +321,8 @@ export const TaskImageUser = styled(phAvatar)`
   height: 32px;
   border-radius: 32px;
   border: 1.8px solid #3e85f3;
-  padding:5px;
-  background:  lightgray 50% / cover no-repeat;
+  padding: 5px;
+  background: lightgray 50% / cover no-repeat;
 `;
 
 export const KontrolWrapper = styled.div`

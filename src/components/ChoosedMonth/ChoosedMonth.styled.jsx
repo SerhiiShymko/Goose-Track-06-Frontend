@@ -76,7 +76,7 @@ export const DateCalendarMonth = styled.div`
   justify-content: end;
   padding-top: 8px;
   padding-right: 4px;
-  border: 1px solid ${({ theme }) => theme.colors.colorCalandarBorder};
+  border: 1px solid ${({ theme }) => theme.colors.colorCalendarBorder};
 
   @media screen and (min-width: 768px) {
     padding-top: 14px;

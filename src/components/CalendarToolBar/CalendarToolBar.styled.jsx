@@ -181,7 +181,7 @@ export const BtnPaginatorLeft = styled.button`
   border-right: calc(1 / 2) px;
   background: #fff;
 
-  @media screen and (min-width: 768px;) {
+  @media screen and (min-width: 768px) {
     padding: 8px 10px;
   }
 `;
@@ -199,7 +199,7 @@ export const BtnPaginatorRight = styled.button`
   border-left: calc(1 / 2) px;
   background: #fff;
 
-  @media screen and (min-width: 768px;) {
+  @media screen and (min-width: 768px) {
     padding: 8px 10px;
   }
 `;
