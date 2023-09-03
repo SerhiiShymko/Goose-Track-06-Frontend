@@ -11,6 +11,7 @@ import {
   border,
   position,
   shadow,
+  opacity,
 } from 'styled-system';
 
 export const Box = styled('div')(
@@ -23,5 +24,6 @@ export const Box = styled('div')(
   color,
   border,
   position,
-  shadow
+  shadow,
+  opacity
 );

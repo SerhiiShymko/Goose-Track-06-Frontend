@@ -48,7 +48,6 @@ const CalendarPage = () => {
         onNext={nextMonth}
         onPrev={prevMonth}
         dateToday={activeDate}
-        firstDayCurrentMonth = {firstDayCurrentMonth}
       />
       {/* <Suspense fallback={<Spinner />}>
         <Outlet />
