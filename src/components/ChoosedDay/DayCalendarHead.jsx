@@ -26,33 +26,40 @@ export const useResize = () => {
 
 
 
-const DayCalendarHead = ({currentDate}) => {
+const DayCalendarHead = ({ currentDate }) => {
+  
   const screen = useResize();
   // Current Day
   const currentDay = dayjs(currentDate);
-
   // const day = tagHeute.format('ddd');
   // console.log(tagHeute);
   // const nextTag = dayjs().add(1, 'day');
   // console.log(nextTag.format('d'));
   // dayjs('2019-01-25');
   
-  const weekday = currentDay.format('d');
+  let weekday = currentDay.format('d');
+  if (Number(weekday) === 0) {
+    weekday = 7;    
+  }
+  
+ 
   const difference = Number(weekday) - 1;
+
   const mon = currentDay.subtract(difference, 'day');
 
   let week = [];
   for (let i = 0; i < 7; i += 1) {
     week.push(mon.add(i, 'day'));
   }
+ 
   const hendelCurrentDay = day => {
-    if (day === weekday) {
+    if (day === currentDay.format('YYYY-MM-DD')) {
       return '#3E85F3';
     }
     return;
   };
   const hendelCurrentDayColor = day => {
-    if (day === weekday) {
+    if (day === currentDay.format("YYYY-MM-DD")) {
       return '#FFF';
     }
     return '#343434';
@@ -69,8 +76,8 @@ const DayCalendarHead = ({currentDate}) => {
                   : date.format('ddd')}
               </DayText>
               <DataNumber
-                $background={hendelCurrentDay(date.format('d'))}
-                $color={hendelCurrentDayColor(date.format('d'))}
+                $background={hendelCurrentDay(date.format('YYYY-MM-DD'))}
+                $color={hendelCurrentDayColor(date.format('YYYY-MM-DD'))}
               >
                 {date.format('D')}
               </DataNumber>

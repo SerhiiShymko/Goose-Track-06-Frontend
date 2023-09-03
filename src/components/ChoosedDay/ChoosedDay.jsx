@@ -3,15 +3,14 @@ import { MainContainer } from "./ChoosedDay.styled";
 import DayCalendarHead from "./DayCalendarHead";
 import TaskColumnsList from "./TaskColumnsList";
 
-const ChoosedDay = ({date}) => {
-  // const currentDate = '2023-08-30';
+const ChoosedDay = ({date}) => { 
   
   if (date) {
     const currentDate = date;
     return currentDate;
   }
   const currentDate = dayjs().format("YYYY-MM-DD");
-  // const currentDate = "2023-08-30";
+  
     return (
       <MainContainer>
         <DayCalendarHead currentDate={currentDate} />
