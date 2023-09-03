@@ -4,7 +4,6 @@ import { Container } from 'styles/Container';
 import {
   ContentWrapper,
   BurgerIcon,
-  FeedbackBtn,
   UserName,
   UserWrapper,
   UserPhotoHeader,
@@ -17,6 +16,7 @@ import { useSelector } from 'react-redux';
 import { selectTheme, selectUser } from 'redux/auth/selectors';
 import { useDispatch } from 'react-redux';
 import { setTheme } from 'redux/auth/authSlice';
+import AddFeedbackBtn from 'components/AddFeedbackBtn/AddFeedbackBtn';
 
 const Header = ({ handleClick }) => {
   const currentUserInfo = useSelector(selectUser);
@@ -37,7 +37,7 @@ const Header = ({ handleClick }) => {
           <BurgerIcon />
         </button>
         <UserWrapper>
-          <FeedbackBtn type="button">Feedback</FeedbackBtn>
+          <AddFeedbackBtn />
           <button type="button" onClick={toggleTheme}>
             {themeName === 'light' ? <ThemeMoonIcon /> : <ThemeSunIcon />}
           </button>
