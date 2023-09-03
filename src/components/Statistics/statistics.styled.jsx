@@ -31,7 +31,8 @@ export const StatisticWrapper = styled.div`
   height: 684px;
   padding: 32px;
   border-radius: 16px;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
+
 
   @media screen and (min-width: 375px) {
     width: 335px;

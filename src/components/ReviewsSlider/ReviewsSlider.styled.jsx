@@ -16,7 +16,7 @@ export const Container = styled.div`
 `;
 
 export const Title = styled.h2`
-  font-family: 'InterBold';
+  /* font-family: 'InterBold'; */
   font-style: normal;
   font-weight: 700;
   font-size: 28px;
@@ -70,7 +70,7 @@ export const UserInfo = styled.div`
 `;
 
 export const Name = styled.h2`
-  font-family: 'InterBold';
+  /* font-family: 'InterBold'; */
   font-style: normal;
   font-weight: 700;
   font-size: 18px;
@@ -86,7 +86,7 @@ export const StyledStars = styled.div`
 `;
 
 export const ReviewText = styled.p`
-  font-family: 'InterMedium';
+  /* font-family: 'InterMedium'; */
   font-style: normal;
   font-weight: 500;
   font-size: 14px;
