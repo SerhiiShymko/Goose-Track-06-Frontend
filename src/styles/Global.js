@@ -23,7 +23,8 @@ export const LIGHT = {
     backgroundSideBar: '#FFFFFF', // фон сайдбару
     colorLabelsUserProfile: '#111111', // Labels UserProfile
     colorLogoTextsSideBar: '#3E85F3', // logo text SideBar
-    backgroundStatistics: '#FFFFFF', // фон статистики
+    backgroundSubcomponents: '#FFFFFF', // // загальний фон профіля користувача, календаря, статистики
+    colorCalandarBorder: 'rgba(220, 227, 229, 0.8)', // колір границі дати місячного календаря
     // ----- Модальні вікна ------
     backgroundModalFields: '#F6F6F6', // поля модалок
     colorLabelModal: 'rgba(52, 52, 52, 0.5)', // Labels модалок
@@ -38,7 +39,7 @@ export const LIGHT = {
 export const DARK = {
   name: 'dark',
   colors: {
-    backgroundBody: '#21222C', // основний колір фону (вкладені сторінки: календар, графік, профіль юзера)
+    backgroundBody: '#171820', // основний колір фону (вкладені сторінки: календар, графік, профіль юзера)
     colorBody: '#FFFFFF', // основний колір шрифту
     colorAccent: '#FFFFFF', // UserProfile, Calendar
     backgroundAccent: '#171820', // хедер, заголовок календаря
@@ -46,7 +47,8 @@ export const DARK = {
     backgroundSideBar: '#13151A', // фон сайдбару
     colorLabelsUserProfile: 'rgba(250, 250, 250, 0.3)', // Labels UserProfile
     colorLogoTextsSideBar: '#E3F3FF', // logo text SideBar
-    backgroundStatistics: '#21222C', // фон статистики
+    backgroundSubcomponents: '#21222C', // загальний фон профіля користувача, календаря, статистики
+    colorCalandarBorder: 'rgba(255, 255, 255, 0.15)', // колір границі дати місячного календаря
 
     // ----- Модальні вікна ------
     backgroundModalFields: '#171820', // поля модалок

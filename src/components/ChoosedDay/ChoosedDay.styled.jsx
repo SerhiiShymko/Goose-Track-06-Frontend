@@ -40,7 +40,7 @@ export const TaskName = styled.h2`
 export const TextInTitle = styled.span`
   color: #111;
   text-align: center;
-  font-family: InterBold;
+  /* font-family: InterBold; */
   font-size: 20px;
   line-height: 24px; /* 120% */
 `;

@@ -54,16 +54,16 @@ export const Button = styled.button`
   outline: none;
   border: 0px;
   cursor: pointer;
-  
+
   @media screen and (min-width: 768px) {
-    align-self: center ;
+    align-self: center;
   }
 `;
 
 export const DataText = styled.div`
   padding: 4px 0;
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -85,7 +85,7 @@ export const WeekDays = styled.div`
 export const Day = styled.div`
   color: #fff;
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -107,7 +107,7 @@ export const CalendarDate = styled.div`
   padding: 12px 0;
   color: #fff;
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -123,7 +123,7 @@ export const ActiveCalendarDate = styled.div`
   padding: 12px 0;
   color: #3e85f3;
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -144,7 +144,7 @@ export const ButtonForOpenCalendar = styled.button`
   background: #3e85f3;
   color: #fff;
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
@@ -231,7 +231,7 @@ export const PeriodTypeSelect = styled.div`
   margin-top: 18px;
   color: #3e85f3;
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 500;

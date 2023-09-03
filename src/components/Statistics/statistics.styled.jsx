@@ -9,4 +9,5 @@ export const WrapperChart = styled.div`
   border-radius: 16px;
   border-radius: 29px;
   border: solid 1px #e3f3ff;
+  background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
 `;
