@@ -74,7 +74,7 @@ export const CalendarToolBar = () => {
     setActiveDate(format(firstDayNextMonth, 'MMMM yyyy'));
   };
 
-  console.log(format(firstDayCurrentMonth, 'EEEEE'));
+  // console.log(format(firstDayCurrentMonth, 'EEEEE'));
 
   const resultDate = result.map(day =>
     format(day, 'd MMMM') === format(new Date(), 'd MMMM') ? (
