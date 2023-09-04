@@ -10,6 +10,7 @@ import 'swiper/css/navigation';
 
 import { ReactComponent as LeftArrow } from '../../images/mainPage/leftArrow.svg';
 import { ReactComponent as RightArrow } from '../../images/mainPage/rightArrow.svg';
+import noPhoto from '../../images/mainPage/noPhoto.png';
 
 import { Stars } from './Stars';
 
@@ -79,7 +80,14 @@ const ReviewsSlider = () => {
                 <SliderCard>
                   <ReviewContainer>
                     <AvatarWrapper>
-                      <AvatarImg src={slide.owner.avatarURL} alt="UserAvatar" />
+                      {slide.owner.avatarURL ? (
+                        <AvatarImg
+                          src={slide.owner.avatarURL}
+                          alt="UserAvatar"
+                        />
+                      ) : (
+                        <AvatarImg src={noPhoto} alt="UserAvatar" />
+                      )}
                     </AvatarWrapper>
                     <UserInfo>
                       <Name>{slide.owner.name}</Name>
