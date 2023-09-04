@@ -193,6 +193,5 @@ export const BtnSaveChanges = styled.button`
   @media screen and (min-width: 768px) {
     padding: 15px 84px;
     border-radius: 16px;
-    border-radius: 11px;
   }
 `;
