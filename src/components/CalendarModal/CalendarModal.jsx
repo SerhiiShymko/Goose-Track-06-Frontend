@@ -12,9 +12,7 @@ import {
   ModalCalendar,
   WeekDays,
 } from './CalendarModal.styled';
-import {
-  ImgPaginatorNextModal
-} from 'components/CalendarToolBar/CalendarToolBar.styled';
+import { ImgPaginatorNextModal } from 'components/CalendarToolBar/CalendarToolBar.styled';
 import Prev from '../../images/calendar/chevron-left.svg';
 import Next from '../../images/calendar/chevron-right.svg';
 import { addDays, format, startOfWeek } from 'date-fns';
@@ -33,7 +31,6 @@ export const CalendarModal = ({
     weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
   }
 
-  
   const resultDate = dayInterval.map(day => {
     if (format(day, 'MMMM yyyy') !== dateToday) {
       return <div key={day.toString()}></div>;

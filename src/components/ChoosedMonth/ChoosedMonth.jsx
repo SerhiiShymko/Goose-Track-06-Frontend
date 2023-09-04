@@ -25,9 +25,11 @@ import { useEffect } from 'react';
 import { fetchTasks } from 'redux/tasks/operations';
 
 export const ChoosedMonth = ({ dayInterval, onNext, onPrev, dateToday }) => {
-  const dispatch = useDispatch();
+  const dispatch = useDispatch(); 
+
   // const items = useSelector(state => state.tasks.items)
   // console.log(items)
+
 
   let firstDayCurrentMonth = parse(dateToday, 'MMMM yyyy', new Date());
   // const dateFormat = format(firstDayCurrentMonth, 'yyyy-MM', new Date());

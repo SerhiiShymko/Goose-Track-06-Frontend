@@ -44,7 +44,7 @@ const TaskColumnsList = ({currentDate}) => {
     <TaskContainer>
       <TaskColumnToDo data={categoryTodo} currentDay={currentDate} />
       <TaskColumnInProg data={categoryInProg} currentDay={currentDate} />
-      <TaskColumnDone data={categoryDone} currentDay={currentDate} />
+      <TaskColumnDone data={categoryDone} />
     </TaskContainer>
   );
 };
