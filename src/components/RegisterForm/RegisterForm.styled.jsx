@@ -114,7 +114,7 @@ export const AuthInput = styled.input`
   height: 46px;
   margin: 0 auto;
   margin-bottom: ${props => props.marginbottom || '24px'};
-  -webkit-box-shadow: 0 0 0px 1000px transparent inset;
+  box-shadow: 0 0 0px 1000px transparent inset;
   &:hover {
     border-color: #111;
   }
@@ -155,18 +155,17 @@ export const FormText = styled.p`
 // ----------------------------------------------------------------------------
 export const Text = styled.p`
   margin: 0px;
-  margin-bottom:24px;
+  margin-bottom: 24px;
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
-  margin-bottom:: ${props => props.marginbottom || '24px'};
+  margin-bottom: ${props => props.marginbottom || '24px'};
   color: ${props => props.color || '#DA1414'};
   @media screen and (min-width: 375px) {
-    margin-bottom:12px;
-
+    margin-bottom: 12px;
   }
   @media screen and (min-width: 768px) {
-    margin-bottom:18px;
+    margin-bottom: 18px;
   }
 `;
 // ----------------------------------------------------------------------------
