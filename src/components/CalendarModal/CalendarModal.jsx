@@ -12,22 +12,26 @@ import {
   ModalCalendar,
   WeekDays,
 } from './CalendarModal.styled';
-import {
-  ImgPaginatorNextModal
-} from 'components/CalendarToolBar/CalendarToolBar.styled';
+import { ImgPaginatorNextModal } from 'components/CalendarToolBar/CalendarToolBar.styled';
 import Prev from '../../images/calendar/chevron-left.svg';
 import Next from '../../images/calendar/chevron-right.svg';
 import { addDays, format, startOfWeek } from 'date-fns';
 import { nanoid } from 'nanoid';
 
-export const CalendarModal = ({ onNext, onPrev, dateToday, dayInterval }) => {
+export const CalendarModal = ({
+  onNext,
+  onPrev,
+  dateToday,
+  dayInterval,
+  handleClick,
+}) => {
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const weekDays = [];
   for (let day = 0; day < 7; day++) {
     weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
   }
-  
-  const handleClick = (event) => {    
+
+  const handleClick = event => {
     const category = event.currentTarget.dataset.day;
     console.log(category);
   };
@@ -37,28 +41,20 @@ export const CalendarModal = ({ onNext, onPrev, dateToday, dayInterval }) => {
       return <div key={day.toString()}></div>;
     } else if (format(day, 'd MMMM') === format(new Date(), 'd MMMM')) {
       return (
-        <ActiveCalendarDate key={day.toString()} onClick={handleClick} data-day={format(day,"yyyy-MM-dd")}>
+        <ActiveCalendarDate key={day.toString()} onClick={handleClick}>
           {format(day, 'd')}
         </ActiveCalendarDate>
       );
     }
     if (format(day, 'E') === 'Sat' || format(day, 'E') === 'Sun') {
       return (
-        <CalendarDateHolidays         
-          key={day.toString()}
-          onClick={handleClick}
-          data-day={format(day, 'yyyy-MM-dd')}
-        >
+        <CalendarDateHolidays key={day.toString()} onClick={handleClick}>
           {format(day, 'd')}
         </CalendarDateHolidays>
       );
     } else {
       return (
-        <CalendarDate
-          key={day.toString()}
-          onClick={handleClick}
-          data-day={format(day, 'yyyy-MM-dd')}
-        >
+        <CalendarDate onClick={handleClick} key={day.toString()}>
           {format(day, 'd')}
         </CalendarDate>
       );

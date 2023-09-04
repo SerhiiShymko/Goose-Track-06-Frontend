@@ -39,6 +39,17 @@ const sumAllTasks = tasks => {
   }
   return allTasks;
 };
+
+/**
+ * 
+ */
+export const getCurrentDateByDay = (currentDay, currentDate) => {
+  const dayWithZero = ('0' + currentDay).slice(-2);
+  const currentMothWithoutDay = currentDate.slice(0, 8) + dayWithZero;
+
+  return currentMothWithoutDay;
+};
+
 /**
  *===========================================================
  * @param {number} task
@@ -82,13 +93,14 @@ export const culcStatistikData = (tasksByDay, tasksByMonth) => {
 /**
  * Filter data by day
  */
-export const FilterTasksByDay = (tasks, date) =>
-  tasks.filter(task => task.date === date);
+export const FilterTasksByDay = (tasks, day) => {
+  return tasks.filter(task => task.date === day);
+};
 
   const useResize = () => {
-    const [size, setSize] = useState([0, 0]);
+    const [size, setSize] = useState(0);
     useEffect(() => {
-      const getSize = () => setSize([window.innerWidth, window.innerHeight]);
+      const getSize = () => setSize(window.innerWidth);
       getSize();
       window.addEventListener('resize', getSize);
       return () => window.removeEventListener('resize', getSize);

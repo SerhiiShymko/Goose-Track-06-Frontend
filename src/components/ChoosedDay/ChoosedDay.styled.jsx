@@ -87,7 +87,8 @@ export const LogoPlus = styled.img`
 export const TextInButton = styled.span`
   color: ${({ theme }) => theme.colors.colorAccent};
   text-align: center;
-  font-family: InterSemiBold;
+  /* font-family: InterSemiBold; */
+  font-weight: 600;
   font-size: 14px;
   line-height: 18px; /* 128.571% */
 `;
@@ -224,7 +225,8 @@ export const TaskText = styled.p`
   overflow: hidden;
   color: ${({ theme }) => theme.colors.colorAccent};
   text-overflow: ellipsis;
-  font-family: InterMedium;
+  /* font-family: InterMedium; */
+  font-weight: 500;
   font-size: 14px;
 
   line-height: 18px; /* 128.571% */
