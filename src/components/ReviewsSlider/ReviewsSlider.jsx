@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SwiperCore from 'swiper';
@@ -27,19 +27,19 @@ import {
   ReviewContainer,
 } from './ReviewsSlider.styled';
 
-// import { fetchReviews } from 'redux/reviews/operations';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { selectReviews } from 'redux/reviews/selectors';
+import { fetchReviews } from 'redux/reviews/operations';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectReviews } from 'redux/reviews/selectors';
 
-import { reviews } from 'data/reviews_example';
+// import { reviews } from 'data/reviews_example';
 
 const ReviewsSlider = () => {
-  // const dispatch = useDispatch();
-  // const reviews = useSelector(selectReviews);
+  const dispatch = useDispatch();
+  const reviews = useSelector(selectReviews);
 
-  // useEffect(() => {
-  //   dispatch(fetchReviews({ page: 1, limit: 8 }));
-  // }, [dispatch]);
+  useEffect(() => {
+    dispatch(fetchReviews());
+  }, [dispatch]);
 
   const slides = reviews;
 
