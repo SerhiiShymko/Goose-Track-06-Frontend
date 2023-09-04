@@ -1,9 +1,17 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { FeedbackBtn } from './AddFeedbackBtn.styled';
 import AddFeedbackModal from 'components/AddFeedbackModal/AddFeedbackModal';
+import { useDispatch } from 'react-redux';
+import { fetchOwnReview } from 'redux/reviews/operations';
 
 const AddFeedbackBtn = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(fetchOwnReview());
+  }, [dispatch]);
+
   const [showModal, setShowModal] = useState(false);
 
   const openModal = () => {
