@@ -11,6 +11,7 @@ import {
   ThemeSunIcon,
   SideBarBtn,
   CurrentPage,
+  ThemeTogglerBtn,
 } from './Header.styled';
 import Spinner from 'components/Spinner/Spinner';
 import { Outlet, useLocation } from 'react-router-dom';
@@ -50,9 +51,9 @@ const Header = ({ handleClick }) => {
         </SideBarBtn>
         <UserWrapper>
           <AddFeedbackBtn />
-          <button type="button" onClick={toggleTheme}>
+          <ThemeTogglerBtn type="button" onClick={toggleTheme}>
             {themeName === 'light' ? <ThemeMoonIcon /> : <ThemeSunIcon />}
-          </button>
+          </ThemeTogglerBtn>
           <UserName>{splitName[0]} </UserName>
           <UserPhotoHeader />
         </UserWrapper>

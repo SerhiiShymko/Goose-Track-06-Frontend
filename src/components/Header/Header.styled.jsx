@@ -67,14 +67,20 @@ export const FeedbackBtn = styled.button`
   }
 `;
 
-export const ThemeMoonIcon = styled(ThemeMoonSvgStyled)`
-  width: 24px;
-  height: 24px;
+export const ThemeTogglerBtn = styled.button`
+  background-color: inherit;
   margin-right: 8px;
 
   @media screen and (min-width: 768px) {
     margin-right: 14px;
+  }
+`;
 
+export const ThemeMoonIcon = styled(ThemeMoonSvgStyled)`
+  width: 24px;
+  height: 24px;
+
+  @media screen and (min-width: 768px) {
     width: 32px;
     height: 32px;
   }
@@ -101,7 +107,7 @@ export const UserWrapper = styled.div`
 export const UserName = styled.p`
   margin-right: 8px;
   font-weight: 700;
-  color: rgba(52, 52, 52, 1);
+  color: ${({ theme }) => theme.colors.colorBody};
   line-height: 1.28;
 
   @media screen and (min-width: 768px) {

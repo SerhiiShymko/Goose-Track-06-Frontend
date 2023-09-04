@@ -1,8 +1,10 @@
 import styled from 'styled-components';
 import { ReactComponent as PlusIconSvgStyled } from '../../images/profile/plusAvatar.svg';
 import { ReactComponent as UserPhotoHeaderSvgStyled } from '../../images/profile/phAvatar.svg';
+
 export const MainWrapper = styled.div`
   margin-top: 64px;
+  background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
 
   @media screen and (min-width: 768px) {
     padding: 40px 175px;
@@ -66,7 +68,7 @@ export const PlusIcon = styled(PlusIconSvgStyled)`
   @media screen and (min-width: 1440px) {
     top: 105px;
     right: 340px;
-  } 
+  }
 `;
 
 export const UserInfoWrapper = styled.div`
@@ -75,7 +77,7 @@ export const UserInfoWrapper = styled.div`
 `;
 
 export const UserNameMain = styled.p`
-  color: #343434;
+  color: ${({ theme }) => theme.colors.colorBody};
 
   font-weight: 700;
   line-height: 1.28;
@@ -90,7 +92,7 @@ export const UserNameMain = styled.p`
 `;
 
 export const UserSurnameMain = styled.p`
-  color: #343434;
+  color: ${({ theme }) => theme.colors.colorBody};
 
   font-weight: 600;
   line-height: 1.16;
@@ -125,7 +127,7 @@ export const DetailsUserMarginWrapper = styled.div`
 `;
 
 export const Label = styled.label`
-  color: #111111;
+  color: ${({ theme }) => theme.colors.colorLabelsUserProfile};
   line-height: 1.28;
 `;
 
@@ -137,7 +139,8 @@ export const Input = styled.input`
   width: 100%;
   height: 42px;
   border: 1px solid rgba(17, 17, 17, 0.1);
-  color: rgba(17, 17, 17, 1);
+  background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
+  color: ${({ theme }) => theme.colors.colorAccent};
   font-weight: 600;
   line-height: 1.28;
   padding: 12px 0px 12px 14px;
