@@ -1,5 +1,5 @@
 import { CalendarToolBar } from "components/CalendarToolBar/CalendarToolBar";
-import { ChoosedMonth } from "components/ChoosedMonth/ChoosedMonth";
+import  ChoosedMonth  from "components/ChoosedMonth/ChoosedMonth";
 import Spinner from "components/Spinner/Spinner";
 import { add, eachDayOfInterval, endOfMonth, endOfWeek, format, parse, startOfWeek } from "date-fns";
 import { useState } from "react";
@@ -39,12 +39,12 @@ const date = format(new Date(), 'MMMM yyyy');
         dateToday={activeDate}
         onClickDate = {handleClick}
             />
-      <ChoosedMonth
+      {/* <ChoosedMonth
         dayInterval={result}
         onNext={nextMonth}
         onPrev={prevMonth}
         dateToday={activeDate}
-      />
+      /> */}
         </>
     )
 }

@@ -12,7 +12,8 @@ import Spinner from './Spinner/Spinner';
 import { selectIsLoggedIn, selectIsRefreshing } from 'redux/auth/selectors';
 import { refreshUser } from 'redux/auth/operations';
 import { DARK, GlobalStyle, LIGHT } from 'styles/Global';
-// import { Layout } from './Layout';
+import { Layout } from './Layout';
+import { format } from 'date-fns';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const MainLayout = lazy(() => import('./MainLayout/MainLayout'));
@@ -28,6 +29,7 @@ const StatisticsPage = lazy(() =>
 );
 
 export function App() {
+  const currentMonth = format(new Date(),'yyyy-MM')
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -52,11 +54,11 @@ export function App() {
               element={isLoggedIn ? <MainLayout /> : <MainPage />}
             >
               <Route
-                index
+                path='calendar/'
                 element={
                   <PrivateRoute
                     redirectTo="/"
-                    component={<Navigate to="/calendar/month/:currentDate" />}
+                    component={<Navigate to={`/calendar/month/${currentMonth}`} />}
                   />
                 }
               />

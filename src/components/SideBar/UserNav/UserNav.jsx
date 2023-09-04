@@ -17,8 +17,10 @@ import {
   NavigationLegend,
   Wrapper,
 } from './UserNav.styled';
+import { format } from 'date-fns';
 
 function UserNav({ handleClick }) {
+  const currentMonth = format(new Date(),'yyyy-MM')
   return (
     <Wrapper>
       <LogoContainer>
@@ -36,7 +38,7 @@ function UserNav({ handleClick }) {
           <UserSvg />
           My account
         </NavLink>
-        <NavLink to="/calendar">
+        <NavLink to={`/calendar/month/${currentMonth}`}>
           <CalendarSvg />
           Calendar
         </NavLink>
