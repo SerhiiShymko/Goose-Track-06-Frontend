@@ -6,11 +6,10 @@ import {
   PopperItem,
   PopperList,
   PopperText,
-} from './popup.sryled';
+} from './popup.styled';
 import { CATEGORY } from '../../../data/constants';
 import { useDispatch } from 'react-redux';
 import { updateTask } from '../../../redux/tasks/operations';
-
 
 export default function SimplePopper({ category, number }) {
   const dispatch = useDispatch();
@@ -29,7 +28,8 @@ export default function SimplePopper({ category, number }) {
   }
   if (category === CATEGORY.DONE) {
     firstLink = 'To do';
-    secondLink = 'In progress';  } 
+    secondLink = 'In progress';
+  }
 
   const handleClick = event => {
     setAnchorEl(anchorEl ? null : event.currentTarget);

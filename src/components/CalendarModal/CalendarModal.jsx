@@ -26,26 +26,41 @@ export const CalendarModal = ({ onNext, onPrev, dateToday, dayInterval }) => {
   for (let day = 0; day < 7; day++) {
     weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
   }
+  
+  const handleClick = (event) => {    
+    const category = event.currentTarget.dataset.day;
+    console.log(category);
+  };
 
   const resultDate = dayInterval.map(day => {
     if (format(day, 'MMMM yyyy') !== dateToday) {
       return <div key={day.toString()}></div>;
     } else if (format(day, 'd MMMM') === format(new Date(), 'd MMMM')) {
       return (
-        <ActiveCalendarDate key={day.toString()}>
+        <ActiveCalendarDate key={day.toString()} onClick={handleClick} data-day={format(day,"yyyy-MM-dd")}>
           {format(day, 'd')}
         </ActiveCalendarDate>
       );
     }
     if (format(day, 'E') === 'Sat' || format(day, 'E') === 'Sun') {
       return (
-        <CalendarDateHolidays key={day.toString()}>
+        <CalendarDateHolidays         
+          key={day.toString()}
+          onClick={handleClick}
+          data-day={format(day, 'yyyy-MM-dd')}
+        >
           {format(day, 'd')}
         </CalendarDateHolidays>
       );
     } else {
       return (
-        <CalendarDate key={day.toString()}>{format(day, 'd')}</CalendarDate>
+        <CalendarDate
+          key={day.toString()}
+          onClick={handleClick}
+          data-day={format(day, 'yyyy-MM-dd')}
+        >
+          {format(day, 'd')}
+        </CalendarDate>
       );
     }
   });

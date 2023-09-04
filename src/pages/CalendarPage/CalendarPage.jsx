@@ -1,7 +1,7 @@
 import { CalendarToolBar } from 'components/CalendarToolBar/CalendarToolBar';
 import ChoosedDay from 'components/ChoosedDay/ChoosedDay';
 
-import { ChoosedMonth } from 'components/ChoosedMonth/ChoosedMonth';
+// import { ChoosedMonth } from 'components/ChoosedMonth/ChoosedMonth';
 import {
   add,
   eachDayOfInterval,
