@@ -23,11 +23,14 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchTasks } from 'redux/tasks/operations';
+import { CalendarToolBar } from 'components/CalendarToolBar/CalendarToolBar';
 
 
-export const ChoosedMonth = ({ dayInterval, onNext, onPrev, dateToday }) => {
+export const ChoosedMonth = ({ dayInterval, onNext, onPrev, dateToday, handleClick }) => {
   const dispatch = useDispatch();
   const items = useSelector(state => state.tasks.items)
+  const currentDate = format(new Date(dateToday), `yyyy-MM`);
+  console.log(currentDate)
   
 
   let firstDayCurrentMonth = parse(dateToday, 'MMMM yyyy', new Date());
@@ -57,10 +60,12 @@ export const ChoosedMonth = ({ dayInterval, onNext, onPrev, dateToday }) => {
     return weekDays;
   };
 
+  
+
   const resultDate = dayInterval.map(day => {
-    if (format(day, 'MMMM yyyy') !== dateToday) {
+    if (format(day, 'yyyy-MM') !== currentDate) {
       return <EmptyDateBlock key={day.toString()}></EmptyDateBlock>;
-    } else if (format(day, 'd MMMM') === format(new Date(), 'd MMMM')) {
+    } else if (format(day, 'yyyy-MM-dd') === format(new Date(), 'yyyy-MM-dd')) {
       return (
         <DateCalendarMonth key={day.toString()}>
           <DateActive>{format(day, 'd')}</DateActive>
@@ -77,6 +82,13 @@ export const ChoosedMonth = ({ dayInterval, onNext, onPrev, dateToday }) => {
 
   return (
     <>
+      {/* <CalendarToolBar
+        dayInterval={dateToday}
+        onNext={onNext}
+        onPrev={onPrev}
+        dateToday={dateToday}
+        onClickDate = {handleClick}
+      /> */}
       <MonthCalendarHead>
         {renderDayOfWeek().map(day => {
           if (day === 'Sat' || day === 'Sun') {

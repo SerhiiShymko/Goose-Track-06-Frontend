@@ -12,7 +12,7 @@ import Spinner from './Spinner/Spinner';
 import { selectIsLoggedIn, selectIsRefreshing } from 'redux/auth/selectors';
 import { refreshUser } from 'redux/auth/operations';
 import { DARK, GlobalStyle, LIGHT } from 'styles/Global';
-import { Layout } from './Layout';
+// import { Layout } from './Layout';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
 const MainLayout = lazy(() => import('./MainLayout/MainLayout'));
@@ -46,13 +46,13 @@ export function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Routes>
-          <Route path="/" element={<Layout />}>
+          {/* <Route path="/" element={<Layout />}> */}
             <Route
               path="/"
               element={isLoggedIn ? <MainLayout /> : <MainPage />}
             >
               <Route
-                path="/"
+                index
                 element={
                   <PrivateRoute
                     redirectTo="/"
@@ -108,7 +108,7 @@ export function App() {
                 <PublicRoute redirectTo="/calendar" component={<LoginPage />} />
               }
             />
-          </Route>
+          {/* </Route> */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </ThemeProvider>
