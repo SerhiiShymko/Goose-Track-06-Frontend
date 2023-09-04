@@ -138,7 +138,11 @@ export const InputWrapper = styled.div`
 export const Input = styled.input`
   width: 100%;
   height: 42px;
-  border: 1px solid rgba(17, 17, 17, 0.1);
+  border: 1px solid
+    ${({ theme }) =>
+      theme.name === 'light'
+        ? 'rgba(17, 17, 17, 0.1)'
+        : 'rgba(255, 255, 255, 0.1)'};
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
   color: ${({ theme }) => theme.colors.colorAccent};
   font-weight: 600;
@@ -147,7 +151,10 @@ export const Input = styled.input`
   border-radius: 8px;
 
   &::placeholder {
-    color: rgba(17, 17, 17, 0.5);
+    color: ${({ theme }) =>
+      theme.name === 'light'
+        ? 'rgba(17, 17, 17, 0.5)'
+        : 'rgba(255, 255, 255, 0.5)'};
     font-weight: 600;
     line-height: 1.28;
   }
