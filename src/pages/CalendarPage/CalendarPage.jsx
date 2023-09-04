@@ -21,7 +21,7 @@ const CalendarPage = () => {
   const [activeDate, setActiveDate] = useState(date);
 
   let firstDayCurrentMonth = parse(activeDate, 'MMMM yyyy', new Date());
-
+  
   const nextMonth = () => {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
     setActiveDate(format(firstDayNextMonth, 'MMMM yyyy'));
