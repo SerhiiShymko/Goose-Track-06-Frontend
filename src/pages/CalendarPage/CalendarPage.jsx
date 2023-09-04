@@ -53,7 +53,7 @@ const CalendarPage = () => {
         onPrev={prevMonth}
         dateToday={activeDate}
       /> */}
-<ChoosedDay/>
+      <ChoosedDay/>
       {/* <Suspense fallback={<Spinner />}>
         <Outlet />
       </Suspense> */}

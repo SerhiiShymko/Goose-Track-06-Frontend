@@ -18,11 +18,10 @@ import {
   SvgPencil,
 } from '../ChoosedDay.styled';
 
-import { deleteTask, addTask } from '../../../redux/tasks/operations';
-import { CATEGORY, PRIORITY } from '../../../data/constants';
+import { deleteTask } from '../../../redux/tasks/operations';
+import {  PRIORITY } from '../../../data/constants';
 import SimplePopper from '../components/Popup';
 import BasicPopover from '../components/Popover';
-import { Modal } from 'components/Modal/Modal';
 import { useState } from 'react';
 import { ModalAddAndChange } from '../components/Modal';
 
@@ -72,20 +71,7 @@ const TaskColumnDone = ({ data}) => {
   const handleDelete = id => {
     dispatch(deleteTask(id));
   };
-
-  const handleAdd = () => {
-    // const newTask = {
-    //   title: 'Додати завдання',
-    //   date: currentDay,
-    //   start: '09:00',
-    //   end: '15:00',
-    //   priority: 'high',
-    //   category: CATEGORY.DONE,
-    // };
-    // dispatch(addTask(newTask));
-    <Modal></Modal>
-  };
-
+  
   return (
     <TaskBorder>
       <TaskName>

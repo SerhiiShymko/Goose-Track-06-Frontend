@@ -1,46 +1,86 @@
 import { Modal } from 'components/Modal/Modal';
-import { ButtonAdd, ButtonCancel, ContainerForm, ContainerTime, SvgClose, TextInput, TextLabel } from './Modal.styled';
+import {
+  ButtonAdd,
+  ButtonCancel,
+  ContainerButton,
+  ContainerForm,
+  ContainerRadio,
+  ContainerTime,
+  RadioInput,
+  RadioLabel,
+  SvgClose,
+  SvgPlus,
+  TextInput,
+  TextLabel,
+  TimeInput,
+  Timelabel,
+} from './Modal.styled';
 
 export const ModalAddAndChange = ({ closeModal }) => {
   return (
     <Modal>
       <ContainerForm>
         <form>
-          <SvgClose></SvgClose>
+          <SvgClose onClick={closeModal}></SvgClose>
           <TextLabel>
             Title
             <TextInput placeholder="Enter text"></TextInput>
           </TextLabel>
           <ContainerTime>
-            <label>
+            <Timelabel>
               Start
-              <input></input>
-            </label>
-            <label>
+              <TimeInput></TimeInput>
+            </Timelabel>
+            <Timelabel>
               End
-              <input></input>
-            </label>
+              <TimeInput></TimeInput>
+            </Timelabel>
           </ContainerTime>
-          <div>
-            <label>
-              Louie
-              <input type="radio" id="louie" name="drone" />
-            </label>
-          </div>
-          <div>
-            <label>
-              Louie
-              <input type="radio" id="louie" name="drone" />
-            </label>
-          </div>
-          <div>
-            <label>
-              Louie
-              <input type="radio" id="louie" name="drone" />
-            </label>
-          </div>
-          <ButtonAdd>Edit</ButtonAdd>
-          <ButtonCancel onClick={closeModal}>Cancel</ButtonCancel>
+          <ContainerRadio>
+            <div>
+              <RadioLabel>
+                <RadioInput
+                  type="radio"
+                  id="louie"
+                  name="drone"
+                  $border={'rgba(114, 194, 248, 0.5)'}
+                  $background={'rgba(114, 194, 248, 1)'}
+                />
+                Low
+              </RadioLabel>
+            </div>
+            <div>
+              <RadioLabel>
+                <RadioInput
+                  type="radio"
+                  id="louie"
+                  name="drone"
+                  $border={'rgba(243, 178, 73, 0.5)'}
+                  $background={'rgba(243, 178, 73, 1)'}
+                />
+                Medium
+              </RadioLabel>
+            </div>
+            <div>
+              <RadioLabel>
+                <RadioInput
+                  type="radio"
+                  id="louie"
+                  name="drone"
+                  $border={'rgba(234, 61, 101, 0.5)'}
+                  $background={'rgba(234, 61, 101, 1)'}
+                />
+                High
+              </RadioLabel>
+            </div>
+          </ContainerRadio>
+          <ContainerButton>
+            <ButtonAdd>
+              <SvgPlus />
+              Add
+            </ButtonAdd>
+            <ButtonCancel onClick={closeModal}>Cancel</ButtonCancel>
+          </ContainerButton>
         </form>
       </ContainerForm>
     </Modal>
