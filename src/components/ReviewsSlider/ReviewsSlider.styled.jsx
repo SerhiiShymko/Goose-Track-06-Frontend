@@ -43,7 +43,7 @@ export const SliderCard = styled.div`
   height: 194px;
 
   padding: 24px 20px 24px 24px;
-  overflow-y: scroll;
+
   margin-bottom: 18px;
 
   @media screen and (min-width: 768px) {
