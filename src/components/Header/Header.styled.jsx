@@ -1,6 +1,6 @@
 import styled from 'styled-components';
 
-import { ReactComponent as BurgerSvgStyled } from '../../images/sideBar/icon-menu-burger.svg';
+import { ReactComponent as BurgerSvgStyled } from '../../images/header/icon-menu-burger.svg';
 import { ReactComponent as ThemeMoonSvgStyled } from '../../images/theme/moon.svg';
 import { ReactComponent as ThemeSunSvgStyled } from '../../images/theme/sun.svg';
 import { ReactComponent as UserPhotoHeaderSvgStyled } from '../../images/profile/phAvatar.svg';
@@ -11,15 +11,33 @@ export const ContentWrapper = styled.header`
   justify-content: space-between;
 `;
 
+export const CurrentPage = styled.p`
+  width: 183px;
+  color: ${({ theme }) => theme.colors.colorAccent};
+  text-shadow: 0px 9.4px 57.6875px rgba(0, 0, 0, 0.04),
+    0px 47px 355px rgba(0, 0, 0, 0.07);
+  font-size: 32px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+`;
+
+export const SideBarBtn = styled.button`
+  background-color: inherit;
+
+  @media screen and (min-width: 1440px) {
+    display: none;
+  }
+`;
+
 export const BurgerIcon = styled(BurgerSvgStyled)`
-  margin-right: 68px;
   width: 24px;
   height: 24px;
+  stroke: ${({ theme }) => theme.colors.colorBody};
 
   @media screen and (min-width: 768px) {
     width: 34px;
     height: 34px;
-    margin-right: 356px;
   }
 `;
 
@@ -35,6 +53,7 @@ export const FeedbackBtn = styled.button`
   line-height: 1.3;
   font-weight: 600;
 
+  margin-left: 68px;
   margin-right: 17px;
 
   @media screen and (min-width: 768px) {
@@ -44,6 +63,7 @@ export const FeedbackBtn = styled.button`
     border-radius: 14px;
 
     margin-right: 24px;
+    margin-left: 356px;
   }
 `;
 

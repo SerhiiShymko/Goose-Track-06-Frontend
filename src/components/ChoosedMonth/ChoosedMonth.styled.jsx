@@ -48,8 +48,8 @@ export const CalendarTable = styled.div`
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.5);
   background: rgba(220, 227, 229, 0.5);
-  color: #343434;
-  font-family: Inter;
+  color: ${({ theme }) => theme.colors.colorBody};
+  /* font-family: Inter; */
   font-size: 12px;
   font-style: normal;
   font-weight: 700;

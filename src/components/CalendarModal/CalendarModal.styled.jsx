@@ -48,7 +48,7 @@ export const Button = styled.button`
 export const DataText = styled.div`
   padding: 4px 0;
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 20px;
   font-style: normal;
   font-weight: 600;
@@ -70,7 +70,7 @@ export const WeekDays = styled.div`
 export const Day = styled.div`
   color: #fff;
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -100,7 +100,7 @@ export const CalendarDate = styled.div`
   padding: 12px 0;
   color: #fff;
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -125,7 +125,7 @@ export const CalendarDateHolidays = styled.div`
   padding: 12px 0;
   color: rgba(255, 255, 255, 0.25);
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
@@ -150,7 +150,7 @@ export const ActiveCalendarDate = styled.div`
   padding: 12px 0;
   color: #3e85f3;
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 400;
