@@ -26,19 +26,11 @@ const StatisticsPage = () => {
   let firstDayCurrentMonth = parse(activeDate, 'MMMM yyyy', new Date());
   
   const currentDate = format(new Date(activeDate), `yyyy-MM-dd`);
-<<<<<<< HEAD
 
   useEffect(() => {
     dispatch(fetchTasks(currentDate));
   }, [dispatch, currentDate]);
 
-=======
-  
-  useEffect(() => {
-    dispatch(fetchTasks(currentDate));
-  }, [dispatch, currentDate]);
-  
->>>>>>> 925df11a9cd3a51671aea1047978b1b1c10c8950
   const handleClick = ({ target }) => {
     setCurrentDay(target.textContent);
   };
