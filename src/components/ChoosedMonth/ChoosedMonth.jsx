@@ -18,30 +18,58 @@ import {
   // parseISO,
   // isValid,
   add,
+  endOfWeek,
+  endOfMonth,
+  eachDayOfInterval,
 } from 'date-fns';
 import { useDispatch } from 'react-redux';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchTasks } from 'redux/tasks/operations';
-
-export const ChoosedMonth = ({ dayInterval, onNext, onPrev, dateToday }) => {
-  const dispatch = useDispatch(); 
-
-  // const items = useSelector(state => state.tasks.items)
-  // console.log(items)
+import { CalendarToolBar } from 'components/CalendarToolBar/CalendarToolBar';
+import { useState } from 'react';
 
 
-  let firstDayCurrentMonth = parse(dateToday, 'MMMM yyyy', new Date());
-  // const dateFormat = format(firstDayCurrentMonth, 'yyyy-MM', new Date());
+ const ChoosedMonth = () => {
+  const dispatch = useDispatch();
+   const items = useSelector(state => state.tasks.items)
+  const date = format(new Date(), 'MMMM yyyy');
+  const [activeDate, setActiveDate] = useState(date);
 
-  const lastMonth = format(
-    add(firstDayCurrentMonth, { months: -1 }),
-    'yyyy-MM'
-  );
+  let firstDayCurrentMonth = parse(activeDate, 'MMMM yyyy', new Date());
 
-  useEffect(() => {
-    dispatch(fetchTasks(lastMonth));
-  }, [dispatch, lastMonth]);
+   const handleClick = (e) => {
+    const selectDate = e.currentTarget.dataset.day
+  }
+  const nextMonth = () => {
+    let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
+    setActiveDate(format(firstDayNextMonth, 'MMMM yyyy'));
+  };
+
+  const prevMonth = () => {
+    let firstDayPrevMonth = add(firstDayCurrentMonth, { months: -1 });
+    setActiveDate(format(firstDayPrevMonth, 'MMMM yyyy'));
+  };
+
+  const result = eachDayOfInterval({
+    start: startOfWeek(firstDayCurrentMonth, { weekStartsOn: 1 }),
+    end: endOfWeek(endOfMonth(firstDayCurrentMonth), { weekStartsOn: 1 }),
+  });
+  // const currentDate = format(new Date(dateToday), `yyyy-MM`);
+  // console.log(currentDate)
+  
+//   const dateFormat = format(firstDayCurrentMonth, 'yyyy-MM', new Date());
+// console.log(dateFormat)
+   
+  // const lastMonth = format(
+  //   add(firstDayCurrentMonth, { months: -1 }),
+  //   'yyyy-MM'
+  // );
+
+  // useEffect(() => {
+  //   dispatch(fetchTasks(lastMonth));
+  // }, [dispatch, lastMonth]);
+  
 
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const weekDays = [];
@@ -57,8 +85,10 @@ export const ChoosedMonth = ({ dayInterval, onNext, onPrev, dateToday }) => {
     return weekDays;
   };
 
-  const resultDate = dayInterval.map(day => {
-    if (format(day, 'MMMM yyyy') !== dateToday) {
+  
+
+   const resultDate = result.map(day => {
+    if (format(day, 'MMMM yyyy') !== activeDate) {
       return <EmptyDateBlock key={day.toString()}></EmptyDateBlock>;
     } else if (format(day, 'd MMMM') === format(new Date(), 'd MMMM')) {
       return (
@@ -77,6 +107,13 @@ export const ChoosedMonth = ({ dayInterval, onNext, onPrev, dateToday }) => {
 
   return (
     <>
+      {/* <CalendarToolBar
+        dayInterval={dateToday}
+        onNext={onNext}
+        onPrev={onPrev}
+        dateToday={dateToday}
+        onClickDate = {handleClick}
+      /> */}
       <MonthCalendarHead>
         {renderDayOfWeek().map(day => {
           if (day === 'Sat' || day === 'Sun') {
@@ -85,7 +122,7 @@ export const ChoosedMonth = ({ dayInterval, onNext, onPrev, dateToday }) => {
           return <Day key={nanoid()}>{day}</Day>;
         })}
       </MonthCalendarHead>
-      {dayInterval.length > 35 ? (
+      {result.length > 35 ? (
         <CalendarTable>{resultDate}</CalendarTable>
       ) : (
         <CalendarTableShortMonth>{resultDate}</CalendarTableShortMonth>
@@ -93,3 +130,5 @@ export const ChoosedMonth = ({ dayInterval, onNext, onPrev, dateToday }) => {
     </>
   );
 };
+
+export default ChoosedMonth;
