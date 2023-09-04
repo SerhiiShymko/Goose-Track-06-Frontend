@@ -9,8 +9,6 @@ import { selectTasks } from 'redux/tasks/selectors';
 import { fetchTasks } from 'redux/tasks/operations';
 import { Wrapper } from 'components/Statistics/statistics.styled';
 
-
-
 const StatisticsPage = () => {
   const date = format(new Date(), 'MMMM yyyy');
   const [activeDate, setActiveDate] = useState(date);

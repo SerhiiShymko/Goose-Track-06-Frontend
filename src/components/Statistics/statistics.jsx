@@ -50,6 +50,7 @@ const Statistics = ({ currentDay, currentDate }) => {
   const dataChart = culcStatistikData(tasksByDay, tasksByMonth);
 
   return (
+
     <WrapperChart>
       <ResponsiveContainer width="100%" height="97%">
         <BarChart
