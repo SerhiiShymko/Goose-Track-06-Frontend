@@ -1,24 +1,26 @@
 import { Modal } from 'components/Modal/Modal';
-import { ButtonAdd, ButtonCancel, ContainerForm } from './Modal.styled';
+import { ButtonAdd, ButtonCancel, ContainerForm, ContainerTime, SvgClose, TextInput, TextLabel } from './Modal.styled';
 
 export const ModalAddAndChange = ({ closeModal }) => {
   return (
     <Modal>
       <ContainerForm>
         <form>
-          <svg></svg>
-          <label>
+          <SvgClose></SvgClose>
+          <TextLabel>
             Title
-            <input></input>
-          </label>
-          <label>
-            Start
-            <input></input>
-          </label>
-          <label>
-            End
-            <input></input>
-          </label>
+            <TextInput placeholder="Enter text"></TextInput>
+          </TextLabel>
+          <ContainerTime>
+            <label>
+              Start
+              <input></input>
+            </label>
+            <label>
+              End
+              <input></input>
+            </label>
+          </ContainerTime>
           <div>
             <label>
               Louie
@@ -37,8 +39,8 @@ export const ModalAddAndChange = ({ closeModal }) => {
               <input type="radio" id="louie" name="drone" />
             </label>
           </div>
-          <ButtonAdd></ButtonAdd>
-          <ButtonCancel onClick={closeModal}></ButtonCancel>
+          <ButtonAdd>Edit</ButtonAdd>
+          <ButtonCancel onClick={closeModal}>Cancel</ButtonCancel>
         </form>
       </ContainerForm>
     </Modal>

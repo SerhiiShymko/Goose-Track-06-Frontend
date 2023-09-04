@@ -31,11 +31,6 @@ export const CalendarModal = ({
     weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
   }
 
-  const handleClick = event => {
-    const category = event.currentTarget.dataset.day;
-    console.log(category);
-  };
-
   const resultDate = dayInterval.map(day => {
     if (format(day, 'MMMM yyyy') !== dateToday) {
       return <div key={day.toString()}></div>;
