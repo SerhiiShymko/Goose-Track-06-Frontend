@@ -1,5 +1,7 @@
 import { styled } from 'styled-components';
-import Prev from '../../../images/calendar/chevron-left.svg';
+
+// import Prev from '../../../images/calendar/chevron-left.svg'
+
 
 export const WrapperPagination = styled.div`
   display: flex;

@@ -20,32 +20,41 @@ import Next from '../../images/calendar/chevron-right.svg';
 import { addDays, format, startOfWeek } from 'date-fns';
 import { nanoid } from 'nanoid';
 
-export const CalendarModal = ({ onNext, onPrev, dateToday, dayInterval }) => {
+export const CalendarModal = ({
+  onNext,
+  onPrev,
+  dateToday,
+  dayInterval,
+  handleClick,
+}) => {
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const weekDays = [];
   for (let day = 0; day < 7; day++) {
     weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
   }
 
+  
   const resultDate = dayInterval.map(day => {
     if (format(day, 'MMMM yyyy') !== dateToday) {
       return <div key={day.toString()}></div>;
     } else if (format(day, 'd MMMM') === format(new Date(), 'd MMMM')) {
       return (
-        <ActiveCalendarDate key={day.toString()}>
+        <ActiveCalendarDate key={day.toString()} onClick={handleClick}>
           {format(day, 'd')}
         </ActiveCalendarDate>
       );
     }
     if (format(day, 'E') === 'Sat' || format(day, 'E') === 'Sun') {
       return (
-        <CalendarDateHolidays key={day.toString()}>
+        <CalendarDateHolidays key={day.toString()} onClick={handleClick}>
           {format(day, 'd')}
         </CalendarDateHolidays>
       );
     } else {
       return (
-        <CalendarDate key={day.toString()}>{format(day, 'd')}</CalendarDate>
+        <CalendarDate onClick={handleClick} key={day.toString()}>
+          {format(day, 'd')}
+        </CalendarDate>
       );
     }
   });

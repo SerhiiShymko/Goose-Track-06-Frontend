@@ -105,6 +105,14 @@ export const CalendarDate = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 128.571% */
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: darkblue;
+  }
+  &:active {
+    color: darkblue;
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -122,6 +130,14 @@ export const CalendarDateHolidays = styled.div`
   font-style: normal;
   font-weight: 400;
   line-height: 18px; /* 128.571% */
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: darkblue;
+  }
+  &:active {
+    color: darkblue;
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
@@ -141,6 +157,14 @@ export const ActiveCalendarDate = styled.div`
   line-height: 1.28;
   border-radius: 50%;
   background-color: #fff;
+  cursor: pointer;
+  &:hover,
+  &:focus {
+    color: darkblue;
+  }
+  &:active {
+    color: darkblue;
+  }
 
   @media screen and (min-width: 768px) {
     font-size: 18px;
