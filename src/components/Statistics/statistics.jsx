@@ -24,20 +24,9 @@ import {
 import {  WrapperChart } from './statistics.styled';
 import { useSelector } from 'react-redux';
 
-// import dataUserByMonth from './data/dataUser.json';
-// import {dataChart} from './data/dataChart'
-
-// const dateByDay = '2023-08-25';
-
 const Statistics = ({ currentDay, currentDate }) => {
   const tasks = useSelector(selectTasks);
   const theme = useTheme();
-  /**
-   * Дата фейкова
-   */
-  // const dateNow = currenDate;
-  // const dateNow = '2023-08-25';
-  // const tasks = dataUserByMonth;
 
   const widthViewPort = useResize();
 
@@ -50,7 +39,6 @@ const Statistics = ({ currentDay, currentDate }) => {
   const dataChart = culcStatistikData(tasksByDay, tasksByMonth);
 
   return (
-
     <WrapperChart>
       <ResponsiveContainer width="100%" height="97%">
         <BarChart

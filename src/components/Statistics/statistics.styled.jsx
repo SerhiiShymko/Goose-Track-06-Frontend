@@ -61,5 +61,4 @@ export const Wrapper = styled.div`
     width: 100%;
     margin-left: 100px;
   }
-
-`;
+  `;

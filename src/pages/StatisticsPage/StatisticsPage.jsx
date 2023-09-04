@@ -1,7 +1,15 @@
 import { WrapperPaginator } from 'components/CalendarToolBar/WrapperPaginator/WrapperPaginator';
 import Statistics from 'components/Statistics/statistics';
 import { StatisticWrapper } from 'components/Statistics/statistics.styled';
-import { add, eachDayOfInterval, endOfMonth, endOfWeek, format, parse, startOfWeek } from 'date-fns';
+import {
+  add,
+  eachDayOfInterval,
+  endOfMonth,
+  endOfWeek,
+  format,
+  parse,
+  startOfWeek,
+} from 'date-fns';
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
@@ -12,17 +20,17 @@ import { Wrapper } from 'components/Statistics/statistics.styled';
 const StatisticsPage = () => {
   const date = format(new Date(), 'MMMM yyyy');
   const [activeDate, setActiveDate] = useState(date);
-  const [currentDay, setCurrentDay] = useState(null);
+  const [currentDay, setCurrentDay] = useState('1');
   const dispatch = useDispatch(selectTasks);
 
   let firstDayCurrentMonth = parse(activeDate, 'MMMM yyyy', new Date());
   
   const currentDate = format(new Date(activeDate), `yyyy-MM-dd`);
-  
+
   useEffect(() => {
     dispatch(fetchTasks(currentDate));
   }, [dispatch, currentDate]);
-  
+
   const handleClick = ({ target }) => {
     setCurrentDay(target.textContent);
   };
@@ -40,7 +48,7 @@ const StatisticsPage = () => {
     start: startOfWeek(firstDayCurrentMonth, { weekStartsOn: 1 }),
     end: endOfWeek(endOfMonth(firstDayCurrentMonth), { weekStartsOn: 1 }),
   });
- 
+
   return (
     <StatisticWrapper>
       <Wrapper>
