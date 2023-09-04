@@ -18,13 +18,26 @@ import {
   SvgPencil,
 } from '../ChoosedDay.styled';
 
-import { deleteTask, addTask } from '../../../redux/tasks/operations';
-import { CATEGORY, PRIORITY } from '../../../data/constants';
+import { deleteTask } from '../../../redux/tasks/operations';
+import {  PRIORITY } from '../../../data/constants';
 import SimplePopper from '../components/Popup';
 import BasicPopover from '../components/Popover';
+import { useState } from 'react';
+import { ModalAddAndChange } from '../components/Modal';
 
-const TaskColumnDone = ({ data, currentDay }) => {
+const TaskColumnDone = ({ data}) => {
+  const [showModal, setShowModal] = useState(false);
+
   const dispatch = useDispatch();
+
+
+  const openModal = () => {
+    setShowModal(true);    
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const priorityColor = priority => {
     if (priority === PRIORITY.LOW) {
@@ -58,24 +71,12 @@ const TaskColumnDone = ({ data, currentDay }) => {
   const handleDelete = id => {
     dispatch(deleteTask(id));
   };
-
-  const handleAdd = () => {
-    const newTask = {
-      title: 'Додати завдання',
-      date: currentDay,
-      start: '09:00',
-      end: '15:00',
-      priority: 'high',
-      category: CATEGORY.DONE,
-    };
-    dispatch(addTask(newTask));
-  };
-
+  
   return (
     <TaskBorder>
       <TaskName>
         <TextInTitle>Done</TextInTitle>
-        <SvgPlusCircle />
+        <SvgPlusCircle type="button" onClick={openModal} />
       </TaskName>
       <TaskListContainer>
         {data?.map(item => (
@@ -97,10 +98,11 @@ const TaskColumnDone = ({ data, currentDay }) => {
           </TaskItemContainer>
         ))}
       </TaskListContainer>
-      <ButtonAddTask type="button" onClick={handleAdd}>
+      <ButtonAddTask type="button" onClick={openModal}>
         <SvgAddTask />
         <TextInButton>Add task</TextInButton>
       </ButtonAddTask>
+      {showModal && <ModalAddAndChange closeModal={closeModal} todo={'add'} />}
     </TaskBorder>
   );
 };

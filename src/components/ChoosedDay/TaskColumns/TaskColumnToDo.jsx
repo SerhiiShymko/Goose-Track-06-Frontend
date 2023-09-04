@@ -20,12 +20,15 @@ import {
   SvgPencil,
 } from '../ChoosedDay.styled';
 
-import { CATEGORY, PRIORITY } from '../../../data/constants';
-import { addTask, deleteTask } from '../../../redux/tasks/operations';
+import {  PRIORITY } from '../../../data/constants';
+import {  deleteTask } from '../../../redux/tasks/operations';
 import SimplePopper from '../components/Popup';
 import BasicPopover from '../components/Popover';
+import { useState } from 'react';
+import { ModalAddAndChange } from '../components/Modal';
 
-const TaskColumnToDo = ({ data, currentDay }) => {
+const TaskColumnToDo = ({ data }) => {
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
   const priorityColor = priority => {
     if (priority === PRIORITY.LOW) {
@@ -35,6 +38,14 @@ const TaskColumnToDo = ({ data, currentDay }) => {
     }
     return '#EA3D65';
   };
+
+const openModal = () => {
+  setShowModal(true);
+};
+
+const closeModal = () => {
+  setShowModal(false);
+};
 
   const letterUp = name => {
     const altName = name;
@@ -59,18 +70,7 @@ const TaskColumnToDo = ({ data, currentDay }) => {
   const handleDelete = id => {
     dispatch(deleteTask(id));
   };
-
-  const handleAdd = () => {
-    const newTask = {
-      title: 'Додати завдання',
-      date: currentDay,
-      start: '09:00',
-      end: '15:00',
-      priority: 'high',
-      category: CATEGORY.TODO,
-    };
-    dispatch(addTask(newTask));
-  };
+ 
   const onDragEnd = result => {
   // TODO
 }
@@ -79,7 +79,7 @@ const TaskColumnToDo = ({ data, currentDay }) => {
       <TaskBorder>
         <TaskName>
           <TextInTitle>To do</TextInTitle>
-          <SvgPlusCircle />
+          <SvgPlusCircle type="button" onClick={openModal} />
         </TaskName>
         <TaskListContainer>
           {data?.map(item => (
@@ -95,19 +95,19 @@ const TaskColumnToDo = ({ data, currentDay }) => {
                 <TaskLogoList>
                   <SimplePopper category={'to-do'} number={item._id} />
                   <SvgPencil number={item._id} />
-                  <BasicPopover
-                    number={item._id}
-                    handleDelete={handleDelete}
-                  />
+                  <BasicPopover number={item._id} handleDelete={handleDelete} />
                 </TaskLogoList>
               </KontrolWrapper>
             </TaskItemContainer>
           ))}
         </TaskListContainer>
-        <ButtonAddTask type="button" onClick={handleAdd}>
+        <ButtonAddTask type="button" onClick={openModal}>
           <SvgAddTask />
           <TextInButton>Add task</TextInButton>
         </ButtonAddTask>
+        {showModal && (
+          <ModalAddAndChange closeModal={closeModal} todo={'add'} />
+        )}
       </TaskBorder>
     </DragDropContext>
   );

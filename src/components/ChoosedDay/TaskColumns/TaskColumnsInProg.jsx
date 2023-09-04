@@ -17,12 +17,15 @@ import {
   SvgPlusCircle,
   SvgPencil,
 } from '../ChoosedDay.styled';
-import { addTask, deleteTask } from '../../../redux/tasks/operations';
-import { CATEGORY, PRIORITY } from '../../../data/constants';
+import {  deleteTask } from '../../../redux/tasks/operations';
+import {  PRIORITY } from '../../../data/constants';
 import SimplePopper from '../components/Popup';
 import BasicPopover from '../components/Popover';
+import { useState } from 'react';
+import { ModalAddAndChange } from '../components/Modal';
 
-const TaskColumnInProg = ({ data, currentDay }) => {
+const TaskColumnInProg = ({ data }) => {
+   const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
   const priorityColor = priority => {
@@ -33,6 +36,14 @@ const TaskColumnInProg = ({ data, currentDay }) => {
     }
     return '#EA3D65';
   };
+
+const openModal = () => {
+  setShowModal(true);
+};
+
+const closeModal = () => {
+  setShowModal(false);
+};
 
   const letterUp = name => {
     const altName = name;
@@ -57,23 +68,12 @@ const TaskColumnInProg = ({ data, currentDay }) => {
   const handleDelete = id => {
     dispatch(deleteTask(id));
   };
-
-  const handleAdd = () => {
-    const newTask = {
-      title: 'Додати завдання',
-      date: currentDay,
-      start: '09:00',
-      end: '15:00',
-      priority: 'high',
-      category: CATEGORY.INPROGRESS,
-    };
-    dispatch(addTask(newTask));
-  };
+ 
   return (
     <TaskBorder>
       <TaskName>
         <TextInTitle>In progress</TextInTitle>
-        <SvgPlusCircle />
+        <SvgPlusCircle type="button" onClick={openModal} />
       </TaskName>
       <TaskListContainer>
         {data?.map(item => (
@@ -95,10 +95,11 @@ const TaskColumnInProg = ({ data, currentDay }) => {
           </TaskItemContainer>
         ))}
       </TaskListContainer>
-      <ButtonAddTask type="button" onClick={handleAdd}>
+      <ButtonAddTask type="button" onClick={openModal}>
         <SvgAddTask />
         <TextInButton>Add task</TextInButton>
       </ButtonAddTask>
+      {showModal && <ModalAddAndChange closeModal={closeModal} todo={'add'} />}
     </TaskBorder>
   );
 };

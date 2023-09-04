@@ -12,9 +12,7 @@ import {
   ModalCalendar,
   WeekDays,
 } from './CalendarModal.styled';
-import {
-  ImgPaginatorNextModal
-} from 'components/CalendarToolBar/CalendarToolBar.styled';
+import { ImgPaginatorNextModal } from 'components/CalendarToolBar/CalendarToolBar.styled';
 import Prev from '../../images/calendar/chevron-left.svg';
 import Next from '../../images/calendar/chevron-right.svg';
 import { addDays, format, startOfWeek } from 'date-fns';
