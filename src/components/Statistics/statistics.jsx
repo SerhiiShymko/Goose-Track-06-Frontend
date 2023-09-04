@@ -14,26 +14,54 @@ import useResize, {
   countUserTasks,
   culcStatistikData,
   FilterTasksByDay,
+  getCurrentDateByDay,
 } from './utils/utils';
 import { selectTasks } from 'redux/tasks/selectors';
 import {
   CustomizedMostPopularLabel,
   GradientBar,
 } from './CustomizedChartComponents/components';
+<<<<<<< HEAD
 import { WrapperChart } from './statistics.styled';
 import { useSelector } from 'react-redux';
+=======
+import {  WrapperChart } from './statistics.styled';
+import { useSelector } from 'react-redux';
 
-const Statistics = ({ currentDay }) => {
+// import dataUserByMonth from './data/dataUser.json';
+// import {dataChart} from './data/dataChart'
+
+// const dateByDay = '2023-08-25';
+>>>>>>> 925df11a9cd3a51671aea1047978b1b1c10c8950
+
+const Statistics = ({ currentDay, currentDate }) => {
   const tasks = useSelector(selectTasks);
   const theme = useTheme();
+<<<<<<< HEAD
+=======
+  /**
+   * Дата фейкова
+   */
+  // const dateNow = currenDate;
+  // const dateNow = '2023-08-25';
+  // const tasks = dataUserByMonth;
+>>>>>>> 925df11a9cd3a51671aea1047978b1b1c10c8950
 
   const widthViewPort = useResize();
 
-  const tasksByDay = countUserTasks(FilterTasksByDay(tasks, currentDay));
+  const searchingDay = getCurrentDateByDay(currentDay, currentDate);
+
+  const tasksByDay = countUserTasks(
+    FilterTasksByDay(tasks, searchingDay ?? '01')
+  );
   const tasksByMonth = countUserTasks(tasks);
   const dataChart = culcStatistikData(tasksByDay, tasksByMonth);
 
   return (
+<<<<<<< HEAD
+=======
+
+>>>>>>> 925df11a9cd3a51671aea1047978b1b1c10c8950
     <WrapperChart>
       <ResponsiveContainer width="100%" height="97%">
         <BarChart

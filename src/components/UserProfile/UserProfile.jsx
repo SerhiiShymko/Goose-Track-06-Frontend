@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+// import { useEffect, useState } from 'react';
 import {
   MainWrapper,
   PlusIcon,
@@ -15,13 +15,13 @@ import {
   BtnSaveChanges,
   UserSurnameMain,
 } from './UserProfile.styled';
-import { useDispatch } from 'react-redux';
+// import { useDispatch } from 'react-redux';
 
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
 
 const UserProfile = () => {
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const currentUserInfo = useSelector(selectUser);
   const a = currentUserInfo.name.split(' ');
   console.log(a[0]);
