@@ -10,6 +10,7 @@ import {
   parse,
   startOfWeek,
 } from 'date-fns';
+import { useEffect } from 'react';
 import { useState } from 'react';
 
 // import Spinner from 'components/Spinner/Spinner';
@@ -21,7 +22,11 @@ const CalendarPage = () => {
   const [activeDate, setActiveDate] = useState(date);
 
   let firstDayCurrentMonth = parse(activeDate, 'MMMM yyyy', new Date());
-  
+
+   const handleClick = (e) => {
+    const selectDate = e.currentTarget.dataset.day
+    console.log(selectDate)
+  }
   const nextMonth = () => {
     let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
     setActiveDate(format(firstDayNextMonth, 'MMMM yyyy'));
@@ -45,6 +50,7 @@ const CalendarPage = () => {
         onNext={nextMonth}
         onPrev={prevMonth}
         dateToday={activeDate}
+        onClickDate = {handleClick}
       />
       <ChoosedMonth
         dayInterval={result}

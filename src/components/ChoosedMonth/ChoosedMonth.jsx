@@ -20,14 +20,15 @@ import {
   add,
 } from 'date-fns';
 import { useDispatch } from 'react-redux';
-// import { useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { fetchTasks } from 'redux/tasks/operations';
 
+
 export const ChoosedMonth = ({ dayInterval, onNext, onPrev, dateToday }) => {
   const dispatch = useDispatch();
-  // const items = useSelector(state => state.tasks.items)
-  // console.log(items)
+  const items = useSelector(state => state.tasks.items)
+  
 
   let firstDayCurrentMonth = parse(dateToday, 'MMMM yyyy', new Date());
   // const dateFormat = format(firstDayCurrentMonth, 'yyyy-MM', new Date());
@@ -40,6 +41,7 @@ export const ChoosedMonth = ({ dayInterval, onNext, onPrev, dateToday }) => {
   useEffect(() => {
     dispatch(fetchTasks(lastMonth));
   }, [dispatch, lastMonth]);
+  
 
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const weekDays = [];

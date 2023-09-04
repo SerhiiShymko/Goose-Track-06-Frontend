@@ -19,6 +19,7 @@ import Prev from '../../images/calendar/chevron-left.svg';
 import Next from '../../images/calendar/chevron-right.svg';
 import { addDays, format, startOfWeek } from 'date-fns';
 import { nanoid } from 'nanoid';
+import { Link } from 'react-router-dom';
 
 export const CalendarModal = ({
   onNext,
@@ -26,6 +27,7 @@ export const CalendarModal = ({
   dateToday,
   dayInterval,
   handleClick,
+  onClickDate
 }) => {
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const weekDays = [];
@@ -33,31 +35,38 @@ export const CalendarModal = ({
     weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
   }
 
-  
   const resultDate = dayInterval.map(day => {
     if (format(day, 'MMMM yyyy') !== dateToday) {
       return <div key={day.toString()}></div>;
     } else if (format(day, 'd MMMM') === format(new Date(), 'd MMMM')) {
       return (
-        <ActiveCalendarDate key={day.toString()} onClick={handleClick}>
-          {format(day, 'd')}
+        <ActiveCalendarDate key={day.toString()} onClick={onClickDate} data-day={format(day, 'yyyy-MM-dd')}>
+          <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
+            {format(day, 'd')}
+            </Link>
         </ActiveCalendarDate>
       );
     }
     if (format(day, 'E') === 'Sat' || format(day, 'E') === 'Sun') {
       return (
-        <CalendarDateHolidays key={day.toString()} onClick={handleClick}>
-          {format(day, 'd')}
+        <CalendarDateHolidays key={day.toString()} onClick={onClickDate} data-day={format(day, 'yyyy-MM-dd')}>
+          <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
+            {format(day, 'd')}
+            </Link>
         </CalendarDateHolidays>
       );
     } else {
       return (
-        <CalendarDate onClick={handleClick} key={day.toString()}>
-          {format(day, 'd')}
+        <CalendarDate onClick={onClickDate} key={day.toString()} data-day={format(day, 'yyyy-MM-dd')}>
+          <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
+            {format(day, 'd')}
+            </Link>
         </CalendarDate>
       );
     }
   });
+
+  
 
   return (
     <ModalCalendar>

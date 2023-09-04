@@ -1,22 +1,29 @@
+import { useState } from 'react';
 import {
   Wrapper,
-  PeriodTypeSelect,
-  BtnTypeSelectMonth,
-  BtnTypeSelectDay,
 } from './CalendarToolBar.styled';
+import { PeriodSelect } from './PeriodSelect/PeriodSelect';
 
 import { WrapperPaginator } from './WrapperPaginator/WrapperPaginator';
 
-export const CalendarToolBar = ({ dayInterval, onNext, onPrev, dateToday }) => {
+export const CalendarToolBar = ({ dayInterval, onNext, onPrev, dateToday, onClickDate }) => {
+  const [activePeriod, setActivePeriod] = useState('month');
+
+  const selectPeriod = value => {
+    setActivePeriod(value)
+  }
+
+ 
   return (
     <Wrapper>
-      <WrapperPaginator dayInterval={dayInterval} onNext={onNext} onPrev={onPrev} dateToday={dateToday}/>
-      <PeriodTypeSelect>
-        <BtnTypeSelectMonth to="calendar/month/:currentDate">
-          Month
-        </BtnTypeSelectMonth>
-        <BtnTypeSelectDay to="calendar/day/:currentDay">Day</BtnTypeSelectDay>
-      </PeriodTypeSelect>
+      <WrapperPaginator
+        dayInterval={dayInterval}
+        onNext={onNext}
+        onPrev={onPrev}
+        dateToday={dateToday}
+        onClickDate={onClickDate}
+      />
+      <PeriodSelect />
     </Wrapper>
   );
 };
