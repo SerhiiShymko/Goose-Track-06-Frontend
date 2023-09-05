@@ -15,12 +15,25 @@ import {
   TimeInput,
   Timelabel,
 } from './Modal.styled';
+import { CATEGORY, PRIORITY } from 'data/constants';
 
-export const ModalAddAndChange = ({ closeModal }) => {
+export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
+  const handleSubmit = event => {
+    event.preventDefault();
+    const newTask = {
+      title: event.target[0].value,
+      date: currentDay,
+      start: event.target[1].value,
+      end: event.target[2].value,
+      //     "priority": "low",
+      category,
+    };
+    console.log(event)
+  };
   return (
     <Modal>
       <ContainerForm>
-        <form>
+        <form onSubmit={handleSubmit}>
           <SvgClose onClick={closeModal}></SvgClose>
           <TextLabel>
             Title
@@ -41,7 +54,7 @@ export const ModalAddAndChange = ({ closeModal }) => {
               <RadioLabel>
                 <RadioInput
                   type="radio"
-                  id="louie"
+                  id={PRIORITY.LOW}
                   name="drone"
                   $border={'rgba(114, 194, 248, 0.5)'}
                   $background={'rgba(114, 194, 248, 1)'}
@@ -53,7 +66,7 @@ export const ModalAddAndChange = ({ closeModal }) => {
               <RadioLabel>
                 <RadioInput
                   type="radio"
-                  id="louie"
+                  id={PRIORITY.MEDIUM}
                   name="drone"
                   $border={'rgba(243, 178, 73, 0.5)'}
                   $background={'rgba(243, 178, 73, 1)'}
@@ -65,7 +78,7 @@ export const ModalAddAndChange = ({ closeModal }) => {
               <RadioLabel>
                 <RadioInput
                   type="radio"
-                  id="louie"
+                  id={PRIORITY.HIGH}
                   name="drone"
                   $border={'rgba(234, 61, 101, 0.5)'}
                   $background={'rgba(234, 61, 101, 1)'}
@@ -75,7 +88,7 @@ export const ModalAddAndChange = ({ closeModal }) => {
             </div>
           </ContainerRadio>
           <ContainerButton>
-            <ButtonAdd>
+            <ButtonAdd type="submit">
               <SvgPlus />
               Add
             </ButtonAdd>

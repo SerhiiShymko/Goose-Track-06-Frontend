@@ -19,7 +19,7 @@ import {
 } from '../ChoosedDay.styled';
 
 import { deleteTask } from '../../../redux/tasks/operations';
-import {  PRIORITY } from '../../../data/constants';
+import {  CATEGORY, PRIORITY } from '../../../data/constants';
 import SimplePopper from '../components/Popup';
 import BasicPopover from '../components/Popover';
 import { useState } from 'react';
@@ -102,7 +102,9 @@ const TaskColumnDone = ({ data}) => {
         <SvgAddTask />
         <TextInButton>Add task</TextInButton>
       </ButtonAddTask>
-      {showModal && <ModalAddAndChange closeModal={closeModal} todo={'add'} />}
+      {showModal && (
+        <ModalAddAndChange closeModal={closeModal} todo={'add'} category={CATEGORY.DONE} />
+      )}
     </TaskBorder>
   );
 };
