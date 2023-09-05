@@ -29,11 +29,11 @@ export const ModalAddAndChange = ({ closeModal }) => {
           <ContainerTime>
             <Timelabel>
               Start
-              <TimeInput></TimeInput>
+              <TimeInput placeholder="09:00"></TimeInput>
             </Timelabel>
             <Timelabel>
               End
-              <TimeInput></TimeInput>
+              <TimeInput placeholder="14:00"></TimeInput>
             </Timelabel>
           </ContainerTime>
           <ContainerRadio>
