@@ -21,53 +21,46 @@ import {
   endOfWeek,
   endOfMonth,
   eachDayOfInterval,
+  add,
 } from 'date-fns';
-// import { useDispatch } from 'react-redux';
-// import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 // import { useEffect } from 'react';
 // import { fetchTasks } from 'redux/tasks/operations';
 // import { CalendarToolBar } from 'components/CalendarToolBar/CalendarToolBar';
-import { useState } from 'react';
+// import { useState } from 'react';
+// import { useLocation, useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
+import { fetchTasks } from 'redux/tasks/operations';
+// import { selectTasks } from 'redux/tasks/selectors';
+import { selectCurrentDate } from 'redux/auth/selectors';
 
 const ChoosedMonth = () => {
-  // const dispatch = useDispatch();
-  //  const items = useSelector(state => state.tasks.items)
-  const date = format(new Date(), 'MMMM yyyy');
-  const [activeDate] = useState(date);
+  const dispatch = useDispatch();
+  // const location = useLocation();
 
-  let firstDayCurrentMonth = parse(activeDate, 'MMMM yyyy', new Date());
+  // const tasks = useSelector(selectTasks);
+  const selectDate = useSelector(selectCurrentDate);
 
-  // const handleClick = e => {
-  //   // const selectDate = e.currentTarget.dataset.day
-  // };
-  // const nextMonth = () => {
-  //   let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
-  //   setActiveDate(format(firstDayNextMonth, 'MMMM yyyy'));
-  // };
-
-  // const prevMonth = () => {
-  //   let firstDayPrevMonth = add(firstDayCurrentMonth, { months: -1 });
-  //   setActiveDate(format(firstDayPrevMonth, 'MMMM yyyy'));
-  // };
+  const formattedDate = format(selectDate, 'MMMM yyyy');
+  let firstDayCurrentMonth = parse(formattedDate, 'MMMM yyyy', new Date());
 
   const result = eachDayOfInterval({
     start: startOfWeek(firstDayCurrentMonth, { weekStartsOn: 1 }),
     end: endOfWeek(endOfMonth(firstDayCurrentMonth), { weekStartsOn: 1 }),
   });
-  // const currentDate = format(new Date(dateToday), `yyyy-MM`);
-  // console.log(currentDate)
 
-  //   const dateFormat = format(firstDayCurrentMonth, 'yyyy-MM', new Date());
-  // console.log(dateFormat)
 
-  // const lastMonth = format(
-  //   add(firstDayCurrentMonth, { months: -1 }),
-  //   'yyyy-MM'
-  // );
+  // const dateFormat = format(selectDate, 'yyyy-MM');
 
-  // useEffect(() => {
-  //   dispatch(fetchTasks(lastMonth));
-  // }, [dispatch, lastMonth]);
+  const lastMonth = format(
+    add(firstDayCurrentMonth, { months: -1 }),
+    'yyyy-MM'
+  );
+
+  useEffect(() => {
+    dispatch(fetchTasks(lastMonth));
+  }, [dispatch, lastMonth]);
 
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const weekDays = [];
@@ -84,32 +77,37 @@ const ChoosedMonth = () => {
   };
 
   const resultDate = result.map(day => {
-    if (format(day, 'MMMM yyyy') !== activeDate) {
+    if (format(day, 'MMMM yyyy') !== formattedDate) {
       return <EmptyDateBlock key={day.toString()}></EmptyDateBlock>;
     } else if (format(day, 'd MMMM') === format(new Date(), 'd MMMM')) {
       return (
-        <DateCalendarMonth key={day.toString()}>
+        <DateCalendarMonth
+          data-day={format(day, 'yyyy-MM-dd')}
+          key={day.toString()}
+          to={`/calendar/day/${format(day, 'yyyy-MM-dd')}`}
+        >
           <DateActive>{format(day, 'd')}</DateActive>
         </DateCalendarMonth>
       );
     } else {
       return (
-        <DateCalendarMonth key={day.toString()}>
+        <DateCalendarMonth
+          data-day={format(day, 'yyyy-MM-dd')}
+          key={day.toString()}
+          to={`/calendar/day/${format(day, 'yyyy-MM-dd')}`}
+        >
           <DateNoSelected>{format(day, 'd')}</DateNoSelected>
         </DateCalendarMonth>
       );
     }
   });
 
+  // const taskResult = tasks.map(task => {
+  //   return <div key={task._id}>{task}</div>;
+  // });
+
   return (
     <>
-      {/* <CalendarToolBar
-        dayInterval={dateToday}
-        onNext={onNext}
-        onPrev={onPrev}
-        dateToday={dateToday}
-        onClickDate = {handleClick}
-      /> */}
       <MonthCalendarHead>
         {renderDayOfWeek().map(day => {
           if (day === 'Sat' || day === 'Sun') {

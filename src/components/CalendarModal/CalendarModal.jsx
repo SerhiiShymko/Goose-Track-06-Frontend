@@ -27,12 +27,14 @@ export const CalendarModal = ({
   handleClick,
   onClickDate
 }) => {
+  // const selectDate = useSelector(state => state.auth.currentDate)
+  // const formattedDate = format(selectDate, 'yyyy-MM-dd')
+  // const parseDate = parse(formattedDate, 'yyyy-MM-dd', new Date())
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const weekDays = [];
   for (let day = 0; day < 7; day++) {
     weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
   }
-
   const resultDate = dayInterval.map(day => {
     if (format(day, 'MMMM yyyy') !== dateToday) {
       return <div key={day.toString()}></div>;

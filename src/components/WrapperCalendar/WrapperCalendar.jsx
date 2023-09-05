@@ -10,27 +10,57 @@ import {
   parse,
   startOfWeek,
 } from 'date-fns';
-import { useState } from 'react';
+// import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useLocation } from 'react-router-dom';
+import { setCurrentDate } from 'redux/auth/authSlice';
 // import { Suspense } from "react";
 // import { Outlet } from "react-router-dom";
 
 export const WrapperCalendar = () => {
-  const date = format(new Date(), 'MMMM yyyy');
-  const [activeDate, setActiveDate] = useState(date);
+  const dispatch = useDispatch();
+  const location = useLocation();
 
-  let firstDayCurrentMonth = parse(activeDate, 'MMMM yyyy', new Date());
+  // const date = format(new Date(), 'MMMM yyyy');
+  // const [activeDate, setActiveDate] = useState(date);
+
+  const selectDate = useSelector(state => state.auth.currentDate);
+  const formattedDate = format(selectDate, 'MMMM yyyy');
+  const formattedOneDay = format(selectDate, 'yyyy-MM-dd');
+
+  let firstDayCurrentMonth = parse(formattedDate, 'MMMM yyyy', new Date());
+  let currentDay = parse(formattedOneDay, 'yyyy-MM-dd', new Date());
 
   const handleClick = e => {
     // const selectDate = e.currentTarget.dataset.day;
   };
   const nextMonth = () => {
-    let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
-    setActiveDate(format(firstDayNextMonth, 'MMMM yyyy'));
+    const locationDay = location.pathname.slice(10, 13)
+    if (locationDay === 'day') {
+      const nextDay = add(currentDay, { days: 1 });
+      const dayTimeStamp = nextDay.getTime();
+      dispatch(setCurrentDate(dayTimeStamp));
+      console.log(nextDay)
+    } else {
+      let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
+      const dateTimeStamp = firstDayNextMonth.getTime();
+      dispatch(setCurrentDate(dateTimeStamp));
+    }
   };
 
   const prevMonth = () => {
-    let firstDayPrevMonth = add(firstDayCurrentMonth, { months: -1 });
-    setActiveDate(format(firstDayPrevMonth, 'MMMM yyyy'));
+    const locationDay = location.pathname.slice(10, 13)
+    if (locationDay === 'day') {
+      const prevDay = add(currentDay, { days: -1 });
+      const dayTimeStamp = prevDay.getTime();
+      dispatch(setCurrentDate(dayTimeStamp));
+      console.log(prevDay)
+    } else {
+      let firstDayPrevMonth = add(firstDayCurrentMonth, { months: -1 });
+      const dateTimeStamp = firstDayPrevMonth.getTime();
+      dispatch(setCurrentDate(dateTimeStamp));
+    }
   };
 
   const result = eachDayOfInterval({
@@ -44,7 +74,7 @@ export const WrapperCalendar = () => {
         dayInterval={result}
         onNext={nextMonth}
         onPrev={prevMonth}
-        dateToday={activeDate}
+        dateToday={formattedDate}
         onClickDate={handleClick}
       />
       {/* <ChoosedMonth
