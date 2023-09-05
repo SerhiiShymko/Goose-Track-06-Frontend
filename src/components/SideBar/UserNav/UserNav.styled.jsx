@@ -101,6 +101,7 @@ export const CloseSvg = styled(CloseSvgStyled)`
 `;
 
 export const ButtonClose = styled.button`
+  cursor: pointer;
   background-color: inherit;
 `;
 
