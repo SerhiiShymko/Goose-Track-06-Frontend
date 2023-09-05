@@ -19,20 +19,19 @@ import {
 } from '../ChoosedDay.styled';
 
 import { deleteTask } from '../../../redux/tasks/operations';
-import {  PRIORITY } from '../../../data/constants';
+import {  CATEGORY, PRIORITY } from '../../../data/constants';
 import SimplePopper from '../components/Popup';
 import BasicPopover from '../components/Popover';
 import { useState } from 'react';
 import { ModalAddAndChange } from '../components/Modal';
 
-const TaskColumnDone = ({ data}) => {
+const TaskColumnDone = ({ data, currentDay }) => {
   const [showModal, setShowModal] = useState(false);
 
   const dispatch = useDispatch();
 
-
   const openModal = () => {
-    setShowModal(true);    
+    setShowModal(true);
   };
 
   const closeModal = () => {
@@ -71,7 +70,7 @@ const TaskColumnDone = ({ data}) => {
   const handleDelete = id => {
     dispatch(deleteTask(id));
   };
-  
+
   return (
     <TaskBorder>
       <TaskName>
@@ -102,7 +101,14 @@ const TaskColumnDone = ({ data}) => {
         <SvgAddTask />
         <TextInButton>Add task</TextInButton>
       </ButtonAddTask>
-      {showModal && <ModalAddAndChange closeModal={closeModal} todo={'add'} />}
+      {showModal && (
+        <ModalAddAndChange
+          closeModal={closeModal}
+          todo={'add'}
+          category={CATEGORY.DONE}
+          currentDay={currentDay}
+        />
+      )}
     </TaskBorder>
   );
 };

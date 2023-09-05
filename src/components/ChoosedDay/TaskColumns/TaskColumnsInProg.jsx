@@ -18,14 +18,14 @@ import {
   SvgPencil,
 } from '../ChoosedDay.styled';
 import {  deleteTask } from '../../../redux/tasks/operations';
-import {  PRIORITY } from '../../../data/constants';
+import {  CATEGORY, PRIORITY } from '../../../data/constants';
 import SimplePopper from '../components/Popup';
 import BasicPopover from '../components/Popover';
 import { useState } from 'react';
 import { ModalAddAndChange } from '../components/Modal';
 
-const TaskColumnInProg = ({ data }) => {
-   const [showModal, setShowModal] = useState(false);
+const TaskColumnInProg = ({ data, currentDay }) => {
+  const [showModal, setShowModal] = useState(false);
   const dispatch = useDispatch();
 
   const priorityColor = priority => {
@@ -37,13 +37,13 @@ const TaskColumnInProg = ({ data }) => {
     return '#EA3D65';
   };
 
-const openModal = () => {
-  setShowModal(true);
-};
+  const openModal = () => {
+    setShowModal(true);
+  };
 
-const closeModal = () => {
-  setShowModal(false);
-};
+  const closeModal = () => {
+    setShowModal(false);
+  };
 
   const letterUp = name => {
     const altName = name;
@@ -68,7 +68,7 @@ const closeModal = () => {
   const handleDelete = id => {
     dispatch(deleteTask(id));
   };
- 
+
   return (
     <TaskBorder>
       <TaskName>
@@ -99,7 +99,14 @@ const closeModal = () => {
         <SvgAddTask />
         <TextInButton>Add task</TextInButton>
       </ButtonAddTask>
-      {showModal && <ModalAddAndChange closeModal={closeModal} todo={'add'} />}
+      {showModal && (
+        <ModalAddAndChange
+          closeModal={closeModal}
+          todo={'add'}
+          currentDay={currentDay}
+          category={CATEGORY.INPROGRESS}
+        />
+      )}
     </TaskBorder>
   );
 };
