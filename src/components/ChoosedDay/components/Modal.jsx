@@ -11,32 +11,105 @@ import {
   RadioInput,
   RadioLabel,
   SvgClose,
+  SvgPencil,
   SvgPlus,
   TextInput,
   TextLabel,
   TimeInput,
   Timelabel,
 } from './Modal.styled';
-import { CATEGORY, PRIORITY } from 'data/constants';
-import { addTask } from '../../../redux/tasks/operations';
+import {  PRIORITY } from 'data/constants';
+import { addTask, updateTask } from '../../../redux/tasks/operations';
 
-export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
-  const [radio, setRadio] = useState();
+export const ModalAddAndChange = ({
+  closeModal,
+  currentDay,
+  category,
+  todo,
+  task,
+}) => {
+  const currentTitle = task ? task[0].title : "";
+  const currentTimeStart = task ? task[0].start : "";
+  const currentTimeEnd = task ? task[0].end : "";
+  const currentRadio = task ? task[0].priority : '';
+  const currentId = task ? task[0]._id : "";
+  
+   
+  const [radio, setRadio] = useState(currentRadio);
+  const [title, setTitle] = useState(currentTitle);
+  const [timeStart, setTimeStart] = useState(currentTimeStart);
+  const [timeEnd, setTimeEnd] = useState(currentTimeEnd);
+  
   const dispatch = useDispatch();
+const hendleChange = ({ target: { value, name } }) => {
+  switch (name) {
+    case 'title':
+      if (value === '') {
+        setTitle(value);
+      }     
+      setTitle(value);
+      break;
+    case 'timeStart':
+      if (value === '') {
+        setTimeStart(value);
+      }
+      // if (!isValidNumber(value)) {
+      //   setStart(value);
+      //   return;
+      // }
+      setTimeStart(value);
+      break;
+    case 'timeEnd':
+      if (value === '') {
+        setTimeEnd(value);
+      }
+      setTimeEnd(value);
+      break;
+    default:
+      return;
+  }
+};
 
   const handleSubmit = event => {
     event.preventDefault();
-    const form = event.currentTarget;
+    const todo = event.target[6].name;
+    
+    if (todo === 'change') {
+      const newTask = {
+        title: title,
+        date: task[0].date,
+        start: timeStart,
+        end: timeEnd,
+        priority: radio,
+        category: category,
+      };
+      const changeTask = {
+        _id: currentId,
+        category: newTask,
+      };
+      dispatch(updateTask(changeTask));
+      setRadio("");
+      setTimeEnd("");
+      setTimeStart("")
+      setTitle("");
+      closeModal();
+      return;
+    }
     const newTask = {
-      title: form.elements.text.value,
+      title: title,
       date: currentDay,
-      start: event.target[1].value,
-      end: event.target[2].value,
+      start: timeStart,
+      end: timeEnd,
       priority: radio,
       category: category,
     };
     dispatch(addTask(newTask));
+    setRadio('');
+    setTimeEnd('');
+    setTimeStart('');
+    setTitle('');
     closeModal();
+    return;
   };
 
   const onValueChange = event => {
@@ -50,16 +123,31 @@ export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
           <SvgClose onClick={closeModal}></SvgClose>
           <TextLabel>
             Title
-            <TextInput placeholder="Enter text" name="text"></TextInput>
+            <TextInput
+              placeholder="Enter text"
+              name="title"
+              value={title}
+              onChange={hendleChange}
+            ></TextInput>
           </TextLabel>
           <ContainerTime>
             <Timelabel>
               Start
-              <TimeInput name="timeStart" placeholder="09:00"></TimeInput>
+              <TimeInput
+                name="timeStart"
+                placeholder="09:00"
+                onChange={hendleChange}
+                value={timeStart}
+              ></TimeInput>
             </Timelabel>
             <Timelabel>
               End
-              <TimeInput name="timeEnd" placeholder="18:00"></TimeInput>
+              <TimeInput
+                name="timeEnd"
+                placeholder="18:00"
+                value={timeEnd}
+                onChange={hendleChange}
+              ></TimeInput>
             </Timelabel>
           </ContainerTime>
           <ContainerRadio>
@@ -104,9 +192,9 @@ export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
             </div>
           </ContainerRadio>
           <ContainerButton>
-            <ButtonAdd type="submit">
-              <SvgPlus />
-              Add
+            <ButtonAdd type="submit" name={todo === 'add' ? 'add' : 'change'}>
+              {todo === 'add' ? <SvgPlus /> : <SvgPencil />}
+              {todo === 'add' ? 'Add' : 'Edit'}
             </ButtonAdd>
             <ButtonCancel onClick={closeModal}>Cancel</ButtonCancel>
           </ContainerButton>

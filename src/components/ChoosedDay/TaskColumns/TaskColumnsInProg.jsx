@@ -89,7 +89,7 @@ const TaskColumnInProg = ({ data, currentDay }) => {
               <TaskLogoList>
                 <SimplePopper category={'in-progress'} number={item._id} />
                 <SvgPencil />
-                <BasicPopover number={item._id} hendlerDelete={handleDelete} />
+                <BasicPopover number={item._id} handleDelete={handleDelete} />
               </TaskLogoList>
             </KontrolWrapper>
           </TaskItemContainer>
