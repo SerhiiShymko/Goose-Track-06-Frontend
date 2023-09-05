@@ -16,7 +16,7 @@ import {
   ErrorIcon,
   SuccesIcon,
   LabelText,
-  FormStyled
+  FormStyled,
 } from './UserProfile.styled';
 import { useDispatch } from 'react-redux';
 
