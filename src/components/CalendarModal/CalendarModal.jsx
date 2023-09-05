@@ -24,7 +24,6 @@ export const CalendarModal = ({
   onPrev,
   dateToday,
   dayInterval,
-  handleClick,
   onClickDate
 }) => {
   // const selectDate = useSelector(state => state.auth.currentDate)
