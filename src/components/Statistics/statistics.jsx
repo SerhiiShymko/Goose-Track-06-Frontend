@@ -27,9 +27,8 @@ import { useSelector } from 'react-redux';
 const Statistics = ({ currentDay, currentDate }) => {
   const tasks = useSelector(selectTasks);
   const theme = useTheme();
-
   const widthViewPort = useResize();
-
+console.log('Statistic', currentDay, currentDate);
   const searchingDay = getCurrentDateByDay(currentDay, currentDate);
 
   const tasksByDay = countUserTasks(
