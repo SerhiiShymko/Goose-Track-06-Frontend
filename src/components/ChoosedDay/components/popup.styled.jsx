@@ -6,8 +6,12 @@ export const PopperList = styled.ul`
   flex-direction: column;
   gap: 14px;
   border-radius: 8px;
-  background: #fff;
-  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+  background: ${({ theme }) => theme.colors.backgroundAccent};
+  box-shadow: 0px 4px 16px 0px
+    ${({ theme }) =>
+      theme.name === 'light'
+        ? 'rgba(17, 17, 17, 0.1)'
+        : 'rgba(17, 17, 17, 0.10)'};
 `;
 
 export const PopperItem = styled.li`
@@ -21,14 +25,16 @@ export const PopperItem = styled.li`
 export const PopperText = styled.span`
   /* font-family: InterMedium; */
   font-weight: 500;
-  color: #343434;
+  color: ${({ theme }) => theme.colors.colorBody};
   font-size: 14px;
   line-height: 18px; /* 128.571% */
 `;
 
 export const PopperButton = styled.button`
+  display: flex;
+  align-items: center;
   border: none;
-  background-color: #fff;
+  background-color: inherit;
   width: 20px;
   height: 20px;
   padding: 0;
