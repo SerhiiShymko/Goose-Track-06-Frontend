@@ -194,7 +194,7 @@ export const BtnSaveChangesWrapper = styled.div`
 
 export const BtnSaveChanges = styled.button`
   padding: 14px 50px;
-
+cursor: pointer;
   color: #ffffff;
   background-color: #3e85f3;
 
