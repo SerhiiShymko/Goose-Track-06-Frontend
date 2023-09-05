@@ -45,7 +45,7 @@ export const Paragraph = styled.p`
     theme.name === 'light'
       ? 'rgba(52, 52, 52, 0.8)'
       : 'rgba(250, 250, 250, 0.30)'};
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 12px;
   font-style: normal;
   font-weight: 500;
@@ -66,7 +66,7 @@ export const ButtonsContainer = styled.div`
 export const PencilSvg = styled(PencilSvgStyled)`
   width: 16px;
   height: 16px;
-  stroke: #inherit;
+  stroke: inherit;
 `;
 
 export const ButtonPencil = styled.button`
@@ -91,7 +91,7 @@ export const ButtonPencil = styled.button`
 export const TrashSvg = styled(TrashSvgStyled)`
   width: 16px;
   height: 16px;
-  stroke: #inherit;
+  stroke: inherit;
 `;
 
 export const ButtonTrash = styled.button`
@@ -127,7 +127,7 @@ export const TextArea = styled.textarea`
   resize: none;
 
   color: ${({ theme }) => (theme.name === 'light' ? '#343434' : '#fff')};
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -141,7 +141,7 @@ export const TextArea = styled.textarea`
 export const ButtonSubmit = styled.button`
   color: #fff;
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -160,7 +160,7 @@ export const ButtonSubmit = styled.button`
 export const ButtonCancel = styled.button`
   color: ${({ theme }) => (theme.name === 'light' ? '#343434' : '#fff')};
   text-align: center;
-  font-family: Inter;
+  /* font-family: Inter; */
   font-size: 14px;
   font-style: normal;
   font-weight: 600;
@@ -178,17 +178,16 @@ export const ButtonCancel = styled.button`
 
 export const Text = styled.p`
   margin: 0px;
-  margin-bottom:24px;
+  margin-bottom: 24px;
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
-  margin-bottom:: ${props => props.marginbottom || '24px'};
+  margin-bottom: ${props => props.marginbottom || '24px'};
   color: ${props => props.color || '#DA1414'};
   @media screen and (min-width: 375px) {
-    margin-bottom:12px;
-
+    margin-bottom: 12px;
   }
   @media screen and (min-width: 768px) {
-    margin-bottom:18px;
+    margin-bottom: 18px;
   }
 `;

@@ -21,8 +21,9 @@ import { useDispatch } from 'react-redux';
 import { setTheme } from 'redux/auth/authSlice';
 import AddFeedbackBtn from 'components/AddFeedbackBtn/AddFeedbackBtn';
 
-const Header = ({ handleClick }) => {
+const Header =  ({ handleClick }) => {
   const currentUserInfo = useSelector(selectUser);
+  console.log(currentUserInfo.name);
   const splitName = currentUserInfo.name.split(' ');
   const themeName = useSelector(selectTheme);
 
@@ -43,12 +44,15 @@ const Header = ({ handleClick }) => {
   return (
     <Container>
       <ContentWrapper>
-        {window.innerWidth >= 1440 && (
-          <CurrentPage>{getTextForCurrentPage()}</CurrentPage>
+        {window.innerWidth <= 1440 && (
+          <SideBarBtn type="button" onClick={handleClick}>
+            <BurgerIcon />
+          </SideBarBtn>
         )}
-        <SideBarBtn type="button" onClick={handleClick}>
-          <BurgerIcon />
-        </SideBarBtn>
+
+        {window.innerWidth >= 1440 ? (
+          <CurrentPage>{getTextForCurrentPage()}</CurrentPage>
+        ) : null}
         <UserWrapper>
           <AddFeedbackBtn />
           <ThemeTogglerBtn type="button" onClick={toggleTheme}>
