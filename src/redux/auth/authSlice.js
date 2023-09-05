@@ -32,7 +32,7 @@ const authSlice = createSlice({
     },
     token: null,
     theme: 'light',
-    currentDate: new Date(),
+    currentDate: Date.now(),
     isLoggedIn: false,
     isRefreshing: false,
   },
