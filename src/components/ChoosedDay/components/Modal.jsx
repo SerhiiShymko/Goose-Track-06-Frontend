@@ -18,7 +18,7 @@ import {
   Timelabel,
 } from './Modal.styled';
 import { CATEGORY, PRIORITY } from 'data/constants';
-import {addTask} from "../../../redux/tasks/operations"
+import { addTask } from '../../../redux/tasks/operations';
 
 export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
   const [radio, setRadio] = useState();
@@ -34,12 +34,12 @@ export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
       end: event.target[2].value,
       priority: radio,
       category: category,
-    };   
+    };
     dispatch(addTask(newTask));
-    closeModal()
+    closeModal();
   };
 
-  const onValueChange = (event) => {    
+  const onValueChange = event => {
     setRadio(event.target.id);
   };
 
@@ -55,11 +55,11 @@ export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
           <ContainerTime>
             <Timelabel>
               Start
-              <TimeInput name="timeStart"></TimeInput>
+              <TimeInput name="timeStart" placeholder="09:00"></TimeInput>
             </Timelabel>
             <Timelabel>
               End
-              <TimeInput name="timeEnd"></TimeInput>
+              <TimeInput name="timeEnd" placeholder="18:00"></TimeInput>
             </Timelabel>
           </ContainerTime>
           <ContainerRadio>

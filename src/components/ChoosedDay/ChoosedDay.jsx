@@ -11,6 +11,7 @@ const ChoosedDay = ({date}) => {
   // }
   // const currentDate = dayjs().format("YYYY-MM-DD");
   let currentDate = '';
+  
   date ? (currentDate = date) : (currentDate = dayjs().format('YYYY-MM-DD'));
   
     return (

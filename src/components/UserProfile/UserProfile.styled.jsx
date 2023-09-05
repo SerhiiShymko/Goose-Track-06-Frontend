@@ -1,7 +1,9 @@
 import styled from 'styled-components';
 import { ReactComponent as PlusIconSvgStyled } from '../../images/profile/plusAvatar.svg';
 import { ReactComponent as UserPhotoHeaderSvgStyled } from '../../images/profile/phAvatar.svg';
-
+import { ReactComponent as IconError } from '../../images/registrPage/email-error-outline.svg';
+import { ReactComponent as IconSucces } from '../../images/registrPage/email-done.svg';
+import { Field } from 'formik';
 export const MainWrapper = styled.div`
   margin-top: 64px;
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
@@ -66,7 +68,6 @@ export const PlusIcon = styled(PlusIconSvgStyled)`
     right: 134px;
   }
   @media screen and (min-width: 1440px) {
-    top: 105px;
     right: 340px;
   }
 `;
@@ -102,8 +103,8 @@ export const UserSurnameMain = styled.p`
   }
 `;
 
-export const DetailsUserWrapper = styled.div`
-  margin-top: 40px;
+export const FormStyled = styled.div`
+  margin-top: 40px; 
 
   @media screen and (min-width: 1440px) {
     margin-top: 44px;
@@ -129,15 +130,17 @@ export const DetailsUserMarginWrapper = styled.div`
 export const Label = styled.label`
   color: ${({ theme }) => theme.colors.colorLabelsUserProfile};
   line-height: 1.28;
+  position: relative;
 `;
 
 export const InputWrapper = styled.div`
   margin-top: 8px;
 `;
 
-export const Input = styled.input`
+export const Input = styled(Field)`
   width: 100%;
   height: 42px;
+
   border: 1px solid
     ${({ theme }) =>
       theme.name === 'light'
@@ -149,7 +152,7 @@ export const Input = styled.input`
   line-height: 1.28;
   padding: 12px 0px 12px 14px;
   border-radius: 8px;
-
+  margin-top: 8px;
   &::placeholder {
     color: ${({ theme }) =>
       theme.name === 'light'
@@ -162,6 +165,10 @@ export const Input = styled.input`
   &:focus {
     outline: none;
     border-color: rgba(17, 17, 17, 1);
+  }
+
+  &:not(:last-child) {
+    margin-bottom: 18px;
   }
 
   @media screen and (min-width: 768px) {
@@ -187,7 +194,7 @@ export const BtnSaveChangesWrapper = styled.div`
 
 export const BtnSaveChanges = styled.button`
   padding: 14px 50px;
-
+cursor: pointer;
   color: #ffffff;
   background-color: #3e85f3;
 
@@ -202,3 +209,31 @@ export const BtnSaveChanges = styled.button`
     border-radius: 16px;
   }
 `;
+
+export const SuccesIcon = styled(IconSucces)`
+  position: absolute;
+  right: 10px;
+  bottom: -2px;
+
+  
+`;
+
+export const ErrorIcon = styled(IconError)`
+  position: absolute;
+  right: 10px;
+  bottom: 48px;
+`;
+
+
+export const LabelText = styled.p`
+  color: ${props => props.color || '#111'};
+  margin: 0px;
+  margin-bottom: 8px;
+  font-size: 12px;
+  font-weight: 600;
+
+  @media screen and (min-width: 768px) {
+    font-size: 14px;
+  }
+`;
+

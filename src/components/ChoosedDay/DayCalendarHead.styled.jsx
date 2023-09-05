@@ -10,7 +10,7 @@ export const ContainerColendar = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.colorCalendarBorder};
   background: ${({ theme }) => theme.colors.backgroundSubcomponents};
 
-  @media screen and (max-width: 1139px) {
+  @media screen and (max-width: 1439px) {
     padding: 10px 32px;
     width: 704px;
   }
@@ -18,7 +18,7 @@ export const ContainerColendar = styled.div`
     width: 335px;
     padding: 14px 18px;
   }
-  @media screen and (min-width: 1140px) {
+  @media screen and (min-width: 1440px) {
     padding: 10px 46px;
     width: 1087px;
   }

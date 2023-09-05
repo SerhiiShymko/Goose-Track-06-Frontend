@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import { styled } from 'styled-components';
 import { ReactComponent as close } from '../../../images/tascs/x-close.svg';
 import { ReactComponent as Plus } from '../../../images/tascs/addTask.svg';
 
@@ -9,8 +9,12 @@ export const ContainerForm = styled.div`
 
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.8);
-  background: #fff;
-  box-shadow: 0px 4px 16px 0px rgba(17, 17, 17, 0.1);
+  background: ${({ theme }) => theme.colors.backgroundAccent};
+  box-shadow: 0px 4px 16px 0px
+    ${({ theme }) =>
+      theme.name === 'light'
+        ? 'rgba(17, 17, 17, 0.1)'
+        : 'rgba(17, 17, 17, 0.10)'};
   position: relative;
 `;
 export const ButtonAdd = styled.button`
@@ -25,8 +29,9 @@ export const ButtonAdd = styled.button`
 
   color: #fff;
   text-align: center;
-  font-family: 'InterSemiBold';
-  font-size: 14px;  
+  /* font-family: 'InterSemiBold'; */
+  font-weight: 600;
+  font-size: 14px;
   line-height: 18px; /* 128.571% */
 `;
 export const SvgPlus = styled(Plus)`
@@ -37,17 +42,18 @@ export const SvgPlus = styled(Plus)`
 
 export const ButtonCancel = styled.button`
   border-radius: 8px;
-  background: #efefef;
+  background: ${({ theme }) => theme.colors.backgroundBtnCancelTask};
   display: flex;
   width: 144px;
   height: 48px;
   justify-content: center;
   align-items: center;
 
-  color: #111;
+  color: ${({ theme }) => theme.colors.colorBtnCancelTask};
   text-align: center;
-  font-family: 'InterSemiBold';
-  font-size: 14px;  
+  /* font-family: 'InterSemiBold'; */
+  font-weight: 600;
+  font-size: 14px;
   line-height: 18px; /* 128.571% */
 `;
 export const SvgClose = styled(close)`
@@ -57,8 +63,9 @@ export const SvgClose = styled(close)`
   top: 14px;
   right: 14px;
   cursor: pointer;
+  stroke: ${({ theme }) => theme.colors.colorAccent};
 
-  &:hover  path{
+  &:hover path {
     stroke: rgba(62, 133, 243, 1);
   }
 `;
@@ -71,31 +78,33 @@ export const TextLabel = styled.label`
   gap: 8px;
   flex-shrink: 0;
 
-  color: rgba(52, 52, 52, 0.8);
-  font-family: 'InterMedium';
-  font-size: 12px;  
-  line-height: 14px; 
+  color: ${({ theme }) => theme.colors.colorLabelModal};
+  /* font-family: 'InterMedium'; */
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
 `;
 export const TextInput = styled.input`
   width: 340px;
   height: 46px;
   flex-shrink: 0;
   border-radius: 8px;
-  background: #f6f6f6;
-  border: none;
+  border: 1px solid rgba(220, 227, 229, 0.8);
+  background: ${({ theme }) => theme.colors.backgroundModalFields};
 
-  color: #343434;
-  font-family: 'InterSemiBold';
+  color: ${({ theme }) => theme.colors.colorBody};
+  /* font-family: 'InterSemiBold'; */
+  font-weight: 600;
   font-size: 14px;
   line-height: 18px; /* 128.571% */
-  padding: 14px 18px;  
+  padding: 14px 18px;
 `;
 export const ContainerTime = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   gap: 14px;
-  margin:18px 0;
+  margin: 18px 0;
 `;
 export const Timelabel = styled.label`
   display: flex;
@@ -105,9 +114,10 @@ export const Timelabel = styled.label`
   gap: 8px;
   flex-shrink: 0;
 
-  color: rgba(52, 52, 52, 0.8);
-  font-family: 'InterMedium';
-  font-size: 12px;  
+  color: ${({ theme }) => theme.colors.colorLabelModal};
+  /* font-family: 'InterMedium'; */
+  font-weight: 500;
+  font-size: 12px;
   line-height: 14px; /* 116.667% */
 `;
 export const TimeInput = styled.input`
@@ -115,15 +125,17 @@ export const TimeInput = styled.input`
   height: 46px;
   flex-shrink: 0;
   border-radius: 8px;
-  background: #f6f6f6;
-  border: none;
+  background: ${({ theme }) => theme.colors.backgroundModalFields};
+  /* border: none; */
+  border: 1px solid rgba(220, 227, 229, 0.8);
 
-  color: #343434;
-  font-family: 'InterSemiBold';
-  font-size: 14px; 
+  color: ${({ theme }) => theme.colors.colorBody};
+  /* font-family: 'InterSemiBold' */
+  font-weight: 600;
+  font-size: 14px;
   line-height: 18px; /* 128.571% */
 
-  padding:14px 0 14px 18px;
+  padding: 14px 0 14px 18px;
 `;
 export const ContainerRadio = styled.div`
   display: flex;
@@ -132,13 +144,13 @@ export const ContainerRadio = styled.div`
   align-items: flex-start;
   gap: 16px;
   flex-shrink: 0;
-  margin-top:10px;
-  margin-bottom:32px;
+  margin-top: 10px;
+  margin-bottom: 32px;
 `;
 export const ContainerButton = styled.div`
   display: flex;
   flex-direction: row;
-  gap:14px;
+  gap: 14px;
 `;
 export const RadioInput = styled.input`
   position: relative;
@@ -157,7 +169,7 @@ export const RadioInput = styled.input`
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: ${props=>props.$background};
+    background-color: ${props => props.$background};
     transform: translate(-50%, -50%);
     visibility: visible;
   }
@@ -171,9 +183,10 @@ export const RadioInput = styled.input`
     border-radius: 50%;
     /* background-color: rgba(114, 194, 248, 0.5); */
     transform: translate(-50%, -50%);
-    border: 2px solid ${props => props.$border};   
+    border: 2px solid ${props => props.$border};
   }
 `;
-export const RadioLabel=styled.label`
-  display:flex;
-`
+export const RadioLabel = styled.label`
+  display: flex;
+  color: ${({ theme }) => theme.colors.colorBody};
+`;

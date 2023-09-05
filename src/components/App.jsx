@@ -29,7 +29,9 @@ const StatisticsPage = lazy(() =>
 );
 
 export function App() {
-  const currentMonth = format(new Date(), 'yyyy-MM');
+  const selectDate = useSelector(state => state.auth.currentDate);
+  const formattedOneDay = format(selectDate, 'yyyy-MM');
+  // const currentMonth = format(new Date(), 'yyyy-MM');
   const isRefreshing = useSelector(selectIsRefreshing);
   const dispatch = useDispatch();
   const isLoggedIn = useSelector(selectIsLoggedIn);
@@ -56,11 +58,11 @@ export function App() {
                 <PrivateRoute
                   redirectTo="/"
                   component={
-                    <Navigate to={`/calendar/month/${currentMonth}`} />
+                    <Navigate to={`/calendar/month/${formattedOneDay}`} />
                   }
                 />
               }
-            />
+              />
             <Route
               path="account"
               element={

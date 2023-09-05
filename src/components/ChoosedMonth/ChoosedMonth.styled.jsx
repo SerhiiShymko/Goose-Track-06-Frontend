@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom';
 import { styled } from 'styled-components';
 
 export const MonthCalendarHead = styled.div`
@@ -107,7 +108,8 @@ export const EmptyDateBlock = styled.div`
   border: solid ${({ theme }) => theme.colors.colorCalendarBorder};
   border-width: 0.5px;
 `;
-export const DateCalendarMonth = styled.div`
+export const DateCalendarMonth = styled(NavLink)`
+  cursor: pointer;
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
   display: flex;
   justify-content: end;
