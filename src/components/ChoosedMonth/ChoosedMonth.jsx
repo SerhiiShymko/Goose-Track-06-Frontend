@@ -2,12 +2,10 @@ import {
   MonthCalendarHead,
   DayHolidays,
   DateCalendarMonth,
-  DateActive,
-  DateNoSelected,
   CalendarTable,
   Day,
   EmptyDateBlock,
-  CalendarTableShortMonth,
+  DayOfMonth,
 } from './ChoosedMonth.styled';
 import { nanoid } from 'nanoid';
 import {
@@ -34,12 +32,14 @@ import { useEffect } from 'react';
 import { fetchTasks } from 'redux/tasks/operations';
 // import { selectTasks } from 'redux/tasks/selectors';
 import { selectCurrentDate } from 'redux/auth/selectors';
+import { selectTasks } from 'redux/tasks/selectors';
+import TacksOfDay from './TacksOfDay';
 
 const ChoosedMonth = () => {
   const dispatch = useDispatch();
   // const location = useLocation();
 
-  // const tasks = useSelector(selectTasks);
+  const tasks = useSelector(selectTasks);
   const selectDate = useSelector(selectCurrentDate);
 
   const formattedDate = format(selectDate, 'MMMM yyyy');
@@ -50,17 +50,17 @@ const ChoosedMonth = () => {
     end: endOfWeek(endOfMonth(firstDayCurrentMonth), { weekStartsOn: 1 }),
   });
 
-
   // const dateFormat = format(selectDate, 'yyyy-MM');
 
-  const lastMonth = format(
-    add(firstDayCurrentMonth, { months: -1 }),
+  const currentMonth = format(
+    add(firstDayCurrentMonth, { months: 0 }),
     'yyyy-MM'
   );
+  console.log(currentMonth);
 
   useEffect(() => {
-    dispatch(fetchTasks(lastMonth));
-  }, [dispatch, lastMonth]);
+    dispatch(fetchTasks(currentMonth));
+  }, [dispatch, currentMonth]);
 
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const weekDays = [];
@@ -79,16 +79,6 @@ const ChoosedMonth = () => {
   const resultDate = result.map(day => {
     if (format(day, 'MMMM yyyy') !== formattedDate) {
       return <EmptyDateBlock key={day.toString()}></EmptyDateBlock>;
-    } else if (format(day, 'd MMMM') === format(new Date(), 'd MMMM')) {
-      return (
-        <DateCalendarMonth
-          data-day={format(day, 'yyyy-MM-dd')}
-          key={day.toString()}
-          to={`/calendar/day/${format(day, 'yyyy-MM-dd')}`}
-        >
-          <DateActive>{format(day, 'd')}</DateActive>
-        </DateCalendarMonth>
-      );
     } else {
       return (
         <DateCalendarMonth
@@ -96,7 +86,15 @@ const ChoosedMonth = () => {
           key={day.toString()}
           to={`/calendar/day/${format(day, 'yyyy-MM-dd')}`}
         >
-          <DateNoSelected>{format(day, 'd')}</DateNoSelected>
+          {format(day, 'd MMMM') === format(new Date(), 'd MMMM') ? (
+            <DayOfMonth $active={true}>{format(day, 'd')}</DayOfMonth>
+          ) : (
+            <DayOfMonth $active={false}>{format(day, 'd')}</DayOfMonth>
+          )}
+          <TacksOfDay
+            currentDay={format(day, 'yyyy-MM-dd')}
+            tasks={tasks}
+          ></TacksOfDay>
         </DateCalendarMonth>
       );
     }
@@ -117,9 +115,9 @@ const ChoosedMonth = () => {
         })}
       </MonthCalendarHead>
       {result.length > 35 ? (
-        <CalendarTable>{resultDate}</CalendarTable>
+        <CalendarTable $columnsCount={6}>{resultDate}</CalendarTable>
       ) : (
-        <CalendarTableShortMonth>{resultDate}</CalendarTableShortMonth>
+        <CalendarTable $columnsCount={5}>{resultDate}</CalendarTable>
       )}
     </>
   );

@@ -42,45 +42,12 @@ export const CalendarTable = styled.div`
   margin-top: 14px;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 94px);
-  grid-row-gap: 1px;
-  grid-column-gap: 1px;
+  grid-template-rows: repeat(${props => props.$columnsCount}, 94px);
+  /* grid-row-gap: 1px; */
+  /* grid-column-gap: 1px; */
 
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.5);
-  background: rgba(220, 227, 229, 0.5);
-  color: ${({ theme }) => theme.colors.colorBody};
-  /* font-family: Inter; */
-  font-size: 12px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: 1.2; /* 116.667% */
-  text-transform: uppercase;
-
-  @media screen and (min-width: 768px) {
-    margin-top: 18px;
-    grid-template-rows: repeat(6, 144px);
-    font-size: 16px;
-    line-height: 1.12;
-  }
-
-  @media screen and (min-width: 1440px) {
-    margin-top: 15px;
-    grid-template-rows: repeat(6, 125px);
-  }
-`;
-
-export const CalendarTableShortMonth = styled.div`
-  margin-top: 14px;
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(5, 94px);
-  /* grid-row-gap: 1px;
-  grid-column-gap: 1px; */
-
-  border-radius: 8px;
-  /* border: 1px solid rgba(220, 227, 229, 0.5); */
-  //background: rgba(220, 227, 229, 0.5);
   background: ${({ theme }) => theme.colors.backgroundSubcomponents};
   color: ${({ theme }) => theme.colors.colorBody};
   /* font-family: Inter; */
@@ -92,14 +59,14 @@ export const CalendarTableShortMonth = styled.div`
 
   @media screen and (min-width: 768px) {
     margin-top: 18px;
-    grid-template-rows: repeat(5, 144px);
+    grid-template-rows: repeat(${props => props.$columnsCount}, 144px);
     font-size: 16px;
     line-height: 1.12;
   }
 
   @media screen and (min-width: 1440px) {
     margin-top: 15px;
-    grid-template-rows: repeat(5, 125px);
+    grid-template-rows: repeat(${props => props.$columnsCount}, 125px);
   }
 `;
 
@@ -124,7 +91,7 @@ export const DateCalendarMonth = styled(NavLink)`
   }
 `;
 
-export const DateActive = styled.div`
+export const DayOfMonth = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -132,8 +99,8 @@ export const DateActive = styled.div`
   width: 20px;
   height: 22px;
   border-radius: 6px;
-  color: #fff;
-  background-color: #3e85f3;
+  color: ${props => (props.$active ? '#fff' : 'inherit')};
+  background-color: ${props => (props.$active ? '#3e85f3' : 'inherit')};
 
   @media screen and (min-width: 768px) {
     width: 27px;
@@ -141,16 +108,16 @@ export const DateActive = styled.div`
   }
 `;
 
-export const DateNoSelected = styled.div`
-  display: flex;
-  padding: 4px 8px;
-  justify-content: center;
-  align-items: center;
-  width: 20px;
-  height: 22px;
+// export const DateNoSelected = styled.div`
+//   display: flex;
+//   padding: 4px 8px;
+//   justify-content: center;
+//   align-items: center;
+//   width: 20px;
+//   height: 22px;
 
-  @media screen and (min-width: 768px) {
-    width: 27px;
-    height: 26px;
-  }
-`;
+//   @media screen and (min-width: 768px) {
+//     width: 27px;
+//     height: 26px;
+//   }
+// `;
