@@ -1,4 +1,3 @@
-
 import {
   MainWrapper,
   PlusIcon,
@@ -6,10 +5,8 @@ import {
   UserPhoto,
   UserInfoWrapper,
   UserNameMain,
-
   Input,
   Label,
-
   BtnSaveChangesWrapper,
   BtnSaveChanges,
   UserSurnameMain,
@@ -22,7 +19,7 @@ import { useDispatch } from 'react-redux';
 
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
-import { Formik, Form, } from 'formik';
+import { Formik, Form } from 'formik';
 import { validateSchemaUserProfile } from './validateSchemaUserProfile';
 import { updateUser } from 'redux/auth/operations';
 
