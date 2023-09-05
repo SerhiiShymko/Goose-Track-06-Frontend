@@ -1,3 +1,4 @@
+import { useSelector } from 'react-redux';
 import {
   BtnError,
   TextError,
@@ -7,7 +8,9 @@ import {
   ErrorNumber,
   IconBox,
 } from './NotFoundPage.styled';
+import { selectIsLoggedIn } from 'redux/auth/selectors';
 const NotFoundPage = () => {
+  const isLogin = useSelector(selectIsLoggedIn);
   return (
     <ErrorBox>
       <IconBox>
@@ -21,7 +24,11 @@ const NotFoundPage = () => {
           to the homepage.
         </TextError>
       </TextBox>
-      <BtnError to="/">Back to Home</BtnError>
+      {isLogin ? (
+        <BtnError to="/calendar">Back to Home</BtnError>
+      ) : (
+        <BtnError to="/login">Back to Home</BtnError>
+      )}
     </ErrorBox>
   );
 };

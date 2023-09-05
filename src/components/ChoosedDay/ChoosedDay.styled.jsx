@@ -7,12 +7,14 @@ import { ReactComponent as trash } from '../../images/tascs/trash-2.svg';
 import { ReactComponent as phAvatar } from '../../images/profile/phAvatar.svg';
 
 export const MainContainer = styled.div`
-  @media screen and (min-width: 1140px) {
-    margin: 32px;
+  @media screen and (min-width: 1440px) {
+    /* margin: 32px; */
+    margin-top: 32px;
     width: 1087px;
   }
-  @media screen and (max-width: 1139px) {
-    margin: 24px 32px;
+  @media screen and (max-width: 1439px) {
+    /* margin: 24px 32px; */
+    margin-top: 24px;
     width: 704px;
   }
   @media screen and (min-width: 768px) {
@@ -22,7 +24,8 @@ export const MainContainer = styled.div`
   }
   @media screen and (max-width: 767px) {
     width: 335px;
-    margin: 24px 20px;
+    /* margin: 24px 20px; */
+    margin-top: 24px;
     display: flex;
     flex-direction: column;
     gap: 14px;

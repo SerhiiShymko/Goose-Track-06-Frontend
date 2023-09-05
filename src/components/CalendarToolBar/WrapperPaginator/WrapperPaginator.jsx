@@ -29,7 +29,6 @@ export const WrapperPaginator = ({
   const locationDay = location.pathname.slice(10, 13);
 
   const formattedDay = format(selectDate, 'd MMMM yyyy');
-
   return (
     <WrapperPagination>
       <ButtonForOpenCalendar
@@ -38,7 +37,9 @@ export const WrapperPaginator = ({
           setOpen(!open);
         }}
       >
-        {locationDay === 'day' ? formattedDay : dateToday}
+        {(locationDay === 'day' || location.pathname === '/statistics')
+          ? formattedDay
+          : dateToday}
       </ButtonForOpenCalendar>
       {open && (
         <CalendarModal

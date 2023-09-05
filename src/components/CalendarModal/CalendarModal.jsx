@@ -17,16 +17,16 @@ import Prev from '../../images/calendar/chevron-left.svg';
 import Next from '../../images/calendar/chevron-right.svg';
 import { addDays, format, startOfWeek } from 'date-fns';
 import { nanoid } from 'nanoid';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 export const CalendarModal = ({
   onNext,
   onPrev,
   dateToday,
   dayInterval,
-  handleClick,
-  onClickDate
+  onClickDate,
 }) => {
+  const location = useLocation();
   // const selectDate = useSelector(state => state.auth.currentDate)
   // const formattedDate = format(selectDate, 'yyyy-MM-dd')
   // const parseDate = parse(formattedDate, 'yyyy-MM-dd', new Date())
@@ -35,38 +35,61 @@ export const CalendarModal = ({
   for (let day = 0; day < 7; day++) {
     weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
   }
+
   const resultDate = dayInterval.map(day => {
     if (format(day, 'MMMM yyyy') !== dateToday) {
       return <div key={day.toString()}></div>;
     } else if (format(day, 'd MMMM') === format(new Date(), 'd MMMM')) {
       return (
-        <ActiveCalendarDate key={day.toString()} onClick={onClickDate} data-day={format(day, 'yyyy-MM-dd')}>
-          <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
-            {format(day, 'd')}
+        <ActiveCalendarDate
+          key={day.toString()}
+          onClick={onClickDate}
+          data-day={format(day, 'yyyy-MM-dd')}
+        >
+          {location.pathname === '/statistics' ? (
+            <Link>{format(day, 'd')}</Link>
+          ) : (
+            <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
+              {format(day, 'd')}
             </Link>
+          )}
         </ActiveCalendarDate>
       );
     }
     if (format(day, 'E') === 'Sat' || format(day, 'E') === 'Sun') {
       return (
-        <CalendarDateHolidays key={day.toString()} onClick={onClickDate} data-day={format(day, 'yyyy-MM-dd')}>
-          <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
-            {format(day, 'd')}
+        <CalendarDateHolidays
+          key={day.toString()}
+          onClick={onClickDate}
+          data-day={format(day, 'yyyy-MM-dd')}
+        >
+          {location.pathname === '/statistics' ? (
+            <Link>{format(day, 'd')}</Link>
+          ) : (
+            <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
+              {format(day, 'd')}
             </Link>
+          )}
         </CalendarDateHolidays>
       );
     } else {
       return (
-        <CalendarDate onClick={onClickDate} key={day.toString()} data-day={format(day, 'yyyy-MM-dd')}>
-          <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
-            {format(day, 'd')}
+        <CalendarDate
+          onClick={onClickDate}
+          key={day.toString()}
+          data-day={format(day, 'yyyy-MM-dd')}
+        >
+          {location.pathname === '/statistics' ? (
+            <Link>{format(day, 'd')}</Link>
+          ) : (
+            <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
+              {format(day, 'd')}
             </Link>
+          )}
         </CalendarDate>
       );
     }
   });
-
-  
 
   return (
     <ModalCalendar>
