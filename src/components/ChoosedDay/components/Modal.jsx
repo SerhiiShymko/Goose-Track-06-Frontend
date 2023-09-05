@@ -1,3 +1,5 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import { Modal } from 'components/Modal/Modal';
 import {
   ButtonAdd,
@@ -16,20 +18,31 @@ import {
   Timelabel,
 } from './Modal.styled';
 import { CATEGORY, PRIORITY } from 'data/constants';
+import {addTask} from "../../../redux/tasks/operations"
 
 export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
+  const [radio, setRadio] = useState();
+  const dispatch = useDispatch();
+
   const handleSubmit = event => {
     event.preventDefault();
+    const form = event.currentTarget;
     const newTask = {
-      title: event.target[0].value,
+      title: form.elements.text.value,
       date: currentDay,
       start: event.target[1].value,
       end: event.target[2].value,
-      //     "priority": "low",
-      category,
-    };
-    console.log(event)
+      priority: radio,
+      category: category,
+    };   
+    dispatch(addTask(newTask));
+    closeModal()
   };
+
+  const onValueChange = (event) => {    
+    setRadio(event.target.id);
+  };
+
   return (
     <Modal>
       <ContainerForm>
@@ -37,16 +50,16 @@ export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
           <SvgClose onClick={closeModal}></SvgClose>
           <TextLabel>
             Title
-            <TextInput placeholder="Enter text"></TextInput>
+            <TextInput placeholder="Enter text" name="text"></TextInput>
           </TextLabel>
           <ContainerTime>
             <Timelabel>
               Start
-              <TimeInput></TimeInput>
+              <TimeInput name="timeStart"></TimeInput>
             </Timelabel>
             <Timelabel>
               End
-              <TimeInput></TimeInput>
+              <TimeInput name="timeEnd"></TimeInput>
             </Timelabel>
           </ContainerTime>
           <ContainerRadio>
@@ -55,9 +68,10 @@ export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
                 <RadioInput
                   type="radio"
                   id={PRIORITY.LOW}
-                  name="drone"
                   $border={'rgba(114, 194, 248, 0.5)'}
                   $background={'rgba(114, 194, 248, 1)'}
+                  onChange={onValueChange}
+                  checked={radio === PRIORITY.LOW}
                 />
                 Low
               </RadioLabel>
@@ -67,9 +81,10 @@ export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
                 <RadioInput
                   type="radio"
                   id={PRIORITY.MEDIUM}
-                  name="drone"
                   $border={'rgba(243, 178, 73, 0.5)'}
                   $background={'rgba(243, 178, 73, 1)'}
+                  onChange={onValueChange}
+                  checked={radio === PRIORITY.MEDIUM}
                 />
                 Medium
               </RadioLabel>
@@ -79,9 +94,10 @@ export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
                 <RadioInput
                   type="radio"
                   id={PRIORITY.HIGH}
-                  name="drone"
                   $border={'rgba(234, 61, 101, 0.5)'}
                   $background={'rgba(234, 61, 101, 1)'}
+                  onChange={onValueChange}
+                  checked={radio === PRIORITY.HIGH}
                 />
                 High
               </RadioLabel>

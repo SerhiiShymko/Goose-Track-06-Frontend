@@ -20,7 +20,7 @@ import {
   SvgPencil,
 } from '../ChoosedDay.styled';
 
-import {  PRIORITY } from '../../../data/constants';
+import {  CATEGORY, PRIORITY } from '../../../data/constants';
 import {  deleteTask } from '../../../redux/tasks/operations';
 import SimplePopper from '../components/Popup';
 import BasicPopover from '../components/Popover';
@@ -110,6 +110,7 @@ const TaskColumnToDo = ({ data, currentDay }) => {
             closeModal={closeModal}
             todo={'add'}
             currentDay={currentDay}
+            category={CATEGORY.TODO}
           />
         )}
       </TaskBorder>
