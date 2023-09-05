@@ -21,6 +21,7 @@ export const WrapperPaginator = ({
   onPrev,
   dateToday,
   onClickDate,
+  handleClick,
 }) => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
@@ -47,6 +48,7 @@ export const WrapperPaginator = ({
           dateToday={dateToday}
           dayInterval={dayInterval}
           onClickDate={onClickDate}
+          handleClick={handleClick}
         />
       )}
       <PeriodPaginator>

@@ -26,6 +26,7 @@ export const CalendarModal = ({
   dayInterval,
   handleClick,
   onClickDate
+  
 }) => {
   // const selectDate = useSelector(state => state.auth.currentDate)
   // const formattedDate = format(selectDate, 'yyyy-MM-dd')
@@ -40,27 +41,39 @@ export const CalendarModal = ({
       return <div key={day.toString()}></div>;
     } else if (format(day, 'd MMMM') === format(new Date(), 'd MMMM')) {
       return (
-        <ActiveCalendarDate key={day.toString()} onClick={onClickDate} data-day={format(day, 'yyyy-MM-dd')}>
+        <ActiveCalendarDate
+          key={day.toString()}
+          onClick={handleClick}
+          data-day={format(day, 'yyyy-MM-dd')}
+        >
           <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
-            {format(day, 'd')}
-            </Link>
+          {format(day, 'd')}
+          </Link>
         </ActiveCalendarDate>
       );
     }
     if (format(day, 'E') === 'Sat' || format(day, 'E') === 'Sun') {
       return (
-        <CalendarDateHolidays key={day.toString()} onClick={onClickDate} data-day={format(day, 'yyyy-MM-dd')}>
+        <CalendarDateHolidays
+          key={day.toString()}
+          onClick={handleClick}
+          data-day={format(day, 'yyyy-MM-dd')}
+        >
           <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
-            {format(day, 'd')}
-            </Link>
+          {format(day, 'd')}
+          </Link>
         </CalendarDateHolidays>
       );
     } else {
       return (
-        <CalendarDate onClick={onClickDate} key={day.toString()} data-day={format(day, 'yyyy-MM-dd')}>
+        <CalendarDate
+          onClick={handleClick}
+          key={day.toString()}
+          data-day={format(day, 'yyyy-MM-dd')}
+        >
           <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
-            {format(day, 'd')}
-            </Link>
+          {format(day, 'd')}
+          </Link>
         </CalendarDate>
       );
     }

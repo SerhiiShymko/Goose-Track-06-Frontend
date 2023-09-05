@@ -32,9 +32,9 @@ export const WrapperCalendar = () => {
   let firstDayCurrentMonth = parse(formattedDate, 'MMMM yyyy', new Date());
   let currentDay = parse(formattedOneDay, 'yyyy-MM-dd', new Date());
 
-  const handleClick = e => {
-    // const selectDate = e.currentTarget.dataset.day;
-  };
+  // const handleClick = e => {
+  //   // const selectDate = e.currentTarget.dataset.day;
+  // };
   const nextMonth = () => {
     const locationDay = location.pathname.slice(10, 13)
     if (locationDay === 'day') {
@@ -75,7 +75,7 @@ export const WrapperCalendar = () => {
         onNext={nextMonth}
         onPrev={prevMonth}
         dateToday={formattedDate}
-        onClickDate={handleClick}
+        // onClickDate={handleClick}
       />
       {/* <ChoosedMonth
         dayInterval={result}

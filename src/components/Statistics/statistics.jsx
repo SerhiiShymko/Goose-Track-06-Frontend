@@ -14,7 +14,6 @@ import useResize, {
   countUserTasks,
   culcStatistikData,
   FilterTasksByDay,
-  getCurrentDateByDay,
 } from './utils/utils';
 import { selectTasks } from 'redux/tasks/selectors';
 import {
@@ -24,16 +23,14 @@ import {
 import {  WrapperChart } from './statistics.styled';
 import { useSelector } from 'react-redux';
 
-const Statistics = ({ currentDay, currentDate }) => {
+const Statistics = ({currentDate }) => {
   const tasks = useSelector(selectTasks);
   const theme = useTheme();
   const widthViewPort = useResize();
-console.log('Statistic', currentDay, currentDate);
-  const searchingDay = getCurrentDateByDay(currentDay, currentDate);
 
-  const tasksByDay = countUserTasks(
-    FilterTasksByDay(tasks, searchingDay ?? '01')
-  );
+console.log('Statistic', tasks);
+  
+  const tasksByDay = countUserTasks(FilterTasksByDay(tasks, currentDate));
   const tasksByMonth = countUserTasks(tasks);
   const dataChart = culcStatistikData(tasksByDay, tasksByMonth);
 
