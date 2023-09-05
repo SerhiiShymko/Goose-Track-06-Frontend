@@ -89,11 +89,8 @@ export const ThemeMoonIcon = styled(ThemeMoonSvgStyled)`
 export const ThemeSunIcon = styled(ThemeSunSvgStyled)`
   width: 24px;
   height: 24px;
-  margin-right: 8px;
 
   @media screen and (min-width: 768px) {
-    margin-right: 14px;
-
     width: 32px;
     height: 32px;
   }
