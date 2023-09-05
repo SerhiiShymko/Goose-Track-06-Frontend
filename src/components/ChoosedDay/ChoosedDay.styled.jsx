@@ -41,6 +41,7 @@ export const TextInTitle = styled.span`
   color: ${({ theme }) => theme.colors.colorAccent};
   text-align: center;
   /* font-family: InterBold; */
+  font-weight: 700;
   font-size: 20px;
   line-height: 24px; /* 120% */
 `;

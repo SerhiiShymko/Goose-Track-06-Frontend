@@ -2,14 +2,6 @@ import { styled } from 'styled-components';
 import { ReactComponent as close } from '../../../images/tascs/x-close.svg';
 import { ReactComponent as Plus } from '../../../images/tascs/addTask.svg';
 
-const getBorderForInput = ({ theme }) => {
-  if (theme.name === 'dark') {
-    return 'border-radius: 8px; border: 1px solid rgba(255, 255, 255, 0.15);';
-  } else {
-    return 'border: none; border-width: 0px';
-  }
-};
-
 export const ContainerForm = styled.div`
   width: 396px;
   height: 360px;
@@ -37,7 +29,8 @@ export const ButtonAdd = styled.button`
 
   color: #fff;
   text-align: center;
-  font-family: 'InterSemiBold';
+  /* font-family: 'InterSemiBold'; */
+  font-weight: 600;
   font-size: 14px;
   line-height: 18px; /* 128.571% */
 `;
@@ -96,8 +89,8 @@ export const TextInput = styled.input`
   height: 46px;
   flex-shrink: 0;
   border-radius: 8px;
+  border: 1px solid rgba(220, 227, 229, 0.8);
   background: ${({ theme }) => theme.colors.backgroundModalFields};
-  ${getBorderForInput()}
 
   color: ${({ theme }) => theme.colors.colorBody};
   /* font-family: 'InterSemiBold'; */
@@ -122,7 +115,8 @@ export const Timelabel = styled.label`
   flex-shrink: 0;
 
   color: ${({ theme }) => theme.colors.colorLabelModal};
-  font-family: 'InterMedium';
+  /* font-family: 'InterMedium'; */
+  font-weight: 500;
   font-size: 12px;
   line-height: 14px; /* 116.667% */
 `;
@@ -132,7 +126,8 @@ export const TimeInput = styled.input`
   flex-shrink: 0;
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.backgroundModalFields};
-  border: none;
+  /* border: none; */
+  border: 1px solid rgba(220, 227, 229, 0.8);
 
   color: ${({ theme }) => theme.colors.colorBody};
   /* font-family: 'InterSemiBold' */
@@ -193,4 +188,5 @@ export const RadioInput = styled.input`
 `;
 export const RadioLabel = styled.label`
   display: flex;
+  color: ${({ theme }) => theme.colors.colorBody};
 `;
