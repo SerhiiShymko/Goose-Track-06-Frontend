@@ -3,7 +3,7 @@ import { ReactComponent as PlusIconSvgStyled } from '../../images/profile/plusAv
 import { ReactComponent as UserPhotoHeaderSvgStyled } from '../../images/profile/phAvatar.svg';
 import { ReactComponent as IconError } from '../../images/registrPage/email-error-outline.svg';
 import { ReactComponent as IconSucces } from '../../images/registrPage/email-done.svg';
-import { Field, Form } from 'formik';
+import { Field } from 'formik';
 export const MainWrapper = styled.div`
   margin-top: 64px;
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
