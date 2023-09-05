@@ -7,7 +7,7 @@ const phoneRegexp = /^\+380\d{2}\d{3}\d{2}\d{2}$/;
 export const validateSchemaUserProfile = Yup.object().shape({
   name: Yup.string()
     .min(2, 'Too short!')
-    .max(50, 'Too Long!')
+    .max(16, 'Too Long!')
     .required('Please enter your name'),
   email: Yup.string()
     .matches(emailRegexp, { message: 'This is an ERROR email' })
@@ -21,5 +21,5 @@ export const validateSchemaUserProfile = Yup.object().shape({
   phone: Yup.string()
     .required('Please enter your phone number')
     .matches(phoneRegexp, { message: 'Please enter your mobile phone in format(+380)  ' }),
-  skype: Yup.string().required('Please enter your skype'),
+  skype: Yup.string().required('Please enter your skype').max(16),
 });

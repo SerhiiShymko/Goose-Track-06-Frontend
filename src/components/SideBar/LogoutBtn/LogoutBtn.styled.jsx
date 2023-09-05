@@ -19,7 +19,7 @@ export const Button = styled.button`
   align-items: center;
   width: 131px;
   padding: 14px 28px;
-
+cursor: pointer;
   color: #fff;
   font-size: 14px;
   font-weight: 600;

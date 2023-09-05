@@ -23,7 +23,6 @@ import AddFeedbackBtn from 'components/AddFeedbackBtn/AddFeedbackBtn';
 
 const Header =  ({ handleClick }) => {
   const currentUserInfo = useSelector(selectUser);
-  console.log(currentUserInfo.name);
   const splitName = currentUserInfo.name.split(' ');
   const themeName = useSelector(selectTheme);
 
