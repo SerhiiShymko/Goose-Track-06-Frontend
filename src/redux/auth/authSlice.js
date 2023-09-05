@@ -32,6 +32,7 @@ const authSlice = createSlice({
     },
     token: null,
     theme: 'light',
+    currentDate: Date.now(),
     isLoggedIn: false,
     isRefreshing: false,
   },
@@ -39,6 +40,9 @@ const authSlice = createSlice({
   reducers: {
     setTheme(state, action) {
       state.theme = action.payload;
+    },
+    setCurrentDate(state, action) {
+      state.currentDate = action.payload;
     },
   },
 
@@ -88,5 +92,5 @@ function handleRefreshUserRejected(state) {
   state.isRefreshing = false;
 }
 
-export const { setTheme } = authSlice.actions;
+export const { setTheme, setCurrentDate } = authSlice.actions;
 export const authReducer = authSlice.reducer;
