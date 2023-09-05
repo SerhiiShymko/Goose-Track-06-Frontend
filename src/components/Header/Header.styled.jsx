@@ -24,7 +24,7 @@ export const CurrentPage = styled.p`
 
 export const SideBarBtn = styled.button`
   background-color: inherit;
-
+cursor: pointer;
   @media screen and (min-width: 1440px) {
     display: none;
   }
@@ -70,7 +70,7 @@ export const FeedbackBtn = styled.button`
 export const ThemeTogglerBtn = styled.button`
   background-color: inherit;
   margin-right: 8px;
-
+cursor: pointer;
   @media screen and (min-width: 768px) {
     margin-right: 14px;
   }
