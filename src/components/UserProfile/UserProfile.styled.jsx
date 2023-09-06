@@ -218,7 +218,9 @@ export const BtnSaveChanges = styled.button`
 
   line-height: 1.28;
   font-weight: 600;
-
+  &:disabled {
+    background-color: #bcb9bb;
+  }
   @media screen and (min-width: 768px) {
     padding: 15px 84px;
     border-radius: 16px;
