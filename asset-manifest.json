@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/Goose-Track-06-Frontend/static/css/main.5d4c55a7.css",
-    "main.js": "/Goose-Track-06-Frontend/static/js/main.71eb4b46.js",
+    "main.js": "/Goose-Track-06-Frontend/static/js/main.60a6a30d.js",
     "static/css/989.c6fae1af.chunk.css": "/Goose-Track-06-Frontend/static/css/989.c6fae1af.chunk.css",
     "static/js/989.3f90c341.chunk.js": "/Goose-Track-06-Frontend/static/js/989.3f90c341.chunk.js",
     "static/js/999.6e8cdd91.chunk.js": "/Goose-Track-06-Frontend/static/js/999.6e8cdd91.chunk.js",
@@ -9,10 +9,10 @@
     "static/js/142.8933c99c.chunk.js": "/Goose-Track-06-Frontend/static/js/142.8933c99c.chunk.js",
     "static/js/488.bf465585.chunk.js": "/Goose-Track-06-Frontend/static/js/488.bf465585.chunk.js",
     "static/js/60.70c6767b.chunk.js": "/Goose-Track-06-Frontend/static/js/60.70c6767b.chunk.js",
-    "static/js/439.6a957975.chunk.js": "/Goose-Track-06-Frontend/static/js/439.6a957975.chunk.js",
-    "static/js/87.d65aa628.chunk.js": "/Goose-Track-06-Frontend/static/js/87.d65aa628.chunk.js",
+    "static/js/439.4d66a770.chunk.js": "/Goose-Track-06-Frontend/static/js/439.4d66a770.chunk.js",
+    "static/js/229.92f3140f.chunk.js": "/Goose-Track-06-Frontend/static/js/229.92f3140f.chunk.js",
     "static/js/246.1ee667db.chunk.js": "/Goose-Track-06-Frontend/static/js/246.1ee667db.chunk.js",
-    "static/js/679.100a88eb.chunk.js": "/Goose-Track-06-Frontend/static/js/679.100a88eb.chunk.js",
+    "static/js/679.e764b32f.chunk.js": "/Goose-Track-06-Frontend/static/js/679.e764b32f.chunk.js",
     "static/js/306.d3215880.chunk.js": "/Goose-Track-06-Frontend/static/js/306.d3215880.chunk.js",
     "static/js/164.9f4bed1a.chunk.js": "/Goose-Track-06-Frontend/static/js/164.9f4bed1a.chunk.js",
     "static/js/148.fd67779f.chunk.js": "/Goose-Track-06-Frontend/static/js/148.fd67779f.chunk.js",
@@ -83,7 +83,7 @@
     "static/media/leftArrow.svg": "/Goose-Track-06-Frontend/static/media/leftArrow.419843934514a4ec72e12d89da762d2a.svg",
     "static/media/addTask.svg": "/Goose-Track-06-Frontend/static/media/addTask.2edf159d8492b21a190115e0e00e46da.svg",
     "main.5d4c55a7.css.map": "/Goose-Track-06-Frontend/static/css/main.5d4c55a7.css.map",
-    "main.71eb4b46.js.map": "/Goose-Track-06-Frontend/static/js/main.71eb4b46.js.map",
+    "main.60a6a30d.js.map": "/Goose-Track-06-Frontend/static/js/main.60a6a30d.js.map",
     "989.c6fae1af.chunk.css.map": "/Goose-Track-06-Frontend/static/css/989.c6fae1af.chunk.css.map",
     "989.3f90c341.chunk.js.map": "/Goose-Track-06-Frontend/static/js/989.3f90c341.chunk.js.map",
     "999.6e8cdd91.chunk.js.map": "/Goose-Track-06-Frontend/static/js/999.6e8cdd91.chunk.js.map",
@@ -91,10 +91,10 @@
     "142.8933c99c.chunk.js.map": "/Goose-Track-06-Frontend/static/js/142.8933c99c.chunk.js.map",
     "488.bf465585.chunk.js.map": "/Goose-Track-06-Frontend/static/js/488.bf465585.chunk.js.map",
     "60.70c6767b.chunk.js.map": "/Goose-Track-06-Frontend/static/js/60.70c6767b.chunk.js.map",
-    "439.6a957975.chunk.js.map": "/Goose-Track-06-Frontend/static/js/439.6a957975.chunk.js.map",
-    "87.d65aa628.chunk.js.map": "/Goose-Track-06-Frontend/static/js/87.d65aa628.chunk.js.map",
+    "439.4d66a770.chunk.js.map": "/Goose-Track-06-Frontend/static/js/439.4d66a770.chunk.js.map",
+    "229.92f3140f.chunk.js.map": "/Goose-Track-06-Frontend/static/js/229.92f3140f.chunk.js.map",
     "246.1ee667db.chunk.js.map": "/Goose-Track-06-Frontend/static/js/246.1ee667db.chunk.js.map",
-    "679.100a88eb.chunk.js.map": "/Goose-Track-06-Frontend/static/js/679.100a88eb.chunk.js.map",
+    "679.e764b32f.chunk.js.map": "/Goose-Track-06-Frontend/static/js/679.e764b32f.chunk.js.map",
     "306.d3215880.chunk.js.map": "/Goose-Track-06-Frontend/static/js/306.d3215880.chunk.js.map",
     "164.9f4bed1a.chunk.js.map": "/Goose-Track-06-Frontend/static/js/164.9f4bed1a.chunk.js.map",
     "148.fd67779f.chunk.js.map": "/Goose-Track-06-Frontend/static/js/148.fd67779f.chunk.js.map",
@@ -107,6 +107,6 @@
   },
   "entrypoints": [
     "static/css/main.5d4c55a7.css",
-    "static/js/main.71eb4b46.js"
+    "static/js/main.60a6a30d.js"
   ]
 }
