@@ -40,15 +40,15 @@ const sumAllTasks = tasks => {
   return allTasks;
 };
 
-/**
- * 
- */
-export const getCurrentDateByDay = (currentDay, currentDate) => {
-  const dayWithZero = ('0' + currentDay).slice(-2);
-  const currentMothWithoutDay = currentDate.slice(0, 8) + dayWithZero;
+// /**
+//  * 
+//  */
+// export const getCurrentDateByDay = (currentDay, currentDate) => {
+//   const dayWithZero = ('0' + currentDay).slice(-2);
+//   const currentMothWithoutDay = currentDate.slice(0, 8) + dayWithZero;
 
-  return currentMothWithoutDay;
-};
+//   return currentMothWithoutDay;
+// };
 
 /**
  *===========================================================

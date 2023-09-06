@@ -13,54 +13,81 @@ import {
 import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { selectTasks } from 'redux/tasks/selectors';
 import { fetchTasks } from 'redux/tasks/operations';
 import { Wrapper } from 'components/Statistics/statistics.styled';
+import { useLocation } from 'react-router-dom';
+import { useSelector } from 'react-redux';
+import { setCurrentDate } from 'redux/auth/authSlice';
 
 const StatisticsPage = () => {
-  const date = format(new Date(), 'MMMM yyyy');
-  const [activeDate, setActiveDate] = useState(date);
-  const [currentDay, setCurrentDay] = useState('1');
-  const dispatch = useDispatch(selectTasks);
-
-  let firstDayCurrentMonth = parse(activeDate, 'MMMM yyyy', new Date());
+  const location = useLocation();
+  const dispatch = useDispatch();
   
-  const currentDate = format(new Date(activeDate), `yyyy-MM-dd`);
-
+  const date = format(new Date(), 'yyyy-MM-dd');
+  const [dataDate, setDataDate] = useState(date);
+  const dataMonth = dataDate.slice(0, 7)
+   
   useEffect(() => {
-    dispatch(fetchTasks(currentDate));
-  }, [dispatch, currentDate]);
+    dispatch(fetchTasks(dataMonth));
+  }, [dispatch, dataMonth]);
 
-  const handleClick = ({ target }) => {
-    setCurrentDay(target.textContent);
+  const onClickDate = ({currentTarget}) => {
+    setDataDate(currentTarget.dataset.day);
   };
 
-  const nextMonth = () => {
-    let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
-    setActiveDate(format(firstDayNextMonth, 'MMMM yyyy'));
-  };
+ const selectDate = useSelector(state => state.auth.currentDate);
+ const formattedDate = format(selectDate, 'MMMM yyyy');
+ const formattedOneDay = format(selectDate, 'yyyy-MM-dd');
 
-  const prevMonth = () => {
-    let firstDayPrevMonth = add(firstDayCurrentMonth, { months: -1 });
-    setActiveDate(format(firstDayPrevMonth, 'MMMM yyyy'));
-  };
-  const result = eachDayOfInterval({
-    start: startOfWeek(firstDayCurrentMonth, { weekStartsOn: 1 }),
-    end: endOfWeek(endOfMonth(firstDayCurrentMonth), { weekStartsOn: 1 }),
-  });
+ let firstDayCurrentMonth = parse(formattedDate, 'MMMM yyyy', new Date());
+ let currentDay = parse(formattedOneDay, 'yyyy-MM-dd', new Date());
+
+ 
+ const nextMonth = () => {
+   const locationDay = location.pathname.slice(10, 13);
+   if (locationDay === 'day' || location.pathname === '/statistics') {
+     const nextDay = add(currentDay, { days: 1 });
+     const dayTimeStamp = nextDay.getTime();
+     dispatch(setCurrentDate(dayTimeStamp));
+    
+   } else {
+     let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
+     const dateTimeStamp = firstDayNextMonth.getTime();
+     dispatch(setCurrentDate(dateTimeStamp));
+   }
+ };
+
+ const prevMonth = () => {
+   const locationDay = location.pathname.slice(10, 13);
+   if (locationDay === 'day' || location.pathname === '/statistics') {
+     const prevDay = add(currentDay, { days: -1 });
+     const dayTimeStamp = prevDay.getTime();
+     dispatch(setCurrentDate(dayTimeStamp));
+    
+   } else {
+     let firstDayPrevMonth = add(firstDayCurrentMonth, { months: -1 });
+     const dateTimeStamp = firstDayPrevMonth.getTime();
+     dispatch(setCurrentDate(dateTimeStamp));
+   }
+ };
+
+ const result = eachDayOfInterval({
+   start: startOfWeek(firstDayCurrentMonth, { weekStartsOn: 1 }),
+   end: endOfWeek(endOfMonth(firstDayCurrentMonth), { weekStartsOn: 1 }),
+ });
 
   return (
     <StatisticWrapper>
       <Wrapper>
         <WrapperPaginator
-          handleClick={handleClick}
+          onClickDate={onClickDate}
           dayInterval={result}
           onNext={nextMonth}
           onPrev={prevMonth}
-          dateToday={activeDate}
+          dateToday={formattedDate}
         />
       </Wrapper>
-      <Statistics currentDate={currentDate} currentDay={currentDay} />
+      <Statistics currentDate={dataDate}/>
     </StatisticWrapper>
   );
 };
