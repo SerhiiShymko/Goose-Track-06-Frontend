@@ -29,20 +29,14 @@ Statistics – дозволяє подивитись детальну стати
 
 ## Проект розроблений командою “IT-bees”
 
----
-
 ### Розробники Frontend:
 
-Тім лід:
-
-- <a href="https://github.com/SerhiiShymko">Serhii Shymko</a> : основні
+- Тім лід:<a href="https://github.com/SerhiiShymko">Serhii Shymko</a> : основні
   налаштування репозиторію, створення архітектури проєкту, Spinner, readme,
   картинки, глобальні стилі, шрифти, Private i Public роути.
 
-  Скрам майстер:
-
-- <a href="https://github.com/Mari4ka62">Mariia Vovchuk</a> : сторінка MainPage,
-  Reviews.
+- Скрам майстер:<a href="https://github.com/Mari4ka62">Mariia Vovchuk</a> :
+  сторінка MainPage, Reviews.
 
 - <a href="https://github.com/VitaliiMaC9m6uk">Vitalii Bryzhatiuk</a> :
   компоненти ChoosedDay, TaskToolbar, TaskForm, Pop up, tasks.
