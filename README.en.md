@@ -79,7 +79,7 @@ Statistics:
 - <a href="https://github.com/OlegBilas">Oleh Bilas</a> : SideBar, ThemeToggler,
   Redux dependencies, Bug fixes.
 
-Backend Developers:
+### Backend Developers:
 
 - <a href="https://github.com/AleksandrIvantsov">Oleksandr Ivantsov</a>:
   Repository setup, backend deployment on hosting, database initialization and
