@@ -34,7 +34,7 @@ export const WrapperCalendar = () => {
 
   const handleClick = e => {
     const selectedDate = e.currentTarget.dataset.day;
-    console.log(selectedDate);
+    // console.log(selectedDate);
     const parsedDateArray = selectedDate.split('-');
     const choosedDay = new Date(
       parsedDateArray[0],
@@ -50,7 +50,7 @@ export const WrapperCalendar = () => {
       const nextDay = add(currentDay, { days: 1 });
       const dayTimeStamp = nextDay.getTime();
       dispatch(setCurrentDate(dayTimeStamp));
-      console.log(nextDay);
+      // console.log(nextDay);
     } else {
       let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
       const dateTimeStamp = firstDayNextMonth.getTime();
@@ -64,7 +64,7 @@ export const WrapperCalendar = () => {
       const prevDay = add(currentDay, { days: -1 });
       const dayTimeStamp = prevDay.getTime();
       dispatch(setCurrentDate(dayTimeStamp));
-      console.log(prevDay);
+      // console.log(prevDay);
     } else {
       let firstDayPrevMonth = add(firstDayCurrentMonth, { months: -1 });
       const dateTimeStamp = firstDayPrevMonth.getTime();

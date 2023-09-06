@@ -56,7 +56,7 @@ const ChoosedMonth = () => {
     add(firstDayCurrentMonth, { months: 0 }),
     'yyyy-MM'
   );
-  console.log(currentMonth);
+  // console.log(currentMonth);
 
   useEffect(() => {
     dispatch(fetchTasks(currentMonth));
