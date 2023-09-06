@@ -6,12 +6,13 @@ import {
   BurgerIcon,
   UserName,
   UserWrapper,
-  UserPhotoHeader,
+  UserPhotoHeaderSvg,
   ThemeMoonIcon,
   ThemeSunIcon,
   SideBarBtn,
   CurrentPage,
   ThemeTogglerBtn,
+  UserPhotoHeader,
 } from './Header.styled';
 import Spinner from 'components/Spinner/Spinner';
 import { Outlet, useLocation } from 'react-router-dom';
@@ -21,8 +22,9 @@ import { useDispatch } from 'react-redux';
 import { setTheme } from 'redux/auth/authSlice';
 import AddFeedbackBtn from 'components/AddFeedbackBtn/AddFeedbackBtn';
 
-const Header =  ({ handleClick }) => {
-  const currentUserInfo = useSelector(selectUser);
+const Header = ({ handleClick }) => {
+   const currentUserInfo =  useSelector(selectUser);
+
   const splitName = currentUserInfo.name.split(' ');
   const themeName = useSelector(selectTheme);
 
@@ -58,7 +60,11 @@ const Header =  ({ handleClick }) => {
             {themeName === 'light' ? <ThemeMoonIcon /> : <ThemeSunIcon />}
           </ThemeTogglerBtn>
           <UserName>{splitName[0]} </UserName>
-          <UserPhotoHeader />
+          {currentUserInfo.avatarURL ? (
+            <UserPhotoHeader alt="avatar" src={currentUserInfo.avatarURL} />
+          ) : (
+            <UserPhotoHeaderSvg />
+          )}
         </UserWrapper>
       </ContentWrapper>
       <Suspense fallback={<Spinner />}>
