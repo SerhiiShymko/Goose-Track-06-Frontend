@@ -11,8 +11,9 @@ export const WrapperPagination = styled.div`
     justify-content: start;
   }
 `;
-export const ButtonForOpenCalendar = styled.button`
+export const ButtonForOpenCalendar = styled.div`
   padding: 6px 12px;
+  position: relative;
   border-radius: 8px;
   background: #3e85f3;
   color: #fff;
