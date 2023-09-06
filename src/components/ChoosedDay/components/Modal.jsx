@@ -18,7 +18,8 @@ import {
   TimeInput,
   Timelabel,
 } from './Modal.styled';
-import {  PRIORITY } from 'data/constants';
+
+import { PRIORITY } from 'data/constants';
 import { addTask, updateTask } from '../../../redux/tasks/operations';
 
 export const ModalAddAndChange = ({
@@ -28,52 +29,51 @@ export const ModalAddAndChange = ({
   todo,
   task,
 }) => {
-  const currentTitle = task ? task[0].title : "";
-  const currentTimeStart = task ? task[0].start : "";
-  const currentTimeEnd = task ? task[0].end : "";
+  const currentTitle = task ? task[0].title : '';
+  const currentTimeStart = task ? task[0].start : '';
+  const currentTimeEnd = task ? task[0].end : '';
   const currentRadio = task ? task[0].priority : '';
-  const currentId = task ? task[0]._id : "";
-  
-   
+  const currentId = task ? task[0]._id : '';
+
   const [radio, setRadio] = useState(currentRadio);
   const [title, setTitle] = useState(currentTitle);
   const [timeStart, setTimeStart] = useState(currentTimeStart);
   const [timeEnd, setTimeEnd] = useState(currentTimeEnd);
-  
+
   const dispatch = useDispatch();
-const hendleChange = ({ target: { value, name } }) => {
-  switch (name) {
-    case 'title':
-      if (value === '') {
+  const hendleChange = ({ target: { value, name } }) => {
+    switch (name) {
+      case 'title':
+        if (value === '') {
+          setTitle(value);
+        }
         setTitle(value);
-      }     
-      setTitle(value);
-      break;
-    case 'timeStart':
-      if (value === '') {
+        break;
+      case 'timeStart':
+        if (value === '') {
+          setTimeStart(value);
+        }
+        // if (!isValidNumber(value)) {
+        //   setStart(value);
+        //   return;
+        // }
         setTimeStart(value);
-      }
-      // if (!isValidNumber(value)) {
-      //   setStart(value);
-      //   return;
-      // }
-      setTimeStart(value);
-      break;
-    case 'timeEnd':
-      if (value === '') {
+        break;
+      case 'timeEnd':
+        if (value === '') {
+          setTimeEnd(value);
+        }
         setTimeEnd(value);
-      }
-      setTimeEnd(value);
-      break;
-    default:
-      return;
-  }
-};
+        break;
+      default:
+        return;
+    }
+  };
 
   const handleSubmit = event => {
     event.preventDefault();
     const todo = event.target[6].name;
-    
+
     if (todo === 'change') {
       const newTask = {
         title: title,
@@ -88,10 +88,10 @@ const hendleChange = ({ target: { value, name } }) => {
         category: newTask,
       };
       dispatch(updateTask(changeTask));
-      setRadio("");
-      setTimeEnd("");
-      setTimeStart("")
-      setTitle("");
+      setRadio('');
+      setTimeEnd('');
+      setTimeStart('');
+      setTitle('');
       closeModal();
       return;
     }
