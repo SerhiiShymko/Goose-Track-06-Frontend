@@ -21,6 +21,7 @@ import { selectTheme, selectUser } from 'redux/auth/selectors';
 import { useDispatch } from 'react-redux';
 import { setTheme } from 'redux/auth/authSlice';
 import AddFeedbackBtn from 'components/AddFeedbackBtn/AddFeedbackBtn';
+import HeaderLogo from './HeaderLogo/HeaderLogo';
 
 const Header = ({ handleClick }) => {
   const currentUserInfo = useSelector(selectUser);
@@ -37,7 +38,8 @@ const Header = ({ handleClick }) => {
 
   const location = useLocation();
   const getTextForCurrentPage = () => {
-    if (location.pathname.includes('account')) return 'User Profile';
+    if (location.pathname.includes('account')) return 'User Profile'; 
+    if (location.pathname.includes('day')) return <HeaderLogo />;
     if (location.pathname.includes('calendar')) return 'Calendar';
     if (location.pathname.includes('statistics')) return 'Statistics';
   };
