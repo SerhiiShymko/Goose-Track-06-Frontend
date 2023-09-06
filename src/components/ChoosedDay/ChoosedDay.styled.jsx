@@ -131,10 +131,10 @@ export const TaskContainer = styled.div`
   @media screen and (min-width: 768px) {
     gap: 16px;
   }
-  @media screen and (min-width: 1140px) {
+  @media screen and (min-width: 1440px) {
     gap: 27px;
   }
-  @media screen and (max-width: 1139px) {
+  @media screen and (max-width: 1439px) {
     width: 704px;
     overflow-y: hidden;
     overflow-x: auto;

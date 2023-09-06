@@ -138,6 +138,7 @@ const hendleChange = ({ target: { value, name } }) => {
                 placeholder="09:00"
                 onChange={hendleChange}
                 value={timeStart}
+                type="time"
               ></TimeInput>
             </Timelabel>
             <Timelabel>
@@ -147,6 +148,7 @@ const hendleChange = ({ target: { value, name } }) => {
                 placeholder="18:00"
                 value={timeEnd}
                 onChange={hendleChange}
+                type="time"
               ></TimeInput>
             </Timelabel>
           </ContainerTime>
