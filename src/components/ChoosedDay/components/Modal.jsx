@@ -85,12 +85,7 @@ export const ModalAddAndChange = ({
         priority: radio,
         category: currentCategory,
       };
-      // const changeTask = {
-      //   _id: currentId,
-      //   task: newTask,
-      // };
-      console.log(newTask);
-      // console.log(changeTask);
+     
       dispatch(updateTask(newTask));
       setRadio('');
       setTimeEnd('');
