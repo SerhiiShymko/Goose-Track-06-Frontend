@@ -21,6 +21,7 @@ import {
 
 import { PRIORITY } from 'data/constants';
 import { addTask, updateTask } from '../../../redux/tasks/operations';
+import Notiflix from 'notiflix';
 
 export const ModalAddAndChange = ({
   closeModal,
@@ -40,6 +41,7 @@ export const ModalAddAndChange = ({
   const [title, setTitle] = useState(currentTitle);
   const [timeStart, setTimeStart] = useState(currentTimeStart);
   const [timeEnd, setTimeEnd] = useState(currentTimeEnd);
+  const [error, setError] = useState('');
 
   const dispatch = useDispatch();
   const hendleChange = ({ target: { value, name } }) => {
@@ -54,10 +56,6 @@ export const ModalAddAndChange = ({
         if (value === '') {
           setTimeStart(value);
         }
-        // if (!isValidNumber(value)) {
-        //   setStart(value);
-        //   return;
-        // }
         setTimeStart(value);
         break;
       case 'timeEnd':
@@ -102,21 +100,50 @@ export const ModalAddAndChange = ({
       priority: radio,
       category: category,
     };
-    dispatch(addTask(newTask));
-    setRadio('');
-    setTimeEnd('');
-    setTimeStart('');
-    setTitle('');
-    closeModal();
-    return;
+    const startHour = Number(newTask.start.split(':')[0]);
+    const startMinute = Number(newTask.start.split(':')[1]);
+    const endHour = Number(newTask.end.split(':')[0]);
+    const endMinute = Number(newTask.end.split(':')[1]);
+
+    if (startHour >= endHour) {
+      if (startHour > endHour) {
+        Notiflix.Notify.warning(
+          'Cannot have a start time greater then the end time'
+        );       
+        setError("error")
+        return ;
+      }
+      if (startMinute >= endMinute) {
+        Notiflix.Notify.warning(
+          'Cannot have a start time greater then the end time'
+        );
+         setError('error');
+        return ;
+      }
+      dispatch(addTask(newTask));
+      setRadio('');
+      setTimeEnd('');
+      setTimeStart('');
+      setTitle('');
+      setError("");
+      closeModal();
+      return;
+    }
   };
+  
+  const handleColorBorder = () => {
+    if (error === 'error') {
+      return 'rgba(234, 61, 101, 1)';
+    }
+    return 'rgba(220, 227,229, 0.8)';    
+  }
 
   const onValueChange = event => {
     setRadio(event.target.id);
   };
 
   return (
-    <Modal>
+    <Modal closeModal={closeModal}>
       <ContainerForm>
         <form onSubmit={handleSubmit}>
           <SvgClose onClick={closeModal}></SvgClose>
@@ -127,6 +154,7 @@ export const ModalAddAndChange = ({
               name="title"
               value={title}
               onChange={hendleChange}
+              required
             ></TextInput>
           </TextLabel>
           <ContainerTime>
@@ -138,6 +166,8 @@ export const ModalAddAndChange = ({
                 onChange={hendleChange}
                 value={timeStart}
                 type="time"
+                $border={handleColorBorder}
+                required
               ></TimeInput>
             </Timelabel>
             <Timelabel>
@@ -148,6 +178,8 @@ export const ModalAddAndChange = ({
                 value={timeEnd}
                 onChange={hendleChange}
                 type="time"
+                $border={handleColorBorder}
+                required
               ></TimeInput>
             </Timelabel>
           </ContainerTime>

@@ -139,7 +139,10 @@ export const TimeInput = styled.input`
   border-radius: 8px;
   background: ${({ theme }) => theme.colors.backgroundModalFields};
   /* border: none; */
-  border: 1px solid rgba(220, 227, 229, 0.8);
+  /* rgba(220, 227,229, 0.8) */
+  border: 1px solid ${props => props.$border} ;
+  
+  
 
   color: ${({ theme }) => theme.colors.colorBody};
   /* font-family: 'InterSemiBold' */
