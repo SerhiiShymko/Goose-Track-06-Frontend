@@ -20,7 +20,14 @@ import {
 import { format } from 'date-fns';
 
 function UserNav({ handleClick }) {
-  const currentMonth = format(new Date(),'yyyy-MM')
+  const currentMonth = format(new Date(), 'yyyy-MM');
+
+  const closeSideBar = () => {
+    if (window.innerWidth < 1440) {
+      handleClick();
+    }
+  };
+
   return (
     <Wrapper>
       <LogoContainer>
@@ -34,15 +41,15 @@ function UserNav({ handleClick }) {
       </LogoContainer>
       <NavigationBlock>
         <NavigationLegend>User Panel</NavigationLegend>
-        <NavLink to="/account">
+        <NavLink to="/account" onClick={closeSideBar}>
           <UserSvg />
           My account
         </NavLink>
-        <NavLink to={`/calendar/month/${currentMonth}`}>
+        <NavLink to={`/calendar/month/${currentMonth}`} onClick={closeSideBar}>
           <CalendarSvg />
           Calendar
         </NavLink>
-        <NavLink to="/statistics">
+        <NavLink to="/statistics" onClick={closeSideBar}>
           <StatisticsSvg />
           Statistics
         </NavLink>
