@@ -3,8 +3,9 @@ import { ReactComponent as prev } from '../../images/calendar/chevron-left.svg';
 
 export const ModalCalendar = styled.div`
   position: absolute;
+  top: 40px;
+  left: 0;
   z-index: 9;
-  top: 186px;
   width: 327px;
   /* height: 354px; */
   padding: 9px 18px;
@@ -16,7 +17,6 @@ export const ModalCalendar = styled.div`
   }
 
   @media screen and (min-width: 1440px) {
-    top: 153px;
   }
 `;
 

@@ -40,8 +40,7 @@ export const WrapperPaginator = ({
         {(locationDay === 'day' || location.pathname === '/statistics')
           ? formattedDay
           : dateToday}
-      </ButtonForOpenCalendar>
-      {open && (
+        {open && (
         <CalendarModal
           onNext={onNext}
           onPrev={onPrev}
@@ -50,6 +49,8 @@ export const WrapperPaginator = ({
           onClickDate={onClickDate}
         />
       )}
+      </ButtonForOpenCalendar>
+      
       <PeriodPaginator>
         <BtnPaginatorLeft onClick={onPrev}>
           <ImgPaginatorPrev src={Prev} alt="prev" width={16} height={16} />
