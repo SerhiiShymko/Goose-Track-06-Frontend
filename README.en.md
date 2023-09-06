@@ -1,4 +1,4 @@
-**Read in other languages: [ukrainian](README.en.md)**
+**Read in other languages: [ukrainian](README.md)**
 
 # GooseTrack
 
