@@ -3,6 +3,7 @@ import {
   PlusIcon,
   UserPhotoWrapper,
   UserPhoto,
+  UserPhotoSvg,
   UserInfoWrapper,
   UserNameMain,
   Input,
@@ -14,9 +15,11 @@ import {
   SuccesIcon,
   LabelText,
   FormStyled,
+  InputAvatar,
+  ChangeAvatarBtn,
 } from './UserProfile.styled';
 import { useDispatch } from 'react-redux';
-
+import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
 import { Formik, Form } from 'formik';
@@ -27,18 +30,59 @@ const UserProfile = () => {
   const currentUserInfo = useSelector(selectUser);
 
   const dispatch = useDispatch();
+  const [selectedFile, setSelectedFile] = useState(null);
 
+  const filePicker = useRef(null);
+
+  const handleChangeAvatar = event => {
+    console.log(event.target.files[0]);
+    setSelectedFile(event.target.files[0]);
+  };
+
+  const handleUpload = async () => {
+    if (!selectedFile) {
+      alert('Please select a file');
+      return;
+    }
+    const formData = new FormData();
+    formData.append('avatar', selectedFile);
+
+    dispatch(updateUser(formData));
+    console.log(currentUserInfo);
+
+  };
+
+  const handlePick = () => {
+    filePicker.current.click();
+  };
   return (
     <MainWrapper>
       <UserPhotoWrapper>
-        <UserPhoto />
-        <PlusIcon />
+        <ChangeAvatarBtn onClick={handlePick}>
+          {currentUserInfo.avatarURL ? 
+           
+              <UserPhoto alt="avatar" src={currentUserInfo.avatarURL} />
+
+           : (
+            <UserPhotoSvg />
+          )}
+
+          <PlusIcon />
+        </ChangeAvatarBtn>
       </UserPhotoWrapper>
+      <InputAvatar
+        type="file"
+        ref={filePicker}
+        name="avatar"
+        onChange={handleChangeAvatar}
+        accept="image/*,.png,.jpg"
+      />
+
+      <button onClick={handleUpload}>Upload now!</button>
       <UserInfoWrapper>
         <UserNameMain>{currentUserInfo.name}</UserNameMain>
         <UserSurnameMain>User</UserSurnameMain>
       </UserInfoWrapper>
-
       <Formik
         initialValues={{
           name: currentUserInfo.name,
