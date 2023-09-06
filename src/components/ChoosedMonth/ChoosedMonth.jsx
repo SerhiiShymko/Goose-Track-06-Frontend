@@ -34,6 +34,7 @@ import { fetchTasks } from 'redux/tasks/operations';
 import { selectCurrentDate } from 'redux/auth/selectors';
 import { selectTasks } from 'redux/tasks/selectors';
 import TacksOfDay from './TacksOfDay';
+import { setCurrentDate } from 'redux/auth/authSlice';
 
 const ChoosedMonth = () => {
   const dispatch = useDispatch();
@@ -43,7 +44,7 @@ const ChoosedMonth = () => {
   const selectDate = useSelector(selectCurrentDate);
 
   const formattedDate = format(selectDate, 'MMMM yyyy');
-  let firstDayCurrentMonth = parse(formattedDate, 'MMMM yyyy', new Date());
+  let firstDayCurrentMonth = parse(formattedDate, 'MMMM yyyy', selectDate);
 
   const result = eachDayOfInterval({
     start: startOfWeek(firstDayCurrentMonth, { weekStartsOn: 1 }),
@@ -56,7 +57,7 @@ const ChoosedMonth = () => {
     add(firstDayCurrentMonth, { months: 0 }),
     'yyyy-MM'
   );
-  console.log(currentMonth);
+  // console.log(currentMonth);
 
   useEffect(() => {
     dispatch(fetchTasks(currentMonth));
@@ -76,6 +77,11 @@ const ChoosedMonth = () => {
     return weekDays;
   };
 
+  const handleClick = choosedDay => {
+    const dayTimeStamp = choosedDay.getTime();
+    dispatch(setCurrentDate(dayTimeStamp));
+  };
+
   const resultDate = result.map(day => {
     if (format(day, 'MMMM yyyy') !== formattedDate) {
       return <EmptyDateBlock key={day.toString()}></EmptyDateBlock>;
@@ -85,8 +91,9 @@ const ChoosedMonth = () => {
           data-day={format(day, 'yyyy-MM-dd')}
           key={day.toString()}
           to={`/calendar/day/${format(day, 'yyyy-MM-dd')}`}
+          onClick={() => handleClick(day)}
         >
-          {format(day, 'd MMMM') === format(new Date(), 'd MMMM') ? (
+          {format(day, 'd MMMM') === format(selectDate, 'd MMMM') ? (
             <DayOfMonth $active={true}>{format(day, 'd')}</DayOfMonth>
           ) : (
             <DayOfMonth $active={false}>{format(day, 'd')}</DayOfMonth>
