@@ -1,16 +1,21 @@
-import { format } from "date-fns"
-import { BtnTypeSelectDay, BtnTypeSelectMonth, PeriodTypeSelect } from "./PeriodSelect.styled"
+import { format } from 'date-fns';
+import {
+  BtnTypeSelectDay,
+  BtnTypeSelectMonth,
+  PeriodTypeSelect,
+} from './PeriodSelect.styled';
+import { useSelector } from 'react-redux';
+import { selectCurrentDate } from 'redux/auth/selectors';
 
 export const PeriodSelect = () => {
-  const date = format(new Date(), 'yyyy-MM-dd')
-  const month = format(new Date(), 'yyyy-MM')
+  const choosedDate = useSelector(selectCurrentDate);
+
+  const date = format(choosedDate, 'yyyy-MM-dd');
+  const month = format(choosedDate, 'yyyy-MM');
   return (
-      
-        <PeriodTypeSelect>
-        <BtnTypeSelectMonth to={`month/${month}`}>
-          Month
-        </BtnTypeSelectMonth>
-        <BtnTypeSelectDay to={`day/${date}`}>Day</BtnTypeSelectDay>
-      </PeriodTypeSelect>
-    )
-}
+    <PeriodTypeSelect>
+      <BtnTypeSelectMonth to={`month/${month}`}>Month</BtnTypeSelectMonth>
+      <BtnTypeSelectDay to={`day/${date}`}>Day</BtnTypeSelectDay>
+    </PeriodTypeSelect>
+  );
+};

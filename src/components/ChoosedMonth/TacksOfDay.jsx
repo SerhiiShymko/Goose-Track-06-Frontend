@@ -1,14 +1,17 @@
 import React from 'react';
+import { Element, ListOfElements } from './TacksOfDay.styled';
 
 function TacksOfDay({ currentDay, tasks }) {
   const tasksOfDay = tasks.filter(task => task.date === currentDay);
 
   return (
-    <div>
+    <ListOfElements>
       {tasksOfDay.map(task => (
-        <div key={task._id}>{task.title}</div>
+        <Element key={task._id} $priority={task.priority}>
+          {task.title}
+        </Element>
       ))}
-    </div>
+    </ListOfElements>
   );
 }
 

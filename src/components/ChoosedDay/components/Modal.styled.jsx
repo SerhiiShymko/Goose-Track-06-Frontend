@@ -176,6 +176,7 @@ export const RadioInput = styled.input`
   -moz-appearance: none;
   appearance: none;
   outline: none;
+  cursor: pointer;
 
   &::before {
     content: '';
