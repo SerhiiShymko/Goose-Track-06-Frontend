@@ -17,7 +17,7 @@ import {
   TimeInput,
   Timelabel,
 } from './Modal.styled';
-import { CATEGORY, PRIORITY } from 'data/constants';
+import { PRIORITY } from 'data/constants';
 import { addTask } from '../../../redux/tasks/operations';
 
 export const ModalAddAndChange = ({ closeModal, currentDay, category }) => {
