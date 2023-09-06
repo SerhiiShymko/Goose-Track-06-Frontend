@@ -10,16 +10,16 @@ times.
 
 ### Technologies used:
 
-    React
-    Redux Toolkit
-    Axios
-    Styled Components
-    Yup
-    Swiper
-    Date-fns
-    Eslint
-    Babel
-    Material-UI
+- React
+- Redux Toolkit
+- Axios
+- Styled Components
+- Yup
+- Swiper
+- Date-fns
+- Eslint
+- Babel
+- Material-UI
 
 ### Site functionality description:
 
