@@ -49,14 +49,16 @@ export const SvgPencil = styled(Pencil)`
 
 export const ButtonCancel = styled.button`
   border-radius: 8px;
-  background: ${({ theme }) => theme.colors.backgroundBtnCancelTask};
+  background:rgba(239, 239, 239, 1);
+  /* background: ${({ theme }) => theme.colors.backgroundBtnCancelTask}; */
   display: flex;
   width: 144px;
   height: 48px;
   justify-content: center;
   align-items: center;
 
-  color: ${({ theme }) => theme.colors.colorBtnCancelTask};
+  /* color: ${({ theme }) => theme.colors.colorBtnCancelTask}; */
+  color:#111;
   text-align: center;
   /* font-family: 'InterSemiBold'; */
   font-weight: 600;
@@ -105,6 +107,9 @@ export const TextInput = styled.input`
   font-size: 14px;
   line-height: 18px; /* 128.571% */
   padding: 14px 18px;
+  &:hover {
+    box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
+  }
 `;
 export const ContainerTime = styled.div`
   display: flex;
@@ -143,6 +148,10 @@ export const TimeInput = styled.input`
   line-height: 18px; /* 128.571% */
 
   padding: 14px 0 14px 18px;
+  cursor: pointer;
+  &:hover {
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  }
 `;
 export const ContainerRadio = styled.div`
   display: flex;

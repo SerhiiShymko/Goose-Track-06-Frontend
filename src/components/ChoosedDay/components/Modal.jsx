@@ -34,6 +34,7 @@ export const ModalAddAndChange = ({
   const currentTimeEnd = task ? task[0].end : '';
   const currentRadio = task ? task[0].priority : '';
   const currentId = task ? task[0]._id : '';
+  const currentCategory = task ? task[0].category : '';
 
   const [radio, setRadio] = useState(currentRadio);
   const [title, setTitle] = useState(currentTitle);
@@ -76,18 +77,16 @@ export const ModalAddAndChange = ({
 
     if (todo === 'change') {
       const newTask = {
+        _id: currentId,
         title: title,
         date: task[0].date,
         start: timeStart,
         end: timeEnd,
         priority: radio,
-        category: category,
+        category: currentCategory,
       };
-      const changeTask = {
-        _id: currentId,
-        category: newTask,
-      };
-      dispatch(updateTask(changeTask));
+     
+      dispatch(updateTask(newTask));
       setRadio('');
       setTimeEnd('');
       setTimeStart('');
