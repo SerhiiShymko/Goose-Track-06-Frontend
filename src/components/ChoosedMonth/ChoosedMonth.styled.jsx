@@ -55,7 +55,7 @@ export const CalendarTable = styled.div`
   font-style: normal;
   font-weight: 700;
   line-height: 1.2; /* 116.667% */
-  text-transform: uppercase;
+  /* text-transform: uppercase; */
 
   @media screen and (min-width: 768px) {
     margin-top: 18px;
@@ -78,16 +78,18 @@ export const EmptyDateBlock = styled.div`
 export const DateCalendarMonth = styled(NavLink)`
   cursor: pointer;
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
-  display: flex;
-  justify-content: end;
-  padding-top: 8px;
-  padding-right: 4px;
+  /* display: flex;
+  flex-direction: column; */
+  /* justify-content: end; */
+  padding: 8px 2px;
   border: solid ${({ theme }) => theme.colors.colorCalendarBorder};
   border-width: 0.5px;
 
   @media screen and (min-width: 768px) {
-    padding-top: 14px;
-    padding-right: 14px;
+    padding: 14px 4px;
+  }
+  @media screen and (min-width: 1440px) {
+    padding: 14px 8px;
   }
 `;
 
@@ -96,6 +98,9 @@ export const DayOfMonth = styled.div`
   justify-content: center;
   align-items: center;
   padding: 4px 6px;
+  margin-left: auto;
+  margin-right: 2px;
+  margin-bottom: 18px;
   width: 20px;
   height: 22px;
   border-radius: 6px;
@@ -105,6 +110,10 @@ export const DayOfMonth = styled.div`
   @media screen and (min-width: 768px) {
     width: 27px;
     height: 26px;
+    margin-right: 10px;
+  }
+  @media screen and (min-width: 1440px) {
+    margin-right: 6px;
   }
 `;
 
