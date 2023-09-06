@@ -19,15 +19,17 @@ import {
   ChangeAvatarBtn,
 } from './UserProfile.styled';
 import { useDispatch } from 'react-redux';
-import { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { selectUser } from 'redux/auth/selectors';
-import { Formik, Form } from 'formik';
+import { Formik, Form, useFormikContext } from 'formik';
 import { validateSchemaUserProfile } from './validateSchemaUserProfile';
 import { updateUser } from 'redux/auth/operations';
 
+
 const UserProfile = () => {
   const currentUserInfo = useSelector(selectUser);
+  const [disabledButton,setDisabledButton]=useState(true)
 
   const dispatch = useDispatch();
   const [selectedFile, setSelectedFile] = useState(null);
@@ -55,6 +57,37 @@ const UserProfile = () => {
     filePicker.current.click();
   };
 
+  const MonitorsChanges = () => {
+    
+    const { values } = useFormikContext();
+
+    useEffect(() => {
+      if (values.name !== currentUserInfo.name) {
+        setDisabledButton(false);
+        return;
+      }
+      if (values.email !== currentUserInfo.email) {
+        setDisabledButton(false);
+        return;
+      }
+      if (values.birthday !== currentUserInfo.birthday) {
+        setDisabledButton(false);
+        return;
+      }
+      if (values.phone !== currentUserInfo.phone) {
+        setDisabledButton(false);
+        return;
+      }
+      if (values.skype !== currentUserInfo.skype) {
+        setDisabledButton(false);
+        return;
+      }
+      setDisabledButton(true)
+    }, [values]);    
+    
+    return null
+  }
+    
   return (
     <MainWrapper>
       <UserPhotoWrapper>
@@ -95,7 +128,9 @@ const UserProfile = () => {
             values = restValues;
           }
           dispatch(updateUser(values));
+          setDisabledButton(true);
         }}
+
       >
         {({
           touched,
@@ -106,6 +141,7 @@ const UserProfile = () => {
           handleBlur,
         }) => (
           <Form>
+            <MonitorsChanges />
             <FormStyled>
               {touched.name && errors.name ? (
                 <div>
@@ -339,7 +375,11 @@ const UserProfile = () => {
               )}
             </FormStyled>
             <BtnSaveChangesWrapper>
-              <BtnSaveChanges type="submit" onClick={handleSubmit}>
+              <BtnSaveChanges
+                type="submit"
+                onClick={handleSubmit}
+                disabled={disabledButton}
+              >
                 Save changes
               </BtnSaveChanges>
             </BtnSaveChangesWrapper>
