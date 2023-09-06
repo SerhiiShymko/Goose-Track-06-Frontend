@@ -128,12 +128,25 @@ export const UserPhotoHeaderWrapper = styled.div`
   }
 `;
 
-export const UserPhotoHeader = styled(UserPhotoHeaderSvgStyled)`
+export const UserPhotoHeaderSvg = styled(UserPhotoHeaderSvgStyled)`
   width: 32px;
   height: 32px;
   border-radius: 32px;
   border: 1.8px solid #3e85f3;
   padding: 5px;
+  background: lightgray 50% / cover no-repeat;
+
+  @media screen and (min-width: 768px) {
+    width: 44px;
+    height: 44px;
+  }
+`;
+
+export const UserPhotoHeader = styled.img`
+  width: 32px;
+  height: 32px;
+  border-radius: 32px;
+  border: 1.8px solid #3e85f3;
   background: lightgray 50% / cover no-repeat;
 
   @media screen and (min-width: 768px) {
