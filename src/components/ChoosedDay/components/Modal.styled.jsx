@@ -17,6 +17,11 @@ export const ContainerForm = styled.div`
         ? 'rgba(17, 17, 17, 0.1)'
         : 'rgba(17, 17, 17, 0.10)'};
   position: relative;
+  @media screen and (max-width: 767px) {
+    width: 303px;
+    height: 336px;
+    padding:48px 18px 40px 18px;
+  }
 `;
 export const ButtonAdd = styled.button`
   border-radius: 8px;
@@ -35,6 +40,10 @@ export const ButtonAdd = styled.button`
   font-weight: 600;
   font-size: 14px;
   line-height: 18px; /* 128.571% */
+   @media screen and (max-width: 767px) {
+    width:135px;
+    height:42px;
+   }
 `;
 export const SvgPlus = styled(Plus)`
   width: 20px;
@@ -64,6 +73,10 @@ export const ButtonCancel = styled.button`
   font-weight: 600;
   font-size: 14px;
   line-height: 18px; /* 128.571% */
+   @media screen and (max-width: 767px) {
+    width:118px;
+    height:42px;
+   }
 `;
 export const SvgClose = styled(close)`
   width: 24px;
@@ -92,6 +105,11 @@ export const TextLabel = styled.label`
   font-weight: 500;
   font-size: 12px;
   line-height: 14px;
+  @media screen and (max-width: 767px) {
+    width: 267px;
+    height: 42px;
+    margin-bottom: 16px;
+  }
 `;
 export const TextInput = styled.input`
   width: 340px;
@@ -110,6 +128,10 @@ export const TextInput = styled.input`
   &:hover {
     box-shadow: 1px 1px 1px 1px rgba(0, 0, 0, 0.2);
   }
+  @media screen and (max-width: 767px) {
+    width: 267px;
+    height: 42px;
+  }
 `;
 export const ContainerTime = styled.div`
   display: flex;
@@ -117,6 +139,10 @@ export const ContainerTime = styled.div`
   align-items: flex-start;
   gap: 14px;
   margin: 18px 0;
+  @media screen and (max-width: 767px) {
+    gap:15px;
+    margin-bottom:16px;
+  }
 `;
 export const Timelabel = styled.label`
   display: flex;
@@ -131,6 +157,9 @@ export const Timelabel = styled.label`
   font-weight: 500;
   font-size: 12px;
   line-height: 14px; /* 116.667% */
+  @media screen and (max-width: 767px) {
+    width: 126px;
+  }
 `;
 export const TimeInput = styled.input`
   width: 163px;
@@ -140,9 +169,7 @@ export const TimeInput = styled.input`
   background: ${({ theme }) => theme.colors.backgroundModalFields};
   /* border: none; */
   /* rgba(220, 227,229, 0.8) */
-  border: 1px solid ${props => props.$border} ;
-  
-  
+  border: 1px solid ${props => props.$border};
 
   color: ${({ theme }) => theme.colors.colorBody};
   /* font-family: 'InterSemiBold' */
@@ -155,6 +182,10 @@ export const TimeInput = styled.input`
   &:hover {
     box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
   }
+  @media screen and (max-width: 767px) {
+    width: 126px;
+    height: 42px;
+  }
 `;
 export const ContainerRadio = styled.div`
   display: flex;
@@ -165,6 +196,9 @@ export const ContainerRadio = styled.div`
   flex-shrink: 0;
   margin-top: 10px;
   margin-bottom: 32px;
+   @media screen and (max-width: 767px) {
+    margin-top:0;
+   }
 `;
 export const ContainerButton = styled.div`
   display: flex;
@@ -210,4 +244,11 @@ export const RadioLabel = styled.label`
   display: flex;
   color: ${({ theme }) => theme.colors.colorBody};
   cursor: pointer;
+`;
+export const FormContainer = styled.form`
+  @media screen and (max-width: 767px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
 `;

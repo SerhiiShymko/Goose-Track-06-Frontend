@@ -8,6 +8,7 @@ import {
   ContainerForm,
   ContainerRadio,
   ContainerTime,
+  FormContainer,
   RadioInput,
   RadioLabel,
   SvgClose,
@@ -83,13 +84,14 @@ export const ModalAddAndChange = ({
         priority: radio,
         category: currentCategory,
       };
-     
+
       dispatch(updateTask(newTask));
       setRadio('');
       setTimeEnd('');
       setTimeStart('');
       setTitle('');
       closeModal();
+
       return;
     }
     const newTask = {
@@ -100,6 +102,7 @@ export const ModalAddAndChange = ({
       priority: radio,
       category: category,
     };
+  
     const startHour = Number(newTask.start.split(':')[0]);
     const startMinute = Number(newTask.start.split(':')[1]);
     const endHour = Number(newTask.end.split(':')[0]);
@@ -109,34 +112,42 @@ export const ModalAddAndChange = ({
       if (startHour > endHour) {
         Notiflix.Notify.warning(
           'Cannot have a start time greater then the end time'
-        );       
-        setError("error")
-        return ;
+        );
+        setError('error');
+        return;
       }
       if (startMinute >= endMinute) {
         Notiflix.Notify.warning(
           'Cannot have a start time greater then the end time'
         );
-         setError('error');
-        return ;
+        setError('error');
+        return;
       }
       dispatch(addTask(newTask));
       setRadio('');
       setTimeEnd('');
       setTimeStart('');
       setTitle('');
-      setError("");
+      setError('');
       closeModal();
       return;
     }
+    dispatch(addTask(newTask));
+    setRadio('');
+    setTimeEnd('');
+    setTimeStart('');
+    setTitle('');
+    setError('');
+    closeModal();
+    return;
   };
-  
+
   const handleColorBorder = () => {
     if (error === 'error') {
       return 'rgba(234, 61, 101, 1)';
     }
-    return 'rgba(220, 227,229, 0.8)';    
-  }
+    return 'rgba(220, 227,229, 0.8)';
+  };
 
   const onValueChange = event => {
     setRadio(event.target.id);
@@ -145,7 +156,7 @@ export const ModalAddAndChange = ({
   return (
     <Modal closeModal={closeModal}>
       <ContainerForm>
-        <form onSubmit={handleSubmit}>
+        <FormContainer onSubmit={handleSubmit}>
           <SvgClose onClick={closeModal}></SvgClose>
           <TextLabel>
             Title
@@ -231,7 +242,7 @@ export const ModalAddAndChange = ({
             </ButtonAdd>
             <ButtonCancel onClick={closeModal}>Cancel</ButtonCancel>
           </ContainerButton>
-        </form>
+        </FormContainer>
       </ContainerForm>
     </Modal>
   );
