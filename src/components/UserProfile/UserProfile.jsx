@@ -21,12 +21,15 @@ import {
 import { useDispatch } from 'react-redux';
 import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors';
+import { selectIsRefreshing, selectUser } from 'redux/auth/selectors';
 import { Formik, Form } from 'formik';
 import { validateSchemaUserProfile } from './validateSchemaUserProfile';
 import { updateUser } from 'redux/auth/operations';
+import Spinner from 'components/Spinner/Spinner';
 
 const UserProfile = () => {
+  const isRefreshing = useSelector(selectIsRefreshing);
+
   const currentUserInfo = useSelector(selectUser);
 
   const dispatch = useDispatch();
@@ -50,12 +53,18 @@ const UserProfile = () => {
     dispatch(updateUser(formData));
     console.log(currentUserInfo);
 
-  };
+// <<<<<<< UserInfo
+//   };
 
-  const handlePick = () => {
-    filePicker.current.click();
-  };
-  return (
+//   const handlePick = () => {
+//     filePicker.current.click();
+//   };
+//   return (
+// =======
+  return isRefreshing ? (
+    <Spinner />
+  ) : (
+// >>>>>>> main
     <MainWrapper>
       <UserPhotoWrapper>
         <ChangeAvatarBtn onClick={handlePick}>
@@ -87,12 +96,16 @@ const UserProfile = () => {
         initialValues={{
           name: currentUserInfo.name,
           email: currentUserInfo.email,
-          birthday: currentUserInfo.birthday,
-          phone: currentUserInfo.phone,
-          skype: currentUserInfo.skype,
+          birthday: currentUserInfo.birthday ?? '',
+          phone: currentUserInfo.phone ?? '',
+          skype: currentUserInfo.skype ?? '',
         }}
         validationSchema={validateSchemaUserProfile}
         onSubmit={values => {
+          if (values.email === currentUserInfo.email) {
+            const { email, ...restValues } = values;
+            values = restValues;
+          }
           dispatch(updateUser(values));
         }}
       >

@@ -119,7 +119,7 @@ export const UserSurnameMain = styled.p`
 `;
 
 export const FormStyled = styled.div`
-  margin-top: 40px; 
+  margin-top: 40px;
 
   @media screen and (min-width: 1440px) {
     margin-top: 44px;
@@ -209,7 +209,7 @@ export const BtnSaveChangesWrapper = styled.div`
 
 export const BtnSaveChanges = styled.button`
   padding: 14px 50px;
-cursor: pointer;
+  cursor: pointer;
   color: #ffffff;
   background-color: #3e85f3;
 
@@ -229,8 +229,6 @@ export const SuccesIcon = styled(IconSucces)`
   position: absolute;
   right: 10px;
   bottom: -2px;
-
-  
 `;
 
 export const ErrorIcon = styled(IconError)`
@@ -238,7 +236,6 @@ export const ErrorIcon = styled(IconError)`
   right: 10px;
   bottom: 48px;
 `;
-
 
 export const LabelText = styled.p`
   color: ${props => props.color || '#111'};
@@ -251,6 +248,7 @@ export const LabelText = styled.p`
     font-size: 14px;
   }
 `;
+
 
 export const InputAvatar = styled.input`
   opacity: 0;
@@ -270,3 +268,4 @@ background-color: #fff;
   }
 
 `;
+

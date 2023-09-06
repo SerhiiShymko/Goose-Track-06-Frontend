@@ -52,8 +52,8 @@ export const WrapperCalendar = () => {
       dispatch(setCurrentDate(dayTimeStamp));
       // console.log(nextDay);
     } else {
-      let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
-      const dateTimeStamp = firstDayNextMonth.getTime();
+      let currentDayNextMonth = add(currentDay, { months: 1 });
+      const dateTimeStamp = currentDayNextMonth.getTime();
       dispatch(setCurrentDate(dateTimeStamp));
     }
   };
@@ -66,8 +66,8 @@ export const WrapperCalendar = () => {
       dispatch(setCurrentDate(dayTimeStamp));
       // console.log(prevDay);
     } else {
-      let firstDayPrevMonth = add(firstDayCurrentMonth, { months: -1 });
-      const dateTimeStamp = firstDayPrevMonth.getTime();
+      let currentDayPrevMonth = add(currentDay, { months: -1 });
+      const dateTimeStamp = currentDayPrevMonth.getTime();
       dispatch(setCurrentDate(dateTimeStamp));
     }
   };
