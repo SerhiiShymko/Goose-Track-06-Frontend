@@ -9,7 +9,7 @@ import { selectCurrentDate } from 'redux/auth/selectors';
 import { useState } from 'react';
 
 export const PeriodSelect = () => {
-  const [showMonth, setShowMonth] = useState(true);
+  const [showMonth, setShowMonth] = useState();
 
   const choosedDate = useSelector(selectCurrentDate);
 
