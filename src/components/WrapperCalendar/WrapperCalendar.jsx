@@ -38,7 +38,7 @@ export const WrapperCalendar = () => {
     const parsedDateArray = selectedDate.split('-');
     const choosedDay = new Date(
       parsedDateArray[0],
-      parsedDateArray[1],
+      parsedDateArray[1] - 1,
       parsedDateArray[2]
     );
     const dayTimeStamp = choosedDay.getTime();
