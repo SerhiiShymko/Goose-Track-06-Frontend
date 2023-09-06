@@ -25,22 +25,24 @@ times.
 
 Sign up / Log in:
 
-    Registration and login forms with field validation. JWT (JSON Web Token) authentication is used to ensure secure access control.
+- registration and login forms with field validation. JWT (JSON Web Token)
+  authentication is used to ensure secure access control.
 
 My Account:
 
-    Allows you to manage information and settings for your profile:
-    Access to personalized profile data.
-    Allows you to add your feedback.
-    Light/Dark theme, use the website with the color scheme that suits you best.
+- allows you to manage information and settings for your profile:
+- access to personalized profile data.
+- allows you to add your feedback.
+- light/Dark theme, use the website with the color scheme that suits you best.
 
 Calendar:
 
-    Allows you to view all tasks for the month and navigate to a single day's page.
+- allows you to view all tasks for the month and navigate to a single day's
+  page.
 
 Statistics:
 
-    Provides detailed statistics for both the current day and month.
+- provides detailed statistics for both the current day and month.
 
 ---
 
