@@ -85,30 +85,41 @@ export const Day = styled.div`
 export const CalendarTable = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(6, 1fr);
+  grid-template-rows: repeat(${props => props.$columnsCount}, 1fr);
   grid-row-gap: 3px;
 `;
 
-export const CalendarTableShortMonth = styled.div`
-  display: grid;
-  grid-template-columns: repeat(7, 1fr);
-  grid-template-rows: repeat(5, 1fr);
-  grid-row-gap: 3px;
-`;
+// export const CalendarTableShortMonth = styled.div`
+//   display: grid;
+//   grid-template-columns: repeat(7, 1fr);
+//   grid-template-rows: repeat(5, 1fr);
+//   grid-row-gap: 3px;
+// `;
 
 export const CalendarDate = styled.div`
   padding: 12px 0;
-  color: #fff;
+  color: ${props =>
+    props.$typeOfDay === 'active'
+      ? '#3e85f3'
+      : props.$typeOfDay === 'holiday'
+      ? 'rgba(255, 255, 255, 0.25)'
+      : '#ffffff'};
+  background-color: ${props =>
+    props.$typeOfDay === 'active' ? '#ffffff' : 'inherit'};
+  border-radius: ${props => (props.$typeOfDay === 'active' ? '50%' : 'none')};
   text-align: center;
-  /* font-family: Inter; */
   font-size: 14px;
-  font-style: normal;
   font-weight: 400;
-  line-height: 18px; /* 128.571% */
+  line-height: 1.28571;
   cursor: pointer;
+  transition: transform 2500ms ease;
+
   &:hover,
   &:focus {
     color: darkblue;
+    background-color: #ffffff;
+    border-radius: 8px;
+    transform: scale(1.1);
   }
   &:active {
     color: darkblue;

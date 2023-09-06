@@ -33,7 +33,16 @@ export const WrapperCalendar = () => {
   let currentDay = parse(formattedOneDay, 'yyyy-MM-dd', new Date());
 
   const handleClick = e => {
-    // const selectDate = e.currentTarget.dataset.day;
+    const selectedDate = e.currentTarget.dataset.day;
+    console.log(selectedDate);
+    const parsedDateArray = selectedDate.split('-');
+    const choosedDay = new Date(
+      parsedDateArray[0],
+      parsedDateArray[1],
+      parsedDateArray[2]
+    );
+    const dayTimeStamp = choosedDay.getTime();
+    dispatch(setCurrentDate(dayTimeStamp));
   };
   const nextMonth = () => {
     const locationDay = location.pathname.slice(10, 13);
