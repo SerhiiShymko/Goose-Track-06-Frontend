@@ -13,7 +13,7 @@ const STATUS = {
   REJECTED: 'rejected',
 };
 
-const actionGenerators = [register, logIn, updateUser];
+const actionGenerators = [register, logIn];
 
 const getActionGeneratorsWithType = status =>
   actionGenerators.map(generator => generator[status]);
@@ -24,7 +24,7 @@ const authSlice = createSlice({
     user: {
       name: null,
       email: null,
-      password: null,
+      // password: null,
       birthday: null,
       phone: null,
       skype: null,
@@ -51,6 +51,7 @@ const authSlice = createSlice({
       .addCase(refreshUser.pending, handleRefreshUserPending)
       .addCase(refreshUser.fulfilled, handleRefreshUserFulfilled)
       .addCase(refreshUser.rejected, handleRefreshUserRejected)
+      .addCase(updateUser.fulfilled, handleUpdateUserFulfilled)
       .addCase(logOut.fulfilled, handleLogOut)
       .addMatcher(
         isAnyOf(...getActionGeneratorsWithType(STATUS.FULFILLED)),
@@ -63,6 +64,10 @@ function handleUserLoggingFulfilled(state, action) {
   state.user = action.payload.user;
   state.token = action.payload.token;
   state.isLoggedIn = true;
+}
+
+function handleUpdateUserFulfilled(state, action) {
+  state.user = action.payload;
 }
 
 function handleLogOut(state) {

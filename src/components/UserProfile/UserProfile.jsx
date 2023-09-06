@@ -21,15 +21,12 @@ import {
 import { useDispatch } from 'react-redux';
 import { useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectIsRefreshing, selectUser } from 'redux/auth/selectors';
+import { selectUser } from 'redux/auth/selectors';
 import { Formik, Form } from 'formik';
 import { validateSchemaUserProfile } from './validateSchemaUserProfile';
 import { updateUser } from 'redux/auth/operations';
-import Spinner from 'components/Spinner/Spinner';
 
 const UserProfile = () => {
-  const isRefreshing = useSelector(selectIsRefreshing);
-
   const currentUserInfo = useSelector(selectUser);
 
   const dispatch = useDispatch();
@@ -58,9 +55,7 @@ const UserProfile = () => {
     filePicker.current.click();
   };
 
-  return isRefreshing ? (
-    <Spinner />
-  ) : (
+  return (
     <MainWrapper>
       <UserPhotoWrapper>
         <ChangeAvatarBtn onClick={handlePick}>
