@@ -11,7 +11,7 @@ export const ContentWrapper = styled.header`
   justify-content: space-between;
 `;
 
-export const CurrentPage = styled.p`
+export const CurrentPage = styled.div`
   width: 183px;
   color: ${({ theme }) => theme.colors.colorAccent};
   text-shadow: 0px 9.4px 57.6875px rgba(0, 0, 0, 0.04),
@@ -19,7 +19,7 @@ export const CurrentPage = styled.p`
   font-size: 32px;
   font-style: normal;
   font-weight: 700;
-  line-height: 1;
+  line-height: 32px;
 `;
 
 export const SideBarBtn = styled.button`
