@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 import Rating from '@mui/material/Rating';
 import StarIcon from '@mui/icons-material/Star';
@@ -9,7 +10,11 @@ import {
   deleteReview,
   updateReview,
 } from 'redux/reviews/operations';
-import { selectIsLoading, selectOwnReview } from 'redux/reviews/selectors';
+import {
+  selectError,
+  selectIsLoading,
+  selectOwnReview,
+} from 'redux/reviews/selectors';
 
 import {
   FeedbackFormContainer,
@@ -34,6 +39,7 @@ const FeedbackForm = ({ closeModal }) => {
   const dispatch = useDispatch();
   const ownReview = useSelector(selectOwnReview);
   const isLoading = useSelector(selectIsLoading);
+  const error = useSelector(selectError);
 
   const [ratingValue, setRatingValue] = useState(4);
   const [isEditing, setIsEditing] = useState(false);
@@ -44,20 +50,46 @@ const FeedbackForm = ({ closeModal }) => {
     }
   }, [ownReview]);
 
-  const handleSubmit = ({ comment }, actions) => {
+  const handleSubmit = async ({ comment }, actions) => {
     const rating = ratingValue.toString();
     const review = {
       comment,
       rating,
     };
 
-    dispatch(isEditing ? updateReview(review) : addReview(review));
-    closeModal();
+    await dispatch(isEditing ? updateReview(review) : addReview(review));
+
+    if (error) {
+      Notify.failure(error, {
+        position: 'center-top',
+      });
+    } else {
+      isEditing
+        ? Notify.success('Review editted successfully!', {
+            position: 'center-top',
+          })
+        : Notify.success('Review added successfully!', {
+            position: 'center-top',
+          });
+
+      closeModal();
+    }
   };
 
-  const handleDelete = () => {
-    dispatch(deleteReview());
-    closeModal();
+  const handleDelete = async () => {
+    await dispatch(deleteReview());
+
+    if (error) {
+      Notify.failure(error, {
+        position: 'center-top',
+      });
+    } else {
+      Notify.success('Review deleted successfully!', {
+        position: 'center-top',
+      });
+
+      closeModal();
+    }
   };
 
   const handlePencilClick = () => {
