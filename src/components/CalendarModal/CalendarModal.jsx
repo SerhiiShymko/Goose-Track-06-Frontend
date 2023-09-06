@@ -18,6 +18,8 @@ import Next from '../../images/calendar/chevron-right.svg';
 import { addDays, format, startOfWeek } from 'date-fns';
 import { nanoid } from 'nanoid';
 import { Link, useLocation } from 'react-router-dom';
+import { selectCurrentDate } from 'redux/auth/selectors';
+import { useSelector } from 'react-redux';
 
 export const CalendarModal = ({
   onNext,
@@ -27,7 +29,7 @@ export const CalendarModal = ({
   onClickDate,
 }) => {
   const location = useLocation();
-  // const selectDate = useSelector(state => state.auth.currentDate)
+  const currentDate = useSelector(selectCurrentDate);
   // const formattedDate = format(selectDate, 'yyyy-MM-dd')
   // const parseDate = parse(formattedDate, 'yyyy-MM-dd', new Date())
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
@@ -36,48 +38,25 @@ export const CalendarModal = ({
     weekDays.push(format(addDays(startDayOfWeek, day), 'EEEEE'));
   }
 
+  let typeOfDay;
   const resultDate = dayInterval.map(day => {
     if (format(day, 'MMMM yyyy') !== dateToday) {
       return <div key={day.toString()}></div>;
-    } else if (format(day, 'd MMMM') === format(new Date(), 'd MMMM')) {
-      return (
-        <ActiveCalendarDate
-          key={day.toString()}
-          onClick={onClickDate}
-          data-day={format(day, 'yyyy-MM-dd')}
-        >
-          {location.pathname === '/statistics' ? (
-            <Link>{format(day, 'd')}</Link>
-          ) : (
-            <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
-              {format(day, 'd')}
-            </Link>
-          )}
-        </ActiveCalendarDate>
-      );
-    }
-    if (format(day, 'E') === 'Sat' || format(day, 'E') === 'Sun') {
-      return (
-        <CalendarDateHolidays
-          key={day.toString()}
-          onClick={onClickDate}
-          data-day={format(day, 'yyyy-MM-dd')}
-        >
-          {location.pathname === '/statistics' ? (
-            <Link>{format(day, 'd')}</Link>
-          ) : (
-            <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
-              {format(day, 'd')}
-            </Link>
-          )}
-        </CalendarDateHolidays>
-      );
     } else {
+      if (format(day, 'd MMMM') === format(currentDate, 'd MMMM')) {
+        typeOfDay = 'active';
+      } else if (format(day, 'E') === 'Sat' || format(day, 'E') === 'Sun') {
+        typeOfDay = 'holiday';
+      } else {
+        typeOfDay = 'ordinary';
+      }
+
       return (
         <CalendarDate
-          onClick={onClickDate}
           key={day.toString()}
+          onClick={onClickDate}
           data-day={format(day, 'yyyy-MM-dd')}
+          $typeOfDay={typeOfDay}
         >
           {location.pathname === '/statistics' ? (
             <Link>{format(day, 'd')}</Link>
@@ -107,11 +86,10 @@ export const CalendarModal = ({
           <Day key={nanoid()}>{day}</Day>
         ))}
       </WeekDays>
-      {dayInterval.length > 35 ? (
-        <CalendarTable>{resultDate}</CalendarTable>
-      ) : (
-        <CalendarTableShortMonth>{resultDate}</CalendarTableShortMonth>
-      )}
+
+      <CalendarTable $columnsCount={dayInterval.length > 35 ? 6 : 5}>
+        {resultDate}
+      </CalendarTable>
     </ModalCalendar>
   );
 };
