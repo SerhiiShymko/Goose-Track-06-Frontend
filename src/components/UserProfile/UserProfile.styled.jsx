@@ -36,7 +36,22 @@ export const UserPhotoMainWrapper = styled.div`
   }
 `;
 
-export const UserPhoto = styled(UserPhotoHeaderSvgStyled)`
+export const UserPhoto = styled.img`
+  width: 72px;
+  height: 72px;
+  border-radius: 72px;
+  border: 2px solid #3e85f3;
+  background: lightgray 50% / cover no-repeat;
+
+  @media screen and (min-width: 768px) {
+    width: 124px;
+    height: 124px;
+
+    border-radius: 62px;
+  }
+`;
+
+export const UserPhotoSvg = styled(UserPhotoHeaderSvgStyled)`
   width: 72px;
   height: 72px;
   border-radius: 72px;
@@ -237,3 +252,21 @@ export const LabelText = styled.p`
   }
 `;
 
+export const InputAvatar = styled.input`
+  opacity: 0;
+  height: 0;
+  width: 0;
+  line-height: 0;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+`
+
+export const ChangeAvatarBtn = styled.button`
+background-color: #fff;
+ &:hover,
+  &:focus {
+    transform: none;
+  }
+
+`;
