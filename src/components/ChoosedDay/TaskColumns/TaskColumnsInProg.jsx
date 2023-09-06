@@ -17,38 +17,40 @@ import {
   SvgPlusCircle,
   SvgPencil,
 } from '../ChoosedDay.styled';
-import {  deleteTask } from '../../../redux/tasks/operations';
-import {  CATEGORY, PRIORITY } from '../../../data/constants';
+import { deleteTask } from '../../../redux/tasks/operations';
+import { CATEGORY, PRIORITY } from '../../../data/constants';
 import SimplePopper from '../components/Popup';
 import BasicPopover from '../components/Popover';
 import { useState } from 'react';
 import { ModalAddAndChange } from '../components/Modal';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/selectors';
 
 const TaskColumnInProg = ({ data, currentDay }) => {
- const [showModalAdd, setShowModalAdd] = useState(false);
- const [showModalChange, setShowModalChange] = useState(false);
+  const [showModalAdd, setShowModalAdd] = useState(false);
+  const [showModalChange, setShowModalChange] = useState(false);
   const [task, setTask] = useState([]);
-  
+
   const dispatch = useDispatch();
 
-   const openModalChange = event => {
-     const id = event.currentTarget.dataset.number;
-     const currentTask = data.filter(task => task._id === id);
-     setTask(currentTask);
+  const openModalChange = event => {
+    const id = event.currentTarget.dataset.number;
+    const currentTask = data.filter(task => task._id === id);
+    setTask(currentTask);
 
-     setShowModalChange(true);
-     return;
-   };
-   const openModalAdd = () => {
-     setShowModalAdd(true);
-   };
+    setShowModalChange(true);
+    return;
+  };
+  const openModalAdd = () => {
+    setShowModalAdd(true);
+  };
 
-   const closeModalAdd = () => {
-     setShowModalAdd(false);
-   };
-   const closeModalChange = () => {
-     setShowModalChange(false);
-   };
+  const closeModalAdd = () => {
+    setShowModalAdd(false);
+  };
+  const closeModalChange = () => {
+    setShowModalChange(false);
+  };
 
   const priorityColor = priority => {
     if (priority === PRIORITY.LOW) {
@@ -83,6 +85,8 @@ const TaskColumnInProg = ({ data, currentDay }) => {
     dispatch(deleteTask(id));
   };
 
+  const user = useSelector(selectUser);
+    const avatarURL = user.avatarURL;
   return (
     <TaskBorder>
       <TaskName>
@@ -95,7 +99,7 @@ const TaskColumnInProg = ({ data, currentDay }) => {
             <TaskText>{textSlice(item.title)}</TaskText>
             <KontrolWrapper>
               <WrapperUser>
-                <TaskImageUser></TaskImageUser>
+                <TaskImageUser src={avatarURL} alt="avatar"></TaskImageUser>
                 <TaskPriority $background={priorityColor(item.priority)}>
                   {letterUp(item.priority)}
                 </TaskPriority>

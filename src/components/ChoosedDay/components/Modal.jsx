@@ -8,6 +8,7 @@ import {
   ContainerForm,
   ContainerRadio,
   ContainerTime,
+  FormContainer,
   RadioInput,
   RadioLabel,
   SvgClose,
@@ -155,7 +156,7 @@ export const ModalAddAndChange = ({
   return (
     <Modal closeModal={closeModal}>
       <ContainerForm>
-        <form onSubmit={handleSubmit}>
+        <FormContainer onSubmit={handleSubmit}>
           <SvgClose onClick={closeModal}></SvgClose>
           <TextLabel>
             Title
@@ -241,7 +242,7 @@ export const ModalAddAndChange = ({
             </ButtonAdd>
             <ButtonCancel onClick={closeModal}>Cancel</ButtonCancel>
           </ContainerButton>
-        </form>
+        </FormContainer>
       </ContainerForm>
     </Modal>
   );

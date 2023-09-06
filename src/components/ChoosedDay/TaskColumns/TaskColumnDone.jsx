@@ -24,6 +24,8 @@ import SimplePopper from '../components/Popup';
 import BasicPopover from '../components/Popover';
 import { useState } from 'react';
 import { ModalAddAndChange } from '../components/Modal';
+import { useSelector } from 'react-redux';
+import { selectUser } from 'redux/auth/selectors';
 
 const TaskColumnDone = ({ data, currentDay }) => {
   const [showModalAdd, setShowModalAdd] = useState(false);
@@ -83,7 +85,8 @@ const TaskColumnDone = ({ data, currentDay }) => {
   const handleDelete = id => {
     dispatch(deleteTask(id));
   };
-
+  const user = useSelector(selectUser);
+    const avatarURL = user.avatarURL;
   return (
     <TaskBorder>
       <TaskName>
@@ -96,7 +99,7 @@ const TaskColumnDone = ({ data, currentDay }) => {
             <TaskText>{textSlice(item.title)}</TaskText>
             <KontrolWrapper>
               <WrapperUser>
-                <TaskImageUser></TaskImageUser>
+                <TaskImageUser src={avatarURL} alt="avatar"></TaskImageUser>
                 <TaskPriority $background={priorityColor(item.priority)}>
                   {letterUp(item.priority)}
                 </TaskPriority>
