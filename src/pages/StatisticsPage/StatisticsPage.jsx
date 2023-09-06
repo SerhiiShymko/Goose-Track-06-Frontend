@@ -30,17 +30,29 @@ const StatisticsPage = () => {
   useEffect(() => {
     dispatch(fetchTasks(dataMonth));
   }, [dispatch, dataMonth]);
+  
+  const selectDate = useSelector(state => state.auth.currentDate);
+  const formattedDate = format(selectDate, 'MMMM yyyy');
+  const formattedOneDay = format(selectDate, 'yyyy-MM-dd');
+  
+  let firstDayCurrentMonth = parse(formattedDate, 'MMMM yyyy', new Date());
+  let currentDay = parse(formattedOneDay, 'yyyy-MM-dd', new Date());
+ 
+  const handleClick = ({ currentTarget }) => {
+    const selectedDate = currentTarget.dataset.day;
+    setDataDate(selectedDate);
 
-  const onClickDate = ({currentTarget}) => {
-    setDataDate(currentTarget.dataset.day);
+    const parsedDateArray = selectedDate.split('-');
+    const choosedDay = new Date(
+      parsedDateArray[0],
+      parsedDateArray[1] - 1,
+      parsedDateArray[2]
+    );
+    const dayTimeStamp = choosedDay.getTime();
+    dispatch(setCurrentDate(dayTimeStamp));
   };
 
- const selectDate = useSelector(state => state.auth.currentDate);
- const formattedDate = format(selectDate, 'MMMM yyyy');
- const formattedOneDay = format(selectDate, 'yyyy-MM-dd');
 
- let firstDayCurrentMonth = parse(formattedDate, 'MMMM yyyy', new Date());
- let currentDay = parse(formattedOneDay, 'yyyy-MM-dd', new Date());
 
  
  const nextMonth = () => {
@@ -80,14 +92,14 @@ const StatisticsPage = () => {
     <StatisticWrapper>
       <Wrapper>
         <WrapperPaginator
-          onClickDate={onClickDate}
           dayInterval={result}
           onNext={nextMonth}
           onPrev={prevMonth}
           dateToday={formattedDate}
+          onClickDate={handleClick}
         />
       </Wrapper>
-      <Statistics currentDate={dataDate}/>
+      <Statistics currentDate={dataDate} />
     </StatisticWrapper>
   );
 };

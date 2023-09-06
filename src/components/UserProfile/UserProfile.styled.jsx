@@ -16,7 +16,7 @@ export const MainWrapper = styled.div`
 export const UserPhotoWrapper = styled.div`
   display: flex;
   justify-content: center;
-  position: relative;
+
 `;
 
 export const UserPhotoMainWrapper = styled.div`
@@ -73,17 +73,17 @@ export const PlusIcon = styled(PlusIconSvgStyled)`
   position: absolute;
 
   top: 60px;
-  right: 140px;
+  right: 10px;
 
   @media screen and (min-width: 768px) {
     width: 24px;
     height: 24px;
 
     top: 105px;
-    right: 134px;
+    right: 20px;
   }
   @media screen and (min-width: 1440px) {
-    right: 340px;
+    right: 20px;
   }
 `;
 
@@ -261,11 +261,11 @@ export const InputAvatar = styled.input`
 `
 
 export const ChangeAvatarBtn = styled.button`
-background-color: #fff;
- &:hover,
+  position: relative;
+  border-radius: 64px;
+  &:hover,
   &:focus {
     transform: none;
   }
-
 `;
 
