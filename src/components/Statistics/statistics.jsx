@@ -1,5 +1,6 @@
 import React from 'react';
 import { useTheme } from 'styled-components';
+import { useSelector } from 'react-redux';
 import {
   BarChart,
   Bar,
@@ -21,7 +22,6 @@ import {
   GradientBar,
 } from './CustomizedChartComponents/components';
 import {  WrapperChart } from './statistics.styled';
-import { useSelector } from 'react-redux';
 
 const Statistics = ({ currentDate }) => {
   const tasks = useSelector(selectTasks);
