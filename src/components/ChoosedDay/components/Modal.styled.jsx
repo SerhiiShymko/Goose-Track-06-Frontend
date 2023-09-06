@@ -1,6 +1,7 @@
 import { styled } from 'styled-components';
 import { ReactComponent as close } from '../../../images/tascs/x-close.svg';
 import { ReactComponent as Plus } from '../../../images/tascs/addTask.svg';
+import { ReactComponent as Pencil } from '../../../images/tascs/pencil-2.svg';
 
 export const ContainerForm = styled.div`
   width: 396px;
@@ -26,6 +27,7 @@ export const ButtonAdd = styled.button`
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap:8px;
 
   color: #fff;
   text-align: center;
@@ -37,6 +39,11 @@ export const ButtonAdd = styled.button`
 export const SvgPlus = styled(Plus)`
   width: 20px;
   height: 20px;
+  stroke: rgba(255, 255, 255, 1);
+`;
+export const SvgPencil = styled(Pencil)`
+  width: 18px;
+  height: 18px;
   stroke: rgba(255, 255, 255, 1);
 `;
 

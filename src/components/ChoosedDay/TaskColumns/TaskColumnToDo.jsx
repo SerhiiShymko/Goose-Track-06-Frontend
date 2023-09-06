@@ -28,8 +28,31 @@ import { useState } from 'react';
 import { ModalAddAndChange } from '../components/Modal';
 
 const TaskColumnToDo = ({ data, currentDay }) => {
-  const [showModal, setShowModal] = useState(false);
+ const [showModalAdd, setShowModalAdd] = useState(false);
+  const [showModalChange, setShowModalChange] = useState(false);
+  const [task, setTask] = useState([]);
+
   const dispatch = useDispatch();
+
+   const openModalChange = event => {
+     const id = event.currentTarget.dataset.number;
+     const currentTask = data.filter(task => task._id === id);
+     setTask(currentTask);
+
+     setShowModalChange(true);
+     return;
+   };
+   const openModalAdd = () => {
+     setShowModalAdd(true);
+   };
+
+   const closeModalAdd = () => {
+     setShowModalAdd(false);
+   };
+   const closeModalChange = () => {
+     setShowModalChange(false);
+   };
+
   const priorityColor = priority => {
     if (priority === PRIORITY.LOW) {
       return '#72C2F8';
@@ -37,15 +60,7 @@ const TaskColumnToDo = ({ data, currentDay }) => {
       return '#F3B249';
     }
     return '#EA3D65';
-  };
-
-  const openModal = () => {
-    setShowModal(true);
-  };
-
-  const closeModal = () => {
-    setShowModal(false);
-  };
+  };   
 
   const letterUp = name => {
     const altName = name;
@@ -71,15 +86,13 @@ const TaskColumnToDo = ({ data, currentDay }) => {
     dispatch(deleteTask(id));
   };
   
-  const onDragEnd = result => {
-    // TODO
-  };
+ 
   return (
-    <DragDropContext onDragEnd={onDragEnd}>
+    <DragDropContext>
       <TaskBorder>
         <TaskName>
           <TextInTitle>To do</TextInTitle>
-          <SvgPlusCircle type="button" onClick={openModal} />
+          <SvgPlusCircle type="button" onClick={openModalAdd} />
         </TaskName>
         <TaskListContainer>
           {data?.map(item => (
@@ -94,23 +107,36 @@ const TaskColumnToDo = ({ data, currentDay }) => {
                 </WrapperUser>
                 <TaskLogoList>
                   <SimplePopper category={'to-do'} number={item._id} />
-                  <SvgPencil number={item._id} />
+                  <SvgPencil
+                    type="button"
+                    onClick={openModalChange}
+                    data-number={item._id}
+                  />
                   <BasicPopover number={item._id} handleDelete={handleDelete} />
                 </TaskLogoList>
               </KontrolWrapper>
             </TaskItemContainer>
           ))}
         </TaskListContainer>
-        <ButtonAddTask type="button" onClick={openModal}>
+        <ButtonAddTask type="button" onClick={openModalAdd}>
           <SvgAddTask />
           <TextInButton>Add task</TextInButton>
         </ButtonAddTask>
-        {showModal && (
+        {showModalAdd && (
           <ModalAddAndChange
-            closeModal={closeModal}
+            closeModal={closeModalAdd}
             todo={'add'}
-            currentDay={currentDay}
             category={CATEGORY.TODO}
+            currentDay={currentDay}
+          />
+        )}
+        {showModalChange && (
+          <ModalAddAndChange
+            closeModal={closeModalChange}
+            todo={'change'}
+            category={CATEGORY.TODO}
+            currentDay={currentDay}
+            task={task}
           />
         )}
       </TaskBorder>
