@@ -64,7 +64,6 @@ const UserProfile = () => {
           ) : (
             <UserPhotoSvg />
           )}
-
           <PlusIcon />
         </ChangeAvatarBtn>
       </UserPhotoWrapper>
