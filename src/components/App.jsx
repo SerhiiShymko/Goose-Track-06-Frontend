@@ -12,7 +12,6 @@ import Spinner from './Spinner/Spinner';
 import { selectIsLoggedIn, selectIsRefreshing } from 'redux/auth/selectors';
 import { refreshUser } from 'redux/auth/operations';
 import { DARK, GlobalStyle, LIGHT } from 'styles/Global';
-// import { Layout } from './Layout';
 import { format } from 'date-fns';
 
 const MainPage = lazy(() => import('pages/MainPage/MainPage'));
@@ -50,7 +49,6 @@ export function App() {
       <ThemeProvider theme={theme}>
         <GlobalStyle />
         <Routes>
-          {/* <Route path="/" element={<Layout />}> */}
           <Route path="/" element={isLoggedIn ? <MainLayout /> : <MainPage />}>
             <Route
               path="calendar/"
@@ -62,7 +60,7 @@ export function App() {
                   }
                 />
               }
-              />
+            />
             <Route
               path="account"
               element={
@@ -111,7 +109,6 @@ export function App() {
               <PublicRoute redirectTo="/calendar" component={<LoginPage />} />
             }
           />
-          {/* </Route> */}
           <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </ThemeProvider>
