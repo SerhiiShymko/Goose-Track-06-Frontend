@@ -121,7 +121,7 @@ const TaskColumnInProg = ({ data, currentDay }) => {
         <ModalAddAndChange
           closeModal={closeModalAdd}
           todo={'add'}
-          category={CATEGORY.DONE}
+          category={CATEGORY.INPROGRESS}
           currentDay={currentDay}
         />
       )}
@@ -129,7 +129,7 @@ const TaskColumnInProg = ({ data, currentDay }) => {
         <ModalAddAndChange
           closeModal={closeModalChange}
           todo={'change'}
-          category={CATEGORY.DONE}
+          category={CATEGORY.INPROGRESS}
           currentDay={currentDay}
           task={task}
         />
