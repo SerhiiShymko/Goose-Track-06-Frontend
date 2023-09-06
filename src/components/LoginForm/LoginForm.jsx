@@ -51,7 +51,7 @@ export const LoginForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
-                  border={'1px solid #DA1414'}
+                  $border={'1px solid #DA1414'}
                   type="text"
                   name="email"
                   placeholder="Enter email"
@@ -78,7 +78,7 @@ export const LoginForm = () => {
                   value={values.email}
                   type="text"
                   name="email"
-                  border={
+                  $border={
                     values.email !== `` && !errors.email
                       ? '1px solid #3CBC81'
                       : undefined
@@ -95,7 +95,7 @@ export const LoginForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.password.trim()}
-                  border={'1px solid #DA1414'}
+                  $border={'1px solid #DA1414'}
                   type="text"
                   name="password"
                   placeholder="Enter password"
@@ -122,7 +122,7 @@ export const LoginForm = () => {
                   type="text"
                   name="password"
                   style={{ marginBottom: '32px' }}
-                  border={
+                  $border={
                     values.password !== `` && !errors.password
                       ? ' 1px solid #3CBC81'
                       : undefined
