@@ -37,7 +37,7 @@ const UserProfile = () => {
   const filePicker = useRef(null);
 
   const handleChangeAvatar = event => {
-    console.log(event.target.files[0]);
+    // console.log(event.target.files[0]);
     setSelectedFile(event.target.files[0]);
   };
 
@@ -50,7 +50,7 @@ const UserProfile = () => {
     formData.append('avatar', selectedFile);
 
     dispatch(updateUser(formData));
-    console.log(currentUserInfo);
+    // console.log(currentUserInfo);
   };
 
   const handlePick = () => {

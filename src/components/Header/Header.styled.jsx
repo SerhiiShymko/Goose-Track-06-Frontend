@@ -9,10 +9,13 @@ export const ContentWrapper = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-`;
+  margin-top: 10px;
+`
+
 
 export const CurrentPage = styled.div`
-  width: 183px;
+  /* width: 183px; */
+  /* margin-top: 17px; */
   color: ${({ theme }) => theme.colors.colorAccent};
   text-shadow: 0px 9.4px 57.6875px rgba(0, 0, 0, 0.04),
     0px 47px 355px rgba(0, 0, 0, 0.07);

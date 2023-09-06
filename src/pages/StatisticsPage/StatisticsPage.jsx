@@ -52,9 +52,6 @@ const StatisticsPage = () => {
     dispatch(setCurrentDate(dayTimeStamp));
   };
 
-
-
- 
  const nextMonth = () => {
    const locationDay = location.pathname.slice(10, 13);
    if (locationDay === 'day' || location.pathname === '/statistics') {
