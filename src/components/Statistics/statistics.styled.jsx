@@ -11,7 +11,7 @@ export const WrapperChart = styled.div`
   font-size: 14px;
   font-weight: 400;
   border-radius: 20px;
-  border: solid 2px #e3f3ff;
+  border: 2px solid #e3f3ff;
 
   @media screen and (min-width: 768px) {
     width: 640px;
@@ -61,4 +61,4 @@ export const Wrapper = styled.div`
     width: 100%;
     margin-left: 100px;
   }
-  `;
+`;

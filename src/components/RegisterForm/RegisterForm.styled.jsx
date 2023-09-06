@@ -106,7 +106,7 @@ export const AuthLabel = styled.label`
 export const AuthInput = styled.input`
   display: block;
   border-radius: 8px;
-  border: ${props => props.border || '1px solid #dce3e5'};
+  border: ${props => props.$border || '1px solid #dce3e5'};
   background: #fff;
   box-sizing: border-box;
   padding: 14px;

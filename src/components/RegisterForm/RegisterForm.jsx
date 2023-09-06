@@ -55,7 +55,7 @@ export const RegisterForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.name}
-                  border={'1px solid #DA1414'}
+                  $border={'1px solid #DA1414'}
                   type="text"
                   name="name"
                   placeholder="Enter your name"
@@ -75,7 +75,7 @@ export const RegisterForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.name}
-                  border={
+                  $border={
                     values.name.length > 1 && !errors.name
                       ? '1px solid #3CBC81'
                       : undefined
@@ -94,7 +94,7 @@ export const RegisterForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.email}
-                  border={'1px solid #DA1414'}
+                  $border={'1px solid #DA1414'}
                   type="text"
                   name="email"
                   placeholder="Enter email"
@@ -121,7 +121,7 @@ export const RegisterForm = () => {
                   value={values.email}
                   type="text"
                   name="email"
-                  border={
+                  $border={
                     values.email !== `` && !errors.email
                       ? '1px solid #3CBC81'
                       : undefined
@@ -138,7 +138,7 @@ export const RegisterForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.password}
-                  border={'1px solid #DA1414'}
+                  $border={'1px solid #DA1414'}
                   type="text"
                   name="password"
                   placeholder="Enter password"
@@ -165,7 +165,7 @@ export const RegisterForm = () => {
                   type="text"
                   name="password"
                   style={{ marginBottom: '32px' }}
-                  border={
+                  $border={
                     values.password !== `` && !errors.password
                       ? ' 1px solid #3CBC81'
                       : undefined
