@@ -261,7 +261,7 @@ export const InputAvatar = styled.input`
 `
 
 export const ChangeAvatarBtn = styled.button`
-background-color: #fff;
+border-radius: 64px;
  &:hover,
   &:focus {
     transform: none;
