@@ -160,6 +160,7 @@ export const RadioInput = styled.input`
   -moz-appearance: none;
   appearance: none;
   outline: none;
+  cursor: pointer;
 
   &::before {
     content: '';
@@ -189,4 +190,5 @@ export const RadioInput = styled.input`
 export const RadioLabel = styled.label`
   display: flex;
   color: ${({ theme }) => theme.colors.colorBody};
+  cursor: pointer;
 `;
