@@ -22,9 +22,11 @@ import { useDispatch } from 'react-redux';
 import { setTheme } from 'redux/auth/authSlice';
 import AddFeedbackBtn from 'components/AddFeedbackBtn/AddFeedbackBtn';
 import HeaderLogo from './HeaderLogo/HeaderLogo';
+import { useResize } from 'components/ChoosedDay/DayCalendarHead';
 
 const Header = ({ handleClick }) => {
   const currentUserInfo = useSelector(selectUser);
+  const {width} = useResize()
 
   const splitName = currentUserInfo.name.split(' ');
   const themeName = useSelector(selectTheme);
@@ -43,19 +45,18 @@ const Header = ({ handleClick }) => {
     if (location.pathname.includes('calendar')) return 'Calendar';
     if (location.pathname.includes('statistics')) return 'Statistics';
   };
-
   return (
     <Container>
       <ContentWrapper>
-        {window.innerWidth < 1440 && (
+        {width < 1440 && (
           <SideBarBtn type="button" onClick={handleClick}>
             <BurgerIcon />
           </SideBarBtn>
         )}
 
-        {window.innerWidth >= 1440 && (
+        {width >= 1440 ? (
           <CurrentPage>{getTextForCurrentPage()}</CurrentPage>
-        )}
+        ) : null}
         <UserWrapper>
           <AddFeedbackBtn />
           <ThemeTogglerBtn type="button" onClick={toggleTheme}>
