@@ -52,27 +52,21 @@ const UserProfile = () => {
 
     dispatch(updateUser(formData));
     console.log(currentUserInfo);
+  };
 
-// <<<<<<< UserInfo
-//   };
+  const handlePick = () => {
+    filePicker.current.click();
+  };
 
-//   const handlePick = () => {
-//     filePicker.current.click();
-//   };
-//   return (
-// =======
   return isRefreshing ? (
     <Spinner />
   ) : (
-// >>>>>>> main
     <MainWrapper>
       <UserPhotoWrapper>
         <ChangeAvatarBtn onClick={handlePick}>
-          {currentUserInfo.avatarURL ? 
-           
-              <UserPhoto alt="avatar" src={currentUserInfo.avatarURL} />
-
-           : (
+          {currentUserInfo.avatarURL ? (
+            <UserPhoto alt="avatar" src={currentUserInfo.avatarURL} />
+          ) : (
             <UserPhotoSvg />
           )}
 
