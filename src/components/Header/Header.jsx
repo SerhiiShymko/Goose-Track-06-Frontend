@@ -16,13 +16,19 @@ import {
 import Spinner from 'components/Spinner/Spinner';
 import { Outlet, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { selectTheme, selectUser } from 'redux/auth/selectors';
+import {
+  selectIsRefreshing,
+  selectTheme,
+  selectUser,
+} from 'redux/auth/selectors';
 import { useDispatch } from 'react-redux';
 import { setTheme } from 'redux/auth/authSlice';
 import AddFeedbackBtn from 'components/AddFeedbackBtn/AddFeedbackBtn';
 
-const Header =  ({ handleClick }) => {
+const Header = ({ handleClick }) => {
   const currentUserInfo = useSelector(selectUser);
+  const isRefreshing = useSelector(selectIsRefreshing);
+
   const splitName = currentUserInfo.name.split(' ');
   const themeName = useSelector(selectTheme);
 
@@ -40,18 +46,20 @@ const Header =  ({ handleClick }) => {
     if (location.pathname.includes('statistics')) return 'Statistics';
   };
 
-  return (
+  return isRefreshing ? (
+    <Spinner />
+  ) : (
     <Container>
       <ContentWrapper>
-        {window.innerWidth <= 1440 && (
+        {window.innerWidth < 1440 && (
           <SideBarBtn type="button" onClick={handleClick}>
             <BurgerIcon />
           </SideBarBtn>
         )}
 
-        {window.innerWidth >= 1440 ? (
+        {window.innerWidth >= 1440 && (
           <CurrentPage>{getTextForCurrentPage()}</CurrentPage>
-        ) : null}
+        )}
         <UserWrapper>
           <AddFeedbackBtn />
           <ThemeTogglerBtn type="button" onClick={toggleTheme}>
