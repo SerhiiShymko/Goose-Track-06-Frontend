@@ -8,7 +8,7 @@ import { useSelector } from 'react-redux';
 import { selectCurrentDate } from 'redux/auth/selectors';
 import { useState } from 'react';
 
-export const PeriodSelect = () => {
+export const PeriodSelect = ({ periodType }) => {
   const [showMonth, setShowMonth] = useState();
 
   const choosedDate = useSelector(selectCurrentDate);
@@ -20,14 +20,20 @@ export const PeriodSelect = () => {
       <BtnTypeSelectMonth
         to={`month/${month}`}
         $active={showMonth}
-        onClick={() => setShowMonth(true)}
+        onClick={() => {
+          setShowMonth(true);
+          periodType('month');
+        }}
       >
         Month
       </BtnTypeSelectMonth>
       <BtnTypeSelectDay
         to={`day/${date}`}
         $active={!showMonth}
-        onClick={() => setShowMonth(false)}
+        onClick={() => {
+          setShowMonth(false);
+          periodType('day');
+        }}
       >
         Day
       </BtnTypeSelectDay>

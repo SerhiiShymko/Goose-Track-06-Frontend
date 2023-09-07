@@ -10,6 +10,7 @@ export const CalendarToolBar = ({
   onPrev,
   dateToday,
   onClickDate,
+  periodType,
 }) => {
   // const [activePeriod, setActivePeriod] = useState('month');
 
@@ -26,7 +27,7 @@ export const CalendarToolBar = ({
         dateToday={dateToday}
         onClickDate={onClickDate}
       />
-      <PeriodSelect />
+      <PeriodSelect periodType={periodType} />
     </Wrapper>
   );
 };
