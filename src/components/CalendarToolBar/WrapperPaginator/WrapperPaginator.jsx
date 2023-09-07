@@ -21,12 +21,13 @@ export const WrapperPaginator = ({
   onPrev,
   dateToday,
   onClickDate,
+  activePeriod,
 }) => {
   const [open, setOpen] = useState(false);
   const location = useLocation();
   const selectDate = useSelector(selectCurrentDate);
 
-  const locationDay = location.pathname.slice(10, 13);
+  // const locationDay = location.pathname.slice(10, 13);
 
   const formattedDay = format(selectDate, 'd MMMM yyyy');
   return (
@@ -37,20 +38,21 @@ export const WrapperPaginator = ({
           setOpen(!open);
         }}
       >
-        {(locationDay === 'day' || location.pathname === '/statistics')
+        {activePeriod === 'day' || location.pathname === '/statistics'
           ? formattedDay
           : dateToday}
         {open && (
-        <CalendarModal
-          onNext={onNext}
-          onPrev={onPrev}
-          dateToday={dateToday}
-          dayInterval={dayInterval}
-          onClickDate={onClickDate}
-        />
-      )}
+          <CalendarModal
+            onNext={onNext}
+            onPrev={onPrev}
+            dateToday={dateToday}
+            dayInterval={dayInterval}
+            onClickDate={onClickDate}
+            activePeriod={activePeriod}
+          />
+        )}
       </ButtonForOpenCalendar>
-      
+
       <PeriodPaginator>
         <BtnPaginatorLeft onClick={onPrev}>
           <ImgPaginatorPrev src={Prev} alt="prev" width={16} height={16} />

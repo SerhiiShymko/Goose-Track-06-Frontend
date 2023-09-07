@@ -24,6 +24,7 @@ export const CalendarModal = ({
   dateToday,
   dayInterval,
   onClickDate,
+  activePeriod,
 }) => {
   const location = useLocation();
   const currentDate = useSelector(selectCurrentDate);

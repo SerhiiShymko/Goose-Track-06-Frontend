@@ -21,12 +21,16 @@ import {
   CustomizedMostPopularLabel,
   GradientBar,
 } from './CustomizedChartComponents/components';
-import {  WrapperChart } from './statistics.styled';
+import { WrapperChart } from './statistics.styled';
+import { format } from 'date-fns';
 
-const Statistics = ({ currentDate }) => {
+const Statistics = () => {
   const tasks = useSelector(selectTasks);
   const theme = useTheme();
   const widthViewPort = useResize();
+
+  const selectDate = useSelector(state => state.auth.currentDate);
+  const currentDate = format(selectDate, 'yyyy-MM-dd');
 
   const tasksByDay = countUserTasks(FilterTasksByDay(tasks, currentDate));
   const tasksByMonth = countUserTasks(tasks);
