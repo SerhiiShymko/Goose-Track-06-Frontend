@@ -29,7 +29,7 @@ export const CalendarToolBar = ({
         onClickDate={onClickDate}
         activePeriod={activePeriod}
       />
-      <PeriodSelect periodType={periodType} />
+      <PeriodSelect periodType={periodType} activePeriod={activePeriod} />
     </Wrapper>
   );
 };
