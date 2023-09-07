@@ -34,7 +34,7 @@ export const ModalAddAndChange = ({
   const currentTitle = task ? task[0].title : '';
   const currentTimeStart = task ? task[0].start : '';
   const currentTimeEnd = task ? task[0].end : '';
-  const currentRadio = task ? task[0].priority : '';
+  const currentRadio = task ? task[0].priority : PRIORITY.LOW;
   const currentId = task ? task[0]._id : '';
   const currentCategory = task ? task[0].category : '';
 
