@@ -95,6 +95,7 @@ const Statistics = () => {
             dataKey="day"
             fill="url(#linearDay)"
             radius={8}
+            formatter={label => label}
             label={{
               formatter: label => label + '%',
               fill: theme.colors.colorBody,
@@ -107,6 +108,7 @@ const Statistics = () => {
             dataKey="month"
             fill="url(#linearMonth)"
             radius={8}
+            formatter={label => label}
             label={{
               formatter: label => label + '%',
               fill: theme.colors.colorBody,
