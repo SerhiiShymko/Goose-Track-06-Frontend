@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-import calendar_goos_desktop from 'images/header/header_goos_desktop.png';
-import calendar_goos_desktopx2 from 'images/header/header_goos_desktop@x2.png';
+import calendar_goos_desktop from 'images/header/header_goos_desktop.jpg';
+import calendar_goos_desktopx2 from 'images/header/header_goos_desktop@x2.jpg';
 
 export const WrapperCurrentPage = styled.div`
   display: flex;
