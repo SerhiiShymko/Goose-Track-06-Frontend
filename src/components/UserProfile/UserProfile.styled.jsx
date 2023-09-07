@@ -7,6 +7,7 @@ import { Field } from 'formik';
 export const MainWrapper = styled.div`
   margin-top: 64px;
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
+  padding: 0 24px;
 
   @media screen and (min-width: 768px) {
     padding: 40px 175px;
