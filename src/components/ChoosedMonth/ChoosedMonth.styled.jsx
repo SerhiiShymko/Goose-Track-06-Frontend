@@ -100,7 +100,7 @@ export const DayOfMonth = styled.div`
   padding: 4px 6px;
   margin-left: auto;
   margin-right: 2px;
-  margin-bottom: 18px;
+  margin-bottom: 6px;
   width: 20px;
   height: 22px;
   border-radius: 6px;
@@ -110,23 +110,8 @@ export const DayOfMonth = styled.div`
   @media screen and (min-width: 768px) {
     width: 27px;
     height: 26px;
-    margin-right: 10px;
   }
   @media screen and (min-width: 1440px) {
     margin-right: 6px;
   }
 `;
-
-// export const DateNoSelected = styled.div`
-//   display: flex;
-//   padding: 4px 8px;
-//   justify-content: center;
-//   align-items: center;
-//   width: 20px;
-//   height: 22px;
-
-//   @media screen and (min-width: 768px) {
-//     width: 27px;
-//     height: 26px;
-//   }
-// `;
