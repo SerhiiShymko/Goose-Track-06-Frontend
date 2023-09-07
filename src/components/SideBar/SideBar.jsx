@@ -1,5 +1,4 @@
 import React from 'react';
-// import PropTypes from 'prop-types'
 
 import UserNav from './UserNav/UserNav';
 import LogoutBtn from './LogoutBtn/LogoutBtn';
@@ -13,9 +12,5 @@ function SideBar({ isShown, handleClick }) {
     </ContainerSideBar>
   );
 }
-
-// SideBar.propTypes = {
-
-// }
 
 export default SideBar;

@@ -162,7 +162,7 @@ export const RegisterForm = () => {
                   onChange={handleChange}
                   onBlur={handleBlur}
                   value={values.password.trim()}
-                  type="text"
+                  type="password"
                   name="password"
                   style={{ marginBottom: '32px' }}
                   $border={
