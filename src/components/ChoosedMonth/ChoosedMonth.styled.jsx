@@ -43,14 +43,12 @@ export const CalendarTable = styled.div`
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   grid-template-rows: repeat(${props => props.$columnsCount}, 94px);
-  /* grid-row-gap: 1px; */
-  /* grid-column-gap: 1px; */
 
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.5);
   background: ${({ theme }) => theme.colors.backgroundSubcomponents};
   color: ${({ theme }) => theme.colors.colorBody};
-  /* font-family: Inter; */
+
   font-size: 12px;
   font-style: normal;
   font-weight: 700;
