@@ -7,17 +7,27 @@ import { Field } from 'formik';
 export const MainWrapper = styled.div`
   margin-top: 64px;
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
-  padding: 0 24px;
+  padding: 40px 24px;
+  border-radius: 16px;
+  position: relative;
 
   @media screen and (min-width: 768px) {
     padding: 40px 175px;
+  }
+
+  @media screen and (min-width: 1440px) {
+    padding: 60px 165px;
   }
 `;
 
 export const UserPhotoWrapper = styled.div`
   display: flex;
   justify-content: center;
-
+  @media screen and (max-width: 767px) {
+    position: absolute;
+    left: 131px;
+    top: -35px;
+  }
 `;
 
 export const UserPhotoMainWrapper = styled.div`
@@ -201,10 +211,8 @@ export const Input = styled(Field)`
 export const BtnSaveChangesWrapper = styled.div`
   text-align: center;
 
-  margin-top: 40px;
-
   @media screen and (min-width: 1440px) {
-    margin-top: 88px;
+    margin-top: 48px;
   }
 `;
 
