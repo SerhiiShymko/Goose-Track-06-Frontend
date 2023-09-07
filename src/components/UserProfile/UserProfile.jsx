@@ -32,33 +32,17 @@ const UserProfile = () => {
   const [disabledButton,setDisabledButton]=useState(true)
 
   const dispatch = useDispatch();
-  // const [selectedFile, setSelectedFile] = useState(null);
+
 
   const filePicker = useRef(null);
 
   const handleChangeAvatar = event => {
-    // console.log(event.target.files[0]);
-    // setSelectedFile(event.target.files[0]);
-    
       const file = event.target.files[0];
       const formData = new FormData();
       formData.append('avatar', file);
 
       dispatch(updateUser(formData));
     };
-  
-
-  // const handleUpload = async () => {
-  //   if (!selectedFile) {
-  //     alert('Please select a file');
-  //     return;
-  //   }
-  //   const formData = new FormData();
-  //   formData.append('avatar', selectedFile);
-
-  //   dispatch(updateUser(formData));
-  //   // console.log(currentUserInfo);
-  // };
 
   const handlePick = () => {
     filePicker.current.click();
@@ -114,8 +98,6 @@ const UserProfile = () => {
         onChange={handleChangeAvatar}
         accept="image/*,.png,.jpg"
       />
-
-      {/* <button onClick={handleUpload}>Upload now!</button> */}
       <UserInfoWrapper>
         <UserNameMain>{currentUserInfo.name}</UserNameMain>
         <UserSurnameMain>User</UserSurnameMain>
