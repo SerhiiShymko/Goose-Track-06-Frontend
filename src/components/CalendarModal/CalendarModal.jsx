@@ -5,13 +5,11 @@ import {
   Caption,
   DataText,
   Day,
+  ImgPaginatorNext,
   ImgPaginatorPrev,
   ModalCalendar,
   WeekDays,
 } from './CalendarModal.styled';
-import { ImgPaginatorNextModal } from 'components/CalendarToolBar/CalendarToolBar.styled';
-import Prev from '../../images/calendar/chevron-left.svg';
-import Next from '../../images/calendar/chevron-right.svg';
 import { addDays, format, startOfWeek } from 'date-fns';
 import { nanoid } from 'nanoid';
 import { Link, useLocation } from 'react-router-dom';
@@ -28,8 +26,7 @@ export const CalendarModal = ({
 }) => {
   const location = useLocation();
   const currentDate = useSelector(selectCurrentDate);
-  // const formattedDate = format(selectDate, 'yyyy-MM-dd')
-  // const parseDate = parse(formattedDate, 'yyyy-MM-dd', new Date())
+
   const startDayOfWeek = startOfWeek(new Date(), { weekStartsOn: 1 });
   const weekDays = [];
   for (let day = 0; day < 7; day++) {
@@ -76,11 +73,11 @@ export const CalendarModal = ({
     <ModalCalendar>
       <Caption>
         <Button onClick={onPrev}>
-          <ImgPaginatorPrev src={Prev} alt="prev" width={18} height={18} />
+          <ImgPaginatorPrev />
         </Button>
         <DataText>{dateToday}</DataText>
         <Button onClick={onNext}>
-          <ImgPaginatorNextModal src={Next} alt="next" width={18} height={18} />
+          <ImgPaginatorNext />
         </Button>
       </Caption>
       <WeekDays>

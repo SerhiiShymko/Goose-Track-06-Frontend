@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { ReactComponent as prev } from '../../images/calendar/chevron-left.svg';
+import { ReactComponent as next } from '../../images/calendar/chevron-right.svg';
 
 export const ModalCalendar = styled.div`
   position: absolute;
@@ -88,13 +89,6 @@ export const CalendarTable = styled.div`
   grid-template-rows: repeat(${props => props.$columnsCount}, 1fr);
   grid-row-gap: 3px;
 `;
-
-// export const CalendarTableShortMonth = styled.div`
-//   display: grid;
-//   grid-template-columns: repeat(7, 1fr);
-//   grid-template-rows: repeat(5, 1fr);
-//   grid-row-gap: 3px;
-// `;
 
 export const CalendarDate = styled.div`
   padding: 12px 0;
@@ -185,6 +179,15 @@ export const ActiveCalendarDate = styled.div`
 `;
 
 export const ImgPaginatorPrev = styled(prev)`
+  stroke: #fff;
+
+  @media screen and (min-width: 768px) {
+    width: 18px;
+    height: 18px;
+  }
+`;
+
+export const ImgPaginatorNext = styled(next)`
   stroke: #fff;
 
   @media screen and (min-width: 768px) {
