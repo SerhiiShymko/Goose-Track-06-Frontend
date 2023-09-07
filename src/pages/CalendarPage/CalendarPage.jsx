@@ -48,12 +48,12 @@ const CalendarPage = () => {
       const nextDay = add(currentDay, { days: 1 });
       const dayTimeStamp = nextDay.getTime();
       dispatch(setCurrentDate(dayTimeStamp));
-      setActivePeriod('day');
+      // setActivePeriod('day');
     } else {
       let currentDayNextMonth = add(currentDay, { months: 1 });
       const dateTimeStamp = currentDayNextMonth.getTime();
       dispatch(setCurrentDate(dateTimeStamp));
-      setActivePeriod('month');
+      // setActivePeriod('month');
     }
   };
 
@@ -62,12 +62,12 @@ const CalendarPage = () => {
       const prevDay = add(currentDay, { days: -1 });
       const dayTimeStamp = prevDay.getTime();
       dispatch(setCurrentDate(dayTimeStamp));
-      setActivePeriod('day');
+      // setActivePeriod('day');
     } else {
       let currentDayPrevMonth = add(currentDay, { months: -1 });
       const dateTimeStamp = currentDayPrevMonth.getTime();
       dispatch(setCurrentDate(dateTimeStamp));
-      setActivePeriod('month');
+      // setActivePeriod('month');
     }
   };
 
