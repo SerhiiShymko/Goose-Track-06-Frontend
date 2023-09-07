@@ -58,8 +58,12 @@ export const CalendarModal = ({
         >
           {location.pathname === '/statistics' ? (
             <Link>{format(day, 'd')}</Link>
-          ) : (
+          ) : activePeriod === 'day' ? (
             <Link to={`day/${format(day, 'yyyy-MM-dd')}`}>
+              {format(day, 'd')}
+            </Link>
+          ) : (
+            <Link to={`month/${format(day, 'yyyy-MM')}`}>
               {format(day, 'd')}
             </Link>
           )}
