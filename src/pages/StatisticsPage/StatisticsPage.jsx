@@ -10,7 +10,6 @@ import {
   parse,
   startOfWeek,
 } from 'date-fns';
-import { useState } from 'react';
 import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchTasks } from 'redux/tasks/operations';
@@ -22,16 +21,15 @@ import { setCurrentDate } from 'redux/auth/authSlice';
 const StatisticsPage = () => {
   const location = useLocation();
   const dispatch = useDispatch();
+  const selectDate = useSelector(state => state.auth.currentDate);
   
-  const date = format(new Date(), 'yyyy-MM-dd');
-  const [dataDate, setDataDate] = useState(date);
-  const dataMonth = dataDate.slice(0, 7)
+  const currentDate = format(new Date(selectDate), 'yyyy-MM-dd');
+  const dataMonth = format(selectDate, 'yyyy-MM');
    
   useEffect(() => {
     dispatch(fetchTasks(dataMonth));
   }, [dispatch, dataMonth]);
   
-  const selectDate = useSelector(state => state.auth.currentDate);
   const formattedDate = format(selectDate, 'MMMM yyyy');
   const formattedOneDay = format(selectDate, 'yyyy-MM-dd');
   
@@ -40,7 +38,6 @@ const StatisticsPage = () => {
  
   const handleClick = ({ currentTarget }) => {
     const selectedDate = currentTarget.dataset.day;
-    setDataDate(selectedDate);
 
     const parsedDateArray = selectedDate.split('-');
     const choosedDay = new Date(
@@ -96,7 +93,7 @@ const StatisticsPage = () => {
           onClickDate={handleClick}
         />
       </Wrapper>
-      <Statistics currentDate={dataDate} />
+      <Statistics currentDate={currentDate} />
     </StatisticWrapper>
   );
 };
