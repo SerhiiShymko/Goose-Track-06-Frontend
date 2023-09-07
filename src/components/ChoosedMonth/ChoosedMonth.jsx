@@ -13,9 +13,6 @@ import {
   startOfWeek,
   addDays,
   parse,
-  // parseISO,
-  // isValid,
-  // add,
   endOfWeek,
   endOfMonth,
   eachDayOfInterval,
@@ -23,14 +20,8 @@ import {
 } from 'date-fns';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-// import { useEffect } from 'react';
-// import { fetchTasks } from 'redux/tasks/operations';
-// import { CalendarToolBar } from 'components/CalendarToolBar/CalendarToolBar';
-// import { useState } from 'react';
-// import { useLocation, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import { fetchTasks } from 'redux/tasks/operations';
-// import { selectTasks } from 'redux/tasks/selectors';
 import { selectCurrentDate } from 'redux/auth/selectors';
 import { selectTasks } from 'redux/tasks/selectors';
 import TacksOfDay from './TacksOfDay';
@@ -38,7 +29,6 @@ import { setCurrentDate } from 'redux/auth/authSlice';
 
 const ChoosedMonth = () => {
   const dispatch = useDispatch();
-  // const location = useLocation();
 
   const tasks = useSelector(selectTasks);
   const selectDate = useSelector(selectCurrentDate);
@@ -50,8 +40,6 @@ const ChoosedMonth = () => {
     start: startOfWeek(firstDayCurrentMonth, { weekStartsOn: 1 }),
     end: endOfWeek(endOfMonth(firstDayCurrentMonth), { weekStartsOn: 1 }),
   });
-
-  // const dateFormat = format(selectDate, 'yyyy-MM');
 
   const currentMonth = format(
     add(firstDayCurrentMonth, { months: 0 }),
@@ -106,10 +94,6 @@ const ChoosedMonth = () => {
       );
     }
   });
-
-  // const taskResult = tasks.map(task => {
-  //   return <div key={task._id}>{task}</div>;
-  // });
 
   return (
     <>
