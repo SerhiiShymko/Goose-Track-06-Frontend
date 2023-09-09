@@ -15,15 +15,14 @@ import {
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
-import { useLocation } from 'react-router-dom';
 import { setCurrentDate } from 'redux/auth/authSlice';
 import { selectCurrentDate } from 'redux/auth/selectors';
 
 const CalendarPage = () => {
   const dispatch = useDispatch();
-  const location = useLocation();
 
   const [activePeriod, setActivePeriod] = useState('month');
+  const [open, setOpen] = useState(false);
 
   const selectDate = useSelector(selectCurrentDate);
   const formattedDate = format(selectDate, 'MMMM yyyy');
@@ -43,9 +42,11 @@ const CalendarPage = () => {
     );
     const dayTimeStamp = choosedDay.getTime();
     dispatch(setCurrentDate(dayTimeStamp));
+    setOpen(false);
   };
+
   const nextDate = () => {
-    if (activePeriod === 'day' || location.pathname === '/statistics') {
+    if (activePeriod === 'day') {
       const nextDay = add(currentDay, { days: 1 });
       const dayTimeStamp = nextDay.getTime();
       dispatch(setCurrentDate(dayTimeStamp));
@@ -59,7 +60,7 @@ const CalendarPage = () => {
   };
 
   const prevDate = () => {
-    if (activePeriod === 'day' || location.pathname === '/statistics') {
+    if (activePeriod === 'day') {
       const prevDay = add(currentDay, { days: -1 });
       const dayTimeStamp = prevDay.getTime();
       dispatch(setCurrentDate(dayTimeStamp));
@@ -87,6 +88,8 @@ const CalendarPage = () => {
         onClickDate={handleClick}
         setPeriodType={setActivePeriod}
         activePeriod={activePeriod}
+        setOpen={setOpen}
+        open={open}
       />
       <Suspense fallback={<Spinner />}>
         <Outlet />

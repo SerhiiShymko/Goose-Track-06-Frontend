@@ -11,6 +11,8 @@ export const CalendarToolBar = ({
   onClickDate,
   activePeriod,
   setPeriodType,
+  setOpen,
+  open,
 }) => {
   return (
     <Wrapper>
@@ -21,6 +23,8 @@ export const CalendarToolBar = ({
         dateToday={dateToday}
         onClickDate={onClickDate}
         activePeriod={activePeriod}
+        setOpen={setOpen}
+        open={open}
       />
       <PeriodSelect setPeriodType={setPeriodType} activePeriod={activePeriod} />
     </Wrapper>
