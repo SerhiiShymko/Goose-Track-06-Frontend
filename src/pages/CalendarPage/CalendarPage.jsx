@@ -17,6 +17,7 @@ import { useDispatch } from 'react-redux';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
 import { setCurrentDate } from 'redux/auth/authSlice';
+import { selectCurrentDate } from 'redux/auth/selectors';
 
 const CalendarPage = () => {
   const dispatch = useDispatch();
@@ -24,7 +25,7 @@ const CalendarPage = () => {
 
   const [activePeriod, setActivePeriod] = useState('month');
 
-  const selectDate = useSelector(state => state.auth.currentDate);
+  const selectDate = useSelector(selectCurrentDate);
   const formattedDate = format(selectDate, 'MMMM yyyy');
   const formattedOneDay = format(selectDate, 'yyyy-MM-dd');
 

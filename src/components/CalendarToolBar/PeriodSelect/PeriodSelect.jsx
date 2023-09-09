@@ -6,9 +6,21 @@ import {
 } from './PeriodSelect.styled';
 import { useSelector } from 'react-redux';
 import { selectCurrentDate } from 'redux/auth/selectors';
+import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 
 export const PeriodSelect = ({ setPeriodType, activePeriod }) => {
   const choosedDate = useSelector(selectCurrentDate);
+
+  const periodURL = useParams().currentDay; // поточний день в рядку браузера
+
+  useEffect(() => {
+    if (periodURL) {
+      setPeriodType('day');
+    } else {
+      setPeriodType('month');
+    }
+  });
 
   const date = format(choosedDate, 'yyyy-MM-dd');
   const month = format(choosedDate, 'yyyy-MM');
