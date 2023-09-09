@@ -38,9 +38,9 @@ export const DayText = styled.span`
   /* font-family: InterSemiBold; */
   font-weight: 600;
   color: ${({ theme }) =>
-    (theme.name = 'light'
+    theme.name === 'light'
       ? theme.colors.colorBody
-      : 'rgba(250, 250, 250, 0.3)')};
+      : 'rgba(250, 250, 250, 0.3)'};
   font-size: 14px;
   line-height: 18px; /* 128.571% */
   text-transform: uppercase;

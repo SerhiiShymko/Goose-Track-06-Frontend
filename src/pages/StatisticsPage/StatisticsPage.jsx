@@ -10,17 +10,15 @@ import {
   parse,
   startOfWeek,
 } from 'date-fns';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchTasks } from 'redux/tasks/operations';
 import { Wrapper } from 'components/Statistics/statistics.styled';
-import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { setCurrentDate } from 'redux/auth/authSlice';
 import { selectCurrentDate } from 'redux/auth/selectors';
 
 const StatisticsPage = () => {
-  const location = useLocation();
   const dispatch = useDispatch();
   const selectDate = useSelector(selectCurrentDate);
 
@@ -30,6 +28,9 @@ const StatisticsPage = () => {
   useEffect(() => {
     dispatch(fetchTasks(dataMonth));
   }, [dispatch, dataMonth]);
+
+  const [activePeriod, setActivePeriod] = useState('month');
+  const [open, setOpen] = useState(false);
 
   const formattedDate = format(selectDate, 'MMMM yyyy');
   const formattedOneDay = format(selectDate, 'yyyy-MM-dd');
@@ -48,31 +49,34 @@ const StatisticsPage = () => {
     );
     const dayTimeStamp = choosedDay.getTime();
     dispatch(setCurrentDate(dayTimeStamp));
+    setOpen(false);
   };
 
-  const nextMonth = () => {
-    const locationDay = location.pathname.slice(10, 13);
-    if (locationDay === 'day' || location.pathname === '/statistics') {
+  const nextDate = () => {
+    if (activePeriod === 'day') {
       const nextDay = add(currentDay, { days: 1 });
       const dayTimeStamp = nextDay.getTime();
       dispatch(setCurrentDate(dayTimeStamp));
+      // setActivePeriod('day');
     } else {
-      let firstDayNextMonth = add(firstDayCurrentMonth, { months: 1 });
-      const dateTimeStamp = firstDayNextMonth.getTime();
+      let currentDayNextMonth = add(currentDay, { months: 1 });
+      const dateTimeStamp = currentDayNextMonth.getTime();
       dispatch(setCurrentDate(dateTimeStamp));
+      // setActivePeriod('month');
     }
   };
 
-  const prevMonth = () => {
-    const locationDay = location.pathname.slice(10, 13);
-    if (locationDay === 'day' || location.pathname === '/statistics') {
+  const prevDate = () => {
+    if (activePeriod === 'day') {
       const prevDay = add(currentDay, { days: -1 });
       const dayTimeStamp = prevDay.getTime();
       dispatch(setCurrentDate(dayTimeStamp));
+      // setActivePeriod('day');
     } else {
-      let firstDayPrevMonth = add(firstDayCurrentMonth, { months: -1 });
-      const dateTimeStamp = firstDayPrevMonth.getTime();
+      let currentDayPrevMonth = add(currentDay, { months: -1 });
+      const dateTimeStamp = currentDayPrevMonth.getTime();
       dispatch(setCurrentDate(dateTimeStamp));
+      // setActivePeriod('month');
     }
   };
 
@@ -86,10 +90,14 @@ const StatisticsPage = () => {
       <Wrapper>
         <WrapperPaginator
           dayInterval={result}
-          onNext={nextMonth}
-          onPrev={prevMonth}
+          onNext={nextDate}
+          onPrev={prevDate}
           dateToday={formattedDate}
           onClickDate={handleClick}
+          setPeriodType={setActivePeriod}
+          activePeriod={activePeriod}
+          setOpen={setOpen}
+          open={open}
         />
       </Wrapper>
       <Statistics currentDate={currentDate} />

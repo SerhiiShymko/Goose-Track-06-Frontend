@@ -46,6 +46,7 @@ export const CalendarTable = styled.div`
 
   border-radius: 8px;
   border: 1px solid rgba(220, 227, 229, 0.5);
+  overflow: hidden;
   background: ${({ theme }) => theme.colors.backgroundSubcomponents};
   color: ${({ theme }) => theme.colors.colorBody};
 
@@ -79,15 +80,15 @@ export const DateCalendarMonth = styled(NavLink)`
   /* display: flex;
   flex-direction: column; */
   /* justify-content: end; */
-  padding: 8px 2px;
+  padding: 8px 0px 2px;
   border: solid ${({ theme }) => theme.colors.colorCalendarBorder};
   border-width: 0.5px;
 
   @media screen and (min-width: 768px) {
-    padding: 14px 4px;
+    padding: 14px 0px 4px;
   }
   @media screen and (min-width: 1440px) {
-    padding: 14px 8px;
+    padding: 14px 0px 8px;
   }
 `;
 

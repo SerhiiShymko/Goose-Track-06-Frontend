@@ -2,7 +2,6 @@ import { styled } from 'styled-components';
 
 // import Prev from '../../../images/calendar/chevron-left.svg'
 
-
 export const WrapperPagination = styled.div`
   display: flex;
   justify-content: space-between;
@@ -11,9 +10,8 @@ export const WrapperPagination = styled.div`
     justify-content: start;
   }
 `;
-export const ButtonForOpenCalendar = styled.div`
+export const ButtonForOpenCalendar = styled.button`
   padding: 6px 12px;
-  position: relative;
   border-radius: 8px;
   background: #3e85f3;
   color: #fff;
@@ -77,4 +75,8 @@ export const BtnPaginatorRight = styled.button`
   @media screen and (min-width: 768px) {
     padding: 8px 10px;
   }
+`;
+
+export const WrapperCalender = styled.div`
+  position: relative;
 `;

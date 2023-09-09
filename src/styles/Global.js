@@ -36,6 +36,7 @@ export const LIGHT = {
     backgroundBtnSideBarHover: '#E3F3FF', // Кнопки сайдбару (ховер)
   },
 };
+Object.freeze(LIGHT);
 
 export const DARK = {
   name: 'dark',
@@ -62,6 +63,7 @@ export const DARK = {
     backgroundBtnSideBarHover: '#3E85F3', // Кнопки сайдбару (ховер)
   },
 };
+Object.freeze(DARK);
 // THEMES======================== (end)
 
 export const GlobalStyle = createGlobalStyle`

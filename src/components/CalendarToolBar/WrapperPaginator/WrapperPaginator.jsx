@@ -4,16 +4,17 @@ import {
   BtnPaginatorRight,
   ButtonForOpenCalendar,
   PeriodPaginator,
+  WrapperCalender,
   WrapperPagination,
 } from './WrapperPaginator.styled';
 import { ImgPaginatorNext, ImgPaginatorPrev } from '../CalendarToolBar.styled';
-import { useState } from 'react';
 import Prev from '../../../images/calendar/chevron-left.svg';
 import Next from '../../../images/calendar/chevron-left.svg';
 import { useLocation } from 'react-router-dom';
 import { format } from 'date-fns';
 import { useSelector } from 'react-redux';
 import { selectCurrentDate } from 'redux/auth/selectors';
+// import { Modal } from '  components/Modal/Modal';
 
 export const WrapperPaginator = ({
   dayInterval,
@@ -22,8 +23,9 @@ export const WrapperPaginator = ({
   dateToday,
   onClickDate,
   activePeriod,
+  setOpen,
+  open,
 }) => {
-  const [open, setOpen] = useState(false);
   const location = useLocation();
   const selectDate = useSelector(selectCurrentDate);
 
@@ -32,16 +34,19 @@ export const WrapperPaginator = ({
   const formattedDay = format(selectDate, 'd MMMM yyyy');
   return (
     <WrapperPagination>
-      <ButtonForOpenCalendar
-        type="button"
-        onClick={() => {
-          setOpen(!open);
-        }}
-      >
-        {activePeriod === 'day' || location.pathname === '/statistics'
-          ? formattedDay
-          : dateToday}
+      <WrapperCalender>
+        <ButtonForOpenCalendar
+          type="button"
+          onClick={() => {
+            setOpen(!open);
+          }}
+        >
+          {activePeriod === 'day' || location.pathname === '/statistics'
+            ? formattedDay
+            : dateToday}
+        </ButtonForOpenCalendar>
         {open && (
+          // <Modal>
           <CalendarModal
             onNext={onNext}
             onPrev={onPrev}
@@ -50,8 +55,9 @@ export const WrapperPaginator = ({
             onClickDate={onClickDate}
             activePeriod={activePeriod}
           />
+          // </Modal>
         )}
-      </ButtonForOpenCalendar>
+      </WrapperCalender>
 
       <PeriodPaginator>
         <BtnPaginatorLeft onClick={onPrev}>

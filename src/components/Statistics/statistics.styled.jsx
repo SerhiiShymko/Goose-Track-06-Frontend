@@ -32,7 +32,7 @@ export const StatisticWrapper = styled.div`
   padding: 28px 14px;
   margin-top: 64px;
   width: 335px;
-  height: 684px;
+  /* height: 684px; */
   border-radius: 16px;
   background-color: #fff;
   background-color: ${({ theme }) => theme.colors.backgroundAccent};
@@ -44,13 +44,14 @@ export const StatisticWrapper = styled.div`
   @media screen and (min-width: 768px) {
     align-items: center;
     width: 704px;
-    height: 854px;
+    /* height: 854px; */
     padding: 132px 32px;
   }
 
   @media screen and (min-width: 1440px) {
     width: 100%;
     padding: 134px 113px;
+    margin-top: 32px;
   }
 `;
 
