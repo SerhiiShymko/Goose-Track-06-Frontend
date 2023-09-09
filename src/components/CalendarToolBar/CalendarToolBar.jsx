@@ -1,4 +1,3 @@
-// import { useState } from 'react';
 import { Wrapper } from './CalendarToolBar.styled';
 import { PeriodSelect } from './PeriodSelect/PeriodSelect';
 
@@ -13,12 +12,6 @@ export const CalendarToolBar = ({
   activePeriod,
   setPeriodType,
 }) => {
-  // const [activePeriod, setActivePeriod] = useState('month');
-
-  // const selectPeriod = value => {
-  //   setActivePeriod(value)
-  // }
-
   return (
     <Wrapper>
       <WrapperPaginator

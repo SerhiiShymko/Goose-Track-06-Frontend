@@ -182,8 +182,8 @@ export const Text = styled.p`
   font-size: 12px;
   font-weight: 400;
   line-height: 14px;
-  margin-bottom: ${props => props.marginbottom || '24px'};
-  color: ${props => props.color || '#DA1414'};
+  margin-bottom: 24px;
+  color: #da1414;
   @media screen and (min-width: 375px) {
     margin-bottom: 12px;
   }
