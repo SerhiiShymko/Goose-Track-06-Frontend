@@ -8,16 +8,16 @@ import { Field } from 'formik';
 export const MainWrapper = styled.div`
   margin-top: 64px;
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
-  padding: 40px 24px;
+  padding: 30px 24px;
   border-radius: 16px;
   position: relative;
 
   @media screen and (min-width: 768px) {
-    padding: 40px 175px;
+    padding: auto 175px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding: 60px 165px;
+    padding: auto 165px;
     margin-top: 32px;
   }
 `;
@@ -214,7 +214,7 @@ export const BtnSaveChangesWrapper = styled.div`
   text-align: center;
 
   @media screen and (min-width: 1440px) {
-    margin-top: 48px;
+    margin-top: 12px;
   }
 `;
 
