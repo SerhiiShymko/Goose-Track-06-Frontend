@@ -4,6 +4,7 @@ import { ReactComponent as UserPhotoHeaderSvgStyled } from '../../images/profile
 import { ReactComponent as IconError } from '../../images/registrPage/email-error-outline.svg';
 import { ReactComponent as IconSucces } from '../../images/registrPage/email-done.svg';
 import { Field } from 'formik';
+
 export const MainWrapper = styled.div`
   margin-top: 64px;
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
@@ -17,6 +18,7 @@ export const MainWrapper = styled.div`
 
   @media screen and (min-width: 1440px) {
     padding: 60px 165px;
+    margin-top: 32px;
   }
 `;
 
@@ -260,7 +262,6 @@ export const LabelText = styled.p`
   }
 `;
 
-
 export const InputAvatar = styled.input`
   opacity: 0;
   height: 0;
@@ -269,7 +270,7 @@ export const InputAvatar = styled.input`
   overflow: hidden;
   padding: 0;
   margin: 0;
-`
+`;
 
 export const ChangeAvatarBtn = styled.button`
   position: relative;
@@ -279,4 +280,3 @@ export const ChangeAvatarBtn = styled.button`
     transform: none;
   }
 `;
-

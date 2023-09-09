@@ -51,6 +51,7 @@ export const StatisticWrapper = styled.div`
   @media screen and (min-width: 1440px) {
     width: 100%;
     padding: 134px 113px;
+    margin-top: 32px;
   }
 `;
 
