@@ -17,9 +17,12 @@ import {
 } from '../RegisterForm/RegisterForm.styled';
 import { useDispatch } from 'react-redux';
 import { logIn } from 'redux/auth/operations';
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+
 //
 export const LoginForm = () => {
   const dispatch = useDispatch();
+
   return (
     <Box>
       <Formik
@@ -28,10 +31,11 @@ export const LoginForm = () => {
           password: ``,
         }}
         validationSchema={validateSchema}
-        onSubmit={(values, { resetForm }) => {
-          //console.log(values);
-          dispatch(logIn(values));
-          resetForm();
+        onSubmit={async values => {
+          const result = await dispatch(logIn(values));
+          !result?.error
+            ? Notify.success('Welcome!')
+            : Notify.failure('You are not logged in');
         }}
       >
         {({

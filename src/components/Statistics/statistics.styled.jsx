@@ -45,7 +45,7 @@ export const StatisticWrapper = styled.div`
     align-items: center;
     width: 704px;
     /* height: 854px; */
-    padding: 132px 32px;
+    padding: 88px 32px;
   }
 
   @media screen and (min-width: 1440px) {

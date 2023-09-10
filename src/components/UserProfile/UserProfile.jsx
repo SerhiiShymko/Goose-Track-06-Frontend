@@ -21,35 +21,38 @@ import {
 import { useDispatch } from 'react-redux';
 import React, { useEffect, useRef, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { selectUser } from 'redux/auth/selectors';
+import { selectError, selectUser } from 'redux/auth/selectors';
 import { Formik, Form, useFormikContext } from 'formik';
 import { validateSchemaUserProfile } from './validateSchemaUserProfile';
 import { updateUser } from 'redux/auth/operations';
-
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 const UserProfile = () => {
   const currentUserInfo = useSelector(selectUser);
-  const [disabledButton,setDisabledButton]=useState(true)
+  const error = useSelector(selectError);
+
+  const [disabledButton, setDisabledButton] = useState(true);
 
   const dispatch = useDispatch();
 
-
   const filePicker = useRef(null);
 
-  const handleChangeAvatar = event => {
-      const file = event.target.files[0];
-      const formData = new FormData();
-      formData.append('avatar', file);
+  const handleChangeAvatar = async event => {
+    const file = event.target.files[0];
+    const formData = new FormData();
+    formData.append('avatar', file);
 
-      dispatch(updateUser(formData));
-    };
+    const result = await dispatch(updateUser(formData));
+    !result?.error
+      ? Notify.success('Your avatar updated!')
+      : Notify.failure(error);
+  };
 
   const handlePick = () => {
     filePicker.current.click();
   };
 
   const MonitorsChanges = () => {
-    
     const { values } = useFormikContext();
 
     useEffect(() => {
@@ -73,12 +76,13 @@ const UserProfile = () => {
         setDisabledButton(false);
         return;
       }
-      setDisabledButton(true)
-    }, [values]);    
-    
-    return null
-  }
-    
+
+      setDisabledButton(true);
+    }, [values]);
+
+    return null;
+  };
+
   return (
     <MainWrapper>
       <UserPhotoWrapper>
@@ -111,15 +115,18 @@ const UserProfile = () => {
           skype: currentUserInfo.skype ?? '',
         }}
         validationSchema={validateSchemaUserProfile}
-        onSubmit={values => {
+        onSubmit={async values => {
           if (values.email === currentUserInfo.email) {
             const { email, ...restValues } = values;
             values = restValues;
           }
-          dispatch(updateUser(values));
+          const result = await dispatch(updateUser(values));
+          !result?.error
+            ? Notify.success('Your data updated!')
+            : Notify.failure(error);
+
           setDisabledButton(true);
         }}
-
       >
         {({
           touched,
@@ -135,7 +142,7 @@ const UserProfile = () => {
               {touched.name && errors.name ? (
                 <div>
                   <Label>
-                    <p style={{ color: '#DA1414' }}>Name</p>
+                    <p style={{ width: '90%', color: '#DA1414' }}>Name</p>
                     <Input
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -177,7 +184,7 @@ const UserProfile = () => {
               {touched.email && errors.email ? (
                 <div>
                   <Label>
-                    <p style={{ color: '#DA1414' }}>Email</p>
+                    <p style={{ width: '90%', color: '#DA1414' }}>Email</p>
                     <Input
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -224,7 +231,7 @@ const UserProfile = () => {
               {touched.birthday && errors.birthday ? (
                 <div>
                   <Label>
-                    <p style={{ color: '#DA1414' }}>birthday</p>
+                    <p style={{ width: '90%', color: '#DA1414' }}>birthday</p>
                     <Input
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -235,7 +242,9 @@ const UserProfile = () => {
                       placeholder="Enter birthday"
                     />
                     <ErrorIcon />
-                    <p style={{ color: '#DA1414' }}>{errors.birthday}</p>
+                    <p style={{ width: '90%', color: '#DA1414' }}>
+                      {errors.birthday}
+                    </p>
                   </Label>
                 </div>
               ) : (
@@ -272,7 +281,7 @@ const UserProfile = () => {
               {touched.phone && errors.phone ? (
                 <div>
                   <Label>
-                    <p style={{ color: '#DA1414' }}>Phone</p>
+                    <p style={{ width: '90%', color: '#DA1414' }}>Phone</p>
                     <Input
                       onChange={handleChange}
                       onBlur={handleBlur}
@@ -283,7 +292,9 @@ const UserProfile = () => {
                       placeholder="Enter phone"
                     />
                     <ErrorIcon />
-                    <p style={{ color: '#DA1414' }}>{errors.phone}</p>
+                    <p style={{ width: '90%', color: '#DA1414' }}>
+                      {errors.phone}
+                    </p>
                   </Label>
                 </div>
               ) : (
@@ -318,7 +329,7 @@ const UserProfile = () => {
               {touched.skype && errors.skype ? (
                 <div>
                   <Label>
-                    <p style={{ color: '#DA1414' }}>Skype</p>
+                    <p style={{ width: '90%', color: '#DA1414' }}>Skype</p>
                     <Input
                       onChange={handleChange}
                       onBlur={handleBlur}

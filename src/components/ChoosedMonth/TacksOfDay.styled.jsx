@@ -29,7 +29,7 @@ export const ListOfElements = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 92px;
-    height: 78px;
+    height: 64px;
   }
   @media screen and (min-width: 1440px) {
     width: 140px;
