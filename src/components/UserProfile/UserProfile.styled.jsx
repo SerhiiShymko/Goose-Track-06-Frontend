@@ -247,7 +247,7 @@ export const SuccesIcon = styled(IconSucces)`
 export const ErrorIcon = styled(IconError)`
   position: absolute;
   right: 10px;
-  bottom: 48px;
+  bottom: -2px;
 `;
 
 export const LabelText = styled.p`
