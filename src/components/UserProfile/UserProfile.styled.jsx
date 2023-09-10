@@ -13,11 +13,12 @@ export const MainWrapper = styled.div`
   position: relative;
 
   @media screen and (min-width: 768px) {
-    padding: auto 175px;
+    margin-top: 32px;
+    padding: 40px 175px;
   }
 
   @media screen and (min-width: 1440px) {
-    padding: auto 165px;
+    padding: 60px 165px;
     margin-top: 32px;
   }
 `;
@@ -134,8 +135,8 @@ export const UserSurnameMain = styled.p`
 export const FormStyled = styled.div`
   margin-top: 40px;
 
-  @media screen and (min-width: 1440px) {
-    margin-top: 44px;
+  @media screen and (min-width: 768px) {
+    margin: 20px auto 0;
   }
 
   @media screen and (min-width: 1440px) {
@@ -167,7 +168,7 @@ export const InputWrapper = styled.div`
 
 export const Input = styled(Field)`
   width: 100%;
-  height: 42px;
+  /* height: 42px; */
 
   border: 1px solid
     ${({ theme }) =>
@@ -176,9 +177,10 @@ export const Input = styled(Field)`
         : 'rgba(255, 255, 255, 0.1)'};
   background-color: ${({ theme }) => theme.colors.backgroundSubcomponents};
   color: ${({ theme }) => theme.colors.colorAccent};
+  font-size: 14px;
   font-weight: 600;
   line-height: 1.28;
-  padding: 12px 0px 12px 14px;
+  padding: 12px 14px;
   border-radius: 8px;
   margin-top: 8px;
   &::placeholder {
@@ -200,13 +202,14 @@ export const Input = styled(Field)`
   }
 
   @media screen and (min-width: 768px) {
+    font-size: 16px;
     line-height: 1.12;
 
-    height: 46px;
-    padding: 14px 0px 14px 18px;
+    /* height: 46px; */
   }
   @media screen and (min-width: 1440px) {
     width: 354px;
+    padding: 14px 18px;
   }
 `;
 
@@ -226,7 +229,7 @@ export const BtnSaveChanges = styled.button`
 
   border: none;
   border-radius: 10px;
-
+  font-size: 14px;
   line-height: 1.28;
   font-weight: 600;
   &:disabled {

@@ -58,7 +58,7 @@ export const CalendarTable = styled.div`
 
   @media screen and (min-width: 768px) {
     margin-top: 18px;
-    grid-template-rows: repeat(${props => props.$columnsCount}, 144px);
+    grid-template-rows: repeat(${props => props.$columnsCount}, 110px);
     font-size: 16px;
     line-height: 1.12;
   }
